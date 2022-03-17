@@ -55,10 +55,10 @@ function main() {
   // objects we'll be drawing.
   const buffers = initBuffers(gl);
 
-  drawScene(gl, programInfo, buffers);
+  render(gl, programInfo, buffers);
 }
 
-function drawScene(gl, programInfo, buffers) {
+function render(gl, programInfo, buffers) {
   gl.clearColor(0.0, 0.0, 0.0, 1.0);  // Clear to black, fully opaque
   gl.clearDepth(1.0);                 // Clear everything
   gl.enable(gl.DEPTH_TEST);           // Enable depth testing
