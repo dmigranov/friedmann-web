@@ -59,8 +59,14 @@ function main() {
 }
 
 function drawScene(gl, programInfo, buffers) {
-  gl.clearColor(0.0, 0.0, 0.0, 1.0);
-  gl.clear(gl.COLOR_BUFFER_BIT);
+  gl.clearColor(0.0, 0.0, 0.0, 1.0);  // Clear to black, fully opaque
+  gl.clearDepth(1.0);                 // Clear everything
+  gl.enable(gl.DEPTH_TEST);           // Enable depth testing
+  gl.depthFunc(gl.LEQUAL);            // Near things obscure far things
+
+  // Clear the canvas before we start drawing on it.
+  gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
+
 
 }
 
@@ -96,7 +102,7 @@ function initShaderProgram(gl, vsSource, fsSource) {
 // Initialize the buffers we'll need. For this demo, we just
 // have one object -- a simple two-dimensional square.
 //
-function initBuffers(gl : WebGLRenderingContext) {
+function initBuffers(gl: WebGLRenderingContext) {
 
   // Create a buffer for the square's positions.
 
@@ -110,9 +116,9 @@ function initBuffers(gl : WebGLRenderingContext) {
   // Now create an array of positions for the square.
 
   const positions = [
-     1.0,  1.0,
-    -1.0,  1.0,
-     1.0, -1.0,
+    1.0, 1.0,
+    -1.0, 1.0,
+    1.0, -1.0,
     -1.0, -1.0,
   ];
 
@@ -121,8 +127,8 @@ function initBuffers(gl : WebGLRenderingContext) {
   // JavaScript array, then use it to fill the current buffer.
 
   gl.bufferData(gl.ARRAY_BUFFER,
-                new Float32Array(positions),
-                gl.STATIC_DRAW);
+    new Float32Array(positions),
+    gl.STATIC_DRAW);
 
   return {
     position: positionBuffer,
