@@ -1,2 +1,2 @@
 # friedmann-web
-Web tool for visualizing the FLRW model
+Web tool for visualizing the **closed FLRW (Friedmann–Lemaître–Robertson–Walker) model**.
