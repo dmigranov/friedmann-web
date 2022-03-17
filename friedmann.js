@@ -2,6 +2,7 @@
 
 window.onload = main;
 
+
 // starts here
 function main() {
   // Obtain a reference to the canvas
