@@ -3,6 +3,8 @@
 
 import { mat4 } from 'gl-matrix'
 
+window.onload = main;
+
 // starts here
 function main() {
   // Obtain a reference to the canvas
@@ -228,6 +230,3 @@ function loadShader(gl, type, source) {
 
   return shader;
 }
-
-
-window.onload = main;

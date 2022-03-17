@@ -1,6 +1,7 @@
 "use strict";
 // https://armno.medium.com/vscode-and-webgl-development-dfc17bba52ed
 exports.__esModule = true;
+window.onload = main;
 // starts here
 function main() {
     // Obtain a reference to the canvas
@@ -177,4 +178,3 @@ function loadShader(gl, type, source) {
     }
     return shader;
 }
-window.onload = main;
