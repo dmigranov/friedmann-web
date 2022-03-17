@@ -3,7 +3,7 @@
 // starts here
 function main() {
   // Obtain a reference to the canvas
-  const canvas = document.querySelector("#glCanvas");
+  const canvas = <HTMLCanvasElement>document.querySelector("#glCanvas");
 
   // Initialize the GL context
   const gl = canvas.getContext("webgl");
@@ -95,7 +95,7 @@ function initShaderProgram(gl, vsSource, fsSource) {
 // Initialize the buffers we'll need. For this demo, we just
 // have one object -- a simple two-dimensional square.
 //
-function initBuffers(gl) {
+function initBuffers(gl : WebGLRenderingContext) {
 
   // Create a buffer for the square's positions.
 
