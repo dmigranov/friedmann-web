@@ -1,5 +1,3 @@
-const { vec2, vec3, mat3, mat4 } = glMatrix;
-
 main();
 
 //
@@ -130,7 +128,7 @@ function drawScene(gl, programInfo, buffers) {
 
   // note: glmatrix.js always has the first argument
   // as the destination to receive the result.
-  glMatrix.mat4.perspective(projectionMatrix,
+  mat4.perspective(projectionMatrix,
                    fieldOfView,
                    aspect,
                    zNear,

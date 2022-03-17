@@ -1,7 +1,6 @@
 "use strict";
 // https://armno.medium.com/vscode-and-webgl-development-dfc17bba52ed
-exports.__esModule = true;
-var gl_matrix_1 = require("gl-matrix");
+
 window.onload = main;
 // starts here
 function main() {
@@ -46,6 +45,7 @@ function render(gl, programInfo, buffers) {
     gl.depthFunc(gl.LEQUAL); // Near things obscure far things
     // Clear the canvas before we start drawing on it.
     gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
+    return;
     // Create a perspective matrix
     var fieldOfView = 45 * Math.PI / 180; // in radians
     var aspect = gl.canvas.clientWidth / gl.canvas.clientHeight;
