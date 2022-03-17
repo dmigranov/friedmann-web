@@ -1,0 +1,22 @@
+{
+  "name": "friedmann-web",
+  "version": "1.0.0",
+  "description": "Web tool for visualizing **the closed FLRW (Friedmann–Lemaître–Robertson–Walker) model**. A WebGL port of [the NEEngine implementation](https://github.com/dmigranov/NEEngine).",
+  "main": "friedmann.js",
+  "devDependencies": {
+    "eslint": "^8.11.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dmigranov/friedmann-web.git"
+  },
+  "author": "Denis Migranov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dmigranov/friedmann-web/issues"
+  },
+  "homepage": "https://github.com/dmigranov/friedmann-web#readme"
+}
