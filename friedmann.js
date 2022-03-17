@@ -18,6 +18,7 @@ function main() {
     gl.depthFunc(gl.LEQUAL); // Near things obscure far things
     // Clear the canvas before we start drawing on it.
     gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
+    return;
     // Vertex shader program
     var vsSource = "\n  attribute vec4 aVertexPosition;\n  uniform mat4 uModelViewMatrix;\n  uniform mat4 uProjectionMatrix;\n  void main() {\n    gl_Position = uProjectionMatrix * uModelViewMatrix * aVertexPosition;\n  }\n";
     // Fragment shader program
