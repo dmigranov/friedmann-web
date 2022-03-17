@@ -79,6 +79,39 @@ function render(gl, programInfo, buffers) {
   const projectionMatrix = mat4.create();
 
   
+  const modelViewMatrix = mat4.create();
+
+  // Now move the drawing position a bit 
+  mat4.translate(modelViewMatrix,     // destination matrix
+                 modelViewMatrix,     // matrix to translate
+                 [-0.0, 0.0, -6.0]);  // amount to translate
+
+
+  // Tell WebGL how to pull out the positions from the position
+  // buffer into the vertexPosition attribute.
+  {
+    const numComponents = 2;
+    const type = gl.FLOAT;
+    const normalize = false;
+    const stride = 0;
+    const offset = 0;
+    gl.bindBuffer(gl.ARRAY_BUFFER, buffers.position);
+    gl.vertexAttribPointer(
+        programInfo.attribLocations.vertexPosition,
+        numComponents,
+        type,
+        normalize,
+        stride,
+        offset);
+    gl.enableVertexAttribArray(
+        programInfo.attribLocations.vertexPosition);
+  }
+
+
+  // Tell WebGL to use our program when drawing
+  gl.useProgram(programInfo.program);
+
+
 }
 
 
@@ -110,22 +143,18 @@ function initShaderProgram(gl, vsSource, fsSource) {
 //
 // initBuffers
 //
-// Initialize the buffers we'll need. For this demo, we just
-// have one object -- a simple two-dimensional square.
+// Initialize the buffers we'll need. 
 //
 function initBuffers(gl: WebGLRenderingContext) {
 
   // Create a buffer for the square's positions.
-
   const positionBuffer = gl.createBuffer();
 
   // Select the positionBuffer as the one to apply buffer
   // operations to from here out.
-
   gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
 
   // Now create an array of positions for the square.
-
   const positions = [
     1.0, 1.0,
     -1.0, 1.0,
@@ -136,7 +165,6 @@ function initBuffers(gl: WebGLRenderingContext) {
   // Now pass the list of positions into WebGL to build the
   // shape. We do this by creating a Float32Array from the
   // JavaScript array, then use it to fill the current buffer.
-
   gl.bufferData(gl.ARRAY_BUFFER,
     new Float32Array(positions),
     gl.STATIC_DRAW);
