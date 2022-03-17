@@ -1,6 +1,8 @@
 // starts here
 function main() {
+    // Obtain a reference to the canvas
     const canvas = document.querySelector("#glCanvas");
+    
     // Initialize the GL context
     const gl = canvas.getContext("webgl");
   
