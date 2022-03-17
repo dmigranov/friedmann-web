@@ -88,9 +88,11 @@ function render(gl, programInfo, buffers) {
 
 
   // Tell WebGL how to pull out the positions from the position
-  // buffer into the vertexPosition attribute.
+  // buffer into the aVertexPosition attribute.
+  // (we bind the square's vertex buffer to the attribute the shader is using for aVertexPosition )
+  // Attributes receive values from buffers. Each iteration of the vertex shader receives the next value from the buffer assigned to that attribute
   {
-    const numComponents = 2;
+    const numComponents = 2; // pull out 2 values per iteration; only x and y; in future - 4!
     const type = gl.FLOAT;
     const normalize = false;
     const stride = 0;
@@ -146,7 +148,6 @@ function initShaderProgram(gl, vsSource, fsSource) {
 // Initialize the buffers we'll need. 
 //
 function initBuffers(gl: WebGLRenderingContext) {
-
   // Create a buffer for the square's positions.
   const positionBuffer = gl.createBuffer();
 
