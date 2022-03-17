@@ -1,5 +1,7 @@
 // https://armno.medium.com/vscode-and-webgl-development-dfc17bba52ed
 
+// у меня будет своя математика... тогда ошибок не будет...
+
 window.onload = main;
 
 // starts here
