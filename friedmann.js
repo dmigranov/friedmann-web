@@ -224,3 +224,5 @@ function loadShader(gl, type, source) {
 
   return shader;
 }
+
+// todo: WebGL поддерживает Instancing
