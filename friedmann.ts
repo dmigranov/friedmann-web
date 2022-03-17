@@ -1,5 +1,8 @@
 // https://armno.medium.com/vscode-and-webgl-development-dfc17bba52ed
 
+
+import { mat4 } from 'gl-matrix'
+
 // starts here
 function main() {
   // Obtain a reference to the canvas
@@ -68,6 +71,14 @@ function render(gl, programInfo, buffers) {
   gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
 
 
+  // Create a perspective matrix
+  const fieldOfView = 45 * Math.PI / 180;   // in radians
+  const aspect = gl.canvas.clientWidth / gl.canvas.clientHeight;
+  const zNear = 0.1;
+  const zFar = 100.0;
+  const projectionMatrix = mat4.create();
+
+  
 }
 
 

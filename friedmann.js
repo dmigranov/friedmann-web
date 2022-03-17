@@ -1,4 +1,7 @@
+"use strict";
 // https://armno.medium.com/vscode-and-webgl-development-dfc17bba52ed
+exports.__esModule = true;
+var gl_matrix_1 = require("gl-matrix");
 // starts here
 function main() {
     // Obtain a reference to the canvas
@@ -33,11 +36,21 @@ function main() {
     // Here's where we call the routine that builds all the
     // objects we'll be drawing.
     var buffers = initBuffers(gl);
-    drawScene(gl, programInfo, buffers);
+    render(gl, programInfo, buffers);
 }
-function drawScene(gl, programInfo, buffers) {
-    gl.clearColor(0.0, 0.0, 0.0, 1.0);
-    gl.clear(gl.COLOR_BUFFER_BIT);
+function render(gl, programInfo, buffers) {
+    gl.clearColor(0.0, 0.0, 0.0, 1.0); // Clear to black, fully opaque
+    gl.clearDepth(1.0); // Clear everything
+    gl.enable(gl.DEPTH_TEST); // Enable depth testing
+    gl.depthFunc(gl.LEQUAL); // Near things obscure far things
+    // Clear the canvas before we start drawing on it.
+    gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
+    // Create a perspective matrix
+    var fieldOfView = 45 * Math.PI / 180; // in radians
+    var aspect = gl.canvas.clientWidth / gl.canvas.clientHeight;
+    var zNear = 0.1;
+    var zFar = 100.0;
+    var projectionMatrix = gl_matrix_1.mat4.create();
 }
 //
 // Initialize a shader program, so WebGL knows how to draw our data
