@@ -1,6 +1,6 @@
 // https://armno.medium.com/vscode-and-webgl-development-dfc17bba52ed
 // starts here
-function onload() {
+function main() {
     // Obtain a reference to the canvas
     var canvas = document.querySelector("#glCanvas");
     // Initialize the GL context
@@ -15,3 +15,4 @@ function onload() {
     // Clear the color buffer with specified clear color
     gl.clear(gl.COLOR_BUFFER_BIT);
 }
+window.onload = main;
