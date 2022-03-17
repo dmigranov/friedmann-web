@@ -69,7 +69,7 @@ function render(gl, programInfo, buffers) {
 
   // Clear the canvas before we start drawing on it.
   gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
-
+  /* 
 
   // Create a perspective matrix
   const fieldOfView = 45 * Math.PI / 180;   // in radians
@@ -131,7 +131,7 @@ function render(gl, programInfo, buffers) {
     gl.drawArrays(gl.TRIANGLE_STRIP, offset, vertexCount);
   }
 
-
+  */
 }
 
 

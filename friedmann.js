@@ -1,7 +1,6 @@
 "use strict";
 // https://armno.medium.com/vscode-and-webgl-development-dfc17bba52ed
 exports.__esModule = true;
-var gl_matrix_1 = require("gl-matrix");
 // starts here
 function main() {
     // Obtain a reference to the canvas
@@ -45,42 +44,69 @@ function render(gl, programInfo, buffers) {
     gl.depthFunc(gl.LEQUAL); // Near things obscure far things
     // Clear the canvas before we start drawing on it.
     gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
+    /*
+  
     // Create a perspective matrix
-    var fieldOfView = 45 * Math.PI / 180; // in radians
-    var aspect = gl.canvas.clientWidth / gl.canvas.clientHeight;
-    var zNear = 0.1;
-    var zFar = 100.0;
-    var projectionMatrix = gl_matrix_1.mat4.create();
-    var modelViewMatrix = gl_matrix_1.mat4.create();
-    // Now move the drawing position a bit 
-    gl_matrix_1.mat4.translate(modelViewMatrix, // destination matrix
-    modelViewMatrix, // matrix to translate
-    [-0.0, 0.0, -6.0]); // amount to translate
+    const fieldOfView = 45 * Math.PI / 180;   // in radians
+    const aspect = gl.canvas.clientWidth / gl.canvas.clientHeight;
+    const zNear = 0.1;
+    const zFar = 100.0;
+    const projectionMatrix = mat4.create();
+  
+  
+    const modelViewMatrix = mat4.create();
+  
+    // Now move the drawing position a bit
+    mat4.translate(modelViewMatrix,     // destination matrix
+      modelViewMatrix,     // matrix to translate
+      [-0.0, 0.0, -6.0]);  // amount to translate
+  
+  
     // Tell WebGL how to pull out the positions from the position
     // buffer into the aVertexPosition attribute.
     // (we bind the square's vertex buffer to the attribute the shader is using for aVertexPosition )
     // Attributes receive values from buffers. Each iteration of the vertex shader receives the next value from the buffer assigned to that attribute
     {
-        var numComponents = 2; // pull out 2 values per iteration; only x and y; in future - 4!
-        var type = gl.FLOAT;
-        var normalize = false;
-        var stride = 0;
-        var offset = 0;
-        gl.bindBuffer(gl.ARRAY_BUFFER, buffers.position);
-        gl.vertexAttribPointer(programInfo.attribLocations.vertexPosition, numComponents, type, normalize, stride, offset);
-        gl.enableVertexAttribArray(programInfo.attribLocations.vertexPosition);
+      const numComponents = 2; // pull out 2 values per iteration; only x and y; in future - 4!
+      const type = gl.FLOAT;
+      const normalize = false;
+      const stride = 0;
+      const offset = 0;
+      gl.bindBuffer(gl.ARRAY_BUFFER, buffers.position);
+      gl.vertexAttribPointer(
+        programInfo.attribLocations.vertexPosition,
+        numComponents,
+        type,
+        normalize,
+        stride,
+        offset);
+      gl.enableVertexAttribArray(
+        programInfo.attribLocations.vertexPosition);
     }
+  
+  
     // Tell WebGL to use our program when drawing
     gl.useProgram(programInfo.program);
+  
     // Set the shader uniforms
-    gl.uniformMatrix4fv(programInfo.uniformLocations.projectionMatrix, false, projectionMatrix);
-    gl.uniformMatrix4fv(programInfo.uniformLocations.modelViewMatrix, false, modelViewMatrix);
+    gl.uniformMatrix4fv(
+      programInfo.uniformLocations.projectionMatrix,
+      false,
+      projectionMatrix);
+    gl.uniformMatrix4fv(
+      programInfo.uniformLocations.modelViewMatrix,
+      false,
+      modelViewMatrix);
+  
+    
     //DRAW!
     {
-        var offset = 0;
-        var vertexCount = 4;
-        gl.drawArrays(gl.TRIANGLE_STRIP, offset, vertexCount);
+      const offset = 0;
+      const vertexCount = 4;
+      gl.drawArrays(gl.TRIANGLE_STRIP, offset, vertexCount);
     }
+  
+    */
 }
 //
 // Initialize a shader program, so WebGL knows how to draw our data
