@@ -68,6 +68,16 @@ function updateScene(scene, deltaTime) {
   }
   */
 
+  { //that's option 2
+    const modelViewMatrix = constants.modelViewMatrix;
+    if (upPressed) {
+      mat4.rotate(modelViewMatrix,  // destination
+      modelViewMatrix,            // source
+      deltaTime, [0, 0, 1]);
+    }
+  }
+
+
   cubeRotation += deltaTime;
 }
 
@@ -396,7 +406,7 @@ function keyDownHandler(event) {
       case "KeyA":
       case "KeyW":
       case "KeyS":
-        //TODO
+      //TODO
       default:
         return;
     }
@@ -429,7 +439,7 @@ function keyUpHandler(event) {
       case "KeyA":
       case "KeyW":
       case "KeyS":
-        //TODO
+      //TODO
       default:
         return;
     }
