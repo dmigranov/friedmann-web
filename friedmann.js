@@ -19,6 +19,9 @@ function main() {
   // Do one-time initialization of graphics resources
   var programInfo = init(gl);
 
+  // идея: класс Scene, в нем programInfo и буферы
+  // drawScene разбить на два: UpdateScene и DrawScene
+
   // Here's where we call the routine that builds all the
   // objects we'll be drawing.
   const buffers = initBuffers(gl);
