@@ -70,14 +70,10 @@ function updateScene(scene, deltaTime) {
   { //that's option 2
     const modelViewMatrix = constants.modelViewMatrix;
     if (leftPressed) {
-      mat4.rotate(modelViewMatrix,  // destination
-      modelViewMatrix,            // source
-      -deltaTime, [0, 1, 0]);
+      mat4.rotate(modelViewMatrix, modelViewMatrix, -deltaTime, [0, 1, 0]);
     }
     if (rightPressed) {
-      mat4.rotate(modelViewMatrix,  // destination
-      modelViewMatrix,            // source
-      deltaTime, [0, 1, 0]);
+      mat4.rotate(modelViewMatrix, modelViewMatrix, deltaTime, [0, 1, 0]);
     }
   }
 
