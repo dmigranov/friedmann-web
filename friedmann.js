@@ -39,17 +39,31 @@ var squareRotation = 0.;
 function updateScene(scene, deltaTime) {
   const constants = scene.constants;
 
-  //var modelViewMatrix = constants.modelViewMatrix;
-  var modelViewMatrix = mat4.create();
-  mat4.translate(modelViewMatrix,     // destination matrix
-                 modelViewMatrix,     // matrix to translate
-                 [-0.0, 0.0, -6.0]);  // amount to translate
-  mat4.rotate(modelViewMatrix,  // destination matrix
-              modelViewMatrix,  // matrix to rotate
-              squareRotation,   // amount to rotate in radians
-              [0, 0, 1]);       // axis to rotate around
+  // OPTION 1
+  /*
+  {
+    const modelViewMatrix = mat4.create();
+    mat4.translate(modelViewMatrix,     // destination matrix
+      modelViewMatrix,     // matrix to translate
+      [-0.0, 0.0, -6.0]);  // amount to translate
+    mat4.rotate(modelViewMatrix,  // destination matrix
+      modelViewMatrix,  // matrix to rotate
+      squareRotation,   // amount to rotate in radians
+      [0, 0, 1]);       // axis to rotate around
 
-  constants.modelViewMatrix = modelViewMatrix;
+    constants.modelViewMatrix = modelViewMatrix;
+  }
+  */
+
+  // OPTION 2
+  {
+    const modelViewMatrix = constants.modelViewMatrix;
+    mat4.rotate(modelViewMatrix,  // destination matrix
+      modelViewMatrix,  // matrix to rotate
+      deltaTime,   // amount to rotate in radians
+      [0, 0, 1]);       // axis to rotate around
+  }
+
 
   squareRotation += deltaTime;
 }
