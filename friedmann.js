@@ -65,8 +65,7 @@ function drawScene(gl, scene, deltaTime) {
     [-0.0, 0.0, -6.0]);  // amount to translate
 
 
-  // Tell WebGL how to pull out the positions from the position
-  // buffer into the aVertexPosition attribute.
+  // Tell WebGL how to pull out the positions from the position buffer into the aVertexPosition attribute.
   // (we bind the square's vertex buffer to the attribute the shader is using for aVertexPosition )
   // Attributes receive values from buffers. Each iteration of the vertex shader receives the next value from the buffer assigned to that attribute
   {
@@ -85,6 +84,26 @@ function drawScene(gl, scene, deltaTime) {
       offset);
     gl.enableVertexAttribArray(
       programInfo.attribLocations.vertexPosition);
+  }
+
+  // Tell WebGL how to pull out the colors from the color buffer
+  // into the vertexColor attribute.
+  {
+    const numComponents = 4;
+    const type = gl.FLOAT;
+    const normalize = false;
+    const stride = 0;
+    const offset = 0;
+    gl.bindBuffer(gl.ARRAY_BUFFER, buffers.color);
+    gl.vertexAttribPointer(
+        programInfo.attribLocations.vertexColor,
+        numComponents,
+        type,
+        normalize,
+        stride,
+        offset);
+    gl.enableVertexAttribArray(
+        programInfo.attribLocations.vertexColor);
   }
 
   // Tell WebGL to use our program when drawing
