@@ -32,14 +32,14 @@ function main() {
     const deltaTime = now - then;
     then = now;
 
-    render(gl, programInfo, buffers, deltaTime);
+    drawScene(gl, programInfo, buffers, deltaTime);
 
     requestAnimationFrame(render);
   }
   requestAnimationFrame(render);
 }
 
-function render(gl, programInfo, buffers, deltaTime) {
+function drawScene(gl, programInfo, buffers, deltaTime) {
   gl.clearColor(0.0, 0.0, 0.0, 1.0);  // Clear to black, fully opaque
   gl.clearDepth(1.0);                 // Clear everything
   gl.enable(gl.DEPTH_TEST);           // Enable depth testing
