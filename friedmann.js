@@ -63,7 +63,6 @@ function updateScene(scene, deltaTime) {
       modelViewMatrix,            // source
       cubeRotation, [0, 0, 1]);
     mat4.rotate(modelViewMatrix, modelViewMatrix, cubeRotation * .7, [0, 1, 0]);
-
     constants.modelViewMatrix = modelViewMatrix;
   }
   */
