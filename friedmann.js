@@ -39,7 +39,8 @@ var squareRotation = 0.;
 function updateScene(scene, deltaTime) {
   const constants = scene.constants;
 
-  var modelViewMatrix = constants.modelViewMatrix;
+  //var modelViewMatrix = constants.modelViewMatrix;
+  var modelViewMatrix = mat4.create();
   mat4.translate(modelViewMatrix,     // destination matrix
                  modelViewMatrix,     // matrix to translate
                  [-0.0, 0.0, -6.0]);  // amount to translate
@@ -47,6 +48,8 @@ function updateScene(scene, deltaTime) {
               modelViewMatrix,  // matrix to rotate
               squareRotation,   // amount to rotate in radians
               [0, 0, 1]);       // axis to rotate around
+
+  constants.modelViewMatrix = modelViewMatrix;
 
   squareRotation += deltaTime;
 }
