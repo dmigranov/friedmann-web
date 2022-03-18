@@ -16,7 +16,7 @@ function main() {
     return;
   }
 
-  // do one-time initialization of graphics resources
+  // Do one-time initialization of graphics resources
   var programInfo = init(gl);
 
   // Here's where we call the routine that builds all the
@@ -41,15 +41,10 @@ function render(gl, programInfo, buffers) {
   const zNear = 0.1;
   const zFar = 100.0;
   const projectionMatrix = mat4.create();
-  mat4.perspective(projectionMatrix,
-    fieldOfView,
-    aspect,
-    zNear,
-    zFar);
+  mat4.perspective(projectionMatrix, fieldOfView, aspect, zNear, zFar);
+
 
   const modelViewMatrix = mat4.create();
-
-  // Now move the drawing position a bit 
   mat4.translate(modelViewMatrix,     // destination matrix
     modelViewMatrix,     // matrix to translate
     [-0.0, 0.0, -6.0]);  // amount to translate
@@ -77,7 +72,6 @@ function render(gl, programInfo, buffers) {
       programInfo.attribLocations.vertexPosition);
   }
 
-
   // Tell WebGL to use our program when drawing
   gl.useProgram(programInfo.program);
 
@@ -90,7 +84,6 @@ function render(gl, programInfo, buffers) {
     programInfo.uniformLocations.modelViewMatrix,
     false,
     modelViewMatrix);
-
 
   //DRAW!
   {
