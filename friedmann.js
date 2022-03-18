@@ -17,7 +17,7 @@ function main() {
   }
 
   // Do one-time initialization of graphics resources
-  var programInfo = init(gl);
+  var programInfo = initScene(gl);
 
   // идея: класс Scene, в нем programInfo и буферы
   // drawScene разбить на два: UpdateScene и DrawScene
@@ -109,7 +109,7 @@ function drawScene(gl, programInfo, buffers, deltaTime) {
   }
 }
 
-function init(gl) {
+function initScene(gl) {
   // Vertex shader program
   const vsSource = `
   attribute vec4 aVertexPosition;
