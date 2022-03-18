@@ -20,23 +20,24 @@ function main() {
   //var programInfo = initScene(gl);
   var scene = initScene(gl);
 
-  // идея: класс Scene, в нем programInfo и буферы
-  // drawScene разбить на два: UpdateScene и DrawScene
-
   var then = 0;
-
-  // Draw the scene repeatedly
   function render(now) {
     now *= 0.001;  // convert to seconds
     const deltaTime = now - then;
     then = now;
 
+    updateScene(scene, deltaTime);
     drawScene(gl, scene, deltaTime);
 
     requestAnimationFrame(render);
   }
   requestAnimationFrame(render);
 }
+
+
+function updateScene(scene, deltaTime) {
+}
+
 
 function drawScene(gl, scene, deltaTime) {
   const programInfo = scene.programInfo;
