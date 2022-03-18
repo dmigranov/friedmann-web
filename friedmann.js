@@ -17,7 +17,8 @@ function main() {
   }
 
   // Do one-time initialization of graphics resources
-  var programInfo = initScene(gl);
+  //var programInfo = initScene(gl);
+  var scene = initScene(gl);
 
   // идея: класс Scene, в нем programInfo и буферы
   // drawScene разбить на два: UpdateScene и DrawScene
@@ -31,14 +32,17 @@ function main() {
     const deltaTime = now - then;
     then = now;
 
-    drawScene(gl, programInfo, buffers, deltaTime);
+    drawScene(gl, scene, deltaTime);
 
     requestAnimationFrame(render);
   }
   requestAnimationFrame(render);
 }
 
-function drawScene(gl, programInfo, buffers, deltaTime) {
+function drawScene(gl, scene, deltaTime) {
+  const programInfo = scene.programInfo;
+  const buffers = scene.buffers;
+
   gl.clearColor(0.0, 0.0, 0.0, 1.0);  // Clear to black, fully opaque
   gl.clearDepth(1.0);                 // Clear everything
   gl.enable(gl.DEPTH_TEST);           // Enable depth testing
