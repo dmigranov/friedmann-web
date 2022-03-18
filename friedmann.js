@@ -18,6 +18,9 @@ function main() {
     return;
   }
 
+  // do one-time initialization of graphics resources
+  var scene = init(gl);
+
   // Vertex shader program
 
   const vsSource = `
@@ -138,6 +141,10 @@ function render(gl, programInfo, buffers) {
   }
 }
 
+
+function init(gl) {
+  
+}
 
 //
 // Initialize a shader program, so WebGL knows how to draw our data
