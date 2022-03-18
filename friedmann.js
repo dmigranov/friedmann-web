@@ -40,7 +40,8 @@ function main() {
 }
 
 
-var cubeRotation = 0.;
+var cubeRotationX = 0.;
+var cubeRotationY = 0.;
 function updateScene(scene, deltaTime) {
   const constants = scene.constants;
 
@@ -67,20 +68,25 @@ function updateScene(scene, deltaTime) {
   }
   */
 
-  { //that's option 2
-    const modelViewMatrix = constants.modelViewMatrix;
+  //todo: back to option 1
+  { 
+    //const modelViewMatrix = constants.modelViewMatrix;
+    const modelViewMatrix = mat4.create();
     if (leftPressed) {
-      mat4.rotate(modelViewMatrix, modelViewMatrix, -deltaTime, [0, 1, 0]);
+      //mat4.rotate(modelViewMatrix, modelViewMatrix, -deltaTime, [0, 1, 0]);
+      cubeRotationX -= deltaTime;
     }
     if (rightPressed) {
-      mat4.rotate(modelViewMatrix, modelViewMatrix, deltaTime, [0, 1, 0]);
+      cubeRotationX += deltaTime;
     }
     if (upPressed) {
-      mat4.rotate(modelViewMatrix, modelViewMatrix, -deltaTime, [1, 0, 0]);
+      cubeRotationY += deltaTime;
     }
     if (downPressed) {
-      mat4.rotate(modelViewMatrix, modelViewMatrix, deltaTime, [1, 0, 0]);
+      cubeRotationY -= deltaTime;
     }
+    mat4.rotate(modelViewMatrix, modelViewMatrix, cubeRotationX, [0, 1, 0]);
+    mat4.rotate(modelViewMatrix, modelViewMatrix, cubeRotationY, [1, 0, 0]);
   }
 
 
