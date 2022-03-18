@@ -1,4 +1,5 @@
 // todo: WebGL поддерживает Instancing!
+// drawElements = indexed, drawArrays = non-indexed
 
 window.onload = main;
 
@@ -61,7 +62,6 @@ function updateScene(scene, deltaTime) {
       modelViewMatrix,            // source
       deltaTime, [0, 0, 1]);  
   }
-
 
   squareRotation += deltaTime;
 }
