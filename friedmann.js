@@ -1,13 +1,11 @@
 // todo: WebGL поддерживает Instancing!
 // drawElements = indexed, drawArrays = non-indexed
 
-window.onload = main;
+// Obtain a reference to the canvas
+const canvas = document.querySelector("#glCanvas");
+main()
 
-// starts here
 function main() {
-  // Obtain a reference to the canvas
-  const canvas = document.querySelector("#glCanvas");
-
   // Initialize the GL context
   const gl = canvas.getContext("webgl");
 
@@ -20,6 +18,7 @@ function main() {
   // Initialize user input handling
   document.addEventListener('keydown', keyDownHandler, false);
   document.addEventListener('keyup', keyUpHandler, false);
+  document.addEventListener('ousemove', mouseMoveHandler);
 
   // Do one-time initialization of graphics resources
   //var programInfo = initScene(gl);
@@ -452,4 +451,12 @@ function keyUpHandler(event) {
         return;
     }
   }
+}
+
+var mouseX = -1;
+var mouseY = -1;
+// Mouse move
+function mouseMoveHandler(event) {
+  mouseX = event.pageX - canvas.offsetLeft;
+  mouseY = event.pageY - canvas.offsetTop;
 }
