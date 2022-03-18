@@ -355,3 +355,28 @@ function loadShader(gl, type, source) {
 
   return shader;
 }
+
+
+// CONTROLS
+// https://github.com/end3r/JavaScript-Game-Controls/
+
+var rightPressed = false;
+var leftPressed = false;
+var upPressed = false;
+var downPressed = false;
+
+
+function keyDownHandler(event) {
+    if(event.keyCode == 39) {
+        rightPressed = true;
+    }
+    else if(event.keyCode == 37) {
+        leftPressed = true;
+    }
+    if(event.keyCode == 40) {
+      downPressed = true;
+    }
+    else if(event.keyCode == 38) {
+      upPressed = true;
+    }
+}
