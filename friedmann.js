@@ -36,12 +36,12 @@ function main() {
 }
 
 
-var squareRotation = 0.;
+var cubeRotation = 0.;
 function updateScene(scene, deltaTime) {
   const constants = scene.constants;
 
   // OPTION 1
-  /*
+  
   {
     const modelViewMatrix = mat4.create();
     mat4.translate(modelViewMatrix,     // destination matrix
@@ -49,22 +49,24 @@ function updateScene(scene, deltaTime) {
       [-0.0, 0.0, -6.0]);  // amount to translate
     mat4.rotate(modelViewMatrix,  // destination
       modelViewMatrix,            // source
-      squareRotation, [0, 0, 1]);  
+      cubeRotation, [0, 0, 1]);  
+    mat4.rotate(modelViewMatrix, modelViewMatrix, cubeRotation * .7, [0, 1, 0]);
 
     constants.modelViewMatrix = modelViewMatrix;
   }
-  */
+  
 
   // OPTION 2
+  /*
   {
     const modelViewMatrix = constants.modelViewMatrix;
     mat4.rotate(modelViewMatrix,  // destination 
       modelViewMatrix,            // source
       deltaTime, [0, 0, 1]);  
-    mat4.rotate(modelViewMatrix, modelViewMatrix, deltaTime * .2, [0, 1, 0]);
   }
+  */
 
-  squareRotation += deltaTime;
+  cubeRotation += deltaTime;
 }
 
 
