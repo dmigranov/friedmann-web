@@ -61,6 +61,7 @@ function updateScene(scene, deltaTime) {
     mat4.rotate(modelViewMatrix,  // destination 
       modelViewMatrix,            // source
       deltaTime, [0, 0, 1]);  
+    mat4.rotate(modelViewMatrix, modelViewMatrix, deltaTime * .2, [0, 1, 0]);
   }
 
   squareRotation += deltaTime;
