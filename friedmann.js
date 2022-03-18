@@ -54,26 +54,9 @@ function updateScene(scene, deltaTime) {
   // const modelViewMatrix = constants.modelViewMatrix;
   // just modify it!
 
-  /*
-  { // that's option 1
-    const modelViewMatrix = mat4.create();
-    mat4.translate(modelViewMatrix,     // destination matrix
-      modelViewMatrix,     // matrix to translate
-      [-0.0, 0.0, -6.0]);  // amount to translate
-    mat4.rotate(modelViewMatrix,  // destination
-      modelViewMatrix,            // source
-      cubeRotation, [0, 0, 1]);
-    mat4.rotate(modelViewMatrix, modelViewMatrix, cubeRotation * .7, [0, 1, 0]);
-    constants.modelViewMatrix = modelViewMatrix;
-  }
-  */
-
-  //todo: back to option 1
-  { 
-    //const modelViewMatrix = constants.modelViewMatrix;
+  { //that's option 1
     const modelViewMatrix = mat4.create();
     if (leftPressed) {
-      //mat4.rotate(modelViewMatrix, modelViewMatrix, -deltaTime, [0, 1, 0]);
       cubeRotationX -= deltaTime;
     }
     if (rightPressed) {
