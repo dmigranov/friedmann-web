@@ -402,16 +402,32 @@ function keyDownHandler(event) {
 
 
 function keyUpHandler(event) {
-  if (event.keyCode == 39) {
-    rightPressed = true;
-  }
-  else if (event.keyCode == 37) {
-    leftPressed = true;
-  }
-  if (event.keyCode == 40) {
-    downPressed = true;
-  }
-  else if (event.keyCode == 38) {
-    upPressed = true;
+  if ("code" in event) {
+    switch (event.code) {
+      case "Unidentified":
+        break;
+      case "ArrowRight":
+      case "Right":
+        rightPressed = false;
+        return;
+      case "ArrowLeft":
+      case "Left":
+        leftPressed = false;
+        return;
+      case "ArrowUp":
+      case "Up":
+        upPressed = false;
+        return;
+      case "ArrowDown":
+      case "Down":
+        downPressed = false;
+        return;
+      case "KeyD":
+      case "KeyA":
+      case "KeyW":
+      case "KeyS":
+      default:
+        return;
+    }
   }
 }
