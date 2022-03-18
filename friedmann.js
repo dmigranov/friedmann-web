@@ -117,7 +117,7 @@ function initScene(gl) {
   void main() {
     gl_Position = uProjectionMatrix * uModelViewMatrix * aVertexPosition;
   }`;
-  
+
   // Fragment shader program
   const fsSource = `
   void main() {
@@ -185,7 +185,7 @@ function initBuffers(gl) {
 
   // Select the positionBuffer as the one to apply buffer
   // operations to from here out.
-  gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
+  gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer); //now it's bound to the context!
 
   // Now create an array of positions for the square.
   const positions = [
@@ -199,6 +199,23 @@ function initBuffers(gl) {
   gl.bufferData(gl.ARRAY_BUFFER,
     new Float32Array(positions),
     gl.STATIC_DRAW);
+
+
+  const colors = [
+    1.0, 1.0, 1.0, 1.0,    // white
+    1.0, 0.0, 0.0, 1.0,    // red
+    0.0, 1.0, 0.0, 1.0,    // green
+    0.0, 0.0, 1.0, 1.0,    // blue
+  ];
+
+  const colorBuffer = gl.createBuffer();
+  gl.bindBuffer(gl.ARRAY_BUFFER, colorBuffer);
+  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(colors), gl.STATIC_DRAW);
+
+  return {
+    position: positionBuffer,
+    color: colorBuffer,
+  };
 
   return {
     position: positionBuffer,
