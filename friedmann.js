@@ -60,12 +60,12 @@ function updateScene(scene, deltaTime) {
       [-0.0, 0.0, -6.0]);  // amount to translate
     mat4.rotate(modelViewMatrix,  // destination
       modelViewMatrix,            // source
-      cubeRotation, [0, 0, 1]);  
+      cubeRotation, [0, 0, 1]);
     mat4.rotate(modelViewMatrix, modelViewMatrix, cubeRotation * .7, [0, 1, 0]);
 
     constants.modelViewMatrix = modelViewMatrix;
   }
-  
+
   cubeRotation += deltaTime;
 }
 
@@ -226,42 +226,42 @@ function initScene(gl) {
 function initBuffers(gl) {
   const positions = [
     // Front face
-    -1.0, -1.0,  1.0,
-     1.0, -1.0,  1.0,
-     1.0,  1.0,  1.0,
-    -1.0,  1.0,  1.0,
-  
+    -1.0, -1.0, 1.0,
+    1.0, -1.0, 1.0,
+    1.0, 1.0, 1.0,
+    -1.0, 1.0, 1.0,
+
     // Back face
     -1.0, -1.0, -1.0,
-    -1.0,  1.0, -1.0,
-     1.0,  1.0, -1.0,
-     1.0, -1.0, -1.0,
-  
+    -1.0, 1.0, -1.0,
+    1.0, 1.0, -1.0,
+    1.0, -1.0, -1.0,
+
     // Top face
-    -1.0,  1.0, -1.0,
-    -1.0,  1.0,  1.0,
-     1.0,  1.0,  1.0,
-     1.0,  1.0, -1.0,
-  
+    -1.0, 1.0, -1.0,
+    -1.0, 1.0, 1.0,
+    1.0, 1.0, 1.0,
+    1.0, 1.0, -1.0,
+
     // Bottom face
     -1.0, -1.0, -1.0,
-     1.0, -1.0, -1.0,
-     1.0, -1.0,  1.0,
-    -1.0, -1.0,  1.0,
-  
+    1.0, -1.0, -1.0,
+    1.0, -1.0, 1.0,
+    -1.0, -1.0, 1.0,
+
     // Right face
-     1.0, -1.0, -1.0,
-     1.0,  1.0, -1.0,
-     1.0,  1.0,  1.0,
-     1.0, -1.0,  1.0,
-  
+    1.0, -1.0, -1.0,
+    1.0, 1.0, -1.0,
+    1.0, 1.0, 1.0,
+    1.0, -1.0, 1.0,
+
     // Left face
     -1.0, -1.0, -1.0,
-    -1.0, -1.0,  1.0,
-    -1.0,  1.0,  1.0,
-    -1.0,  1.0, -1.0,
+    -1.0, -1.0, 1.0,
+    -1.0, 1.0, 1.0,
+    -1.0, 1.0, -1.0,
   ];
-  
+
   const positionBuffer = gl.createBuffer(); // Create a buffer for the square's positions.
   // Select the positionBuffer as the one to apply buffer operations to from here out.
   gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
@@ -270,12 +270,12 @@ function initBuffers(gl) {
 
 
   const faceColors = [
-    [1.0,  1.0,  1.0,  1.0],    // Front face: white
-    [1.0,  0.0,  0.0,  1.0],    // Back face: red
-    [0.0,  1.0,  0.0,  1.0],    // Top face: green
-    [0.0,  0.0,  1.0,  1.0],    // Bottom face: blue
-    [1.0,  1.0,  0.0,  1.0],    // Right face: yellow
-    [1.0,  0.0,  1.0,  1.0],    // Left face: purple
+    [1.0, 1.0, 1.0, 1.0],    // Front face: white
+    [1.0, 0.0, 0.0, 1.0],    // Back face: red
+    [0.0, 1.0, 0.0, 1.0],    // Top face: green
+    [0.0, 0.0, 1.0, 1.0],    // Bottom face: blue
+    [1.0, 1.0, 0.0, 1.0],    // Right face: yellow
+    [1.0, 0.0, 1.0, 1.0],    // Left face: purple
   ];
 
   var colors = [];
@@ -290,12 +290,12 @@ function initBuffers(gl) {
 
 
   const indices = [
-    0,  1,  2,      0,  2,  3,    // front
-    4,  5,  6,      4,  6,  7,    // back
-    8,  9,  10,     8,  10, 11,   // top
-    12, 13, 14,     12, 14, 15,   // bottom
-    16, 17, 18,     16, 18, 19,   // right
-    20, 21, 22,     20, 22, 23,   // left
+    0, 1, 2, 0, 2, 3,    // front
+    4, 5, 6, 4, 6, 7,    // back
+    8, 9, 10, 8, 10, 11,   // top
+    12, 13, 14, 12, 14, 15,   // bottom
+    16, 17, 18, 16, 18, 19,   // right
+    20, 21, 22, 20, 22, 23,   // left
   ];
 
   const indexBuffer = gl.createBuffer();
@@ -371,47 +371,47 @@ var sPressed = false;
 
 function keyDownHandler(event) {
   if ("code" in event) {
-    switch(event.code) {
-        case "Unidentified":
-            break;
-        case "ArrowRight":
-        case "Right":
-            rightPressed = true;
-            return;
-        case "ArrowLeft":
-        case "Left":
-            leftPressed = true;
-            return;
-        case "ArrowUp":
-        case "Up":
-            upPressed = true;
-            return;
-        case "ArrowDown":
-        case "Down":
-            downPressed = true;
-            return;
-        case "KeyD":
-        case "KeyA":
-        case "KeyW":
-        case "KeyS":
-        default:
-            return;
+    switch (event.code) {
+      case "Unidentified":
+        break;
+      case "ArrowRight":
+      case "Right":
+        rightPressed = true;
+        return;
+      case "ArrowLeft":
+      case "Left":
+        leftPressed = true;
+        return;
+      case "ArrowUp":
+      case "Up":
+        upPressed = true;
+        return;
+      case "ArrowDown":
+      case "Down":
+        downPressed = true;
+        return;
+      case "KeyD":
+      case "KeyA":
+      case "KeyW":
+      case "KeyS":
+      default:
+        return;
     }
-}
+  }
 }
 
 
 function keyUpHandler(event) {
-  if(event.keyCode == 39) {
-      rightPressed = true;
+  if (event.keyCode == 39) {
+    rightPressed = true;
   }
-  else if(event.keyCode == 37) {
-      leftPressed = true;
+  else if (event.keyCode == 37) {
+    leftPressed = true;
   }
-  if(event.keyCode == 40) {
+  if (event.keyCode == 40) {
     downPressed = true;
   }
-  else if(event.keyCode == 38) {
+  else if (event.keyCode == 38) {
     upPressed = true;
   }
 }
