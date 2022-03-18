@@ -75,6 +75,12 @@ function updateScene(scene, deltaTime) {
     if (rightPressed) {
       mat4.rotate(modelViewMatrix, modelViewMatrix, deltaTime, [0, 1, 0]);
     }
+    if (upPressed) {
+      mat4.rotate(modelViewMatrix, modelViewMatrix, -deltaTime, [1, 0, 0]);
+    }
+    if (downPressed) {
+      mat4.rotate(modelViewMatrix, modelViewMatrix, deltaTime, [1, 0, 0]);
+    }
   }
 
 
