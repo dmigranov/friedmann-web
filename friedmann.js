@@ -17,6 +17,10 @@ function main() {
     return;
   }
 
+  // Initialize user input handling
+  document.addEventListener('keydown', keyDownHandler, false);
+  document.addEventListener('keyup', keyUpHandler, false);
+
   // Do one-time initialization of graphics resources
   //var programInfo = initScene(gl);
   var scene = initScene(gl);
