@@ -128,7 +128,7 @@ function drawScene(gl, scene, deltaTime) {
 }
 
 function initScene(gl) {
-  // Vertex shader program
+  // Vertex shader
   const vsSource = `
   attribute vec4 aVertexPosition;
   attribute vec4 aVertexColor;
@@ -143,7 +143,7 @@ function initScene(gl) {
     vColor = aVertexColor; 
   }`;
 
-  // Fragment shader program
+  // Fragment shader
   const fsSource = `
   varying lowp vec4 vColor;
 
