@@ -112,17 +112,27 @@ function initScene(gl) {
   // Vertex shader program
   const vsSource = `
   attribute vec4 aVertexPosition;
+  attribute vec4 aVertexColor;
+
   uniform mat4 uModelViewMatrix;
   uniform mat4 uProjectionMatrix;
+
+  varying lowp vec4 vColor; //out; varying used for interpolated data between a vertex shader and a fragment shader. 
+
   void main() {
     gl_Position = uProjectionMatrix * uModelViewMatrix * aVertexPosition;
+    vColor = aVertexColor; 
   }`;
 
   // Fragment shader program
   const fsSource = `
   void main() {
-    gl_FragColor = vec4(0.0, 1.0, 0.0, 1.0); // initially the same
+    varying lowp vec4 vColor;
 
+    void main(void) {
+      gl_FragColor = vColor;
+    }
+    
     //todo: modify
   }`;
 
