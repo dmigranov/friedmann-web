@@ -46,10 +46,9 @@ function updateScene(scene, deltaTime) {
     mat4.translate(modelViewMatrix,     // destination matrix
       modelViewMatrix,     // matrix to translate
       [-0.0, 0.0, -6.0]);  // amount to translate
-    mat4.rotate(modelViewMatrix,  // destination matrix
-      modelViewMatrix,  // matrix to rotate
-      squareRotation,   // amount to rotate in radians
-      [0, 0, 1]);       // axis to rotate around
+    mat4.rotate(modelViewMatrix,  // destination
+      modelViewMatrix,            // source
+      squareRotation, [0, 0, 1]);  
 
     constants.modelViewMatrix = modelViewMatrix;
   }
@@ -58,10 +57,9 @@ function updateScene(scene, deltaTime) {
   // OPTION 2
   {
     const modelViewMatrix = constants.modelViewMatrix;
-    mat4.rotate(modelViewMatrix,  // destination matrix
-      modelViewMatrix,  // matrix to rotate
-      deltaTime,   // amount to rotate in radians
-      [0, 0, 1]);       // axis to rotate around
+    mat4.rotate(modelViewMatrix,  // destination 
+      modelViewMatrix,            // source
+      deltaTime, [0, 0, 1]);  
   }
 
 
