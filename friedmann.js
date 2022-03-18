@@ -394,6 +394,7 @@ function keyDownHandler(event) {
       case "KeyA":
       case "KeyW":
       case "KeyS":
+        //TODO
       default:
         return;
     }
@@ -426,6 +427,7 @@ function keyUpHandler(event) {
       case "KeyA":
       case "KeyW":
       case "KeyS":
+        //TODO
       default:
         return;
     }
