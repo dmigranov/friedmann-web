@@ -41,6 +41,7 @@ function main() {
 function drawScene(gl, scene, deltaTime) {
   const programInfo = scene.programInfo;
   const buffers = scene.buffers;
+  const constants = scene.constants;
 
   gl.clearColor(0.0, 0.0, 0.0, 1.0);  // Clear to black, fully opaque
   gl.clearDepth(1.0);                 // Clear everything
@@ -98,11 +99,11 @@ function drawScene(gl, scene, deltaTime) {
   gl.uniformMatrix4fv(
     programInfo.uniformLocations.projectionMatrix,
     false,
-    projectionMatrix);
+    constants.projectionMatrix);
   gl.uniformMatrix4fv(
     programInfo.uniformLocations.modelViewMatrix,
     false,
-    modelViewMatrix);
+    constants.modelViewMatrix);
 
   //DRAW!
   {
