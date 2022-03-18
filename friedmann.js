@@ -142,7 +142,7 @@ function drawScene(gl, scene, deltaTime) {
     const vertexCount = 36;
     const type = gl.UNSIGNED_SHORT;
     const offset = 0;
-    gl.drawElements(gl.TRIANGLES, vertexCount, type, offset);
+    gl.drawElements(gl.TRIANGLES, vertexCount, type, offset); //type specifies the type of the values in the element (index) array buffer
   }
 }
 
