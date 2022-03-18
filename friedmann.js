@@ -457,11 +457,13 @@ function keyUpHandler(event) {
 
 var mouseX = -1;
 var mouseY = -1;
+//todo: click!
+
 // Mouse move
 function mouseMoveHandler(event) {
   mouseX = event.pageX - canvas.offsetLeft;
   mouseY = event.pageY - canvas.offsetTop;
-  if (mouseX <= canvas.clientWidth && mouseY <= canvas.clientHeight)
+  if (mouseX >= 0 && mouseY >= 0 && mouseX <= canvas.clientWidth && mouseY <= canvas.clientHeight)
     output.innerHTML = "Mouse:  <br />" + " x: " + mouseX + ", y: " + mouseY;
   else
     output.innerHTML = "Outside!";
