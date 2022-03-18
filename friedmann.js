@@ -20,7 +20,7 @@ function main() {
   // Initialize user input handling
   document.addEventListener('keydown', keyDownHandler, false);
   document.addEventListener('keyup', keyUpHandler, false);
-  document.addEventListener('ousemove', mouseMoveHandler);
+  document.addEventListener('mousemove', mouseMoveHandler);
 
   // Do one-time initialization of graphics resources
   //var programInfo = initScene(gl);
@@ -461,5 +461,5 @@ var mouseY = -1;
 function mouseMoveHandler(event) {
   mouseX = event.pageX - canvas.offsetLeft;
   mouseY = event.pageY - canvas.offsetTop;
-  output.innerHTML = "Mouse:  <br />" + " x: " + playerX + ", y: " + playerY;
+  output.innerHTML = "Mouse:  <br />" + " x: " + mouseX + ", y: " + mouseY;
 }
