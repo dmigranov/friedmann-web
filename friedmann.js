@@ -50,12 +50,6 @@ function drawScene(gl, scene, deltaTime) {
   // Clear the canvas before we start drawing on it.
   gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
 
-  const modelViewMatrix = mat4.create();
-  mat4.translate(modelViewMatrix,     // destination matrix
-    modelViewMatrix,     // matrix to translate
-    [-0.0, 0.0, -6.0]);  // amount to translate
-
-
   // Tell WebGL how to pull out the positions from the position buffer into the aVertexPosition attribute.
   // (we bind the square's vertex buffer to the attribute the shader is using for aVertexPosition )
   // Attributes receive values from buffers. Each iteration of the vertex shader receives the next value from the buffer assigned to that attribute
@@ -172,12 +166,17 @@ function initScene(gl) {
   const projectionMatrix = mat4.create();
   mat4.perspective(projectionMatrix, fieldOfView, aspect, zNear, zFar);
 
+  const modelViewMatrix = mat4.create();
+  mat4.translate(modelViewMatrix,     // destination matrix
+    modelViewMatrix,     // matrix to translate
+    [-0.0, 0.0, -6.0]);  // amount to translate
+
   const scene = {
     programInfo: programInfo,
     buffers: buffers,
     constants: {
       projectionMatrix: projectionMatrix,
-
+      modelViewMatrix: modelViewMatrix,
     }
   };
 
