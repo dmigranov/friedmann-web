@@ -19,19 +19,16 @@ function main() {
   }
 
   // do one-time initialization of graphics resources
-  var scene = init(gl);
+  //var scene = init(gl);
 
   // Vertex shader program
-
   const vsSource = `
   attribute vec4 aVertexPosition;
   uniform mat4 uModelViewMatrix;
   uniform mat4 uProjectionMatrix;
   void main() {
     gl_Position = uProjectionMatrix * uModelViewMatrix * aVertexPosition;
-  }
-`;
-
+  }`;
   // Fragment shader program
 
   const fsSource = `
@@ -39,8 +36,7 @@ function main() {
     gl_FragColor = vec4(0.0, 1.0, 0.0, 1.0); // initially the same
 
     //todo: modify
-  }
-`;
+  }`;
 
   // Initialize a shader program; this is where all the lighting
   // for the vertices and so forth is established.
@@ -132,7 +128,7 @@ function render(gl, programInfo, buffers) {
     false,
     modelViewMatrix);
 
-  
+
   //DRAW!
   {
     const offset = 0;
@@ -143,7 +139,7 @@ function render(gl, programInfo, buffers) {
 
 
 function init(gl) {
-  
+
 }
 
 //
