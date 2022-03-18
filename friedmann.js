@@ -364,7 +364,10 @@ var rightPressed = false;
 var leftPressed = false;
 var upPressed = false;
 var downPressed = false;
-
+var dPressed = false;
+var aPressed = false;
+var wPressed = false;
+var sPressed = false;
 
 function keyDownHandler(event) {
     if(event.keyCode == 39) {
