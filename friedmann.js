@@ -96,14 +96,14 @@ function drawScene(gl, scene, deltaTime) {
     const offset = 0;
     gl.bindBuffer(gl.ARRAY_BUFFER, buffers.color);
     gl.vertexAttribPointer(
-        programInfo.attribLocations.vertexColor,
-        numComponents,
-        type,
-        normalize,
-        stride,
-        offset);
+      programInfo.attribLocations.vertexColor,
+      numComponents,
+      type,
+      normalize,
+      stride,
+      offset);
     gl.enableVertexAttribArray(
-        programInfo.attribLocations.vertexColor);
+      programInfo.attribLocations.vertexColor);
   }
 
   // Tell WebGL to use our program when drawing
@@ -145,13 +145,10 @@ function initScene(gl) {
 
   // Fragment shader program
   const fsSource = `
+  varying lowp vec4 vColor;
+
   void main() {
-    varying lowp vec4 vColor;
-
-    void main(void) {
-      gl_FragColor = vColor;
-    }
-
+    gl_FragColor = vColor;
     //todo: modify
   }`;
 
@@ -216,7 +213,7 @@ function initBuffers(gl) {
     1.0, -1.0,
     -1.0, -1.0,
   ];
-  
+
   const positionBuffer = gl.createBuffer(); // Create a buffer for the square's positions.
   // Select the positionBuffer as the one to apply buffer operations to from here out.
   gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
