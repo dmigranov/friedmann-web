@@ -180,25 +180,18 @@ function initShaderProgram(gl, vsSource, fsSource) {
 // Initialize the buffers we will need. 
 //
 function initBuffers(gl) {
-  // Create a buffer for the square's positions.
-  const positionBuffer = gl.createBuffer();
-
-  // Select the positionBuffer as the one to apply buffer
-  // operations to from here out.
-  gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer); //now it's bound to the context!
-
-  // Now create an array of positions for the square.
   const positions = [
     1.0, 1.0,
     -1.0, 1.0,
     1.0, -1.0,
     -1.0, -1.0,
   ];
-
+  
+  const positionBuffer = gl.createBuffer(); // Create a buffer for the square's positions.
+  // Select the positionBuffer as the one to apply buffer operations to from here out.
+  gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
   // Now pass the list of positions into WebGL to build the shape. 
-  gl.bufferData(gl.ARRAY_BUFFER,
-    new Float32Array(positions),
-    gl.STATIC_DRAW);
+  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(positions), gl.STATIC_DRAW);
 
 
   const colors = [
@@ -215,10 +208,6 @@ function initBuffers(gl) {
   return {
     position: positionBuffer,
     color: colorBuffer,
-  };
-
-  return {
-    position: positionBuffer,
   };
 }
 
