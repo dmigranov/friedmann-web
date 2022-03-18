@@ -370,18 +370,34 @@ var wPressed = false;
 var sPressed = false;
 
 function keyDownHandler(event) {
-    if(event.keyCode == 39) {
-        rightPressed = true;
+  if ("code" in event) {
+    switch(event.code) {
+        case "Unidentified":
+            break;
+        case "ArrowRight":
+        case "Right":
+            rightPressed = true;
+            return;
+        case "ArrowLeft":
+        case "Left":
+            leftPressed = true;
+            return;
+        case "ArrowUp":
+        case "Up":
+            upPressed = true;
+            return;
+        case "ArrowDown":
+        case "Down":
+            downPressed = true;
+            return;
+        case "KeyD":
+        case "KeyA":
+        case "KeyW":
+        case "KeyS":
+        default:
+            return;
     }
-    else if(event.keyCode == 37) {
-        leftPressed = true;
-    }
-    if(event.keyCode == 40) {
-      downPressed = true;
-    }
-    else if(event.keyCode == 38) {
-      upPressed = true;
-    }
+}
 }
 
 
