@@ -84,7 +84,7 @@ function drawScene(gl, scene, deltaTime) {
   // (we bind the square's vertex buffer to the attribute the shader is using for aVertexPosition )
   // Attributes receive values from buffers. Each iteration of the vertex shader receives the next value from the buffer assigned to that attribute
   {
-    const numComponents = 2; // pull out 2 values per iteration; only x and y; in future - 4!
+    const numComponents = 3; // pull out 3 values per iteration (xyz); in future - 4!
     const type = gl.FLOAT;
     const normalize = false;
     const stride = 0;
@@ -218,12 +218,43 @@ function initScene(gl) {
 //
 function initBuffers(gl) {
   const positions = [
-    1.0, 1.0,
-    -1.0, 1.0,
-    1.0, -1.0,
-    -1.0, -1.0,
+    // Front face
+    -1.0, -1.0,  1.0,
+     1.0, -1.0,  1.0,
+     1.0,  1.0,  1.0,
+    -1.0,  1.0,  1.0,
+  
+    // Back face
+    -1.0, -1.0, -1.0,
+    -1.0,  1.0, -1.0,
+     1.0,  1.0, -1.0,
+     1.0, -1.0, -1.0,
+  
+    // Top face
+    -1.0,  1.0, -1.0,
+    -1.0,  1.0,  1.0,
+     1.0,  1.0,  1.0,
+     1.0,  1.0, -1.0,
+  
+    // Bottom face
+    -1.0, -1.0, -1.0,
+     1.0, -1.0, -1.0,
+     1.0, -1.0,  1.0,
+    -1.0, -1.0,  1.0,
+  
+    // Right face
+     1.0, -1.0, -1.0,
+     1.0,  1.0, -1.0,
+     1.0,  1.0,  1.0,
+     1.0, -1.0,  1.0,
+  
+    // Left face
+    -1.0, -1.0, -1.0,
+    -1.0, -1.0,  1.0,
+    -1.0,  1.0,  1.0,
+    -1.0,  1.0, -1.0,
   ];
-
+  
   const positionBuffer = gl.createBuffer(); // Create a buffer for the square's positions.
   // Select the positionBuffer as the one to apply buffer operations to from here out.
   gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
@@ -231,12 +262,20 @@ function initBuffers(gl) {
   gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(positions), gl.STATIC_DRAW);
 
 
-  const colors = [
-    1.0, 1.0, 1.0, 1.0,    // white
-    1.0, 0.0, 0.0, 1.0,    // red
-    0.0, 1.0, 0.0, 1.0,    // green
-    0.0, 0.0, 1.0, 1.0,    // blue
+  const faceColors = [
+    [1.0,  1.0,  1.0,  1.0],    // Front face: white
+    [1.0,  0.0,  0.0,  1.0],    // Back face: red
+    [0.0,  1.0,  0.0,  1.0],    // Top face: green
+    [0.0,  0.0,  1.0,  1.0],    // Bottom face: blue
+    [1.0,  1.0,  0.0,  1.0],    // Right face: yellow
+    [1.0,  0.0,  1.0,  1.0],    // Left face: purple
   ];
+
+  var colors = [];
+  for (var j = 0; j < faceColors.length; ++j) {
+    const c = faceColors[j];
+    colors = colors.concat(c, c, c, c);     // Repeat each color four times for the four vertices of the face
+  }
 
   const colorBuffer = gl.createBuffer();
   gl.bindBuffer(gl.ARRAY_BUFFER, colorBuffer);
