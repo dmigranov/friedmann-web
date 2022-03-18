@@ -380,3 +380,19 @@ function keyDownHandler(event) {
       upPressed = true;
     }
 }
+
+
+function keyUpHandler(event) {
+  if(event.keyCode == 39) {
+      rightPressed = true;
+  }
+  else if(event.keyCode == 37) {
+      leftPressed = true;
+  }
+  if(event.keyCode == 40) {
+    downPressed = true;
+  }
+  else if(event.keyCode == 38) {
+    upPressed = true;
+  }
+}
