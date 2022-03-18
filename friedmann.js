@@ -23,10 +23,23 @@ function main() {
   // objects we'll be drawing.
   const buffers = initBuffers(gl);
 
-  render(gl, programInfo, buffers);
+  //(gl, programInfo, buffers);
+  var then = 0;
+
+  // Draw the scene repeatedly
+  function render(now) {
+    now *= 0.001;  // convert to seconds
+    const deltaTime = now - then;
+    then = now;
+
+    render(gl, programInfo, buffers, deltaTime);
+
+    requestAnimationFrame(render);
+  }
+  requestAnimationFrame(render);
 }
 
-function render(gl, programInfo, buffers) {
+function render(gl, programInfo, buffers, deltaTime) {
   gl.clearColor(0.0, 0.0, 0.0, 1.0);  // Clear to black, fully opaque
   gl.clearDepth(1.0);                 // Clear everything
   gl.enable(gl.DEPTH_TEST);           // Enable depth testing
@@ -116,7 +129,7 @@ function init(gl) {
 
   // Collect all the info needed to use the shader program.
   // Look up which attribute our shader program is using for aVertexPosition 
-  // and look up uniform locations ()
+  // and look up uniform locations (Uniforms stay the same value for all iterations of a shader)
   const programInfo = {
     program: shaderProgram,
     attribLocations: {
