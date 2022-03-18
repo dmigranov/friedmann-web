@@ -22,10 +22,6 @@ function main() {
   // идея: класс Scene, в нем programInfo и буферы
   // drawScene разбить на два: UpdateScene и DrawScene
 
-  // Here's where we call the routine that builds all the
-  // objects we'll be drawing.
-  const buffers = initBuffers(gl);
-
   //(gl, programInfo, buffers);
   var then = 0;
 
@@ -144,7 +140,16 @@ function initScene(gl) {
     },
   };
 
-  return programInfo;
+  // Here's where we call the routine that builds all the
+  // objects we'll be drawing.
+  const buffers = initBuffers(gl);
+
+  const scene = {
+    programInfo: programInfo,
+    buffers: buffers
+  };
+
+  return scene;
 }
 
 //
