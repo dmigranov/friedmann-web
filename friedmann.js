@@ -3,6 +3,8 @@
 
 // Obtain a reference to the canvas
 const canvas = document.querySelector("#glCanvas");
+const output = document.getElementById("output");
+
 main()
 
 function main() {
@@ -459,4 +461,5 @@ var mouseY = -1;
 function mouseMoveHandler(event) {
   mouseX = event.pageX - canvas.offsetLeft;
   mouseY = event.pageY - canvas.offsetTop;
+  output.innerHTML = "Mouse:  <br />" + " x: " + playerX + ", y: " + playerY;
 }
