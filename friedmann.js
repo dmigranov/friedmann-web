@@ -461,5 +461,8 @@ var mouseY = -1;
 function mouseMoveHandler(event) {
   mouseX = event.pageX - canvas.offsetLeft;
   mouseY = event.pageY - canvas.offsetTop;
-  output.innerHTML = "Mouse:  <br />" + " x: " + mouseX + ", y: " + mouseY;
+  if (mouseX <= canvas.clientWidth && mouseY <= canvas.clientHeight)
+    output.innerHTML = "Mouse:  <br />" + " x: " + mouseX + ", y: " + mouseY;
+  else
+    output.innerHTML = "Outside!";
 }
