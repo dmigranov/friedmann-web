@@ -494,7 +494,7 @@ function mouseMoveHandler(event) {
   if (mouseX >= 0 && mouseY >= 0 && mouseX <= canvas.clientWidth && mouseY <= canvas.clientHeight)
     output.innerHTML = "Mouse:  <br />" + " x: " + mouseX + ", y: " + mouseY;
   else
-    output.innerHTML = "Outside!";
+    output.innerHTML = "Mouse outside!";
 }
 
 function mouseDownHandler(event) {
