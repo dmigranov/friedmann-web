@@ -494,7 +494,16 @@ function mouseDownHandler(event) {
 }
 
 function mouseUpHandler(event) {
-
+  switch (event.button) {
+    case 0:
+      leftMouseButtonPressed = false;
+      return;
+    case 2:
+      rightMouseButtonPressed = false;
+      return;
+    default:
+      return;
+  }
 }
 
 function mouseClickHandler(event) {
