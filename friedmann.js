@@ -76,6 +76,7 @@ function updateScene(scene, deltaTime) {
     if (downPressed) {
       cubeRotationY -= deltaTime;
     }
+
     mat4.translate(worldMatrix, worldMatrix, [-0.0, 0.0, -6.0]);
     mat4.rotate(worldMatrix, worldMatrix, cubeRotationX, [0, 1, 0]);
     mat4.rotate(worldMatrix, worldMatrix, cubeRotationY, [1, 0, 0]);
@@ -146,6 +147,7 @@ function drawScene(gl, scene, deltaTime) {
   
   var modelViewMatrix = mat4.create();
   mat4.multiply(modelViewMatrix, constants.viewMatrix, constants.worldMatrix); //убрать
+  
   // Set the shader uniforms
   gl.uniformMatrix4fv(
     programInfo.uniformLocations.projectionMatrix,
@@ -220,9 +222,9 @@ function initScene(gl) {
   mat4.perspective(projectionMatrix, fieldOfView, aspect, zNear, zFar);
 
   const worldMatrix = mat4.create();
+  mat4.translate(worldMatrix, worldMatrix, [-0.0, 0.0, -6.0]);
 
   const viewMatrix = mat4.create();
-  mat4.translate(viewMatrix, viewMatrix, [-0.0, 0.0, -6.0]);
 
   const scene = {
     programInfo: programInfo,
