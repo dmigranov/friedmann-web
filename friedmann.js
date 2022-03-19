@@ -47,13 +47,6 @@ function main() {
   requestAnimationFrame(render);
 }
 
-function updatePage(scene, deltaTime) {
-  if (mouseX >= 0 && mouseY >= 0 && mouseX <= canvas.clientWidth && mouseY <= canvas.clientHeight)
-    output.innerHTML = "Mouse:  <br />" + " x: " + mouseX + ", y: " + mouseY;
-  else
-    output.innerHTML = "Mouse outside!";
-}
-
 
 var cubeRotationX = 0.;
 var cubeRotationY = 0.;
@@ -174,6 +167,15 @@ function drawScene(gl, scene, deltaTime) {
     gl.drawElements(gl.TRIANGLES, vertexCount, type, offset); //type specifies the type of the values in the element (index) array buffer
   }
 }
+
+
+function updatePage(scene, deltaTime) {
+  if (mouseX >= 0 && mouseY >= 0 && mouseX <= canvas.clientWidth && mouseY <= canvas.clientHeight)
+    output.innerHTML = "Mouse:  <br />" + " x: " + mouseX + ", y: " + mouseY;
+  else
+    output.innerHTML = "Mouse outside!";
+}
+
 
 function initScene(gl) {
   // Vertex shader
