@@ -144,9 +144,6 @@ function drawScene(gl, scene, deltaTime) {
   // Tell WebGL to use our program when drawing
   gl.useProgram(programInfo.program);
 
-  //var modelViewMatrix = mat4.create();
-  //mat4.multiply(modelViewMatrix, constants.viewMatrix, constants.worldMatrix); //этот порядок правильный!
-
   // Set the shader uniforms
   gl.uniformMatrix4fv(
     programInfo.uniformLocations.projectionMatrix,
