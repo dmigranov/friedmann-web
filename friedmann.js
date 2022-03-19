@@ -222,7 +222,7 @@ function initScene(gl) {
   //  modelViewMatrix,     // matrix to translate
   //  [-0.0, 0.0, -6.0]);  // amount to translate
 
-  const modelMatrix = mat4.create();
+  const worldMatrix = mat4.create();
 
   const viewMatrix = mat4.create();
   mat4.translate(viewMatrix, viewMatrix, [-0.0, 0.0, -6.0]);
@@ -232,7 +232,8 @@ function initScene(gl) {
     buffers: buffers,
     constants: {
       projectionMatrix: projectionMatrix,
-      modelViewMatrix: modelViewMatrix,
+      viewMatrix: viewMatrix,
+      worldMatrix: worldMatrix,
     }
   };
 
