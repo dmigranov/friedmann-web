@@ -50,6 +50,12 @@ function main() {
 var cubeRotationX = 0.;
 var cubeRotationY = 0.;
 function updateScene(scene, deltaTime) {
+
+  if (mouseX >= 0 && mouseY >= 0 && mouseX <= canvas.clientWidth && mouseY <= canvas.clientHeight)
+    output.innerHTML = "Mouse:  <br />" + " x: " + mouseX + ", y: " + mouseY;
+  else
+    output.innerHTML = "Mouse outside!";
+
   const constants = scene.constants;
 
   // OPTION 1
@@ -496,10 +502,6 @@ function rightMouseButtonClicked() {
 function mouseMoveHandler(event) {
   mouseX = event.pageX - canvas.offsetLeft;
   mouseY = event.pageY - canvas.offsetTop;
-  if (mouseX >= 0 && mouseY >= 0 && mouseX <= canvas.clientWidth && mouseY <= canvas.clientHeight)
-    output.innerHTML = "Mouse:  <br />" + " x: " + mouseX + ", y: " + mouseY;
-  else
-    output.innerHTML = "Mouse outside!";
 }
 
 function mouseDownHandler(event) {
