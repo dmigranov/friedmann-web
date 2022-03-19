@@ -20,7 +20,11 @@ function main() {
   // Initialize user input handling
   document.addEventListener('keydown', keyDownHandler, false);
   document.addEventListener('keyup', keyUpHandler, false);
+
   document.addEventListener('mousemove', mouseMoveHandler);
+  document.addEventListener('mousedown', mouseDownHandler, false);
+  document.addEventListener('mouseup', mouseUpHandler, false);
+
 
   // Do one-time initialization of graphics resources
   //var programInfo = initScene(gl);
@@ -367,6 +371,9 @@ function loadShader(gl, type, source) {
 // CONTROLS
 // https://github.com/end3r/JavaScript-Game-Controls/
 
+
+// KEYBOARD
+
 var rightPressed = false;
 var leftPressed = false;
 var upPressed = false;
@@ -459,7 +466,7 @@ var mouseX = -1;
 var mouseY = -1;
 //todo: click!
 
-// Mouse move
+// MOUSE
 function mouseMoveHandler(event) {
   mouseX = event.pageX - canvas.offsetLeft;
   mouseY = event.pageY - canvas.offsetTop;
