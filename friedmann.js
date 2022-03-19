@@ -40,22 +40,24 @@ function main() {
 
     updateScene(scene, deltaTime);
     drawScene(gl, scene, deltaTime);
+    updatePage(scene, deltaTime)
 
     requestAnimationFrame(render);
   }
   requestAnimationFrame(render);
 }
 
-
-var cubeRotationX = 0.;
-var cubeRotationY = 0.;
-function updateScene(scene, deltaTime) {
-
+function updatePage(scene, deltaTime) {
   if (mouseX >= 0 && mouseY >= 0 && mouseX <= canvas.clientWidth && mouseY <= canvas.clientHeight)
     output.innerHTML = "Mouse:  <br />" + " x: " + mouseX + ", y: " + mouseY;
   else
     output.innerHTML = "Mouse outside!";
+}
 
+
+var cubeRotationX = 0.;
+var cubeRotationY = 0.;
+function updateScene(scene, deltaTime) {
   const constants = scene.constants;
 
   // OPTION 1
