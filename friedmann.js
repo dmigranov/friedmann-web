@@ -4,6 +4,7 @@
 // Obtain a reference to the canvas
 const canvas = document.querySelector("#glCanvas");
 const output1 = document.getElementById("output1");
+const output2 = document.getElementById("output2");
 
 main()
 
@@ -175,7 +176,13 @@ function updatePage(scene, deltaTime) {
   else
     output1.innerHTML = "Mouse outside!";
 
-  
+  // if (leftMouseButtonClicked())
+  if (leftMouseButtonPressed)
+    output2.innerHTML = "Mouse down!";
+  else
+    output2.innerHTML = "Mouse up!";
+
+
 }
 
 
