@@ -182,7 +182,7 @@ function updatePage(scene, deltaTime) {
   else
     output2.innerHTML = "Mouse up!";
 
-
+  // TODO: dx, dy from mouse (probably in UpdateScene)
 }
 
 
