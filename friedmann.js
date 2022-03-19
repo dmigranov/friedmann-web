@@ -217,10 +217,15 @@ function initScene(gl) {
   const projectionMatrix = mat4.create();
   mat4.perspective(projectionMatrix, fieldOfView, aspect, zNear, zFar);
 
-  const modelViewMatrix = mat4.create();
-  mat4.translate(modelViewMatrix,     // destination matrix
-    modelViewMatrix,     // matrix to translate
-    [-0.0, 0.0, -6.0]);  // amount to translate
+  //const modelViewMatrix = mat4.create();
+  //mat4.translate(modelViewMatrix,     // destination matrix
+  //  modelViewMatrix,     // matrix to translate
+  //  [-0.0, 0.0, -6.0]);  // amount to translate
+
+  const modelMatrix = mat4.create();
+
+  const viewMatrix = mat4.create();
+  mat4.translate(viewMatrix, viewMatrix, [-0.0, 0.0, -6.0]);
 
   const scene = {
     programInfo: programInfo,
