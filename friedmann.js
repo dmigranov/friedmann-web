@@ -18,14 +18,14 @@ function main() {
   }
 
   // Initialize user input handling
-  document.addEventListener('keydown', keyDownHandler, false);
-  document.addEventListener('keyup', keyUpHandler, false);
+  document.addEventListener('keydown', keyDownHandler);
+  document.addEventListener('keyup', keyUpHandler);
 
   document.addEventListener('mousemove', mouseMoveHandler);
-  document.addEventListener('mousedown', mouseDownHandler, false);
-  document.addEventListener('mouseup', mouseUpHandler, false);
-  document.addEventListener('click', leftMouseClickHandler, false);
-  document.addEventListener('contextmenu', rightMouseClickHandler, false);
+  document.addEventListener('mousedown', mouseDownHandler);
+  document.addEventListener('mouseup', mouseUpHandler);
+  document.addEventListener('click', leftMouseClickHandler);
+  document.addEventListener('contextmenu', rightMouseClickHandler);
 
 
 
