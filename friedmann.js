@@ -63,7 +63,7 @@ function updateScene(scene, deltaTime) {
   // just modify it!
 
   { //that's option 1
-    const modelViewMatrix = mat4.create();
+    const worldMatrix = mat4.create();
     if (leftPressed) {
       cubeRotationX -= deltaTime;
     }
@@ -76,10 +76,10 @@ function updateScene(scene, deltaTime) {
     if (downPressed) {
       cubeRotationY -= deltaTime;
     }
-    mat4.translate(modelViewMatrix, modelViewMatrix, [-0.0, 0.0, -6.0]);
-    mat4.rotate(modelViewMatrix, modelViewMatrix, cubeRotationX, [0, 1, 0]);
-    mat4.rotate(modelViewMatrix, modelViewMatrix, cubeRotationY, [1, 0, 0]);
-    constants.modelViewMatrix = modelViewMatrix;
+    mat4.translate(worldMatrix, worldMatrix, [-0.0, 0.0, -6.0]);
+    mat4.rotate(worldMatrix, worldMatrix, cubeRotationX, [0, 1, 0]);
+    mat4.rotate(worldMatrix, worldMatrix, cubeRotationY, [1, 0, 0]);
+    constants.worldMatrix = worldMatrix;
   }
 }
 
