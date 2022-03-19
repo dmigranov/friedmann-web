@@ -143,19 +143,24 @@ function drawScene(gl, scene, deltaTime) {
 
   // Tell WebGL to use our program when drawing
   gl.useProgram(programInfo.program);
-  
-  var modelViewMatrix = mat4.create();
-  mat4.multiply(modelViewMatrix, constants.viewMatrix, constants.worldMatrix); //этот порядок правильный!
-  
+
+  //var modelViewMatrix = mat4.create();
+  //mat4.multiply(modelViewMatrix, constants.viewMatrix, constants.worldMatrix); //этот порядок правильный!
+
   // Set the shader uniforms
   gl.uniformMatrix4fv(
     programInfo.uniformLocations.projectionMatrix,
     false,
     constants.projectionMatrix);
   gl.uniformMatrix4fv(
-    programInfo.uniformLocations.modelViewMatrix,
+    programInfo.uniformLocations.viewMatrix,
     false,
-    modelViewMatrix);
+    constants.viewMatrix);
+  gl.uniformMatrix4fv(
+    programInfo.uniformLocations.worldMatrix,
+    false,
+    constants.worldMatrix);
+
 
   //DRAW!
   {
@@ -206,7 +211,6 @@ function initScene(gl) {
     },
     uniformLocations: {
       projectionMatrix: gl.getUniformLocation(shaderProgram, 'uProjectionMatrix'),
-      //modelViewMatrix: gl.getUniformLocation(shaderProgram, 'uModelViewMatrix'),
       viewMatrix: gl.getUniformLocation(shaderProgram, 'uViewMatrix'),
       worldMatrix: gl.getUniformLocation(shaderProgram, 'uWorldMatrix'),
     },
