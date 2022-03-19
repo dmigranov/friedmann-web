@@ -3,7 +3,7 @@
 
 // Obtain a reference to the canvas
 const canvas = document.querySelector("#glCanvas");
-const output = document.getElementById("output");
+const output1 = document.getElementById("output1");
 
 main()
 
@@ -171,9 +171,11 @@ function drawScene(gl, scene, deltaTime) {
 
 function updatePage(scene, deltaTime) {
   if (mouseX >= 0 && mouseY >= 0 && mouseX <= canvas.clientWidth && mouseY <= canvas.clientHeight)
-    output.innerHTML = "Mouse:  <br />" + " x: " + mouseX + ", y: " + mouseY;
+    output1.innerHTML = "Mouse:  <br />" + " x: " + mouseX + ", y: " + mouseY;
   else
-    output.innerHTML = "Mouse outside!";
+    output1.innerHTML = "Mouse outside!";
+
+  
 }
 
 
