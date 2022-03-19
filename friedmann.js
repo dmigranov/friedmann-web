@@ -465,6 +465,9 @@ function keyUpHandler(event) {
 
 var mouseX = -1;
 var mouseY = -1;
+var leftMouseButtonPressed = false;
+var rightMouseButtonPressed = false;
+
 //todo: click!
 
 // MOUSE
@@ -478,13 +481,22 @@ function mouseMoveHandler(event) {
 }
 
 function mouseDownHandler(event) {
-
+  switch (event.button) {
+    case 0:
+      leftMouseButtonPressed = true;
+      return;
+    case 2:
+      rightMouseButtonPressed = true;
+      return;
+    default:
+      return;
+  }
 }
 
 function mouseUpHandler(event) {
-  
+
 }
 
 function mouseClickHandler(event) {
-  
+
 }
