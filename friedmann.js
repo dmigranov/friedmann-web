@@ -54,12 +54,12 @@ function updateScene(scene, deltaTime) {
   const constants = scene.constants;
 
   // OPTION 1
-  // const modelViewMatrix = mat4.create();
+  // const worldMatrix = mat4.create();
   // ... (probably you'll need to know the total time)
-  // constants.modelViewMatrix = modelViewMatrix;
+  // constants.worldMatrix = worldMatrix;
 
   // OPTION 2
-  // const modelViewMatrix = constants.modelViewMatrix;
+  // const worldMatrix = constants.worldMatrix;
   // just modify it!
 
   { //that's option 1
@@ -143,7 +143,9 @@ function drawScene(gl, scene, deltaTime) {
 
   // Tell WebGL to use our program when drawing
   gl.useProgram(programInfo.program);
-
+  
+  var modelViewMatrix = mat4.create();
+  mat4.multiply(modelViewMatrix, constants.viewMatrix, constants.worldMatrix); //убрать
   // Set the shader uniforms
   gl.uniformMatrix4fv(
     programInfo.uniformLocations.projectionMatrix,
@@ -152,7 +154,7 @@ function drawScene(gl, scene, deltaTime) {
   gl.uniformMatrix4fv(
     programInfo.uniformLocations.modelViewMatrix,
     false,
-    constants.modelViewMatrix);
+    modelViewMatrix);
 
   //DRAW!
   {
