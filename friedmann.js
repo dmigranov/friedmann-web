@@ -30,7 +30,6 @@ function main() {
 
 
   // Do one-time initialization of graphics resources
-  //var programInfo = initScene(gl);
   var scene = initScene(gl);
 
   var then = 0;
