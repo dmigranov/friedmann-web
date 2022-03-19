@@ -206,7 +206,9 @@ function initScene(gl) {
     },
     uniformLocations: {
       projectionMatrix: gl.getUniformLocation(shaderProgram, 'uProjectionMatrix'),
-      modelViewMatrix: gl.getUniformLocation(shaderProgram, 'uModelViewMatrix'),
+      //modelViewMatrix: gl.getUniformLocation(shaderProgram, 'uModelViewMatrix'),
+      viewMatrix: gl.getUniformLocation(shaderProgram, 'uViewMatrix'),
+      worldMatrix: gl.getUniformLocation(shaderProgram, 'uWorldMatrix'),
     },
   };
 
