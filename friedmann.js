@@ -24,7 +24,9 @@ function main() {
   document.addEventListener('mousemove', mouseMoveHandler);
   document.addEventListener('mousedown', mouseDownHandler, false);
   document.addEventListener('mouseup', mouseUpHandler, false);
-  document.addEventListener('mouseclick', mouseClickHandler, false);
+  document.addEventListener('click', leftMouseClickHandler, false);
+  document.addEventListener('contextmenu', rightMouseClickHandler, false);
+
 
 
   // Do one-time initialization of graphics resources
@@ -506,6 +508,10 @@ function mouseUpHandler(event) {
   }
 }
 
-function mouseClickHandler(event) {
+function leftMouseClickHandler(event) {
+
+}
+
+function rightMouseClickHandler(event) {
 
 }
