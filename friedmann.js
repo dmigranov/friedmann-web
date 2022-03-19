@@ -24,6 +24,7 @@ function main() {
   document.addEventListener('mousemove', mouseMoveHandler);
   document.addEventListener('mousedown', mouseDownHandler, false);
   document.addEventListener('mouseup', mouseUpHandler, false);
+  document.addEventListener('mouseclick', mouseClickHandler, false);
 
 
   // Do one-time initialization of graphics resources
@@ -474,4 +475,16 @@ function mouseMoveHandler(event) {
     output.innerHTML = "Mouse:  <br />" + " x: " + mouseX + ", y: " + mouseY;
   else
     output.innerHTML = "Outside!";
+}
+
+function mouseDownHandler(event) {
+
+}
+
+function mouseUpHandler(event) {
+  
+}
+
+function mouseClickHandler(event) {
+  
 }
