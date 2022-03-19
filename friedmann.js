@@ -470,8 +470,20 @@ var mouseY = -1;
 var leftMouseButtonPressed = false;
 var rightMouseButtonPressed = false;
 
-var leftMouseButtonClicked = false;
-var rightMouseButtonClicked = false;
+var _leftMouseButtonClicked = false;
+var _rightMouseButtonClicked = false;
+
+function leftMouseButtonClicked() {
+  const retValue = _leftMouseButtonClicked;
+  _leftMouseButtonClicked = false;
+  return retValue;
+}
+
+function rightMouseButtonClicked() {
+  const retValue = _rightMouseButtonClicked;
+  _rightMouseButtonClicked = false;
+  return retValue;
+}
 
 //todo: click!
 
@@ -512,9 +524,9 @@ function mouseUpHandler(event) {
 }
 
 function leftMouseClickHandler(event) {
-  leftMouseButtonClicked = true;
+  _leftMouseButtonClicked = true;
 }
 
 function rightMouseClickHandler(event) {
-  rightMouseButtonClicked = true;
+  _rightMouseButtonClicked = true;
 }
