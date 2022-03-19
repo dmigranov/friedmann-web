@@ -485,8 +485,6 @@ function rightMouseButtonClicked() {
   return retValue;
 }
 
-//todo: click!
-
 // MOUSE
 function mouseMoveHandler(event) {
   mouseX = event.pageX - canvas.offsetLeft;
