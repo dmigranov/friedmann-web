@@ -10,7 +10,33 @@
     <script src="file_input.js"></script>
     <script src="friedmann.js" defer></script>
 
+
     <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        .column {
+            float: left;
+            padding: 10px;
+        }
+
+        .left,
+        .right {
+            width: 20%;
+        }
+
+        .middle {
+            width: 60%;
+        }
+
+        /* Clear floats after the columns */
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
         canvas {
             padding-left: 0;
             padding-right: 0;
@@ -18,16 +44,32 @@
             margin-right: auto;
             display: block;
         }
-        h2 { text-align: center}
+
+        h2 {
+            text-align: center
+        }
     </style>
 </head>
 
 <body>
     <h2>FLRW Visualization</h2>
 
-    <canvas id="glcanvas" width="640" height="480" style="border:2px solid black">
-        Your browser does not suppnort the HTML5 <code>&lt;canvas&gt;</code> element.
-    </canvas>
+    <div class="row">
+        <div class="column left">
+            <h2>Column 1</h2>
+        </div>
+        <div class="column middle">
+            <h2>Column 2</h2>
+            <canvas id="glcanvas" width="640" height="480" style="border:2px solid black">
+                Your browser does not suppnort the HTML5 <code>&lt;canvas&gt;</code> element.
+            </canvas>
+        </div>
+        <div class="column right">
+            <h2>Column 3</h2>
+        </div>
+    </div>
+
+
 
     <br>
 
