@@ -470,6 +470,9 @@ var mouseY = -1;
 var leftMouseButtonPressed = false;
 var rightMouseButtonPressed = false;
 
+var leftMouseButtonClicked = false;
+var rightMouseButtonClicked = false;
+
 //todo: click!
 
 // MOUSE
@@ -509,9 +512,9 @@ function mouseUpHandler(event) {
 }
 
 function leftMouseClickHandler(event) {
-
+  leftMouseButtonClicked = true;
 }
 
 function rightMouseClickHandler(event) {
-
+  rightMouseButtonClicked = true;
 }
