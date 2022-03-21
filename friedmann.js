@@ -3,7 +3,7 @@
 
 
 console.log("Load start."); 
-//import * as SphericalMath from './spherical_math.js';
+import * as SphericalMath from './spherical_math.js';
 console.log("Load end."); 
 
 
