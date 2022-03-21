@@ -32,3 +32,12 @@ export function sphericalRotationXW(d)
         0, 0, 1, 0,
         Math.sin(d), 0, 0, Math.cos(d));
 }
+
+export function sphericalRotationYW(d)
+{
+    return mat4.fromValues(
+        1, 0, 0, 0,
+        0, Math.cos(d), 0, -Math.sin(d),
+        0, 0, 1, 0,
+        0, Math.sin(d), 0, Math.cos(d));
+}
