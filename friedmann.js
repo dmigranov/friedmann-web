@@ -165,8 +165,8 @@ function drawScene(gl, scene, deltaTime) {
     const vertexCount = 36;
     const type = gl.UNSIGNED_SHORT;
     const offset = 0;
-    //gl.drawElements(gl.TRIANGLES, vertexCount, type, offset); //type specifies the type of the values in the element (index) array buffer
-    gl.drawElementsInstanced(gl.TRIANGLES, vertexCount, type, offset, 2);
+    //gl.drawElements(gl.TRIANGLES, vertexCount, type, offset); 
+    gl.drawElementsInstanced(gl.TRIANGLES, vertexCount, type, offset, 2); //type specifies the type of the values in the element (index) array buffer
   }
 }
 
@@ -189,9 +189,10 @@ function updatePage(scene, deltaTime) {
 
 function initScene(gl) {
   // Vertex shader
-  const vsSource = `
-  attribute vec4 aVertexPosition;
-  attribute vec4 aVertexColor;
+  const vsSource = `#version 300 es
+  
+  in vec4 aVertexPosition; // webgl: in instead of attribute
+  in vec4 aVertexColor;
 
   uniform mat4 uWorldMatrix;
 
@@ -200,10 +201,15 @@ function initScene(gl) {
   uniform mat4 uProjectionMatrixFront;
   uniform mat4 uProjectionMatrixBack;
 
-  varying lowp vec4 vColor; //out; varying used for interpolated data between a vertex shader and a fragment shader. 
+  out lowp vec4 vColor; //out = webgl 1.0 varyinh; used for interpolated data between a vertex shader and a fragment shader
 
   void main() {
-    mat4 uViewMatrix = uViewMatrixFront;
+    mat4 uViewMatrix;
+    if (gl_InstanceID == 0)
+      uViewMatrix = uViewMatrixFront;
+    else
+      uViewMatrix = uViewMatrixFront; //todo: домножить на матрицу
+
     gl_Position = uProjectionMatrixFront * uViewMatrix * uWorldMatrix * aVertexPosition;
     vColor = aVertexColor; 
   }`;
