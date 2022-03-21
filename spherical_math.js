@@ -68,3 +68,8 @@ export function sphericalDistance(vector1, vector2, radius)
 	const chordLength = vec4.distance(vector1, vector2); 
 	return 2 * radius * Math.asin(chordLength / (2. * radius)); // angle is 2arcsin(L/2R), length of arc equals angle * R
 }
+
+export function sphericalDistanceDirectional(vector1, vector2, radius, isAhead)
+{
+	const dist = sphericalDistance(vector1, vector2, radius);
+}
