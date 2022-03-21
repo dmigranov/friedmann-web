@@ -594,8 +594,8 @@ function sphericalRotationZW(d) // знаки поменял в сравнени
   //from values: 
 	return mat4.fromValues(	1, 0, 0, 0,
 					0, 1, 0, 0,
-					0, 0, Math.cos(d), Math.sin(d),
-					0, 0, -Math.sin(d), Math.cos(d));
+					0, 0, Math.cos(d), -Math.sin(d),
+					0, 0, Math.sin(d), Math.cos(d));
 }
 
 //todo: остальные также
