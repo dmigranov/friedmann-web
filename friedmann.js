@@ -215,11 +215,11 @@ function initScene(gl) {
   }`;
 
   // Fragment shader
-  const fsSource = `
-  varying lowp vec4 vColor;
-
+  const fsSource = `#version 300 es
+  in lowp vec4 vColor;
+  out vec4 fragColor;
   void main() {
-    gl_FragColor = vColor;
+    fragColor = vColor;
     //todo: modify
   }`;
 
