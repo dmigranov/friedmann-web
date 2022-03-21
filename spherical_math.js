@@ -62,3 +62,10 @@ export function sphericalRotationXY(d) {
         0, 0, 1, 0,
         0, 0, 0, 1);
 }
+
+export function sphericalDistance(vector1, vector2, radius)
+{
+
+	float chordLength = Vector4::Distance(vec1, vec2); // chord length
+	return 2 * radius * asin(chordLength / (2. * radius)); // angle is 2arcsin(L/2R), length of arc equals angle * R
+}
