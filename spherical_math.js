@@ -83,25 +83,25 @@ export function getSphericalFromCartesian(x4, x3, x2, x1)
 	const x22 = x2 * x2;
 	const x32 = x3 * x3;
 
-	float a1 = acosf(x1);
+	const a1 = Math.acos(x1);
 	if (x2 == 0 && x3 == 0 && x4 == 0)
 		if (x1 > 0)
 			return Vector3(a1, 0, 0);
 		else
 			return Vector3(a1, XM_PI, XM_PI);
 
-	float a2 = acosf(x2 / sqrtf(x22 + x32 + x42));
+	const a2 = acosf(x2 / sqrtf(x22 + x32 + x42));
 	if (x3 == 0 && x4 == 0)
 		if (x2 > 0)
 			return Vector3(a1, a2, 0);
 		else
 			return Vector3(a1, a2, XM_PI);
 
-	float a3;
+	const a3;
 	if (x4 >= 0)
 		a3 = acosf(x3 / sqrtf(x32 + x42));
 	else
 		a3 = XM_2PI - acosf(x3 / sqrtf(x32 + x42));
 
-	return XMFLOAT3(a1, a2, a3);
+	return vec3.fromValues(a1, a2, a3);
 }
