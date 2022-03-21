@@ -194,7 +194,7 @@ function initScene(gl) {
 
   uniform mat4 uWorldMatrix;
 
-  uniform mat4 uViewMatrix;
+  uniform mat4 uViewMatrixFront;
 
   uniform mat4 uProjectionMatrixFront;
   uniform mat4 uProjectionMatrixBack;
@@ -202,6 +202,7 @@ function initScene(gl) {
   varying lowp vec4 vColor; //out; varying used for interpolated data between a vertex shader and a fragment shader. 
 
   void main() {
+    mat4 uViewMatrix = uViewMatrixFront;
     gl_Position = uProjectionMatrixFront * uViewMatrix * uWorldMatrix * aVertexPosition;
     vColor = aVertexColor; 
   }`;
@@ -228,8 +229,8 @@ function initScene(gl) {
       vertexColor: gl.getAttribLocation(shaderProgram, 'aVertexColor'),
     },
     uniformLocations: {
-      projectionMatrix: gl.getUniformLocation(shaderProgram, 'uProjectionMatrix'),
-      viewMatrix: gl.getUniformLocation(shaderProgram, 'uViewMatrix'),
+      projectionMatrix: gl.getUniformLocation(shaderProgram, 'uProjectionMatrixFront'),
+      viewMatrix: gl.getUniformLocation(shaderProgram, 'uViewMatrixFront'),
       worldMatrix: gl.getUniformLocation(shaderProgram, 'uWorldMatrix'),
     },
   };
