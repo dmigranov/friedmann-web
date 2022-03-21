@@ -65,7 +65,6 @@ export function sphericalRotationXY(d) {
 
 export function sphericalDistance(vector1, vector2, radius)
 {
-
-	float chordLength = Vector4::Distance(vec1, vec2); // chord length
-	return 2 * radius * asin(chordLength / (2. * radius)); // angle is 2arcsin(L/2R), length of arc equals angle * R
+	const chordLength = vec4.distance(vector1, vector2); 
+	return 2 * radius * Math.asin(chordLength / (2. * radius)); // angle is 2arcsin(L/2R), length of arc equals angle * R
 }
