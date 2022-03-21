@@ -1,6 +1,12 @@
 // todo: WebGL поддерживает Instancing!
 // drawElements = indexed, drawArrays = non-indexed
 
+
+console.log("Load start."); 
+//import * as SphericalMath from './spherical_math.js';
+console.log("Load end."); 
+
+
 // Obtain a reference to the canvas
 const canvas = document.querySelector("#glCanvas");
 const output1 = document.getElementById("output1");
@@ -183,7 +189,7 @@ function updatePage(scene, deltaTime) {
 
   const transformed = vec4.fromValues(0, 0, 0, 1);
   if (leftMouseButtonPressed)
-    output2.innerHTML = vec4.str(vec4.transformMat4(transformed, transformed, sphericalRotationXW(0.1)));
+    output2.innerHTML = vec4.str(vec4.transformMat4(transformed, transformed, SphericalMath.sphericalRotationXW(0.1)));
   else
     output2.innerHTML = "Mouse up!";
 
