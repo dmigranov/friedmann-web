@@ -1,10 +1,8 @@
 // todo: WebGL поддерживает Instancing!
 // drawElements = indexed, drawArrays = non-indexed
+// https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS/Errors/CORSRequestNotHttp
 
-
-console.log("Load start."); 
 import * as SphericalMath from './spherical_math.js';
-console.log("Load end."); 
 
 
 // Obtain a reference to the canvas
