@@ -572,10 +572,10 @@ function rightMouseClickHandler(event) {
 // !!!MATH!!!
 function bananaProjectionMatrixFrontHalf(fovY, aspect, z0)
 {
-	float height = 1.f / tanf(fovY / 2);
-	float width = height / aspect;
-	return Matrix(width, 0.f, 0.f, 0.f,
-		0.f, height, 0.f, 0.f,
-		0.f, 0.f, 0.25f, 1.f,
-		0.f, 0.f, -z0 / 4.f, 0);
+	const height = 1 / Math.tan(fovY / 2);
+	const width = height / aspect;
+	return Matrix(width, 0., 0., 0.,
+		0., height, 0., 0.,
+		0., 0., 0.25, 1.,
+		0., 0., -z0 / 4., 0);
 }
