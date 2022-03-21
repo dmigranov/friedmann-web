@@ -183,7 +183,7 @@ function updatePage(scene, deltaTime) {
 
   const transformed = vec4.fromValues(0, 0, 0, 1);
   if (leftMouseButtonPressed)
-    output2.innerHTML = vec.str(vec4.transformMat4(transformed, transformed, sphericalRotationZW(0.1)));
+    output2.innerHTML = vec4.str(vec4.transformMat4(transformed, transformed, sphericalRotationZW(0.1)));
   else
     output2.innerHTML = "Mouse up!";
 
