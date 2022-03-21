@@ -76,7 +76,7 @@ export function sphericalDistanceDirectional(vector1, vector2, radius, isAhead) 
         return 2 * Math.PI - dist;
 }
 
-//xyzw; return ... TODO
+//xyzw; returns: close to "z", "x", "y"
 export function getSphericalFromCartesian(x4, x3, x2, x1)
 {
 	const x42 = x4 * x4;
