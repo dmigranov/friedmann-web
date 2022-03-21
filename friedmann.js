@@ -181,7 +181,7 @@ function updatePage(scene, deltaTime) {
 
   // if (leftMouseButtonClicked())
   if (leftMouseButtonPressed)
-    output2.innerHTML = mat4.str(view);
+    output2.innerHTML = mat4.str(sphericalRotationZW(0.1));
   else
     output2.innerHTML = "Mouse up!";
 
@@ -590,6 +590,7 @@ function bananaProjectionMatrixFrontHalf(fovY, aspect, z0)
 // rotation around plane XY which stays invariant
 function sphericalRotationZW(d) // знаки поменял в сравнении с DX - проверить!
 {
+  //from values: 
 	return mat4.fromValues(	1, 0, 0, 0,
 					0, 1, 0, 0,
 					0, 0, Math.cosf(d), Math.sinf(d),
