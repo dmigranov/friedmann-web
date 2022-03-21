@@ -570,11 +570,12 @@ function rightMouseClickHandler(event) {
 
 
 // !!!MATH!!!
+
 //todo: учесть разницу между API
 /* 
 function bananaProjectionMatrixFrontHalf(fovY, aspect, z0)
 {
-	const height = 1 / Math.tan(fovY / 2);
+	const height = 1 / Math.tanf(fovY / 2);
 	const width = height / aspect;
 	return Matrix(width, 0., 0., 0.,
 		0., height, 0., 0.,
@@ -582,3 +583,13 @@ function bananaProjectionMatrixFrontHalf(fovY, aspect, z0)
 		0., 0., -z0 / 4., 0);
 }
 */
+
+
+//rotation around plane XY which stays invariant
+function sphericalRotationZW(d)
+{
+	return Matrix(	1, 0, 0, 0,
+					0, 1, 0, 0,
+					0, 0, Math.cosf(d), -Math.sinf(d),
+					0, 0, Math.sinf(d), Math.cosf(d));
+}
