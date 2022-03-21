@@ -3,7 +3,7 @@
 // https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS/Errors/CORSRequestNotHttp
 
 import * as SphericalMath from './spherical_math.js';
-
+// TODO: import gl-matrix like this
 
 // Obtain a reference to the canvas
 const canvas = document.querySelector("#glCanvas");
