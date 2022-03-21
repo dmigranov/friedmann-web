@@ -570,7 +570,8 @@ function rightMouseClickHandler(event) {
 
 
 // !!!MATH!!!
-
+//todo: учесть разницу между API
+/* 
 function bananaProjectionMatrixFrontHalf(fovY, aspect, z0)
 {
 	const height = 1 / Math.tan(fovY / 2);
@@ -580,3 +581,4 @@ function bananaProjectionMatrixFrontHalf(fovY, aspect, z0)
 		0., 0., 0.25, 1.,
 		0., 0., -z0 / 4., 0);
 }
+*/
