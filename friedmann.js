@@ -172,6 +172,8 @@ function drawScene(gl, scene, deltaTime) {
 
 
 function updatePage(scene, deltaTime) {
+  const view = scene.constants.viewMatrix;
+
   if (mouseX >= 0 && mouseY >= 0 && mouseX <= canvas.clientWidth && mouseY <= canvas.clientHeight)
     output1.innerHTML = "Mouse:  <br />" + " x: " + mouseX + ", y: " + mouseY;
   else
@@ -179,7 +181,7 @@ function updatePage(scene, deltaTime) {
 
   // if (leftMouseButtonClicked())
   if (leftMouseButtonPressed)
-    output2.innerHTML = "Mouse down!";
+    output2.innerHTML = mat4.str(view);
   else
     output2.innerHTML = "Mouse up!";
 
@@ -585,11 +587,13 @@ function bananaProjectionMatrixFrontHalf(fovY, aspect, z0)
 */
 
 
-//rotation around plane XY which stays invariant
-function sphericalRotationZW(d)
+// rotation around plane XY which stays invariant
+function sphericalRotationZW(d) // знаки поменял в сравнении с DX - проверить!
 {
-	return Matrix(	1, 0, 0, 0,
+	return mat4.fromValues(	1, 0, 0, 0,
 					0, 1, 0, 0,
-					0, 0, Math.cosf(d), -Math.sinf(d),
-					0, 0, Math.sinf(d), Math.cosf(d));
+					0, 0, Math.cosf(d), Math.sinf(d),
+					0, 0, -Math.sinf(d), Math.cosf(d));
 }
+
+//todo: остальные также
