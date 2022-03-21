@@ -86,9 +86,9 @@ export function getSphericalFromCartesian(x4, x3, x2, x1)
 	const a1 = Math.acos(x1);
 	if (x2 == 0 && x3 == 0 && x4 == 0)
 		if (x1 > 0)
-			return Vector3(a1, 0, 0);
+			return vec3.fromValues(a1, 0, 0);
 		else
-			return Vector3(a1, Math.PI, Math.PI);
+			return vec3.fromValues(a1, Math.PI, Math.PI);
 
 	const a2 = Math.acos(x2 / Math.sqrt(x22 + x32 + x42));
 	if (x3 == 0 && x4 == 0)
