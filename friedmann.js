@@ -223,6 +223,7 @@ function initScene(gl) {
 
   void main() {
     fragColor = vColor;
+
     //todo: modify
   }`;
 
@@ -563,4 +564,18 @@ function leftMouseClickHandler(event) {
 
 function rightMouseClickHandler(event) {
   _rightMouseButtonClicked = true;
+}
+
+
+
+
+// !!!MATH!!!
+function bananaProjectionMatrixFrontHalf(fovY, aspect, z0)
+{
+	float height = 1.f / tanf(fovY / 2);
+	float width = height / aspect;
+	return Matrix(width, 0.f, 0.f, 0.f,
+		0.f, height, 0.f, 0.f,
+		0.f, 0.f, 0.25f, 1.f,
+		0.f, 0.f, -z0 / 4.f, 0);
 }
