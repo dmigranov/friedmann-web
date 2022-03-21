@@ -10,7 +10,7 @@ main()
 
 function main() {
   // Initialize the GL context
-  const gl = canvas.getContext("webgl");
+  const gl = canvas.getContext("webgl2");
 
   // Only continue if WebGL is available and working
   if (gl === null) {
@@ -165,7 +165,8 @@ function drawScene(gl, scene, deltaTime) {
     const vertexCount = 36;
     const type = gl.UNSIGNED_SHORT;
     const offset = 0;
-    gl.drawElements(gl.TRIANGLES, vertexCount, type, offset); //type specifies the type of the values in the element (index) array buffer
+    //gl.drawElements(gl.TRIANGLES, vertexCount, type, offset); //type specifies the type of the values in the element (index) array buffer
+    gl.drawElementsInstanced(gl.TRIANGLES, vertexCount, type, offset, 2);
   }
 }
 
