@@ -193,13 +193,16 @@ function initScene(gl) {
   attribute vec4 aVertexColor;
 
   uniform mat4 uWorldMatrix;
+
   uniform mat4 uViewMatrix;
-  uniform mat4 uProjectionMatrix;
+
+  uniform mat4 uProjectionMatrixFront;
+  uniform mat4 uProjectionMatrixBack;
 
   varying lowp vec4 vColor; //out; varying used for interpolated data between a vertex shader and a fragment shader. 
 
   void main() {
-    gl_Position = uProjectionMatrix * uViewMatrix * uWorldMatrix * aVertexPosition;
+    gl_Position = uProjectionMatrixFront * uViewMatrix * uWorldMatrix * aVertexPosition;
     vColor = aVertexColor; 
   }`;
 
