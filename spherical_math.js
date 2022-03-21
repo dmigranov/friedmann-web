@@ -63,13 +63,15 @@ export function sphericalRotationXY(d) {
         0, 0, 0, 1);
 }
 
-export function sphericalDistance(vector1, vector2, radius)
-{
-	const chordLength = vec4.distance(vector1, vector2); 
-	return 2 * radius * Math.asin(chordLength / (2. * radius)); // angle is 2arcsin(L/2R), length of arc equals angle * R
+export function sphericalDistance(vector1, vector2, radius) {
+    const chordLength = vec4.distance(vector1, vector2);
+    return 2 * radius * Math.asin(chordLength / (2. * radius)); // angle is 2arcsin(L/2R), length of arc equals angle * R
 }
 
-export function sphericalDistanceDirectional(vector1, vector2, radius, isAhead)
-{
-	const dist = sphericalDistance(vector1, vector2, radius);
+export function sphericalDistanceDirectional(vector1, vector2, radius, isAhead) {
+    const dist = sphericalDistance(vector1, vector2, radius);
+    if (isAhead)
+        return dist;
+    else
+        return 2 * Math.PI - dist;
 }
