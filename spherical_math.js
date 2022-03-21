@@ -15,20 +15,20 @@ function bananaProjectionMatrixFrontHalf(fovY, aspect, z0)
 */
 
 // rotation around plane XY which stays invariant
-function sphericalRotationZW(d) // знаки поменял в сравнении с DX - проверить!
-{ 
-  return mat4.fromValues(
-    1, 0, 0, 0,
-    0, 1, 0, 0,
-    0, 0, Math.cos(d), -Math.sin(d),
-    0, 0, Math.sin(d), Math.cos(d));
+export function sphericalRotationZW(d)
+{
+    return mat4.fromValues(
+        1, 0, 0, 0,
+        0, 1, 0, 0,
+        0, 0, Math.cos(d), -Math.sin(d),
+        0, 0, Math.sin(d), Math.cos(d));
 }
 
-function sphericalRotationXW(d) // знаки поменял в сравнении с DX - проверить!
-{ 
-  return mat4.fromValues(
-    Math.cos(d), 0, 0, -Math.sin(d),
-    0, 1, 0, 0,
-    0, 0, 1, 0,
-    Math.sin(d), 0, 0, Math.cos(d));
+export function sphericalRotationXW(d)
+{
+    return mat4.fromValues(
+        Math.cos(d), 0, 0, -Math.sin(d),
+        0, 1, 0, 0,
+        0, 0, 1, 0,
+        Math.sin(d), 0, 0, Math.cos(d));
 }
