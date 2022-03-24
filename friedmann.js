@@ -57,11 +57,19 @@ var cubeRotationY = 0.;
 var oldMouseX = -1;
 var oldMouseY = -1;
 
+var isCursorInsideCanvas = false;
+
 function updateScene(scene, deltaTime) {
   //проверка что в пределах окна
+
+  if (mouseX >= 0 && mouseY >= 0 && mouseX <= canvas.clientWidth && mouseY <= canvas.clientHeight)
+    isCursorInsideCanvas = true;
+  else
+    isCursorInsideCanvas = false;
+
   if (leftMouseButtonPressed) {
     if (oldMouseX != -1 && oldMouseY != -1) {
-
+      ;
     }
 
     oldMouseX = mouseX;
@@ -69,7 +77,7 @@ function updateScene(scene, deltaTime) {
   }
 
 
-  
+
   const constants = scene.constants;
 
   // OPTION 1
@@ -192,7 +200,7 @@ function drawScene(gl, scene, deltaTime) {
 function updatePage(scene, deltaTime) {
   const view = scene.constants.viewMatrix;
 
-  if (mouseX >= 0 && mouseY >= 0 && mouseX <= canvas.clientWidth && mouseY <= canvas.clientHeight)
+  if (isCursorInsideCanvas)
     output1.innerHTML = "Mouse:  <br />" + " x: " + mouseX + ", y: " + mouseY;
   else
     output1.innerHTML = "Mouse outside!";
@@ -201,7 +209,7 @@ function updatePage(scene, deltaTime) {
 
   const transformed = vec4.fromValues(0, 0, 0, 1);
   vec4.transformMat4(transformed, transformed, SphericalMath.sphericalRotationYW(0.1))
-  
+
   const dist = SphericalMath.sphericalDistance(
     transformed,
     vec4.fromValues(0, 0, 0, 1),
