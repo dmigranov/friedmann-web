@@ -9,12 +9,12 @@ const coordinates = document.getElementById("coordinates");
 const output1 = document.getElementById("output1");
 const output2 = document.getElementById("output2");
 
+const gl = canvas.getContext("webgl2");
 
 main()
 
 function main() {
   // Initialize the GL context
-  const gl = canvas.getContext("webgl2");
 
   // Only continue if WebGL is available and working
   if (gl === null) {
