@@ -178,19 +178,19 @@ function drawScene(gl, scene, deltaTime) {
 	gl.uniformMatrix4fv(
 		programInfo.uniformLocations.projectionMatrixFront,
 		false,
-		constants.projectionMatrix);  //todo: replace
+		constants.projectionMatrixFront);
 	gl.uniformMatrix4fv(
 		programInfo.uniformLocations.projectionMatrixBack,
 		false,
-		constants.projectionMatrix);  //todo: replace
+		constants.projectionMatrixBack);
 	gl.uniformMatrix4fv(
 		programInfo.uniformLocations.viewMatrixFront,
 		false,
-		constants.viewMatrix);        //todo: replace
+		constants.viewMatrixFront);
 	gl.uniformMatrix4fv(
 		programInfo.uniformLocations.worldMatrix,
 		false,
-		constants.worldMatrix);       //todo: replace
+		constants.worldMatrix);
 
 
 	//DRAW!
@@ -205,7 +205,7 @@ function drawScene(gl, scene, deltaTime) {
 
 
 function updatePage(scene, deltaTime) {
-	const proj = scene.constants.projectionMatrix;
+	const proj = scene.constants.projectionMatrixFront;
 	const projSph = SphericalMath.bananaProjectionMatrixBackHalf(45 * Math.PI / 180,
 		gl.canvas.clientWidth / gl.canvas.clientHeight, 0.1);
 
@@ -229,8 +229,8 @@ function updatePage(scene, deltaTime) {
 
 	const transformed = vec4.fromValues(0, 0, 0, 1);
 	vec4.transformMat4(transformed, transformed, SphericalMath.sphericalRotationYW(0.1))
-	
-	
+
+
 	const dist = SphericalMath.sphericalDistance(
 		transformed,
 		vec4.fromValues(0, 0, 0, 1),
