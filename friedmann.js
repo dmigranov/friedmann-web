@@ -60,13 +60,13 @@ var oldMouseY = -1;
 var isCursorInsideCanvas = false;
 
 function updateScene(scene, deltaTime) {
-  //проверка что в пределах окна
-
   if (mouseX >= 0 && mouseY >= 0 && mouseX <= canvas.clientWidth && mouseY <= canvas.clientHeight)
     isCursorInsideCanvas = true;
   else
     isCursorInsideCanvas = false;
 
+
+  //проверка что в пределах окна?
   if (leftMouseButtonPressed) {
     if (oldMouseX != -1 && oldMouseY != -1) {
       ;
