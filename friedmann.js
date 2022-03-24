@@ -259,7 +259,7 @@ function initScene(gl) {
     else
       uViewMatrix = uViewMatrixFront; //todo: домножить на матрицу
 
-    gl_Position = uProjectionMatrixBack * uViewMatrix * uWorldMatrix * aVertexPosition;
+    gl_Position = uProjectionMatrixFront * uViewMatrix * uWorldMatrix * aVertexPosition;
     vColor = aVertexColor; 
   }`;
 
