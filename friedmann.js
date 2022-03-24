@@ -7,6 +7,8 @@ import * as SphericalMath from './spherical_math.js';
 const canvas = document.querySelector("#glCanvas");
 const coordinates = document.getElementById("coordinates");
 const output2 = document.getElementById("output2");
+const output3 = document.getElementById("output3");
+
 
 main()
 
