@@ -58,9 +58,14 @@ var oldMouseX = -1;
 var oldMouseY = -1;
 
 function updateScene(scene, deltaTime) {
-  mouseX, mouseY = -1;
+  //проверка что в пределах окна
   if (leftMouseButtonPressed) {
+    if (oldMouseX != -1 && oldMouseY != -1) {
 
+    }
+
+    oldMouseX = mouseX;
+    oldMouseY = mouseY;
   }
 
 
