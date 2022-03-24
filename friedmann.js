@@ -176,15 +176,19 @@ function drawScene(gl, scene, deltaTime) {
   gl.uniformMatrix4fv(
     programInfo.uniformLocations.projectionMatrixFront,
     false,
-    constants.projectionMatrix);
+    constants.projectionMatrix);  //todo: replace
+  gl.uniformMatrix4fv(
+    programInfo.uniformLocations.projectionMatrixBack,
+    false,
+    constants.projectionMatrix);  //todo: replace
   gl.uniformMatrix4fv(
     programInfo.uniformLocations.viewMatrixFront,
     false,
-    constants.viewMatrix);
+    constants.viewMatrix);        //todo: replace
   gl.uniformMatrix4fv(
     programInfo.uniformLocations.worldMatrix,
     false,
-    constants.worldMatrix);
+    constants.worldMatrix);       //todo: replace
 
 
   //DRAW!
@@ -255,7 +259,7 @@ function initScene(gl) {
     else
       uViewMatrix = uViewMatrixFront; //todo: домножить на матрицу
 
-    gl_Position = uProjectionMatrixFront * uViewMatrix * uWorldMatrix * aVertexPosition;
+    gl_Position = uProjectionMatrixBack * uViewMatrix * uWorldMatrix * aVertexPosition;
     vColor = aVertexColor; 
   }`;
 
