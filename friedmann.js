@@ -206,7 +206,8 @@ function drawScene(gl, scene, deltaTime) {
 
 function updatePage(scene, deltaTime) {
 	const proj = scene.constants.projectionMatrix;
-	const projSph = SphericalMath.bananaProjectionMatrixFrontHalf(45 * Math.PI / 180, gl.canvas.clientWidth / gl.canvas.clientHeight, 0.1);
+	const projSph = SphericalMath.bananaProjectionMatrixFrontHalf(45 * Math.PI / 180,
+		gl.canvas.clientWidth / gl.canvas.clientHeight, 0.1);
 
 	if (isCursorInsideCanvas)
 		coordinates.innerHTML = "Mouse:  <br />" + " x: " + mouseX + ", y: " + mouseY;
@@ -222,13 +223,14 @@ function updatePage(scene, deltaTime) {
 	else
 		output2.innerHTML = "Mouse up!";
 
-	output1.innerHTML = mat4.str(proj) + " " + mat4.str(projSph);
+	//output1.innerHTML = mat4.str(proj) + " " + mat4.str(projSph);
 
 	// if (leftMouseButtonClicked())
 
 	const transformed = vec4.fromValues(0, 0, 0, 1);
 	vec4.transformMat4(transformed, transformed, SphericalMath.sphericalRotationYW(0.1))
-	//vec3.str()
+	
+	
 	const dist = SphericalMath.sphericalDistance(
 		transformed,
 		vec4.fromValues(0, 0, 0, 1),
