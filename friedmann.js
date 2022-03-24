@@ -5,7 +5,7 @@ import * as SphericalMath from './spherical_math.js';
 
 // Obtain a reference to the canvas
 const canvas = document.querySelector("#glCanvas");
-const output1 = document.getElementById("output1");
+const coordinates = document.getElementById("coordinates");
 const output2 = document.getElementById("output2");
 
 main()
@@ -206,9 +206,9 @@ function updatePage(scene, deltaTime) {
   const view = scene.constants.viewMatrix;
 
   if (isCursorInsideCanvas)
-    output1.innerHTML = "Mouse:  <br />" + " x: " + mouseX + ", y: " + mouseY;
+    coordinates.innerHTML = "Mouse:  <br />" + " x: " + mouseX + ", y: " + mouseY;
   else
-    output1.innerHTML = "Mouse outside!";
+    coordinates.innerHTML = "Mouse outside!";
 
   if (leftMouseButtonPressed) {
     if (isCursorInsideCanvas)
