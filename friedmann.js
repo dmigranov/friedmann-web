@@ -323,8 +323,9 @@ function initScene(gl) {
 		programInfo: programInfo,
 		buffers: buffers,
 		constants: {
-			projectionMatrix: projectionMatrix,
-			viewMatrix: viewMatrix,
+			projectionMatrixFront: projectionMatrix,	// todo
+			projectionMatrixBack: projectionMatrix,		// todo
+			viewMatrixFront: viewMatrix,				// todo
 			worldMatrix: worldMatrix,
 		}
 	};
