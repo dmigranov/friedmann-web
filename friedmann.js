@@ -71,7 +71,8 @@ function updateScene(scene, deltaTime) {
 
   if (leftMouseButtonPressed && isCursorInsideCanvas) {
     if (oldMouseX != -1 && oldMouseY != -1) {
-      ;
+      mouseChangeX = mouseX - oldMouseX;
+      mouseChangeY = mouseY - oldMouseY;
     }
 
     oldMouseX = mouseX;
