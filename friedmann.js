@@ -57,6 +57,9 @@ var cubeRotationY = 0.;
 var oldMouseX = -1;
 var oldMouseY = -1;
 
+var mouseChangeX = 0;
+var mouseChangeY = 0;
+
 var isCursorInsideCanvas = false;
 
 function updateScene(scene, deltaTime) {
@@ -74,8 +77,6 @@ function updateScene(scene, deltaTime) {
     oldMouseX = mouseX;
     oldMouseY = mouseY;
   }
-
-
 
   const constants = scene.constants;
 
