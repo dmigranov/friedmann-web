@@ -221,7 +221,7 @@ function updatePage(scene, deltaTime) {
   else
     output2.innerHTML = "Mouse up!";
 
-  output3.innerHTML = mat4.str(proj);
+  //output3.innerHTML = mat4.str(proj);
 
   // if (leftMouseButtonClicked())
 
