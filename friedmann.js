@@ -205,7 +205,7 @@ function drawScene(gl, scene, deltaTime) {
 
 
 function updatePage(scene, deltaTime) {
-  const proj = scene.constants.projectionMatrixFront;
+  const proj = scene.constants.projectionMatrix;
 
   if (isCursorInsideCanvas)
     coordinates.innerHTML = "Mouse:  <br />" + " x: " + mouseX + ", y: " + mouseY;
@@ -221,7 +221,7 @@ function updatePage(scene, deltaTime) {
   else
     output2.innerHTML = "Mouse up!";
 
-    output3.innerHTML = mat4.str(proj);
+  output3.innerHTML = mat4.str(proj);
 
   // if (leftMouseButtonClicked())
 
