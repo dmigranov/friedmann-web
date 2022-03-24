@@ -16,6 +16,18 @@ export function bananaProjectionMatrixFrontHalf(fovY, aspect, z0) {
 	const mat = mat4.fromValues(
 		width, 0., 0., 0.,
 		0., height, 0., 0.,
+		0., 0., 0.5, -z0 / 2.,
+		0., 0., -1., 0);
+	mat4.transpose(mat, mat);
+	return mat;
+}
+
+export function bananaProjectionMatrixBackHalf(fovY, aspect, z0) {
+	const height = 1 / Math.tan(fovY / 2);
+	const width = height / aspect;
+	const mat = mat4.fromValues(
+		width, 0., 0., 0.,
+		0., height, 0., 0.,
 		0., 0., -0.5, -z0 / 2.,
 		0., 0., -1., 0);
 	mat4.transpose(mat, mat);
