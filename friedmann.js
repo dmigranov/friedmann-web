@@ -206,11 +206,14 @@ function updatePage(scene, deltaTime) {
   else
     output1.innerHTML = "Mouse outside!";
 
-  if (leftMouseButtonPressed)
-    output2.innerHTML = "dx: " + mouseChangeX + ", dy: " + mouseChangeY;
+  if (leftMouseButtonPressed) {
+    if (isCursorInsideCanvas)
+      output2.innerHTML = "dx: " + mouseChangeX + ", dy: " + mouseChangeY;
+    else
+      output2.innerHTML = "Mouse down!";
+  }
   else
     output2.innerHTML = "Mouse up!";
-
   // if (leftMouseButtonClicked())
 
   const transformed = vec4.fromValues(0, 0, 0, 1);
