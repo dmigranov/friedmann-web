@@ -1,97 +1,96 @@
 // !!!MATH!!!
 
-function bananaProjectionMatrixFrontHalfDirectX(fovY, aspect, z0)
-{
-  const height = 1 / Math.tan(fovY / 2);
-  const width = height / aspect;
-  return mat4.fromValues(
-    width, 0., 0., 0.,
-    0., height, 0., 0.,
-    0., 0., 0.25, 1.,
-    0., 0., -z0 / 4., 0);
+function bananaProjectionMatrixFrontHalfDirectX(fovY, aspect, z0) {
+	const height = 1 / Math.tan(fovY / 2);
+	const width = height / aspect;
+	return mat4.fromValues(
+		width, 0., 0., 0.,
+		0., height, 0., 0.,
+		0., 0., 0.25, 1.,
+		0., 0., -z0 / 4., 0);
 }
 
-export function bananaProjectionMatrixFrontHalf(fovY, aspect, z0)
-{
-  const height = 1 / Math.tan(fovY / 2);
-  const width = height / aspect;
-  return mat4.fromValues(
-    width, 0., 0., 0.,
-    0., height, 0., 0.,
-    0., 0., -0.5, -z0/2.,
-    0., 0., -1., 0);
+export function bananaProjectionMatrixFrontHalf(fovY, aspect, z0) {
+	const height = 1 / Math.tan(fovY / 2);
+	const width = height / aspect;
+	const mat = mat4.fromValues(
+		width, 0., 0., 0.,
+		0., height, 0., 0.,
+		0., 0., -0.5, -z0 / 2.,
+		0., 0., -1., 0);
+
+	return mat;
 }
 
 
 // rotation around plane XY which stays invariant
 export function sphericalRotationZW(d) {
-    return mat4.fromValues(
-        1, 0, 0, 0,
-        0, 1, 0, 0,
-        0, 0, Math.cos(d), -Math.sin(d),
-        0, 0, Math.sin(d), Math.cos(d));
+	return mat4.fromValues(
+		1, 0, 0, 0,
+		0, 1, 0, 0,
+		0, 0, Math.cos(d), -Math.sin(d),
+		0, 0, Math.sin(d), Math.cos(d));
 }
 
 export function sphericalRotationXW(d) {
-    return mat4.fromValues(
-        Math.cos(d), 0, 0, -Math.sin(d),
-        0, 1, 0, 0,
-        0, 0, 1, 0,
-        Math.sin(d), 0, 0, Math.cos(d));
+	return mat4.fromValues(
+		Math.cos(d), 0, 0, -Math.sin(d),
+		0, 1, 0, 0,
+		0, 0, 1, 0,
+		Math.sin(d), 0, 0, Math.cos(d));
 }
 
 export function sphericalRotationYW(d) {
-    return mat4.fromValues(
-        1, 0, 0, 0,
-        0, Math.cos(d), 0, -Math.sin(d),
-        0, 0, 1, 0,
-        0, Math.sin(d), 0, Math.cos(d));
+	return mat4.fromValues(
+		1, 0, 0, 0,
+		0, Math.cos(d), 0, -Math.sin(d),
+		0, 0, 1, 0,
+		0, Math.sin(d), 0, Math.cos(d));
 }
 
 export function sphericalRotationYZ(d) {
-    return mat4.fromValues(
-        1, 0, 0, 0,
-        0, Math.cos(d), -Math.sin(d), 0,
-        0, Math.sin(d), Math.cos(d), 0,
-        0, 0, 0, 1);
+	return mat4.fromValues(
+		1, 0, 0, 0,
+		0, Math.cos(d), -Math.sin(d), 0,
+		0, Math.sin(d), Math.cos(d), 0,
+		0, 0, 0, 1);
 }
 
 export function sphericalRotationXZ(d) {
-    return mat4.fromValues(
-        Math.cos(d), 0, -Math.sin(d), 0,
-        0, 1, 0, 0,
-        Math.sin(d), 0, Math.cos(d), 0,
-        0, 0, 0, 1);
+	return mat4.fromValues(
+		Math.cos(d), 0, -Math.sin(d), 0,
+		0, 1, 0, 0,
+		Math.sin(d), 0, Math.cos(d), 0,
+		0, 0, 0, 1);
 }
 
 export function sphericalRotationXY(d) {
-    return mat4.fromValues(
-        Math.cos(d), -Math.sin(d), 0, 0,
-        Math.sin(d), Math.cos(d), 0, 0,
-        0, 0, 1, 0,
-        0, 0, 0, 1);
+	return mat4.fromValues(
+		Math.cos(d), -Math.sin(d), 0, 0,
+		Math.sin(d), Math.cos(d), 0, 0,
+		0, 0, 1, 0,
+		0, 0, 0, 1);
 }
 
 export function sphericalDistance(vector1, vector2, radius) {
-    const chordLength = vec4.distance(vector1, vector2);
-    return 2 * radius * Math.asin(chordLength / (2. * radius)); // angle is 2arcsin(L/2R), length of arc equals angle * R
+	const chordLength = vec4.distance(vector1, vector2);
+	return 2 * radius * Math.asin(chordLength / (2. * radius)); // angle is 2arcsin(L/2R), length of arc equals angle * R
 }
 
 export function sphericalDistanceDirectional(vector1, vector2, radius, isAhead) {
-    const dist = sphericalDistance(vector1, vector2, radius);
-    if (isAhead)
-        return dist;
-    else
-        return 2 * Math.PI - dist;
+	const dist = sphericalDistance(vector1, vector2, radius);
+	if (isAhead)
+		return dist;
+	else
+		return 2 * Math.PI - dist;
 }
 
 //xyzw; returns: close to "z", "x", "y"
-export function getSphericalFromCartesian(vector)
-{
-    const x4 = vector[0];
-    const x3 = vector[1];
-    const x2 = vector[2];
-    const x1 = vector[3];
+export function getSphericalFromCartesian(vector) {
+	const x4 = vector[0];
+	const x3 = vector[1];
+	const x2 = vector[2];
+	const x1 = vector[3];
 
 	const x42 = x4 * x4;
 	const x22 = x2 * x2;
