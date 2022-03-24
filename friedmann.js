@@ -6,8 +6,8 @@ import * as SphericalMath from './spherical_math.js';
 // Obtain a reference to the canvas
 const canvas = document.querySelector("#glCanvas");
 const coordinates = document.getElementById("coordinates");
+const output1 = document.getElementById("output1");
 const output2 = document.getElementById("output2");
-const output3 = document.getElementById("output3");
 
 
 main()
@@ -221,7 +221,7 @@ function updatePage(scene, deltaTime) {
   else
     output2.innerHTML = "Mouse up!";
 
-  //output3.innerHTML = mat4.str(proj);
+  output1.innerHTML = mat4.str(proj);
 
   // if (leftMouseButtonClicked())
 
