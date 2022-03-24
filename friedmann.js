@@ -206,21 +206,23 @@ function updatePage(scene, deltaTime) {
   else
     output1.innerHTML = "Mouse outside!";
 
+  if (leftMouseButtonPressed)
+    output2.innerHTML = "dx: " + mouseChangeX + ", dy: " + mouseChangeY;
+  else
+    output2.innerHTML = "Mouse up!";
+
   // if (leftMouseButtonClicked())
 
   const transformed = vec4.fromValues(0, 0, 0, 1);
   vec4.transformMat4(transformed, transformed, SphericalMath.sphericalRotationYW(0.1))
-
+  //vec3.str()
   const dist = SphericalMath.sphericalDistance(
     transformed,
     vec4.fromValues(0, 0, 0, 1),
     1);
 
   const sphCoords = SphericalMath.getSphericalFromCartesian(transformed);
-  if (leftMouseButtonPressed)
-    output2.innerHTML = vec3.str(sphCoords);
-  else
-    output2.innerHTML = "Mouse up!";
+
 
   // TODO: dx, dy from mouse (probably in UpdateScene)
 }
