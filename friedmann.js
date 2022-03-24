@@ -187,12 +187,15 @@ function updatePage(scene, deltaTime) {
 
   //vec4.str
   const transformed = vec4.fromValues(0, 0, 0, 1);
+  vec4.transformMat4(transformed, transformed, SphericalMath.sphericalRotationYW(0.1))
+  const dist = SphericalMath.sphericalDistance(
+    transformed,
+    vec4.fromValues(0, 0, 0, 1),
+    1
+    );
+  const sphCoords = SphericalMath.getSphericalFromCartesian(transformed);
   if (leftMouseButtonPressed)
-    output2.innerHTML = SphericalMath.sphericalDistance(
-              vec4.transformMat4(transformed, transformed, SphericalMath.sphericalRotationYW(0.1)),
-              vec4.fromValues(0, 0, 0, 1),
-              1
-              );
+    output2.innerHTML = vec3.str(sphCoords);
   else
     output2.innerHTML = "Mouse up!";
 
