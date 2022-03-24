@@ -174,11 +174,11 @@ function drawScene(gl, scene, deltaTime) {
 
   // Set the shader uniforms
   gl.uniformMatrix4fv(
-    programInfo.uniformLocations.projectionMatrix,
+    programInfo.uniformLocations.projectionMatrixFront,
     false,
     constants.projectionMatrix);
   gl.uniformMatrix4fv(
-    programInfo.uniformLocations.viewMatrix,
+    programInfo.uniformLocations.viewMatrixFront,
     false,
     constants.viewMatrix);
   gl.uniformMatrix4fv(
