@@ -53,10 +53,14 @@ function main() {
 
 var cubeRotationX = 0.;
 var cubeRotationY = 0.;
+
+var oldMouseX = -1;
+var oldMouseY = -1;
+
 function updateScene(scene, deltaTime) {
   mouseX, mouseY = -1;
   if (leftMouseButtonPressed) {
-    
+
   }
 
 
