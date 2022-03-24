@@ -18,8 +18,8 @@ export function bananaProjectionMatrixFrontHalf(fovY, aspect, z0)
   return mat4.fromValues(
     width, 0., 0., 0.,
     0., height, 0., 0.,
-    0., 0., 0.25, 1.,
-    0., 0., -z0 / 4., 0);
+    0., 0., -0.5, -z0/2.,
+    0., 0., -1., 0);
 }
 
 
