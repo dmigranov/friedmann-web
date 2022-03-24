@@ -4,7 +4,7 @@ function bananaProjectionMatrixFrontHalfDirectX(fovY, aspect, z0)
 {
   const height = 1 / Math.tan(fovY / 2);
   const width = height / aspect;
-  return Matrix(
+  return mat4.fromValues(
     width, 0., 0., 0.,
     0., height, 0., 0.,
     0., 0., 0.25, 1.,
@@ -15,7 +15,7 @@ export function bananaProjectionMatrixFrontHalf(fovY, aspect, z0)
 {
   const height = 1 / Math.tan(fovY / 2);
   const width = height / aspect;
-  return Matrix(
+  return mat4.fromValues(
     width, 0., 0., 0.,
     0., height, 0., 0.,
     0., 0., 0.25, 1.,
