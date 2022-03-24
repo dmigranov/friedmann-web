@@ -54,6 +54,13 @@ function main() {
 var cubeRotationX = 0.;
 var cubeRotationY = 0.;
 function updateScene(scene, deltaTime) {
+  mouseX, mouseY = -1;
+  if (leftMouseButtonPressed) {
+    
+  }
+
+
+  
   const constants = scene.constants;
 
   // OPTION 1
