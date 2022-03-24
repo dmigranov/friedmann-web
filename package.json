@@ -17,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/dmigranov/friedmann-web/issues"
   },
-  "homepage": "https://github.com/dmigranov/friedmann-web#readme"
+  "homepage": "https://github.com/dmigranov/friedmann-web#readme",
+  "dependencies": {
+    "gl-matrix": "^3.4.3"
+  }
 }
