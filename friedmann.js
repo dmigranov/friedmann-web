@@ -214,6 +214,7 @@ function updatePage(scene, deltaTime) {
   }
   else
     output2.innerHTML = "Mouse up!";
+
   // if (leftMouseButtonClicked())
 
   const transformed = vec4.fromValues(0, 0, 0, 1);
@@ -284,8 +285,9 @@ function initScene(gl) {
       vertexColor: gl.getAttribLocation(shaderProgram, 'aVertexColor'),
     },
     uniformLocations: {
-      projectionMatrix: gl.getUniformLocation(shaderProgram, 'uProjectionMatrixFront'),
-      viewMatrix: gl.getUniformLocation(shaderProgram, 'uViewMatrixFront'),
+      projectionMatrixFront: gl.getUniformLocation(shaderProgram, 'uProjectionMatrixFront'),
+      projectionMatrixBack: gl.getUniformLocation(shaderProgram, 'uProjectionMatrixBack'),
+      viewMatrixFront: gl.getUniformLocation(shaderProgram, 'uViewMatrixFront'),
       worldMatrix: gl.getUniformLocation(shaderProgram, 'uWorldMatrix'),
     },
   };
