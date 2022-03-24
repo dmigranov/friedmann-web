@@ -206,9 +206,7 @@ function drawScene(gl, scene, deltaTime) {
 
 function updatePage(scene, deltaTime) {
   const proj = scene.constants.projectionMatrix;
-  const projSph = SphericalMath.bananaProjectionMatrixFrontHalf();
-  const fieldOfView = 45 * Math.PI / 180;   // in radians
-  const aspect = gl.canvas.clientWidth / gl.canvas.clientHeight;
+  const projSph = SphericalMath.bananaProjectionMatrixFrontHalf(45 * Math.PI / 180, gl.canvas.clientWidth / gl.canvas.clientHeight, 0.1 );
 
   if (isCursorInsideCanvas)
     coordinates.innerHTML = "Mouse:  <br />" + " x: " + mouseX + ", y: " + mouseY;
