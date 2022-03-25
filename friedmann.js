@@ -23,6 +23,9 @@ function main() {
 		return;
 	}
 
+	gl.enable(gl.CULL_FACE);
+	//gl.cullFace(gl.FRONT_AND_BACK);
+
 	// Initialize user input handling
 	document.addEventListener('keydown', keyDownHandler);
 	document.addEventListener('keyup', keyUpHandler);
@@ -307,7 +310,7 @@ function initScene(gl) {
 
 	// Here's where we call the routine that builds all the objects we'll be drawing.
 	//const buffers = initBuffers(gl);
-	const buffers = SphericalMesh.createSphere(gl, 1, 6, 6, [1., 1., 1., 1.]);
+	const buffers = SphericalMesh.createSphere(gl, 1., 6, 6, [1., 1., 1., 1.]);
 	// Create a perspective matrix
 	const fieldOfView = 45 * Math.PI / 180;   // in radians
 	const aspect = gl.canvas.clientWidth / gl.canvas.clientHeight;
