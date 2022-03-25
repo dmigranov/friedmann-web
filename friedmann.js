@@ -199,7 +199,6 @@ function drawScene(gl, scene, deltaTime) {
 
 	//DRAW!
 	{
-		//const vertexCount = 36;
 		const vertexCount = buffers.indexCount;
 		const type = gl.UNSIGNED_SHORT;
 		const offset = 0;
