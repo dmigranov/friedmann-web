@@ -20,9 +20,9 @@ export function createSphere(gl, radius, sliceCount, stackCount, color) {
 
 	var i, j;
 	for (i = 1; i <= stackCount - 1; i++) {
-		const phi = i * phiStep;
+		var phi = i * phiStep;
 		for (j = 0; j <= sliceCount; j++) {
-			const theta = j * thetaStep;
+			var theta = j * thetaStep;
 			positions.push(
 				(radius * Math.sin(phi) * Math.cos(theta)),
 				(radius * Math.cos(phi)),
