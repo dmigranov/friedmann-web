@@ -16,6 +16,12 @@ export function createSphere(gl, radius, sliceCount, stackCount, color) {
 	colors.concat(color);	
 	console.log(colors);
 
+
+	// South Pole
+	positions.push(0., -radius, 0., 1);	//todo: заменить 1 на height
+	colors.concat(color);	
+	console.log(colors);
+
 	const positionBuffer = gl.createBuffer();
 	gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
 	gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(positions), gl.STATIC_DRAW);
