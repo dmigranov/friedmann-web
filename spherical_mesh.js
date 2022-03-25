@@ -22,20 +22,14 @@ export function createSphere(gl, radius, sliceCount, stackCount, color) {
 		const phi = i * phiStep;
 		for (var j = 0; j <= sliceCount; j++) {
 			const theta = j * thetaStep;
-            XMFLOAT4 pos(
-				(radius * sinf(phi) * cosf(theta)),
-				(radius * cosf(phi)),
-				(radius * sinf(phi) * sinf(theta)),
-				height
+            positions.push(
+				(radius * Math.sin(phi) * Math.cos(theta)),
+				(radius * Math.cos(phi)),
+				(radius * Math.sin(phi) * Math.sin(theta)),
+				1 //todo: заменить на height
 			);
-
-            const uv = XMFLOAT2(theta / XM_2PI, phi / XM_PI);
-			vertices.push_back({
-				pos,
-				//pos,       //так как это сфера! нормализовывать не нужно, так как и так радиус пространства 1 (но если сферическое пространство произвольного радиуса, то нужно)
-				uv
-			});
-
+			colors.concat(color); //проверить
+            tex.push(theta / (2 * Math.PI), phi / Math.PI);
 		}
 	}
 
