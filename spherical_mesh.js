@@ -8,6 +8,7 @@ export function createSphere(gl, radius, sliceCount, stackCount, color) {
 	var positions = [];
 	var colors = [];
 	var indices = [];
+	var tex = [];
 
 	//todo
 
@@ -15,12 +16,14 @@ export function createSphere(gl, radius, sliceCount, stackCount, color) {
 	positions.push(0., radius, 0., 1);	//todo: заменить 1 на height
 	colors.concat(color);	
 	console.log(colors);
+	tex.push(0., 0.);
 
 
 	// South Pole
 	positions.push(0., -radius, 0., 1);	//todo: заменить 1 на height
 	colors.concat(color);	
 	console.log(colors);
+	tex.push(0., 1.);
 
 	const positionBuffer = gl.createBuffer();
 	gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
