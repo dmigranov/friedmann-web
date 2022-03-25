@@ -1,7 +1,7 @@
 
 export function createSphere(gl, radius, sliceCount, stackCount, color) {
 	const phiStep = Math.PI / stackCount;
-	const thetaStep = Math.PI / sliceCount;
+	const thetaStep = 2 * Math.PI / sliceCount;
 
 	const height = Math.sqrt(1. - (radius * radius)); //
 
