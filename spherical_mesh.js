@@ -1,8 +1,9 @@
 
-export function createSphere(gl, radius, sliceCount, stackCount) {
+export function createSphere(gl, radius, sliceCount, stackCount, color) {
 	const phiStep = Math.PI / stackCount;
 	const thetaStep = Math.PI / sliceCount;
 
+	const height = Math.sqrt(1. - (radius * radius));
 
 	var positions = [];
 	var colors = [];
@@ -10,6 +11,9 @@ export function createSphere(gl, radius, sliceCount, stackCount) {
 
 	//todo
 
+	// North Pole
+	positions.push(0., radius, 0., height);	
+	colors.push(color);
 
 	const positionBuffer = gl.createBuffer();
 	gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
