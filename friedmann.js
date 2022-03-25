@@ -302,7 +302,7 @@ function initScene(gl) {
 			viewMatrixFront: gl.getUniformLocation(shaderProgram, 'uViewMatrixFront'),
 			worldMatrix: gl.getUniformLocation(shaderProgram, 'uWorldMatrix'),
 		},
-	};
+	}; 
 
 	// Here's where we call the routine that builds all the objects we'll be drawing.
 	//const buffers = initBuffers(gl);
