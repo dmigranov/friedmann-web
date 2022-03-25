@@ -196,7 +196,7 @@ function drawScene(gl, scene, deltaTime) {
 
 	//DRAW!
 	{
-		const vertexCount = 36;
+		//const vertexCount = 36;
 		const type = gl.UNSIGNED_SHORT;
 		const offset = 0;
 		//gl.drawElements(gl.TRIANGLES, vertexCount, type, offset); 
@@ -306,7 +306,7 @@ function initScene(gl) {
 
 	// Here's where we call the routine that builds all the objects we'll be drawing.
 	//const buffers = initBuffers(gl);
-	const buffers = SphericalMesh.createSphere(gl, 1, 10, 10, [1., 1., 1., 1.]);
+	const buffers = SphericalMesh.createSphere(gl, 1, 8, 8, [1., 1., 1., 1.]);
 	// Create a perspective matrix
 	const fieldOfView = 45 * Math.PI / 180;   // in radians
 	const aspect = gl.canvas.clientWidth / gl.canvas.clientHeight;

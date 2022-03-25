@@ -1,7 +1,7 @@
 
 export function createSphere(gl, radius, sliceCount, stackCount, color) {
 	const phiStep = Math.PI / stackCount;
-	const thetaStep = 2 * Math.PI / sliceCount;
+	const thetaStep = 2. * Math.PI / sliceCount;
 
 	const height = Math.sqrt(1. - (radius * radius)); //
 
@@ -23,14 +23,14 @@ export function createSphere(gl, radius, sliceCount, stackCount, color) {
 		const phi = i * phiStep;
 		for (j = 0; j <= sliceCount; j++) {
 			const theta = j * thetaStep;
-            positions.push(
+			positions.push(
 				(radius * Math.sin(phi) * Math.cos(theta)),
 				(radius * Math.cos(phi)),
 				(radius * Math.sin(phi) * Math.sin(theta)),
 				1 //todo: заменить 1 на height
 			);
 			colors.push(color[0], color[1], color[2], color[3]);
-            tex.push(theta / (2 * Math.PI), phi / Math.PI);
+			tex.push(theta / (2 * Math.PI), phi / Math.PI);
 			vertexCount++;
 		}
 	}
@@ -44,38 +44,39 @@ export function createSphere(gl, radius, sliceCount, stackCount, color) {
 
 
 	// Indices
-	var baseIndex = 1;
 	const ringVertexCount = sliceCount + 1;
 
-/*
-	const northPoleIndex = 0;
-    for (i = 1; i <= sliceCount; i++) {
-        indices.push(northPoleIndex);
-        indices.push(i + 1);
-        indices.push(i);
-    }
-*/
-    
-    for (i = 0; i < stackCount - 2; i++) {
-        for (j = 0; j < sliceCount; j++) {
-            indices.push(baseIndex + i * ringVertexCount + j);
-            indices.push(baseIndex + i * ringVertexCount + j + 1);
-            indices.push(baseIndex + (i + 1) * ringVertexCount + j);
 
-            indices.push(baseIndex + (i + 1) * ringVertexCount + j);
-            indices.push(baseIndex + i * ringVertexCount + j + 1);
-            indices.push(baseIndex + (i + 1) * ringVertexCount + j + 1);
-        }
-    }
-/*
-    const southPoleIndex = vertexCount - 1;
-    baseIndex = southPoleIndex - ringVertexCount;
-    for (i = 0; i < sliceCount; i++) {
-        indices.push(southPoleIndex);
-        indices.push(baseIndex + i);
-        indices.push(baseIndex + i + 1);
-    }
-*/
+	const northPoleIndex = 0;
+	for (i = 1; i <= sliceCount; i++) {
+		//indices.push(northPoleIndex);
+		//indices.push(i + 1);
+		//indices.push(i);
+	}
+
+
+	var baseIndex = 1;
+	for (i = 0; i < stackCount - 2; i++) {
+		for (j = 0; j < sliceCount; j++) {
+			indices.push(baseIndex + i * ringVertexCount + j + 1);
+
+			indices.push(baseIndex + i * ringVertexCount + j);
+			indices.push(baseIndex + (i + 1) * ringVertexCount + j);
+
+			indices.push(baseIndex + (i + 1) * ringVertexCount + j);
+			indices.push(baseIndex + i * ringVertexCount + j + 1);
+			indices.push(baseIndex + (i + 1) * ringVertexCount + j + 1);
+		}
+	}
+	/*
+		const southPoleIndex = vertexCount - 1;
+		baseIndex = southPoleIndex - ringVertexCount;
+		for (i = 0; i < sliceCount; i++) {
+			indices.push(southPoleIndex);
+			indices.push(baseIndex + i);
+			indices.push(baseIndex + i + 1);
+		}
+	*/
 	console.log(indices);
 
 	const positionBuffer = gl.createBuffer();
