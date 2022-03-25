@@ -46,9 +46,6 @@ export function createSphere(gl, radius, sliceCount, stackCount, color) {
 
 	// Indices
 
-	var indexCount = 0;
-
-	
 	const northPoleIndex = 0;
 	for (i = 1; i <= sliceCount; i++) {
 		indices.push(northPoleIndex);
@@ -78,7 +75,7 @@ export function createSphere(gl, radius, sliceCount, stackCount, color) {
 		indices.push(baseIndex + i + 1);
 	}
 
-	indexCount = indices.length;
+	const indexCount = indices.length;
 
 	const positionBuffer = gl.createBuffer();
 	gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
