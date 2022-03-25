@@ -10,13 +10,14 @@ export function createSphere(gl, radius, sliceCount, stackCount, color) {
 	var indices = [];
 	var tex = [];
 
-	//todo
+	var vertexCount = 0;
 
 	// North Pole
 	positions.push(0., radius, 0., 1);	//todo: заменить 1 на height
 	colors.concat(color);
 	console.log(colors);
 	tex.push(0., 0.);
+	vertexCount++;
 
 
 	for (var i = 1; i <= stackCount - 1; i++) {
@@ -31,6 +32,7 @@ export function createSphere(gl, radius, sliceCount, stackCount, color) {
 			);
 			colors.concat(color); //проверить
             tex.push(theta / (2 * Math.PI), phi / Math.PI);
+			vertexCount++;
 		}
 	}
 
@@ -40,6 +42,7 @@ export function createSphere(gl, radius, sliceCount, stackCount, color) {
 	colors.concat(color);
 	console.log(colors);
 	tex.push(0., 1.);
+	vertexCount++;
 
 	// Indices
 	const northPoleIndex = 0;
@@ -63,7 +66,7 @@ export function createSphere(gl, radius, sliceCount, stackCount, color) {
         }
     }
 
-    const southPoleIndex = vertices.length - 1;
+    const southPoleIndex = vertexCount++; - 1;
     baseIndex = southPoleIndex - ringVertexCount;
     for (var i = 0; i < sliceCount; i++) {
         indices.push_back(southPoleIndex);
