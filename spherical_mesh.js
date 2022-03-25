@@ -12,8 +12,9 @@ export function createSphere(gl, radius, sliceCount, stackCount, color) {
 	//todo
 
 	// North Pole
-	positions.push(0., radius, 0., height);	
-	colors.push(color);
+	positions.push(0., radius, 0., 1);	//todo: заменить 1 на height
+	colors.concat(color);	
+	console.log(colors);
 
 	const positionBuffer = gl.createBuffer();
 	gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);

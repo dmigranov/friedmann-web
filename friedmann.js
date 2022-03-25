@@ -397,7 +397,6 @@ function initBuffers(gl) {
 		const c = faceColors[j];
 		colors = colors.concat(c, c, c, c);     // Repeat each color four times for the four vertices of the face
 	}
-	console.log(colors);
 
 	const colorBuffer = gl.createBuffer();
 	gl.bindBuffer(gl.ARRAY_BUFFER, colorBuffer);
