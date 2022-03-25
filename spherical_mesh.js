@@ -19,10 +19,10 @@ export function createSphere(gl, radius, sliceCount, stackCount, color) {
 	tex.push(0., 0.);
 	vertexCount++;
 
-
-	for (var i = 1; i <= stackCount - 1; i++) {
+	var i, j;
+	for (i = 1; i <= stackCount - 1; i++) {
 		const phi = i * phiStep;
-		for (var j = 0; j <= sliceCount; j++) {
+		for (j = 0; j <= sliceCount; j++) {
 			const theta = j * thetaStep;
             positions.push(
 				(radius * Math.sin(phi) * Math.cos(theta)),
@@ -46,7 +46,7 @@ export function createSphere(gl, radius, sliceCount, stackCount, color) {
 
 	// Indices
 	const northPoleIndex = 0;
-    for (var i = 1; i <= sliceCount; i++) {
+    for (i = 1; i <= sliceCount; i++) {
         indices.push(northPoleIndex);
         indices.push(i + 1);
         indices.push(i);
@@ -54,8 +54,8 @@ export function createSphere(gl, radius, sliceCount, stackCount, color) {
 
     var baseIndex = 1;
     const ringVertexCount = sliceCount + 1;
-    for (var i = 0; i < stackCount - 2; i++) {
-        for (var j = 0; j < sliceCount; j++) {
+    for (i = 0; i < stackCount - 2; i++) {
+        for (j = 0; j < sliceCount; j++) {
             indices.push(baseIndex + i * ringVertexCount + j);
             indices.push(baseIndex + i * ringVertexCount + j + 1);
             indices.push(baseIndex + (i + 1) * ringVertexCount + j);
@@ -68,7 +68,7 @@ export function createSphere(gl, radius, sliceCount, stackCount, color) {
 
     const southPoleIndex = vertexCount++; - 1;
     baseIndex = southPoleIndex - ringVertexCount;
-    for (var i = 0; i < sliceCount; i++) {
+    for (i = 0; i < sliceCount; i++) {
         indices.push_back(southPoleIndex);
         indices.push_back(baseIndex + i);
         indices.push_back(baseIndex + i + 1);
