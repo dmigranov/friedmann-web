@@ -18,6 +18,7 @@ export function createSphere(gl, radius, sliceCount, stackCount, color) {
 	console.log(colors);
 	tex.push(0., 0.);
 
+
 	for (var i = 1; i <= stackCount - 1; i++) {
 		const phi = i * phiStep;
 		for (var j = 0; j <= sliceCount; j++) {
@@ -26,7 +27,7 @@ export function createSphere(gl, radius, sliceCount, stackCount, color) {
 				(radius * Math.sin(phi) * Math.cos(theta)),
 				(radius * Math.cos(phi)),
 				(radius * Math.sin(phi) * Math.sin(theta)),
-				1 //todo: заменить на height
+				1 //todo: заменить 1 на height
 			);
 			colors.concat(color); //проверить
             tex.push(theta / (2 * Math.PI), phi / Math.PI);
@@ -39,6 +40,9 @@ export function createSphere(gl, radius, sliceCount, stackCount, color) {
 	colors.concat(color);
 	console.log(colors);
 	tex.push(0., 1.);
+
+	// Indices
+	// todo
 
 	const positionBuffer = gl.createBuffer();
 	gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
