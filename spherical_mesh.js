@@ -42,21 +42,19 @@ export function createSphere(gl, radius, sliceCount, stackCount, color) {
 	tex.push(0., 1.);
 	vertexCount++;
 
-	var triCount = 0;
 	console.log(positions);
 
 	// Indices
 
 	var indexCount = 0;
 
-	/*
+	
 	const northPoleIndex = 0;
 	for (i = 1; i <= sliceCount; i++) {
 		indices.push(northPoleIndex);
 		indices.push(i + 1);
 		indices.push(i);
 	}
-	*/
 
 	var baseIndex = 1;
 	const ringVertexCount = sliceCount + 1;
