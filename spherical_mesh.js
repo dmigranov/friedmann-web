@@ -65,9 +65,9 @@ export function createSphere(gl, radius, sliceCount, stackCount, color) {
 			indices.push(baseIndex + (i + 1) * ringVertexCount + j);
 			triCount++;
 
-			//indices.push(baseIndex + (i + 1) * ringVertexCount + j);
-			//indices.push(baseIndex + i * ringVertexCount + j + 1);
-			//indices.push(baseIndex + (i + 1) * ringVertexCount + j + 1);
+			indices.push(baseIndex + (i + 1) * ringVertexCount + j);
+			indices.push(baseIndex + i * ringVertexCount + j + 1);
+			indices.push(baseIndex + (i + 1) * ringVertexCount + j + 1);
 		}
 	}
 	console.log(triCount);
