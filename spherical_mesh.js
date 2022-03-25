@@ -42,7 +42,34 @@ export function createSphere(gl, radius, sliceCount, stackCount, color) {
 	tex.push(0., 1.);
 
 	// Indices
-	// todo
+	const northPoleIndex = 0;
+    for (var i = 1; i <= sliceCount; i++) {
+        indices.push(northPoleIndex);
+        indices.push(i + 1);
+        indices.push(i);
+    }
+
+    var baseIndex = 1;
+    const ringVertexCount = sliceCount + 1;
+    for (var i = 0; i < stackCount - 2; i++) {
+        for (var j = 0; j < sliceCount; j++) {
+            indices.push(baseIndex + i * ringVertexCount + j);
+            indices.push(baseIndex + i * ringVertexCount + j + 1);
+            indices.push(baseIndex + (i + 1) * ringVertexCount + j);
+
+            indices.push(baseIndex + (i + 1) * ringVertexCount + j);
+            indices.push(baseIndex + i * ringVertexCount + j + 1);
+            indices.push(baseIndex + (i + 1) * ringVertexCount + j + 1);
+        }
+    }
+
+    const southPoleIndex = vertices.length - 1;
+    baseIndex = southPoleIndex - ringVertexCount;
+    for (var i = 0; i < sliceCount; i++) {
+        indices.push_back(southPoleIndex);
+        indices.push_back(baseIndex + i);
+        indices.push_back(baseIndex + i + 1);
+    }
 
 	const positionBuffer = gl.createBuffer();
 	gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
