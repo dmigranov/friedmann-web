@@ -132,7 +132,7 @@ function drawScene(gl, scene, deltaTime) {
 	// (we bind the square's vertex buffer to the attribute the shader is using for aVertexPosition )
 	// Attributes receive values from buffers. Each iteration of the vertex shader receives the next value from the buffer assigned to that attribute
 	{
-		const numComponents = 3; // pull out 3 values per iteration (xyz); in future - 4!
+		const numComponents = 4; // pull out 3 values per iteration (xyz); in future - 4!
 		const type = gl.FLOAT;
 		const normalize = false;
 		const stride = 0;
