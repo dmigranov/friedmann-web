@@ -42,8 +42,6 @@ export function createSphere(gl, radius, sliceCount, stackCount, color) {
 	tex.push(0., 1.);
 	vertexCount++;
 
-	console.log(positions);
-
 	// Indices
 
 	const northPoleIndex = 0;
