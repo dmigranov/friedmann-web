@@ -46,8 +46,8 @@ export function createSphere(gl, radius, sliceCount, stackCount, color) {
 	console.log(positions);
 
 	// Indices
-	const ringVertexCount = sliceCount + 1;
 
+	var indexCount = 0;
 
 	/*
 	const northPoleIndex = 0;
@@ -59,6 +59,7 @@ export function createSphere(gl, radius, sliceCount, stackCount, color) {
 	*/
 
 	var baseIndex = 1;
+	const ringVertexCount = sliceCount + 1;
 	for (i = 0; i < (stackCount - 2); i++) {
 		for (j = 0; j < sliceCount; j++) {
 			indices.push(baseIndex + i * ringVertexCount + j);
@@ -70,8 +71,6 @@ export function createSphere(gl, radius, sliceCount, stackCount, color) {
 			indices.push(baseIndex + (i + 1) * ringVertexCount + j + 1);
 		}
 	}
-	console.log(triCount);
-
 
 	const southPoleIndex = vertexCount - 1;
 	baseIndex = southPoleIndex - ringVertexCount;
@@ -81,6 +80,7 @@ export function createSphere(gl, radius, sliceCount, stackCount, color) {
 		indices.push(baseIndex + i + 1);
 	}
 
+	indexCount = indices.length;
 
 	const positionBuffer = gl.createBuffer();
 	gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
@@ -99,6 +99,6 @@ export function createSphere(gl, radius, sliceCount, stackCount, color) {
 		position: positionBuffer,
 		color: colorBuffer,
 		indices: indexBuffer,
-		vertexCount: vertexCount,
+		indexCount: indexCount,
 	};
 }
