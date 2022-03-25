@@ -132,7 +132,7 @@ function drawScene(gl, scene, deltaTime) {
 	// (we bind the square's vertex buffer to the attribute the shader is using for aVertexPosition )
 	// Attributes receive values from buffers. Each iteration of the vertex shader receives the next value from the buffer assigned to that attribute
 	{
-		const numComponents = 4; // pull out 3 values per iteration (xyz); in future - 4!
+		const numComponents = 4; // pull out 4 values per iteration (xyzw);
 		const type = gl.FLOAT;
 		const normalize = false;
 		const stride = 0;
@@ -306,7 +306,7 @@ function initScene(gl) {
 
 	// Here's where we call the routine that builds all the objects we'll be drawing.
 	//const buffers = initBuffers(gl);
-	const buffers = SphericalMesh.createSphere(gl, 1, 10, 10, [1, 1, 1, 1]);
+	const buffers = SphericalMesh.createSphere(gl, 1, 10, 10, [1., 1., 1., 1.]);
 	// Create a perspective matrix
 	const fieldOfView = 45 * Math.PI / 180;   // in radians
 	const aspect = gl.canvas.clientWidth / gl.canvas.clientHeight;

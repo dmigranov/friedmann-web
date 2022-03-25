@@ -14,7 +14,7 @@ export function createSphere(gl, radius, sliceCount, stackCount, color) {
 
 	// North Pole
 	positions.push(0., radius, 0., 1);	//todo: заменить 1 на height
-	colors.concat(color);
+	colors.push(color[0], color[1], color[2], color[3]);
 	tex.push(0., 0.);
 	vertexCount++;
 
@@ -29,7 +29,7 @@ export function createSphere(gl, radius, sliceCount, stackCount, color) {
 				(radius * Math.sin(phi) * Math.sin(theta)),
 				1 //todo: заменить 1 на height
 			);
-			colors.concat(color); //проверить
+			colors.push(color[0], color[1], color[2], color[3]);
             tex.push(theta / (2 * Math.PI), phi / Math.PI);
 			vertexCount++;
 		}
@@ -38,20 +38,24 @@ export function createSphere(gl, radius, sliceCount, stackCount, color) {
 
 	// South Pole
 	positions.push(0., -radius, 0., 1);	//todo: заменить 1 на height
-	colors.concat(color);
+	colors.push(color[0], color[1], color[2], color[3]);
 	tex.push(0., 1.);
 	vertexCount++;
 
+
 	// Indices
+	var baseIndex = 1;
+	const ringVertexCount = sliceCount + 1;
+
+/*
 	const northPoleIndex = 0;
     for (i = 1; i <= sliceCount; i++) {
         indices.push(northPoleIndex);
         indices.push(i + 1);
         indices.push(i);
     }
-
-    var baseIndex = 1;
-    const ringVertexCount = sliceCount + 1;
+*/
+    
     for (i = 0; i < stackCount - 2; i++) {
         for (j = 0; j < sliceCount; j++) {
             indices.push(baseIndex + i * ringVertexCount + j);
@@ -63,7 +67,7 @@ export function createSphere(gl, radius, sliceCount, stackCount, color) {
             indices.push(baseIndex + (i + 1) * ringVertexCount + j + 1);
         }
     }
-
+/*
     const southPoleIndex = vertexCount - 1;
     baseIndex = southPoleIndex - ringVertexCount;
     for (i = 0; i < sliceCount; i++) {
@@ -71,8 +75,8 @@ export function createSphere(gl, radius, sliceCount, stackCount, color) {
         indices.push(baseIndex + i);
         indices.push(baseIndex + i + 1);
     }
-
-	console.log(colors);
+*/
+	console.log(indices);
 
 	const positionBuffer = gl.createBuffer();
 	gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
