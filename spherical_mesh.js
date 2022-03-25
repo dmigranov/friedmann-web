@@ -1,8 +1,14 @@
 
-export function createSphere(gl) {
+export function createSphere(gl, radius, sliceCount, stackCount) {
+	const phiStep = Math.PI / stackCount;
+	const thetaStep = Math.PI / sliceCount;
+
+
 	var positions = [];
 	var colors = [];
 	var indices = [];
+
+	//todo
 
 
 	const positionBuffer = gl.createBuffer();
