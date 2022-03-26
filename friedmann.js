@@ -108,7 +108,7 @@ function updateScene(scene, deltaTime) {
 		}
 
 		mat4.rotate(viewMatrix, viewMatrix, cubeRotationX, [0, 1, 0]);
-		mat4.rotate(viewMatrix, viewMatrix, cubeRotationY, [1, 0, 0]);
+		mat4.rotate(viewMatrix, viewMatrix, -cubeRotationY, [1, 0, 0]);
 		mat4.translate(viewMatrix, viewMatrix, [-0.0, 0.0, -6.0]);
 
 
