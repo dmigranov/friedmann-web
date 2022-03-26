@@ -306,17 +306,6 @@ function initScene(gl) {
 	// Here's where we call the routine that builds all the objects we'll be drawing.
 	const buffers = SphericalMesh.createSphere(gl, 0.1, 10, 10, [0., 1., 0., 1.]);
 
-	// Create a perspective matrix
-	const fieldOfView = 45 * Math.PI / 180;   // in radians
-	const aspect = gl.canvas.clientWidth / gl.canvas.clientHeight;
-	const zNear = 0.1;
-	const zFar = 100.0;
-	const projectionMatrix = mat4.create();
-	mat4.perspective(projectionMatrix, fieldOfView, aspect, zNear, zFar);
-
-	//const worldMatrix = mat4.create();
-	//mat4.translate(worldMatrix, worldMatrix, [-0.0, 0.0, -6.0]);
-
 	const worldMatrix = SphericalMath.sphericalRotationZW(-2);
 
 	const viewMatrixFront = mat4.create();
