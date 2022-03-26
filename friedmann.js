@@ -22,7 +22,7 @@ else
 	main()
 
 function main() {
-	gl.enable(gl.CULL_FACE); // should it stay? TODO
+	//gl.enable(gl.CULL_FACE); // should it stay? TODO
 
 	// Initialize user input handling
 	document.addEventListener('keydown', keyDownHandler);
@@ -304,7 +304,7 @@ function initScene(gl) {
 	};
 
 	// Here's where we call the routine that builds all the objects we'll be drawing.
-	const buffers = SphericalMesh.createSphere(gl, 0.5, 10, 10, [0., 1., 0., 1.]);
+	const buffers = SphericalMesh.createSphere(gl, 0.1, 10, 10, [0., 1., 0., 1.]);
 
 	// Create a perspective matrix
 	const fieldOfView = 45 * Math.PI / 180;   // in radians
@@ -317,7 +317,7 @@ function initScene(gl) {
 	//const worldMatrix = mat4.create();
 	//mat4.translate(worldMatrix, worldMatrix, [-0.0, 0.0, -6.0]);
 
-	const worldMatrix = SphericalMath.sphericalRotationZW(-0.5);
+	const worldMatrix = SphericalMath.sphericalRotationZW(-2);
 
 	const viewMatrixFront = mat4.create();
 
