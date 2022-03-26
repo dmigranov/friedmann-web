@@ -301,8 +301,8 @@ function initScene(gl) {
 	};
 
 	// Here's where we call the routine that builds all the objects we'll be drawing.
-	//const buffers = initBuffers(gl);
 	const buffers = SphericalMesh.createSphere(gl, 0.5, 10, 10, [0., 1., 0., 1.]);
+
 	// Create a perspective matrix
 	const fieldOfView = 45 * Math.PI / 180;   // in radians
 	const aspect = gl.canvas.clientWidth / gl.canvas.clientHeight;
@@ -423,9 +423,6 @@ function initBuffers(gl) {
 
 // CONTROLS
 // https://github.com/end3r/JavaScript-Game-Controls/
-
-
-// KEYBOARD
 
 var rightPressed = false;
 var leftPressed = false;
