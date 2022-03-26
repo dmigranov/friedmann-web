@@ -53,8 +53,8 @@ function main() {
 }
 
 
-var cubeRotationX = 0.;
-var cubeRotationY = 0.;
+var cameraRotationX = 0.;
+var cameraRotationY = 0.;
 
 var oldMouseX = -1;
 var oldMouseY = -1;
@@ -95,20 +95,20 @@ function updateScene(scene, deltaTime) {
 		const viewMatrix = mat4.create();
 
 		if (leftPressed) {
-			cubeRotationX -= deltaTime;
+			cameraRotationX -= deltaTime;
 		}
 		if (rightPressed) {
-			cubeRotationX += deltaTime;
+			cameraRotationX += deltaTime;
 		}
 		if (upPressed) {
-			cubeRotationY += deltaTime;
+			cameraRotationY += deltaTime;
 		}
 		if (downPressed) {
-			cubeRotationY -= deltaTime;
+			cameraRotationY -= deltaTime;
 		}
 
-		mat4.rotate(viewMatrix, viewMatrix, cubeRotationX, [0, 1, 0]);
-		mat4.rotate(viewMatrix, viewMatrix, -cubeRotationY, [1, 0, 0]);
+		mat4.rotate(viewMatrix, viewMatrix, cameraRotationX, [0, 1, 0]);
+		mat4.rotate(viewMatrix, viewMatrix, -cameraRotationY, [1, 0, 0]);
 
 
 		constants.viewMatrixFront = viewMatrix;
@@ -274,7 +274,7 @@ function initScene(gl) {
 			projectionMatrix = uProjectionMatrixBack;
 		}
 
-		gl_Position = uProjectionMatrixFront * viewMatrix * uWorldMatrix * aVertexPosition;
+		gl_Position = projectionMatrix * viewMatrix * uWorldMatrix * aVertexPosition;
 		vColor = aVertexColor; 
 	}`;
 
