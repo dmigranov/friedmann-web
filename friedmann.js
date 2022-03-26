@@ -225,7 +225,7 @@ function updatePage(scene, deltaTime) {
 	else
 		output2.innerHTML = "Mouse up!";
 
-	output1.innerHTML = mat4.str(proj) + " " + mat4.str(projSph);
+	output1.innerHTML = cameraRotationX;
 
 	// if (leftMouseButtonClicked())
 
