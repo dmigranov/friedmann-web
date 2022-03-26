@@ -6,23 +6,21 @@ import * as SphericalMesh from './spherical_mesh.js';
 
 // Obtain a reference to the canvas
 const canvas = document.querySelector("#glCanvas");
+
 const coordinates = document.getElementById("coordinates");
 const output1 = document.getElementById("output1");
 const output2 = document.getElementById("output2");
 
+// Initialize the GL context
 const gl = canvas.getContext("webgl2");
 
-main()
+// Only continue if WebGL is available and working
+if (gl === null)
+	alert("Unable to initialize WebGL. Your browser or machine may not support it.");
+else
+	main()
 
 function main() {
-	// Initialize the GL context
-
-	// Only continue if WebGL is available and working
-	if (gl === null) {
-		alert("Unable to initialize WebGL. Your browser or machine may not support it.");
-		return;
-	}
-
 	gl.enable(gl.CULL_FACE); // should it stay? TODO
 
 	// Initialize user input handling
@@ -304,7 +302,7 @@ function initScene(gl) {
 			viewMatrixFront: gl.getUniformLocation(shaderProgram, 'uViewMatrixFront'),
 			worldMatrix: gl.getUniformLocation(shaderProgram, 'uWorldMatrix'),
 		},
-	}; 
+	};
 
 	// Here's where we call the routine that builds all the objects we'll be drawing.
 	//const buffers = initBuffers(gl);
