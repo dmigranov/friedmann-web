@@ -322,6 +322,9 @@ function initScene(gl) {
 
 	const viewMatrix = mat4.create();
 
+	const projectionMatrixFront = Math.bananaProjectionMatrixFrontHalf(45 * Math.PI / 180, gl.canvas.clientWidth / gl.canvas.clientHeight, 0.1);;
+	const projectionMatrixBack = Math.bananaProjectionMatrixBackHalf(45 * Math.PI / 180, gl.canvas.clientWidth / gl.canvas.clientHeight, 0.1);;
+
 	const scene = {
 		programInfo: programInfo,
 		buffers: buffers,
