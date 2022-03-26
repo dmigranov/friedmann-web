@@ -246,28 +246,28 @@ function initScene(gl) {
 	// Vertex shader
 	const vsSource = `#version 300 es
   
-  in vec4 aVertexPosition; // webgl: in instead of attribute
-  in vec4 aVertexColor;
+	in vec4 aVertexPosition; // webgl: in instead of attribute
+	in vec4 aVertexColor;
 
-  uniform mat4 uWorldMatrix;
+	uniform mat4 uWorldMatrix;
+  
+	uniform mat4 uViewMatrixFront;
+  
+	uniform mat4 uProjectionMatrixFront;
+	uniform mat4 uProjectionMatrixBack;
 
-  uniform mat4 uViewMatrixFront;
+	out mediump vec4 vColor; //out = webgl 1.0 varyinh; used for interpolated data between a vertex shader and a fragment shader
 
-  uniform mat4 uProjectionMatrixFront;
-  uniform mat4 uProjectionMatrixBack;
+	void main() {
+		mat4 uViewMatrix;
+		if (gl_InstanceID == 0)
+			uViewMatrix = uViewMatrixFront;
+		else
+			uViewMatrix = uViewMatrixFront; //todo: домножить на матрицу
 
-  out mediump vec4 vColor; //out = webgl 1.0 varyinh; used for interpolated data between a vertex shader and a fragment shader
-
-  void main() {
-    mat4 uViewMatrix;
-    if (gl_InstanceID == 0)
-      uViewMatrix = uViewMatrixFront;
-    else
-      uViewMatrix = uViewMatrixFront; //todo: домножить на матрицу
-
-    gl_Position = uProjectionMatrixFront * uViewMatrix * uWorldMatrix * aVertexPosition;
-    vColor = aVertexColor; 
-  }`;
+		gl_Position = uProjectionMatrixFront * uViewMatrix * uWorldMatrix * aVertexPosition;
+		vColor = aVertexColor; 
+	}`;
 
 	// Fragment shader
 	const fsSource = `#version 300 es
