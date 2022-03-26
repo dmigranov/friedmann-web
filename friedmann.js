@@ -262,17 +262,19 @@ function initScene(gl) {
 	out mediump vec4 vColor; //out = webgl 1.0 varyinh; used for interpolated data between a vertex shader and a fragment shader
 
 	void main() {
-		mat4 uViewMatrix;
+		mat4 viewMatrix, projectionMatrix;
 		if (gl_InstanceID == 0)
 		{
-			uViewMatrix = uViewMatrixFront;
+			viewMatrix = uViewMatrixFront;
+			projectionMatrix = uProjectionMatrixFront;
 		}
 		else
 		{
-			uViewMatrix = uViewMatrixFront; //todo: домножить на матрицу
+			viewMatrix = uViewMatrixFront;
+			projectionMatrix = uProjectionMatrixBack;
 		}
-		
-		gl_Position = uProjectionMatrixFront * uViewMatrix * uWorldMatrix * aVertexPosition;
+
+		gl_Position = uProjectionMatrixFront * viewMatrix * uWorldMatrix * aVertexPosition;
 		vColor = aVertexColor; 
 	}`;
 
