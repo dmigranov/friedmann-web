@@ -270,7 +270,7 @@ function initScene(gl) {
 		}
 		else
 		{
-			viewMatrix = uViewMatrixFront;
+			viewMatrix = -uViewMatrixFront;
 			projectionMatrix = uProjectionMatrixBack;
 		}
 
