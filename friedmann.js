@@ -283,7 +283,7 @@ function initScene(gl) {
   }`;
 
 	// Initialize a shader program; this is where all the lighting
-	const shaderProgram = initShaderProgram(gl, vsSource, fsSource);
+	const shaderProgram = Shader.initShaderProgram(gl, vsSource, fsSource);
 
 	// Collect all the info needed to use the shader program.
 	// Look up which attribute our shader program is using for aVertexPosition 
