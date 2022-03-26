@@ -4,6 +4,7 @@
 import * as SphericalMath from './spherical_math.js';
 import * as SphericalMesh from './spherical_mesh.js';
 import * as Shader from './shader_loading.js';
+import { mat4 } from 'gl-matrix';
 
 // Obtain a reference to the canvas
 const canvas = document.querySelector("#glCanvas");
@@ -109,7 +110,6 @@ function updateScene(scene, deltaTime) {
 
 		mat4.rotate(viewMatrix, viewMatrix, cubeRotationX, [0, 1, 0]);
 		mat4.rotate(viewMatrix, viewMatrix, -cubeRotationY, [1, 0, 0]);
-//		mat4.translate(viewMatrix, viewMatrix, [-0.0, 0.0, -6.0]);
 
 
 		constants.viewMatrixFront = viewMatrix;
@@ -315,8 +315,10 @@ function initScene(gl) {
 	const projectionMatrix = mat4.create();
 	mat4.perspective(projectionMatrix, fieldOfView, aspect, zNear, zFar);
 
-	const worldMatrix = mat4.create();
-	mat4.translate(worldMatrix, worldMatrix, [-0.0, 0.0, -6.0]);
+	//const worldMatrix = mat4.create();
+	//mat4.translate(worldMatrix, worldMatrix, [-0.0, 0.0, -6.0]);
+
+	const worldMatrix = SphericalMath.sphericalRotationZW(-0.5);
 
 	const viewMatrix = mat4.create();
 
