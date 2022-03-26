@@ -271,16 +271,14 @@ function initScene(gl) {
 
 	// Fragment shader
 	const fsSource = `#version 300 es
-  precision mediump float;
+	precision mediump float;
+	in mediump vec4 vColor;
+	out vec4 fragColor;
 
-  in mediump vec4 vColor;
-  out vec4 fragColor;
-
-  void main() {
-    fragColor = vColor;
-
-    //todo: modify
-  }`;
+	void main() {
+		fragColor = vColor;
+		//todo: modify
+	}`;
 
 	// Initialize a shader program; this is where all the lighting
 	const shaderProgram = Shader.initShaderProgram(gl, vsSource, fsSource);
