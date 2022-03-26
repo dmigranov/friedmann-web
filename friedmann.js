@@ -264,10 +264,14 @@ function initScene(gl) {
 	void main() {
 		mat4 uViewMatrix;
 		if (gl_InstanceID == 0)
+		{
 			uViewMatrix = uViewMatrixFront;
+		}
 		else
+		{
 			uViewMatrix = uViewMatrixFront; //todo: домножить на матрицу
-
+		}
+		
 		gl_Position = uProjectionMatrixFront * uViewMatrix * uWorldMatrix * aVertexPosition;
 		vColor = aVertexColor; 
 	}`;
