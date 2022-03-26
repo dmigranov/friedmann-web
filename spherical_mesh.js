@@ -13,7 +13,7 @@ export function createSphere(gl, radius, sliceCount, stackCount, color) {
 	var vertexCount = 0;
 
 	// North Pole
-	positions.push(0., radius, 0., 1);	//todo: заменить 1 на height
+	positions.push(0., radius, 0., height);	//todo: заменить 1 на height
 	colors.push(color[0], color[1], color[2], color[3]);
 	tex.push(0., 0.);
 	vertexCount++;
@@ -27,7 +27,7 @@ export function createSphere(gl, radius, sliceCount, stackCount, color) {
 				(radius * Math.sin(phi) * Math.cos(theta)),
 				(radius * Math.cos(phi)),
 				(radius * Math.sin(phi) * Math.sin(theta)),
-				1 //todo: заменить 1 на height
+				height //todo: заменить 1 на height
 			);
 			colors.push(color[0], color[1], color[2], color[3]);
 			tex.push(theta / (2 * Math.PI), phi / Math.PI);
@@ -37,7 +37,7 @@ export function createSphere(gl, radius, sliceCount, stackCount, color) {
 
 
 	// South Pole
-	positions.push(0., -radius, 0., 1);	//todo: заменить 1 на height
+	positions.push(0., -radius, 0., height);	//todo: заменить 1 на height
 	colors.push(color[0], color[1], color[2], color[3]);
 	tex.push(0., 1.);
 	vertexCount++;
