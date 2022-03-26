@@ -109,7 +109,7 @@ function updateScene(scene, deltaTime) {
 
 		mat4.rotate(viewMatrix, viewMatrix, cubeRotationX, [0, 1, 0]);
 		mat4.rotate(viewMatrix, viewMatrix, -cubeRotationY, [1, 0, 0]);
-		mat4.translate(viewMatrix, viewMatrix, [-0.0, 0.0, -6.0]);
+//		mat4.translate(viewMatrix, viewMatrix, [-0.0, 0.0, -6.0]);
 
 
 		constants.viewMatrixFront = viewMatrix;
@@ -316,9 +316,9 @@ function initScene(gl) {
 	mat4.perspective(projectionMatrix, fieldOfView, aspect, zNear, zFar);
 
 	const worldMatrix = mat4.create();
+	mat4.translate(worldMatrix, worldMatrix, [-0.0, 0.0, -6.0]);
 
 	const viewMatrix = mat4.create();
-	mat4.translate(viewMatrix, viewMatrix, [-0.0, 0.0, -6.0]);
 
 	const scene = {
 		programInfo: programInfo,
