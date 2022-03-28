@@ -312,6 +312,7 @@ function initScene(gl) {
 	const buffers = SphericalMesh.createSphere(gl, 0.1, 10, 10, [0., 1., 0., 1.]);
 	const points = SphericalRandom.generatePoints(1, 0.1, 100);
 	const worldMatrices = [];
+	//todo: fill worldMatrices based on points
 
 	const worldMatrix = SphericalMath.sphericalRotationZW(-2);
 
