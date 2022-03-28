@@ -113,6 +113,11 @@ function updateScene(scene, deltaTime) {
 
 		constants.viewMatrixFront = viewMatrix;
 	}
+
+	{	//that's option 2
+		const sceneObject = scene.sceneObjects[1];
+		
+	}
 }
 
 
