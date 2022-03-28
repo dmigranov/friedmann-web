@@ -192,7 +192,9 @@ function drawScene(gl, scene, deltaTime) {
 		constants.viewMatrixFront);
 
 	const worldMatrices = constants.worldMatrices;
-
+	for (const worldMatrix of worldMatrices) {
+		// ...use `element`...
+	}
 	gl.uniformMatrix4fv(
 		programInfo.uniformLocations.worldMatrix,
 		false,
