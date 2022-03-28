@@ -4,6 +4,9 @@ function getRandom(min, max) {
 	return Math.random() * (max - min) + min;
   }
 
+const epsilon = 0.001;
+
+
 export function generatePoint(spaceRadius) {
 	const spaceRadiusSquare = spaceRadius * spaceRadius;
 
@@ -16,8 +19,11 @@ export function generatePoint(spaceRadius) {
 
 		const normSquare = x * x + y * y + z * z + w * w;
 
-		if (normSquare < epsilon || normSquare > spaceRadiusSquare) //too close too zero OR outside the sphere
-			goto generate;
-
+		if (normSquare >= epsilon && normSquare <= spaceRadiusSquare) //not too close to zero and inside the sphere
+			isPointGenerated  = true;
 	}
+
+	const coeff = spaceRadius / Math.sqrt(normSquare);
+
+	return coeff * DirectX::SimpleMath::Vector4(x, y, z, w);
 }
