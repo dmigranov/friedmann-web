@@ -1,5 +1,7 @@
 // js random ~ uniform distribution (Euclidean)
 
+import { vec4 } from "gl-matrix";
+
 function getRandom(min, max) {
 	return Math.random() * (max - min) + min;
   }
@@ -25,7 +27,7 @@ export function generatePoint(spaceRadius) {
 
 	const coeff = spaceRadius / Math.sqrt(normSquare);
 
-	return coeff * DirectX::SimpleMath::Vector4(x, y, z, w);
+	return vec4.fromValues(coeff * x, coeff * y, coeff * z, coeff * w);
 }
 
 export function generatePoints(spaceRadius, objectRadius, count) {
