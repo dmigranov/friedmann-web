@@ -333,21 +333,6 @@ function initScene(gl) {
 		}
 	});
 
-	/*
-	const worldMatrix = SphericalMath.sphericalRotationZW(-2);
-	const worldMatrix2 = SphericalMath.sphericalRotationZW(-2.5);
-	const sceneObjects = [
-		{
-			worldMatrix: worldMatrix,
-			buffers: buffers
-		},
-		{
-			worldMatrix: worldMatrix2,
-			buffers: buffers2
-		},
-	];
-	*/
-
 	const viewMatrixFront = mat4.create();
 
 	const projectionMatrixFront = SphericalMath.bananaProjectionMatrixFrontHalf(45 * Math.PI / 180, gl.canvas.clientWidth / gl.canvas.clientHeight, 0.1);;
