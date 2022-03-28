@@ -116,7 +116,19 @@ function updateScene(scene, deltaTime) {
 
 	{	//that's option 2
 		const sceneObject = scene.sceneObjects[1];
-		
+		const worldMatrix = sceneObject.worldMatrix;
+
+		var relativeZMovement = 0.;
+		if (wPressed) {
+			relativeZMovement -= deltaTime;
+		}
+		if (sPressed) {
+			relativeZMovement += deltaTime;
+		}
+
+		mat4.multiply(worldMatrix, SphericalMath.sphericalRotationZW(relativeZMovement), worldMatrix);
+		//те, что сначала, применяются справа!
+
 	}
 }
 
