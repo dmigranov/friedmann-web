@@ -227,8 +227,6 @@ function updatePage(scene, deltaTime) {
 		output2.innerHTML = "Mouse up!";
 
 	output1.innerHTML = cameraRotationX;
-	//console.log(SphericalRandom.generatePoints(1, 0.1, 1));
-	console.log(SphericalRandom.generatePoint(1));
 
 	const transformed = vec4.fromValues(0, 0, 0, 1);
 	vec4.transformMat4(transformed, transformed, SphericalMath.sphericalRotationYW(0.1))
@@ -312,6 +310,8 @@ function initScene(gl) {
 
 	// Here's where we call the routine that builds all the objects we'll be drawing.
 	const buffers = SphericalMesh.createSphere(gl, 0.1, 10, 10, [0., 1., 0., 1.]);
+	console.log(SphericalRandom.generatePoints(1, 0.1, 1));
+
 
 	const worldMatrix = SphericalMath.sphericalRotationZW(-2);
 
