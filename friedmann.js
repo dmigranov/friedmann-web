@@ -311,7 +311,7 @@ function initScene(gl) {
 	// Here's where we call the routine that builds all the objects we'll be drawing.
 	const buffers = SphericalMesh.createSphere(gl, 0.1, 10, 10, [0., 1., 0., 1.]);
 	const points = SphericalRandom.generatePoints(1, 0.1, 100);
-
+	const worldMatrices = [];
 
 	const worldMatrix = SphericalMath.sphericalRotationZW(-2);
 
