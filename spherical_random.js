@@ -48,7 +48,6 @@ export function generatePoints(spaceRadius, objectRadius, sphereCount) {
 					isPointGenerated = false;
 					break;
 				}
-
 			}
 		}
 
