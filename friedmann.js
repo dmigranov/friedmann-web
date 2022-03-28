@@ -24,6 +24,8 @@ else
 
 function main() {
 	//gl.enable(gl.CULL_FACE); // should it stay? TODO
+	//todo: выключать culling если внутри объекта, и включать, если в антиподальной точке 
+	//или просто залить изнутри объекты черным?
 
 	// Initialize user input handling
 	document.addEventListener('keydown', keyDownHandler);
