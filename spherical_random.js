@@ -35,7 +35,7 @@ export function generatePoint(spaceRadius) {
 export function generatePoints(spaceRadius, objectRadius, sphereCount) {
 	var points = [];
 	for (var i = 0; i < sphereCount; i++) {
-		const isPointGenerated = false;
+		var isPointGenerated = false;
 		while (!isPointGenerated) {
 			var point = generatePoint();
 
@@ -43,9 +43,16 @@ export function generatePoints(spaceRadius, objectRadius, sphereCount) {
 				const otherPoint = points[j];
 				const distance = SphericalMath.sphericalDistance(point, otherPoint, spaceRadius);
 
-
+				if (distance < 2 * objectRadius) {
+					isPointGenerated = false;
+					break;
+				}
+				else
+					isPointGenerated = true;
 			}
 		}
+
+		points.push(point);
 	}
 
 	return points;
