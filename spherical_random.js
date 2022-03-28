@@ -37,7 +37,7 @@ export function generatePoints(spaceRadius, objectRadius, sphereCount) {
 	for (var i = 0; i < sphereCount; i++) {
 		var isPointGenerated = false;
 		while (!isPointGenerated) {
-			var point = generatePoint();
+			var point = generatePoint(spaceRadius);
 			isPointGenerated = true;
 
 			for (var j = 0; j < i; j++) {
