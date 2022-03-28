@@ -130,6 +130,23 @@ function drawScene(gl, scene, deltaTime) {
 	// Clear the canvas before we start drawing on it.
 	gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
 
+	// Tell WebGL to use our program when drawing
+	gl.useProgram(programInfo.program);
+
+	// Set the shader uniforms
+	gl.uniformMatrix4fv(
+		programInfo.uniformLocations.projectionMatrixFront,
+		false,
+		constants.projectionMatrixFront);
+	gl.uniformMatrix4fv(
+		programInfo.uniformLocations.projectionMatrixBack,
+		false,
+		constants.projectionMatrixBack);
+	gl.uniformMatrix4fv(
+		programInfo.uniformLocations.viewMatrixFront,
+		false,
+		constants.viewMatrixFront);
+
 	// Tell WebGL how to pull out the positions from the position buffer into the aVertexPosition attribute.
 	// (we bind the square's vertex buffer to the attribute the shader is using for aVertexPosition )
 	// Attributes receive values from buffers. Each iteration of the vertex shader receives the next value from the buffer assigned to that attribute
@@ -173,23 +190,6 @@ function drawScene(gl, scene, deltaTime) {
 
 	// Tell WebGL which indices to use to index the vertices
 	gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, buffers.indices);
-
-	// Tell WebGL to use our program when drawing
-	gl.useProgram(programInfo.program);
-
-	// Set the shader uniforms
-	gl.uniformMatrix4fv(
-		programInfo.uniformLocations.projectionMatrixFront,
-		false,
-		constants.projectionMatrixFront);
-	gl.uniformMatrix4fv(
-		programInfo.uniformLocations.projectionMatrixBack,
-		false,
-		constants.projectionMatrixBack);
-	gl.uniformMatrix4fv(
-		programInfo.uniformLocations.viewMatrixFront,
-		false,
-		constants.viewMatrixFront);
 
 	const worldMatrices = constants.worldMatrices;
 	for (const worldMatrix of worldMatrices) {
