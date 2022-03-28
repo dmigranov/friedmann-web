@@ -3,6 +3,7 @@
 
 import * as SphericalMath from './spherical_math.js';
 import * as SphericalMesh from './spherical_mesh.js';
+import * as SphericalRandom from './spherical_random.js';
 import * as Shader from './shader_loading.js';
 
 // Obtain a reference to the canvas
