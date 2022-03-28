@@ -326,9 +326,14 @@ function initScene(gl) {
 
 	const points = SphericalRandom.generatePoints(1, 0.1, 100);
 	const worldMatrices = points.map((point) => SphericalMath.absolutePositionMatrix(point[0], point[1], point[2], point[3]));
-	//todo: fill worldMatrices based on points
+	const sceneObjects = worldMatrices.map((worldMatrix) => {
+		return {
+			worldMatrix: worldMatrix,
+			buffers: buffers
+		}
+	});
 
-	
+	/*
 	const worldMatrix = SphericalMath.sphericalRotationZW(-2);
 	const worldMatrix2 = SphericalMath.sphericalRotationZW(-2.5);
 	const sceneObjects = [
@@ -341,7 +346,7 @@ function initScene(gl) {
 			buffers: buffers2
 		},
 	];
-	
+	*/
 
 	const viewMatrixFront = mat4.create();
 
