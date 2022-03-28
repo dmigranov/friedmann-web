@@ -231,7 +231,6 @@ function updatePage(scene, deltaTime) {
 	const transformed = vec4.fromValues(0, 0, 0, 1);
 	//vec4.transformMat4(transformed, transformed, SphericalMath.sphericalRotationYW(0.1))
 	vec4.transformMat4(transformed, transformed, SphericalMath.absolutePositionMatrix(0.6, 0, 0, 0.8))
-	console.log(transformed);
 
 	//const dist = SphericalMath.sphericalDistance(transformed, vec4.fromValues(0, 0, 0, 1), 1);
 	//const sphCoords = SphericalMath.getSphericalFromCartesian(transformed);
