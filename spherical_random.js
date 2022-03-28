@@ -31,10 +31,11 @@ export function generatePoint(spaceRadius) {
 }
 
 export function generatePoints(spaceRadius, objectRadius, sphereCount) {
-
 	for (var i = 0; i < sphereCount; i++) {
-		while (true) {
-
+		const isPointGenerated = false;
+		while (!isPointGenerated) {
+			var point = generatePoint();
+			
 		}
 	}
 }
