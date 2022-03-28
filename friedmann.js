@@ -150,7 +150,7 @@ function drawScene(gl, scene, deltaTime) {
 	//const worldMatrices = constants.worldMatrices;
 	//for (const worldMatrix of worldMatrices) {
 
-	const sceneObjects = constants.sceneObjects;
+	const sceneObjects = scene.sceneObjects;
 	for (const sceneObject of sceneObjects) {
 		const worldMatrix = sceneObject.worldMatrix;
 		const buffers = sceneObject.buffers;
@@ -346,7 +346,7 @@ function initScene(gl) {
 			viewMatrixFront: viewMatrixFront,
 			//worldMatrices: worldMatrices
 		},
-		sceneObjects
+		sceneObjects: sceneObjects,
 	};
 
 	return scene;
