@@ -227,7 +227,7 @@ function updatePage(scene, deltaTime) {
 		output2.innerHTML = "Mouse up!";
 
 	output1.innerHTML = cameraRotationX;
-
+	SphericalRandom.generatePoint(1);
 	// if (leftMouseButtonClicked())
 
 	const transformed = vec4.fromValues(0, 0, 0, 1);
