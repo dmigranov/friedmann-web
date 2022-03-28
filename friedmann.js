@@ -329,7 +329,7 @@ function initScene(gl) {
 	const sceneObjects = worldMatrices.map((worldMatrix) => {
 		return {
 			worldMatrix: worldMatrix,
-			buffers: buffers1
+			buffers: (Math.random() < 0.5 ? buffers1 : buffers2) 
 		}
 	});
 
