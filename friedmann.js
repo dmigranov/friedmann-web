@@ -195,7 +195,7 @@ function drawScene(gl, scene, deltaTime) {
 		// Tell WebGL which indices to use to index the vertices
 		gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, buffers.indices);
 
-
+		// Set the shader uniforms unique for every object
 		gl.uniformMatrix4fv(
 			programInfo.uniformLocations.worldMatrix,
 			false,
