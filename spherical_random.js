@@ -5,6 +5,8 @@ function getRandom(min, max) {
   }
 
 export function generatePoint(spaceRadius) {
+	const spaceRadiusSquare = spaceRadius * spaceRadius;
+
 	var isPointGenerated = false;
     while (!isPointGenerated) {
 		const x = getRandom(-spaceRadius, spaceRadius);
@@ -12,6 +14,10 @@ export function generatePoint(spaceRadius) {
 		const z = getRandom(-spaceRadius, spaceRadius);
 		const w = getRandom(-spaceRadius, spaceRadius);
 
-		
+		const normSquare = x * x + y * y + z * z + w * w;
+
+		if (normSquare < epsilon || normSquare > spaceRadiusSquare) //too close too zero OR outside the sphere
+			goto generate;
+
 	}
 }
