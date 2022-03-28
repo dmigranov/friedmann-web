@@ -108,9 +108,8 @@ function updateScene(scene, deltaTime) {
 			cameraRotationY -= deltaTime;
 		}
 
-		mat4.rotate(viewMatrix, viewMatrix, cameraRotationX, [0, 1, 0]);
 		mat4.rotate(viewMatrix, viewMatrix, -cameraRotationY, [1, 0, 0]);
-		//todo: исправить
+		mat4.rotate(viewMatrix, viewMatrix, cameraRotationX, [0, 1, 0]);
 
 		constants.viewMatrixFront = viewMatrix;
 	}
