@@ -27,3 +27,7 @@ export function generatePoint(spaceRadius) {
 
 	return coeff * DirectX::SimpleMath::Vector4(x, y, z, w);
 }
+
+export function generatePoints(spaceRadius, objectRadius, count) {
+
+}
