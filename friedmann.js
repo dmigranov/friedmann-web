@@ -119,16 +119,12 @@ function updateScene(scene, deltaTime) {
 		const worldMatrix = sceneObject.worldMatrix;
 
 		var relativeZMovement = 0.;
-		if (wPressed) {
+		if (wPressed)
 			relativeZMovement -= deltaTime;
-		}
-		if (sPressed) {
+		if (sPressed)
 			relativeZMovement += deltaTime;
-		}
 
-		mat4.multiply(worldMatrix, SphericalMath.sphericalRotationZW(relativeZMovement), worldMatrix);
-		//те, что сначала, применяются справа!
-
+		mat4.multiply(worldMatrix, SphericalMath.sphericalRotationZW(relativeZMovement), worldMatrix); 		//те, что сначала, применяются справа!
 	}
 }
 
@@ -253,7 +249,6 @@ function updatePage(scene, deltaTime) {
 	const transformed = vec4.fromValues(0, 0, 0, 1);
 	//vec4.transformMat4(transformed, transformed, SphericalMath.sphericalRotationYW(0.1))
 	vec4.transformMat4(transformed, transformed, SphericalMath.absolutePositionMatrix(0.6, 0, 0, 0.8))
-
 	//const dist = SphericalMath.sphericalDistance(transformed, vec4.fromValues(0, 0, 0, 1), 1);
 	//const sphCoords = SphericalMath.getSphericalFromCartesian(transformed);
 }
@@ -334,7 +329,6 @@ function initScene(gl) {
 	const worldMatrix = SphericalMath.sphericalRotationZW(-2);
 	const worldMatrix2 = SphericalMath.sphericalRotationZW(-2.5);
 
-	//worldMatrices = [worldMatrix, worldMatrix2];
 	const sceneObjects = [
 		{
 			worldMatrix: worldMatrix,
@@ -358,7 +352,6 @@ function initScene(gl) {
 			projectionMatrixFront: projectionMatrixFront,
 			projectionMatrixBack: projectionMatrixBack,
 			viewMatrixFront: viewMatrixFront,
-			//worldMatrices: worldMatrices
 		},
 		sceneObjects: sceneObjects,
 	};
