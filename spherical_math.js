@@ -84,6 +84,10 @@ export function sphericalRotationXY(d) {
 		0, 0, 0, 1);
 }
 
+export function absolutePositionMatrix(x, y, z, w) {
+
+}
+
 export function sphericalDistance(vector1, vector2, radius) {
 	const chordLength = vec4.distance(vector1, vector2);
 	return 2 * radius * Math.asin(chordLength / (2. * radius)); // angle is 2arcsin(L/2R), length of arc equals angle * R
