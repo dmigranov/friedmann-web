@@ -315,7 +315,7 @@ function initScene(gl) {
 	//todo: fill worldMatrices based on points
 
 	const worldMatrix = SphericalMath.sphericalRotationZW(-2);
-	const worldMatrix2 = SphericalMath.sphericalRotationXW(-2);
+	const worldMatrix2 = SphericalMath.sphericalRotationZW(-2.5);
 
 	//worldMatrices = [worldMatrix, worldMatrix2];
 	const sceneObjects = [
