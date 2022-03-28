@@ -190,11 +190,13 @@ function drawScene(gl, scene, deltaTime) {
 		programInfo.uniformLocations.viewMatrixFront,
 		false,
 		constants.viewMatrixFront);
+
+	const worldMatrices = constants.worldMatrices;
+
 	gl.uniformMatrix4fv(
 		programInfo.uniformLocations.worldMatrix,
 		false,
 		constants.worldMatrix);
-
 
 	//DRAW!
 	{
