@@ -110,6 +110,7 @@ function updateScene(scene, deltaTime) {
 
 		mat4.rotate(viewMatrix, viewMatrix, cameraRotationX, [0, 1, 0]);
 		mat4.rotate(viewMatrix, viewMatrix, -cameraRotationY, [1, 0, 0]);
+		//todo: исправить
 
 		constants.viewMatrixFront = viewMatrix;
 	}
@@ -309,6 +310,8 @@ function initScene(gl) {
 
 	// Here's where we call the routine that builds all the objects we'll be drawing.
 	const buffers = SphericalMesh.createSphere(gl, 0.1, 10, 10, [0., 1., 0., 1.]);
+	const buffers2 = SphericalMesh.createSphere(gl, 0.1, 10, 10, [1., 0., 0., 1.]);
+
 	const points = SphericalRandom.generatePoints(1, 0.1, 100);
 	var worldMatrices = [];
 	//todo: fill worldMatrices based on points
@@ -324,7 +327,7 @@ function initScene(gl) {
 		},
 		{
 			worldMatrix: worldMatrix2,
-			buffers: buffers
+			buffers: buffers2
 		},
 	];
 
