@@ -319,9 +319,9 @@ function initScene(gl) {
 		programInfo: programInfo,
 		buffers: buffers,
 		constants: {
-			projectionMatrixFront: projectionMatrixFront,	
-			projectionMatrixBack: projectionMatrixBack,		
-			viewMatrixFront: viewMatrixFront,			
+			projectionMatrixFront: projectionMatrixFront,
+			projectionMatrixBack: projectionMatrixBack,
+			viewMatrixFront: viewMatrixFront,
 			worldMatrix: worldMatrix,
 		}
 	};
@@ -340,6 +340,7 @@ var dPressed = false;
 var aPressed = false;
 var wPressed = false;
 var sPressed = false;
+var backspacePressed = false;
 
 function keyDownHandler(event) {
 	if ("code" in event) {
@@ -374,6 +375,9 @@ function keyDownHandler(event) {
 			case "KeyS":
 				sPressed = true;
 				return;
+			case "Backspace":
+				backspacePressed = true;
+				break;
 			default:
 				return;
 		}
@@ -414,6 +418,9 @@ function keyUpHandler(event) {
 			case "KeyS":
 				sPressed = false;
 				return;
+			case "Backspace":
+				backspacePressed = false;
+				break;
 			default:
 				return;
 		}
