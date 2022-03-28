@@ -1,5 +1,7 @@
 // js random ~ uniform distribution (Euclidean)
 
+import * as SphericalMath from './spherical_math.js';
+
 function getRandom(min, max) {
 	return Math.random() * (max - min) + min;
 }
@@ -31,11 +33,20 @@ export function generatePoint(spaceRadius) {
 }
 
 export function generatePoints(spaceRadius, objectRadius, sphereCount) {
+	var points = [];
 	for (var i = 0; i < sphereCount; i++) {
 		const isPointGenerated = false;
 		while (!isPointGenerated) {
 			var point = generatePoint();
-			
+
+			for (var j = 0; j < i; j++) {
+				const otherPoint = points[j];
+				const distance = SphericalMath.sphericalDistance(point, otherPoint, spaceRadius);
+
+
+			}
 		}
 	}
+
+	return points;
 }
