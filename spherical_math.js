@@ -86,10 +86,10 @@ export function sphericalRotationXY(d) {
 
 export function absolutePositionMatrix(x, y, z, w) {
 	return mat4.fromValues(
-		w, z, -y, x,
-		-z, w, x, y,
-		y, -x, w, z,
-		-x, -y, -z, w
+		w, -z, y, -x,
+		z, w, -x, -y,
+		-y, x, w, -z,
+		x, y, z, w
 	);
 }
 
