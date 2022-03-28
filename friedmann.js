@@ -228,6 +228,7 @@ function updatePage(scene, deltaTime) {
 
 	output1.innerHTML = cameraRotationX;
 	//console.log(SphericalRandom.generatePoints(1, 0.1, 1));
+	console.log(SphericalRandom.generatePoint(1));
 
 	const transformed = vec4.fromValues(0, 0, 0, 1);
 	vec4.transformMat4(transformed, transformed, SphericalMath.sphericalRotationYW(0.1))
