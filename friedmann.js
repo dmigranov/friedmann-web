@@ -118,7 +118,6 @@ function updateScene(scene, deltaTime) {
 
 function drawScene(gl, scene, deltaTime) {
 	const programInfo = scene.programInfo;
-	//const buffers = scene.buffers;
 	const constants = scene.constants;
 
 	gl.clearColor(0.0, 0.0, 0.0, 1.0);  // Clear to black, fully opaque
