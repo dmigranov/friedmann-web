@@ -146,7 +146,7 @@ function drawScene(gl, scene, deltaTime) {
 		programInfo.uniformLocations.viewMatrixFront,
 		false,
 		constants.viewMatrixFront);
-	
+
 	// Tell WebGL how to pull out the positions from the position buffer into the aVertexPosition attribute.
 	// (we bind the square's vertex buffer to the attribute the shader is using for aVertexPosition )
 	// Attributes receive values from buffers. Each iteration of the vertex shader receives the next value from the buffer assigned to that attribute
@@ -313,7 +313,17 @@ function initScene(gl) {
 	const worldMatrix = SphericalMath.sphericalRotationZW(-2);
 	const worldMatrix2 = SphericalMath.sphericalRotationXW(-2);
 
-	worldMatrices = [worldMatrix, worldMatrix2];
+	//worldMatrices = [worldMatrix, worldMatrix2];
+	const sceneObjects = [
+		{
+			worldMatrix: worldMatrix,
+			buffers: buffers
+		},
+		{
+			worldMatrix: worldMatrix2,
+			buffers: buffers
+		},
+	];
 
 	const viewMatrixFront = mat4.create();
 
