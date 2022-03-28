@@ -111,7 +111,6 @@ function updateScene(scene, deltaTime) {
 		mat4.rotate(viewMatrix, viewMatrix, cameraRotationX, [0, 1, 0]);
 		mat4.rotate(viewMatrix, viewMatrix, -cameraRotationY, [1, 0, 0]);
 
-
 		constants.viewMatrixFront = viewMatrix;
 	}
 }
@@ -119,7 +118,7 @@ function updateScene(scene, deltaTime) {
 
 function drawScene(gl, scene, deltaTime) {
 	const programInfo = scene.programInfo;
-	const buffers = scene.buffers;
+	//const buffers = scene.buffers;
 	const constants = scene.constants;
 
 	gl.clearColor(0.0, 0.0, 0.0, 1.0);  // Clear to black, fully opaque
@@ -147,52 +146,60 @@ function drawScene(gl, scene, deltaTime) {
 		false,
 		constants.viewMatrixFront);
 
-	// Tell WebGL how to pull out the positions from the position buffer into the aVertexPosition attribute.
-	// (we bind the square's vertex buffer to the attribute the shader is using for aVertexPosition )
-	// Attributes receive values from buffers. Each iteration of the vertex shader receives the next value from the buffer assigned to that attribute
-	{
-		const numComponents = 4; // pull out 4 values per iteration (xyzw);
-		const type = gl.FLOAT;
-		const normalize = false;
-		const stride = 0;
-		const offset = 0;
-		gl.bindBuffer(gl.ARRAY_BUFFER, buffers.position);
-		gl.vertexAttribPointer(
-			programInfo.attribLocations.vertexPosition,
-			numComponents,
-			type,
-			normalize,
-			stride,
-			offset);
-		gl.enableVertexAttribArray(
-			programInfo.attribLocations.vertexPosition);
-	}
 
-	// Tell WebGL how to pull out the colors from the color buffer
-	// into the vertexColor attribute.
-	{
-		const numComponents = 4;
-		const type = gl.FLOAT;
-		const normalize = false;
-		const stride = 0;
-		const offset = 0;
-		gl.bindBuffer(gl.ARRAY_BUFFER, buffers.color);
-		gl.vertexAttribPointer(
-			programInfo.attribLocations.vertexColor,
-			numComponents,
-			type,
-			normalize,
-			stride,
-			offset);
-		gl.enableVertexAttribArray(
-			programInfo.attribLocations.vertexColor);
-	}
+	//const worldMatrices = constants.worldMatrices;
+	//for (const worldMatrix of worldMatrices) {
 
-	// Tell WebGL which indices to use to index the vertices
-	gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, buffers.indices);
+	const sceneObjects = constants.sceneObjects;
+	for (const sceneObject of sceneObjects) {
+		const worldMatrix = sceneObject.worldMatrix;
+		const buffers = sceneObject.buffers;
 
-	const worldMatrices = constants.worldMatrices;
-	for (const worldMatrix of worldMatrices) {
+		// Tell WebGL how to pull out the positions from the position buffer into the aVertexPosition attribute.
+		// (we bind the square's vertex buffer to the attribute the shader is using for aVertexPosition )
+		// Attributes receive values from buffers. Each iteration of the vertex shader receives the next value from the buffer assigned to that attribute
+		{
+			const numComponents = 4; // pull out 4 values per iteration (xyzw);
+			const type = gl.FLOAT;
+			const normalize = false;
+			const stride = 0;
+			const offset = 0;
+			gl.bindBuffer(gl.ARRAY_BUFFER, buffers.position);
+			gl.vertexAttribPointer(
+				programInfo.attribLocations.vertexPosition,
+				numComponents,
+				type,
+				normalize,
+				stride,
+				offset);
+			gl.enableVertexAttribArray(
+				programInfo.attribLocations.vertexPosition);
+		}
+
+		// Tell WebGL how to pull out the colors from the color buffer
+		// into the vertexColor attribute.
+		{
+			const numComponents = 4;
+			const type = gl.FLOAT;
+			const normalize = false;
+			const stride = 0;
+			const offset = 0;
+			gl.bindBuffer(gl.ARRAY_BUFFER, buffers.color);
+			gl.vertexAttribPointer(
+				programInfo.attribLocations.vertexColor,
+				numComponents,
+				type,
+				normalize,
+				stride,
+				offset);
+			gl.enableVertexAttribArray(
+				programInfo.attribLocations.vertexColor);
+		}
+
+		// Tell WebGL which indices to use to index the vertices
+		gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, buffers.indices);
+
+
 		gl.uniformMatrix4fv(
 			programInfo.uniformLocations.worldMatrix,
 			false,
