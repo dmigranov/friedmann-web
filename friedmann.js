@@ -337,8 +337,9 @@ function initScene(gl) {
 			projectionMatrixFront: projectionMatrixFront,
 			projectionMatrixBack: projectionMatrixBack,
 			viewMatrixFront: viewMatrixFront,
-			worldMatrices: worldMatrices
-		}
+			//worldMatrices: worldMatrices
+		},
+		sceneObjects
 	};
 
 	return scene;
