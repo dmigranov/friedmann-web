@@ -193,20 +193,19 @@ function drawScene(gl, scene, deltaTime) {
 
 	const worldMatrices = constants.worldMatrices;
 	for (const worldMatrix of worldMatrices) {
-		// ...use `element`...
-	}
-	gl.uniformMatrix4fv(
-		programInfo.uniformLocations.worldMatrix,
-		false,
-		constants.worldMatrix);
+		gl.uniformMatrix4fv(
+			programInfo.uniformLocations.worldMatrix,
+			false,
+			worldMatrix);
 
-	//DRAW!
-	{
-		const vertexCount = buffers.indexCount;
-		const type = gl.UNSIGNED_SHORT;
-		const offset = 0;
-		//gl.drawElements(gl.TRIANGLES, vertexCount, type, offset); 
-		gl.drawElementsInstanced(gl.TRIANGLES, vertexCount, type, offset, 2); //type specifies the type of the values in the element (index) array buffer
+		//DRAW!
+		{
+			const vertexCount = buffers.indexCount;
+			const type = gl.UNSIGNED_SHORT;
+			const offset = 0;
+			//gl.drawElements(gl.TRIANGLES, vertexCount, type, offset); 
+			gl.drawElementsInstanced(gl.TRIANGLES, vertexCount, type, offset, 2); //type specifies the type of the values in the element (index) array buffer
+		}
 	}
 }
 
