@@ -323,6 +323,7 @@ function initScene(gl) {
 			projectionMatrixBack: projectionMatrixBack,
 			viewMatrixFront: viewMatrixFront,
 			worldMatrix: worldMatrix,
+			worldMatrices: worldMatrices
 		}
 	};
 
