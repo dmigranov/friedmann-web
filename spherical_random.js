@@ -2,7 +2,7 @@
 
 function getRandom(min, max) {
 	return Math.random() * (max - min) + min;
-  }
+}
 
 const epsilon = 0.001;
 
@@ -13,7 +13,7 @@ export function generatePoint(spaceRadius) {
 	var isPointGenerated = false;
 	var x, y, z, w;
 	var normSquare;
-    while (!isPointGenerated) {
+	while (!isPointGenerated) {
 		x = getRandom(-spaceRadius, spaceRadius);
 		y = getRandom(-spaceRadius, spaceRadius);
 		z = getRandom(-spaceRadius, spaceRadius);
@@ -22,7 +22,7 @@ export function generatePoint(spaceRadius) {
 		normSquare = x * x + y * y + z * z + w * w;
 
 		if (normSquare >= epsilon && normSquare <= spaceRadiusSquare) //not too close to zero and inside the sphere
-			isPointGenerated  = true;
+			isPointGenerated = true;
 	}
 
 	const coeff = spaceRadius / Math.sqrt(normSquare);
@@ -30,6 +30,11 @@ export function generatePoint(spaceRadius) {
 	return vec4.fromValues(coeff * x, coeff * y, coeff * z, coeff * w);
 }
 
-export function generatePoints(spaceRadius, objectRadius, count) {
+export function generatePoints(spaceRadius, objectRadius, sphereCount) {
 
+	for (var i = 0; i < sphereCount; i++) {
+		while (true) {
+
+		}
+	}
 }
