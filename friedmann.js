@@ -146,10 +146,6 @@ function drawScene(gl, scene, deltaTime) {
 		false,
 		constants.viewMatrixFront);
 
-
-	//const worldMatrices = constants.worldMatrices;
-	//for (const worldMatrix of worldMatrices) {
-
 	const sceneObjects = scene.sceneObjects;
 	for (const sceneObject of sceneObjects) {
 		const worldMatrix = sceneObject.worldMatrix;
