@@ -48,7 +48,7 @@ function main() {
 
 		updateScene(scene, deltaTime);
 		drawScene(gl, scene, deltaTime);
-		updatePage(scene, deltaTime)
+		updatePage(scene, deltaTime); // todo: тут же отрисовка графика
 
 		requestAnimationFrame(render);
 	}
