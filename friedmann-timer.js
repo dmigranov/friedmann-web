@@ -11,8 +11,8 @@ class FriedmannTimer {
 	}
 
 	addDelta(deltaTime) {
-		m_currentSimulationTime += deltaTime;
-    m_currentFrameTime += deltaTime;
-    m_mu += m_muCoeff * deltaTime;
+		this.currentSimulationTime += deltaTime;
+		this.mu += this.muCoeff * deltaTime;
+    	m_currentFrameTime += deltaTime;
 	  }
 }
