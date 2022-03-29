@@ -4,6 +4,7 @@ class FriedmannTimer {
 		this.currentSimulationTime = initialSimulationTime;
 		this.mu = muCoeff * this.currentSimulationTime;
 		this.muCoeff = muCoeff;
+		this.currentFrameTime = 0.;
 	}
 
 	get simulationTime() {
@@ -13,6 +14,6 @@ class FriedmannTimer {
 	addDelta(deltaTime) {
 		this.currentSimulationTime += deltaTime;
 		this.mu += this.muCoeff * deltaTime;
-    	m_currentFrameTime += deltaTime;
+    	this.currentFrameTime += deltaTime;
 	  }
 }
