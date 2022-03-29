@@ -15,6 +15,10 @@ const coordinates = document.getElementById("coordinates");
 const output1 = document.getElementById("output1");
 const output2 = document.getElementById("output2");
 
+const initialMuCoeff = 1. / 3.;
+const initialSimulationTime = 8. / (9. * initialMuCoeff);
+const friedmannTimer = new FriedmannTimer(initialSimulationTime, initialMuCoeff);
+
 // Initialize the GL context
 const gl = canvas.getContext("webgl2");
 
