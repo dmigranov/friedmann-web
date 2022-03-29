@@ -1,5 +1,5 @@
 
-class FriedmannTimer {
+export class FriedmannTimer {
 	constructor(initialSimulationTime, muCoeff) {
 		this.currentSimulationTime = initialSimulationTime;
 		this.mu = muCoeff * this.currentSimulationTime;
