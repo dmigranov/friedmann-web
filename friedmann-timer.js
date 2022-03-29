@@ -5,4 +5,8 @@ class FriedmannTimer {
 
 		this.muCoeff = muCoeff;
 	}
+
+	get simulationTime() {
+		return this.currentSimulationTime;
+	}
 }
