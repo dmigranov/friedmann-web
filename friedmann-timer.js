@@ -17,7 +17,11 @@ class FriedmannTimer {
 		this.currentFrameTime += deltaTime;
 	}
 
-	get isTimeToRepaint {
-		
+	get isTimeToRepaint() {
+		if (this.currentFrameTime >= this.frameUpdateTimeLimit || this.currentFrameTime <= -this.frameUpdateTimeLimit) {
+			this.currentFrameTime = 0;
+			return true;
+		}
+		return false;
 	}
 }
