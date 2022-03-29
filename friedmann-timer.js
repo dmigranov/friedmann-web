@@ -14,6 +14,10 @@ class FriedmannTimer {
 	addDelta(deltaTime) {
 		this.currentSimulationTime += deltaTime;
 		this.mu += this.muCoeff * deltaTime;
-    	this.currentFrameTime += deltaTime;
-	  }
+		this.currentFrameTime += deltaTime;
+	}
+
+	get isTimeToRepaint {
+		
+	}
 }
