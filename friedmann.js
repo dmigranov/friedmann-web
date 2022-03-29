@@ -14,6 +14,7 @@ const canvas = document.querySelector("#glCanvas");
 const coordinates = document.getElementById("coordinates");
 const output1 = document.getElementById("output1");
 const output2 = document.getElementById("output2");
+const muOutput = document.getElementById("muOutput");
 
 const initialMuCoeff = 1. / 3.;
 const initialSimulationTime = 8. / (9. * initialMuCoeff);
@@ -73,6 +74,8 @@ var mouseChangeY = 0;
 var isCursorInsideCanvas = false;
 
 function updateScene(scene, deltaTime) {
+	friedmannTimer.addDelta(deltaTime);
+
 	if (mouseX >= 0 && mouseY >= 0 && mouseX <= canvas.clientWidth && mouseY <= canvas.clientHeight)
 		isCursorInsideCanvas = true;
 	else
