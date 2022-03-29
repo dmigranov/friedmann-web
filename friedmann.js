@@ -5,7 +5,7 @@ import * as SphericalMath from './spherical_math.js';
 import * as SphericalMesh from './spherical_mesh.js';
 import * as SphericalRandom from './spherical_random.js';
 import * as Shader from './shader_loading.js';
-import * as Shader from './shader_loading.js';
+import { FriedmannTimer } from './friedmann_timer.js';
 
 
 // Obtain a reference to the canvas
@@ -331,7 +331,7 @@ function initScene(gl) {
 	const sceneObjects = worldMatrices.map((worldMatrix) => {
 		return {
 			worldMatrix: worldMatrix,
-			buffers: (Math.random() < 0.5 ? buffers1 : buffers2) 
+			buffers: (Math.random() < 0.5 ? buffers1 : buffers2)
 		}
 	});
 
