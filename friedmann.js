@@ -304,9 +304,14 @@ function initScene(gl) {
 			projectionMatrix = uProjectionMatrixBack;
 		}
 
-		
-		float distance = 0.;
+		vec4 position = aVertexPosition; //todo: correction
+
+		mat4 viewWorldMatrix = viewMatrix * uWorldMatrix;
+		vec4 cameraSpacePosition = viewWorldMatrix * position;
+
 		float density = 0.;	
+
+		float distance = 0.;
 
 		gl_Position = projectionMatrix * viewMatrix * uWorldMatrix * aVertexPosition;
 		vColor = aVertexColor; 
@@ -318,7 +323,7 @@ function initScene(gl) {
 	precision mediump float;
 	in mediump vec4 vColor;
 	in mediump float vFogFactor;
-	
+
 	out vec4 fragColor;
 
 	void main() {
