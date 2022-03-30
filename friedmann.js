@@ -277,6 +277,12 @@ function updatePage(scene, deltaTime) {
 function initScene(gl) {
 	// Vertex shader
 	const vsSource = `#version 300 es
+
+	float SphericalDistance(vec4 vector1, vec4 vector2, float radius)
+	{
+		float chordLength = distance(vector1, vector2); //chord length
+		return 2.f * radius * asin(chordLength / (2.f * radius)); //angle is 2arcsin(L/2R), length of arc equals angle * R
+	}
   
 	in vec4 aVertexPosition; // webgl: in instead of attribute
 	in vec4 aVertexColor;
