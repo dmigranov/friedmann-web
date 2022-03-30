@@ -288,7 +288,8 @@ function initScene(gl) {
 	uniform mat4 uProjectionMatrixFront;
 	uniform mat4 uProjectionMatrixBack;
 
-	out mediump vec4 vColor; //out = webgl 1.0 varyinh; used for interpolated data between a vertex shader and a fragment shader
+	out mediump vec4 vColor; //out = webgl 1.0 varying; used for interpolated data between a vertex shader and a fragment shader
+	out mediump float vFogFactor;
 
 	void main() {
 		mat4 viewMatrix, projectionMatrix;
@@ -307,6 +308,7 @@ function initScene(gl) {
 
 		gl_Position = projectionMatrix * viewMatrix * uWorldMatrix * aVertexPosition;
 		vColor = aVertexColor; 
+		vFogFactor = 1.;
 	}`;
 
 	// Fragment shader
