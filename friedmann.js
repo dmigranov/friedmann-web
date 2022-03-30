@@ -381,12 +381,7 @@ function initScene(gl) {
 		}
 	});
 
-	sceneObjects = [
-		{
-			worldMatrix: SphericalMath.sphericalRotationZW(0.2),
-			buffers: buffers1
-		}
-	];
+	//sceneObjects = [ { worldMatrix: SphericalMath.sphericalRotationZW(0.2), buffers: buffers1 }	];
 
 	const viewMatrixFront = mat4.create();
 
