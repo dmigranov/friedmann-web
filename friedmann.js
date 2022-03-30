@@ -327,6 +327,10 @@ function initScene(gl) {
 
 	// Fragment shader
 	const fsSource = `#version 300 es
+
+	#define PI 3.14159265
+	#define C 299792458
+
 	precision mediump float;
 	in mediump vec4 vColor;
 	in mediump float vFogFactor;
