@@ -338,8 +338,12 @@ function initScene(gl) {
 	out vec4 fragColor;
 
 	void main() {
-		fragColor = vColor;
 		//todo: modify
+
+
+		vec4 retColor = vFogFactor * vColor + (1.0 - vFogFactor) * vec4(0., 0., 0., 1.);
+		
+		fragColor = retColor;
 	}`;
 
 	// Initialize a shader program; this is where all the lighting
