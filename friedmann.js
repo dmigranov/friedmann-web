@@ -91,8 +91,7 @@ function updateScene(scene, deltaTime) {
 		oldMouseX = mouseX;
 		oldMouseY = mouseY;
 	}
-	else
-	{
+	else {
 		oldMouseX = -1;
 		oldMouseY = -1;
 		mouseChangeX = 0;
@@ -115,21 +114,19 @@ function updateScene(scene, deltaTime) {
 	{ //that's option 1
 		const viewMatrix = mat4.create();
 
-		cameraRotationX += mouseChangeX/mouseCoeff;
-		cameraRotationY += mouseChangeY/mouseCoeff;
+		cameraRotationX += mouseChangeX / mouseCoeff;
+		cameraRotationY += mouseChangeY / mouseCoeff;
 
 		cameraRotationY = Math.max(-pitchLimit, cameraRotationY);
-        cameraRotationY = Math.min(+pitchLimit, cameraRotationY);
+		cameraRotationY = Math.min(+pitchLimit, cameraRotationY);
 
-		/*
-		if (m_yaw > DirectX::XM_PI)
-            m_yaw -= DirectX::XM_2PI;
-        else if (m_yaw < -DirectX::XM_PI)
-            m_yaw += DirectX::XM_2PI;
-		*/
+		if (cameraRotationX > Math.PI)
+			cameraRotationX -= 2 * Math.PI;
+		else if (cameraRotationX < -Math.PI)
+			cameraRotationX += 2 * Math.PI;
 
 		mat4.rotate(viewMatrix, viewMatrix, cameraRotationY, [1, 0, 0]);
-		mat4.rotate(viewMatrix, viewMatrix,cameraRotationX, [0, 1, 0]);
+		mat4.rotate(viewMatrix, viewMatrix, cameraRotationX, [0, 1, 0]);
 
 		constants.viewMatrixFront = viewMatrix;
 	}
