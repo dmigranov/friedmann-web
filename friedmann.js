@@ -111,12 +111,22 @@ function updateScene(scene, deltaTime) {
 	// just modify it!
 
 	const mouseCoeff = 25.;
+	const pitchLimit = Math.PI / 2.0 - 0.01
 	{ //that's option 1
 		const viewMatrix = mat4.create();
 
 		cameraRotationX += mouseChangeX/mouseCoeff;
 		cameraRotationY += mouseChangeY/mouseCoeff;
-		//todo: clamp
+
+		cameraRotationY = Math.max(-pitchLimit, cameraRotationY);
+        cameraRotationY = Math.min(+pitchLimit, cameraRotationY);
+
+		/*
+		if (m_yaw > DirectX::XM_PI)
+            m_yaw -= DirectX::XM_2PI;
+        else if (m_yaw < -DirectX::XM_PI)
+            m_yaw += DirectX::XM_2PI;
+		*/
 
 		mat4.rotate(viewMatrix, viewMatrix, cameraRotationY, [1, 0, 0]);
 		mat4.rotate(viewMatrix, viewMatrix,cameraRotationX, [0, 1, 0]);
