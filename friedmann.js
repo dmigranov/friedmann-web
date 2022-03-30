@@ -310,13 +310,15 @@ function initScene(gl) {
 
 		gl_Position = projectionMatrix * viewMatrix * uWorldMatrix * aVertexPosition;
 		vColor = aVertexColor; 
-		vFogFactor = clamp(exp(-density * distance), 0.0, 1.0);;
+		vFogFactor = clamp(exp(-density * distance), 0.0, 1.0);
 	}`;
 
 	// Fragment shader
 	const fsSource = `#version 300 es
 	precision mediump float;
 	in mediump vec4 vColor;
+	in mediump float vFogFactor;
+	
 	out vec4 fragColor;
 
 	void main() {
