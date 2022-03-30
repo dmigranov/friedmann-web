@@ -91,6 +91,13 @@ function updateScene(scene, deltaTime) {
 		oldMouseX = mouseX;
 		oldMouseY = mouseY;
 	}
+	else
+	{
+		oldMouseX = -1;
+		oldMouseY = -1;
+		mouseChangeX = 0;
+		mouseChangeY = 0;
+	}
 
 	const constants = scene.constants;
 
