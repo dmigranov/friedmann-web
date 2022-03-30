@@ -316,7 +316,7 @@ function initScene(gl) {
 		mat4 viewWorldMatrix = viewMatrix * uWorldMatrix;
 		vec4 cameraSpacePosition = viewWorldMatrix * position;
 
-		float density = 0.f;	
+		float density = 0.2f;	
 
 		float distance = SphericalDistance(vec4(0, 0, 0, radius), cameraSpacePosition, radius);
 
