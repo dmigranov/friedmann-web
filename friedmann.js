@@ -103,11 +103,12 @@ function updateScene(scene, deltaTime) {
 	// const worldMatrix = constants.worldMatrix;
 	// just modify it!
 
+	const mouseCoeff = 25.;
 	{ //that's option 1
 		const viewMatrix = mat4.create();
 
-		cameraRotationX += mouseChangeX/10.;
-		cameraRotationY += mouseChangeY/10.;
+		cameraRotationX += mouseChangeX/mouseCoeff;
+		cameraRotationY += mouseChangeY/mouseCoeff;
 
 		mat4.rotate(viewMatrix, viewMatrix, cameraRotationY, [1, 0, 0]);
 		mat4.rotate(viewMatrix, viewMatrix,cameraRotationX, [0, 1, 0]);
