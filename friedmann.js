@@ -133,7 +133,7 @@ function updateScene(scene, deltaTime) {
 	}
 
 	{	//that's option 2
-		const sceneObject = scene.sceneObjects[1];
+		const sceneObject = scene.sceneObjects[0];
 		const worldMatrix = sceneObject.worldMatrix;
 
 		var relativeZMovement = 0.;
@@ -316,7 +316,7 @@ function initScene(gl) {
 		mat4 viewWorldMatrix = viewMatrix * uWorldMatrix;
 		vec4 cameraSpacePosition = viewWorldMatrix * position;
 
-		float density = 0.2f;	
+		float density = 0.4f;	
 
 		float distance = SphericalDistance(vec4(0, 0, 0, radius), cameraSpacePosition, radius);
 
@@ -372,12 +372,19 @@ function initScene(gl) {
 
 	const points = SphericalRandom.generatePoints(1, 0.1, 100);
 	const worldMatrices = points.map((point) => SphericalMath.absolutePositionMatrix(point[0], point[1], point[2], point[3]));
-	const sceneObjects = worldMatrices.map((worldMatrix) => {
+	var sceneObjects = worldMatrices.map((worldMatrix) => {
 		return {
 			worldMatrix: worldMatrix,
 			buffers: (Math.random() < 0.5 ? buffers1 : buffers2)
 		}
 	});
+
+	sceneObjects = [
+		{
+			worldMatrix: SphericalMath.sphericalRotationZW(0.2),
+			buffers: buffers1
+		}
+	];
 
 	const viewMatrixFront = mat4.create();
 
