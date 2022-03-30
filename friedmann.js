@@ -63,6 +63,9 @@ function main() {
 }
 
 
+const mouseCoeff = 25.;
+const pitchLimit = Math.PI / 2.0 - 0.01
+
 var cameraRotationX = 0.;
 var cameraRotationY = 0.;
 
@@ -109,8 +112,6 @@ function updateScene(scene, deltaTime) {
 	// const worldMatrix = constants.worldMatrix;
 	// just modify it!
 
-	const mouseCoeff = 25.;
-	const pitchLimit = Math.PI / 2.0 - 0.01
 	{ //that's option 1
 		const viewMatrix = mat4.create();
 
