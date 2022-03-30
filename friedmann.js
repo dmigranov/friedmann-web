@@ -305,10 +305,12 @@ function initScene(gl) {
 		}
 
 		
+		float distance = 0.;
+		float density = 0.;	
 
 		gl_Position = projectionMatrix * viewMatrix * uWorldMatrix * aVertexPosition;
 		vColor = aVertexColor; 
-		vFogFactor = 1.;
+		vFogFactor = clamp(exp(-density * distance), 0.0, 1.0);;
 	}`;
 
 	// Fragment shader
