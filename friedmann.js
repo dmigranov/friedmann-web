@@ -116,6 +116,7 @@ function updateScene(scene, deltaTime) {
 
 		cameraRotationX += mouseChangeX/mouseCoeff;
 		cameraRotationY += mouseChangeY/mouseCoeff;
+		//todo: clamp
 
 		mat4.rotate(viewMatrix, viewMatrix, cameraRotationY, [1, 0, 0]);
 		mat4.rotate(viewMatrix, viewMatrix,cameraRotationX, [0, 1, 0]);
