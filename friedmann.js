@@ -313,7 +313,7 @@ function initScene(gl) {
 
 		float distance = 0.;
 
-		gl_Position = projectionMatrix * viewMatrix * uWorldMatrix * aVertexPosition;
+		gl_Position = projectionMatrix * cameraSpacePosition;
 		vColor = aVertexColor; 
 		vFogFactor = clamp(exp(-density * distance), 0.0, 1.0);
 	}`;
