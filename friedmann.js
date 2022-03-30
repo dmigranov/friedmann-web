@@ -316,9 +316,11 @@ function initScene(gl) {
 		mat4 viewWorldMatrix = viewMatrix * uWorldMatrix;
 		vec4 cameraSpacePosition = viewWorldMatrix * position;
 
-		float density = 0.4f;	
+		float density = 0.3f;	//!
 
 		float distance = SphericalDistance(vec4(0, 0, 0, radius), cameraSpacePosition, radius);
+		if (gl_InstanceID == 1)
+			distance += 3.14159265 * radius;
 
 		gl_Position = projectionMatrix * cameraSpacePosition;
 		vColor = aVertexColor; 
