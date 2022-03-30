@@ -333,8 +333,8 @@ function initScene(gl) {
 	};
 
 	// Here's where we call the routine that builds all the objects we'll be drawing.
-	const buffers1 = SphericalMesh.createSphere(gl, 0.1, 10, 10, [0., 1., 0., 1.]);
-	const buffers2 = SphericalMesh.createSphere(gl, 0.1, 10, 10, [1., 0., 0., 1.]);
+	const buffers1 = SphericalMesh.createSphere(gl, 0.1, 15, 15, [0., 1., 0., 1.]);
+	const buffers2 = SphericalMesh.createSphere(gl, 0.1, 15, 15, [1., 0., 0., 1.]);
 
 	const points = SphericalRandom.generatePoints(1, 0.1, 100);
 	const worldMatrices = points.map((point) => SphericalMath.absolutePositionMatrix(point[0], point[1], point[2], point[3]));
