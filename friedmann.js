@@ -106,21 +106,11 @@ function updateScene(scene, deltaTime) {
 	{ //that's option 1
 		const viewMatrix = mat4.create();
 
-		if (leftPressed) {
-			cameraRotationX -= deltaTime;
-		}
-		if (rightPressed) {
-			cameraRotationX += deltaTime;
-		}
-		if (upPressed) {
-			cameraRotationY += deltaTime;
-		}
-		if (downPressed) {
-			cameraRotationY -= deltaTime;
-		}
+		cameraRotationX += mouseChangeX/10.;
+		cameraRotationY += mouseChangeY/10.;
 
-		mat4.rotate(viewMatrix, viewMatrix, -cameraRotationY, [1, 0, 0]);
-		mat4.rotate(viewMatrix, viewMatrix, cameraRotationX, [0, 1, 0]);
+		mat4.rotate(viewMatrix, viewMatrix, cameraRotationY, [1, 0, 0]);
+		mat4.rotate(viewMatrix, viewMatrix,cameraRotationX, [0, 1, 0]);
 
 		constants.viewMatrixFront = viewMatrix;
 	}
@@ -295,6 +285,8 @@ function initScene(gl) {
 			viewMatrix = -uViewMatrixFront;
 			projectionMatrix = uProjectionMatrixBack;
 		}
+
+		
 
 		gl_Position = projectionMatrix * viewMatrix * uWorldMatrix * aVertexPosition;
 		vColor = aVertexColor; 
