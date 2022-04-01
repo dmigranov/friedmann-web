@@ -154,8 +154,10 @@ function updateScene(scene, deltaTime) {
 		var sphPosition = vec4.fromValues(0, 0, 0, 1);
 		vec4.transformMat4(sphPosition, sphPosition, viewWorldMatrix)
 
-		var chi = SphericalMath.sphericalDistance(sphPosition, vec4.fromValues(0, 0, 0, 1), 1.);
-		//if,,,
+		const chi = SphericalMath.sphericalDistance(sphPosition, vec4.fromValues(0, 0, 0, 1), 1.);
+		const mu = friedmannTimer.currentSimulationTime;
+
+		
 	}
 }
 
