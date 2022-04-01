@@ -366,6 +366,7 @@ function initScene(gl) {
 			projectionMatrixBack: gl.getUniformLocation(shaderProgram, 'uProjectionMatrixBack'),
 			viewMatrixFront: gl.getUniformLocation(shaderProgram, 'uViewMatrixFront'),
 			worldMatrix: gl.getUniformLocation(shaderProgram, 'uWorldMatrix'),
+			mu: gl.getUniformLocation(shaderProgram, 'uMu'),
 		},
 	};
 
