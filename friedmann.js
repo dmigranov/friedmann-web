@@ -523,13 +523,13 @@ function keyUpHandler(event) {
 	}
 }
 
-var mouseX = -1;
-var mouseY = -1;
-var leftMouseButtonPressed = false;
-var rightMouseButtonPressed = false;
+var mouseX;
+var mouseY;
+var leftMouseButtonPressed;
+var rightMouseButtonPressed;
 
-var _leftMouseButtonClicked = false;
-var _rightMouseButtonClicked = false;
+var _leftMouseButtonClicked;
+var _rightMouseButtonClicked;
 
 function leftMouseButtonClicked() {
 	const retValue = _leftMouseButtonClicked;
