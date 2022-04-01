@@ -7,6 +7,11 @@ import * as SphericalRandom from './spherical_random.js';
 import * as Shader from './shader_loading.js';
 import { FriedmannTimer } from './friedmann_timer.js';
 
+var SphericalVisibilityEnum = {
+	VISIBLE_NONE: 1,
+	VISIBLE_FRONT: 2,
+	VISIBLE_ALL: 3,
+};
 
 // Obtain a reference to the canvas
 const canvas = document.querySelector("#glCanvas");
@@ -75,12 +80,6 @@ var mouseChangeX = 0;
 var mouseChangeY = 0;
 
 var isCursorInsideCanvas = false;
-
-var SphericalVisibility = {
-	VISIBLE_NONE: 1,
-	VISIBLE_FRONT: 2,
-	VISIBLE_ALL: 3,
-  };
 
 function updateScene(scene, deltaTime) {
 	friedmannTimer.addDelta(deltaTime);
@@ -401,7 +400,8 @@ function initScene(gl) {
 	var sceneObjects = worldMatrices.map((worldMatrix) => {
 		return {
 			worldMatrix: worldMatrix,
-			buffers: (Math.random() < 0.5 ? buffers1 : buffers2)
+			buffers: (Math.random() < 0.5 ? buffers1 : buffers2),
+			sphericalVisibility: SphericalVisibilityEnum.VISIBLE_NONE,
 		}
 	});
 
