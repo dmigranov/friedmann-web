@@ -428,15 +428,15 @@ function initScene(gl) {
 // CONTROLS
 // https://github.com/end3r/JavaScript-Game-Controls/
 
-var rightPressed = false;
-var leftPressed = false;
-var upPressed = false;
-var downPressed = false;
-var dPressed = false;
-var aPressed = false;
-var wPressed = false;
-var sPressed = false;
-var backspacePressed = false;
+var rightPressed;
+var leftPressed
+var upPressed;
+var downPressed;
+var dPressed;
+var aPressed;
+var wPressed;
+var sPressed;
+var backspacePressed;
 
 function keyDownHandler(event) {
 	if ("code" in event) {
