@@ -19,6 +19,8 @@ const initialMuCoeff = 1. / 3.;
 const initialSimulationTime = 8. / (9. * initialMuCoeff);
 const friedmannTimer = new FriedmannTimer(initialSimulationTime, initialMuCoeff);
 
+const PI_MUL_2 = 2 * Math.PI;
+
 // Initialize the GL context
 const gl = canvas.getContext("webgl2");
 
@@ -157,7 +159,14 @@ function updateScene(scene, deltaTime) {
 		const chi = SphericalMath.sphericalDistance(sphPosition, vec4.fromValues(0, 0, 0, 1), 1.);
 		const mu = friedmannTimer.currentSimulationTime;
 
-		
+		if (mu < chi)
+			SetSphericalVisibility(SphericalVisibility:: VISIBLE_NONE);
+		else {
+			if (mu >= chi && mu <= (PI_MUL_2 - chi))
+				SetSphericalVisibility(SphericalVisibility:: VISIBLE_FRONT);
+			else //mu > (2 * XM_PI - dist)
+				SetSphericalVisibility(SphericalVisibility:: VISIBLE_ALL)
+		}
 	}
 }
 
