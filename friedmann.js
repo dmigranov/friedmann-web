@@ -146,8 +146,8 @@ function updateScene(scene, deltaTime) {
 
 	for (const sceneObject of scene.sceneObjects) {
 		//todo: вот тут выставить видимость для объектов в зависимости от хи
+		const worldMatrix = sceneObject.worldMatrix;
 
-		;
 	}
 }
 
