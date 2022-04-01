@@ -148,10 +148,14 @@ function updateScene(scene, deltaTime) {
 	for (const sceneObject of scene.sceneObjects) {
 		//todo: вот тут выставить видимость для объектов в зависимости от хи
 		const worldMatrix = sceneObject.worldMatrix;
-		var sphPosition = vec4.fromValues(0, 0, 0, 1);
-		vec4.transformMat4(sphPosition, sphPosition, sphPosition)
+		var viewWorldMatrix = mat4.create();
+		mat4.multiply(viewWorldMatrix, viewMatrix, worldMatrix); //todo: check if correct
 
-		
+		var sphPosition = vec4.fromValues(0, 0, 0, 1);
+		vec4.transformMat4(sphPosition, sphPosition, viewWorldMatrix)
+
+		var chi = SphericalMath.sphericalDistance(sphPosition, vec4.fromValues(0, 0, 0, 1), 1.);
+		//if,,,
 	}
 }
 
