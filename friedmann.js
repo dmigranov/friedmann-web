@@ -290,7 +290,7 @@ function initScene(gl) {
 		return 2.f * (1.f - cos(mu)); 
 	}
 
-	float RadiusAbridgedFunction(float mu)
+	float RadiusAbridgedFunction(float mu) //сначала попытаемся для обычного радиуса
 	{
 		float startRadius = 0.14f;
 		float multiplier = 2.f - startRadius / 2.;
