@@ -266,8 +266,10 @@ function drawScene(gl, scene, deltaTime) {
 			const vertexCount = buffers.indexCount;
 			const type = gl.UNSIGNED_SHORT;
 			const offset = 0;
-			//gl.drawElements(gl.TRIANGLES, vertexCount, type, offset); 
-			gl.drawElementsInstanced(gl.TRIANGLES, vertexCount, type, offset, 2); //type specifies the type of the values in the element (index) array buffer
+			if (sceneObject.sphericalVisibility == SphericalVisibilityEnum.VISIBLE_ALL)
+				gl.drawElementsInstanced(gl.TRIANGLES, vertexCount, type, offset, 2); //type specifies the type of the values in the element (index) array buffer
+			else
+				gl.drawElementsInstanced(gl.TRIANGLES, vertexCount, type, offset, 1);
 		}
 	}
 }
