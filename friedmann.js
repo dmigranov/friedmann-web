@@ -150,7 +150,6 @@ function updateScene(scene, deltaTime) {
 	for (const sceneObject of scene.sceneObjects) {
 		//todo: вот тут выставить видимость для объектов в зависимости от хи
 		const worldMatrix = sceneObject.worldMatrix;
-		var visibility = sceneObject.sphericalVisibility;
 
 		var viewWorldMatrix = mat4.create();
 		mat4.multiply(viewWorldMatrix, viewMatrix, worldMatrix); //todo: check if correct
@@ -159,18 +158,20 @@ function updateScene(scene, deltaTime) {
 		vec4.transformMat4(sphPosition, sphPosition, viewWorldMatrix)
 
 		const chi = SphericalMath.sphericalDistance(sphPosition, vec4.fromValues(0, 0, 0, 1), 1.);
-		const mu = friedmannTimer.currentSimulationTime;
+		const mu = friedmannTimer.mu;
+
+		console.log(chi + " " + mu);
 
 		if (mu < chi)
-			visibility = SphericalVisibilityEnum.VISIBLE_NONE;
-		else {
-			if (mu >= chi && mu <= (PI_MUL_2 - chi))
-				visibility = SphericalVisibilityEnum.VISIBLE_FRONT;
-			else //mu > (2 * XM_PI - dist)
-				visibility = SphericalVisibilityEnum.VISIBLE_ALL;
+		{
+			sceneObject.sphericalVisibility = SphericalVisibilityEnum.VISIBLE_NONE;
 		}
-
-		
+		else {
+			if (mu <= (PI_MUL_2 - chi)) // && mu >= chi
+				sceneObject.sphericalVisibility = SphericalVisibilityEnum.VISIBLE_FRONT;
+			else //mu > (2 * XM_PI - dist)
+				sceneObject.sphericalVisibility = SphericalVisibilityEnum.VISIBLE_ALL;
+		}
 	}
 }
 
@@ -203,7 +204,7 @@ function drawScene(gl, scene, deltaTime) {
 		programInfo.uniformLocations.viewMatrixFront,
 		false,
 		constants.viewMatrixFront);
-	gl.uniform1f(programInfo.uniformLocations.mu, friedmannTimer.currentSimulationTime);
+	gl.uniform1f(programInfo.uniformLocations.mu, friedmannTimer.mu);
 
 	const sceneObjects = scene.sceneObjects;
 	for (const sceneObject of sceneObjects) {
@@ -416,7 +417,7 @@ function initScene(gl) {
 	const buffers1 = SphericalMesh.createSphere(gl, 0.1, 15, 15, [0., 1., 0., 1.]);
 	const buffers2 = SphericalMesh.createSphere(gl, 0.1, 15, 15, [1., 0., 0., 1.]);
 
-	const points = SphericalRandom.generatePoints(1, 0.1, 100);
+	const points = SphericalRandom.generatePoints(1, 0.1, 1);
 	const worldMatrices = points.map((point) => SphericalMath.absolutePositionMatrix(point[0], point[1], point[2], point[3]));
 	var sceneObjects = worldMatrices.map((worldMatrix) => {
 		return {
