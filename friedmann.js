@@ -119,6 +119,11 @@ function updateScene(scene, deltaTime) {
 		cameraRotationX += mouseChangeX / mouseCoeff;
 		cameraRotationY += mouseChangeY / mouseCoeff;
 
+		if (dPressed)
+			cameraRotationX += deltaTime;
+		if (aPressed)
+			cameraRotationX -= deltaTime;
+
 		cameraRotationY = Math.max(-pitchLimit, cameraRotationY);
 		cameraRotationY = Math.min(+pitchLimit, cameraRotationY);
 
@@ -128,10 +133,7 @@ function updateScene(scene, deltaTime) {
 			cameraRotationX += 2 * Math.PI;
 
 		mat4.rotate(viewMatrix, viewMatrix, cameraRotationY, [1, 0, 0]);
-		mat4.rotate(viewMatrix, viewMatrix, cameraRotationX, [0, 1, 0]);
-		if (backspacePressed) {
-			mat4.rotate(viewMatrix, viewMatrix, Math.PI, [0, 1, 0]);
-		}
+		mat4.rotate(viewMatrix, viewMatrix, backspacePressed ? cameraRotationX + Math.PI : cameraRotationX, [0, 1, 0]);
 
 
 		constants.viewMatrixFront = viewMatrix;
