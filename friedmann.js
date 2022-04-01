@@ -150,6 +150,8 @@ function updateScene(scene, deltaTime) {
 	for (const sceneObject of scene.sceneObjects) {
 		//todo: вот тут выставить видимость для объектов в зависимости от хи
 		const worldMatrix = sceneObject.worldMatrix;
+		var visibility = sceneObject.sphericalVisibility;
+
 		var viewWorldMatrix = mat4.create();
 		mat4.multiply(viewWorldMatrix, viewMatrix, worldMatrix); //todo: check if correct
 
@@ -160,13 +162,15 @@ function updateScene(scene, deltaTime) {
 		const mu = friedmannTimer.currentSimulationTime;
 
 		if (mu < chi)
-			SetSphericalVisibility(SphericalVisibility:: VISIBLE_NONE);
+			visibility = SphericalVisibilityEnum.VISIBLE_NONE;
 		else {
 			if (mu >= chi && mu <= (PI_MUL_2 - chi))
-				SetSphericalVisibility(SphericalVisibility:: VISIBLE_FRONT);
+				visibility = SphericalVisibilityEnum.VISIBLE_FRONT;
 			else //mu > (2 * XM_PI - dist)
-				SetSphericalVisibility(SphericalVisibility:: VISIBLE_ALL)
+				visibility = SphericalVisibilityEnum.VISIBLE_ALL;
 		}
+
+		
 	}
 }
 
