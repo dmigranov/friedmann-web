@@ -76,6 +76,12 @@ var mouseChangeY = 0;
 
 var isCursorInsideCanvas = false;
 
+var SphericalVisibility = {
+	VISIBLE_NONE: 1,
+	VISIBLE_FRONT: 2,
+	VISIBLE_ALL: 3,
+  };
+
 function updateScene(scene, deltaTime) {
 	friedmannTimer.addDelta(deltaTime);
 
