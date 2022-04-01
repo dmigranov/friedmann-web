@@ -175,6 +175,7 @@ function drawScene(gl, scene, deltaTime) {
 		programInfo.uniformLocations.viewMatrixFront,
 		false,
 		constants.viewMatrixFront);
+	gl.uniform1f(programInfo.uniformLocations.mu, /* TIMER */);
 
 	const sceneObjects = scene.sceneObjects;
 	for (const sceneObject of sceneObjects) {
