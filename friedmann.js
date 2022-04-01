@@ -284,6 +284,11 @@ function initScene(gl) {
 		float chordLength = distance(vector1, vector2); //chord length
 		return 2.f * radius * asin(chordLength / (2.f * radius)); //angle is 2arcsin(L/2R), length of arc equals angle * R
 	}
+
+	float RadiusFunction(float mu) 
+	{ 
+		return 2.f * (1.f - cos(mu)); 
+	}
   
 	in vec4 aVertexPosition; // webgl: in instead of attribute
 	in vec4 aVertexColor;
@@ -312,6 +317,7 @@ function initScene(gl) {
 			projectionMatrix = uProjectionMatrixBack;
 		}
 
+		
 		vec4 position = aVertexPosition; //todo: correction
 		float radius = 1.f;
 
