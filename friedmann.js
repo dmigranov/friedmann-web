@@ -208,6 +208,9 @@ function drawScene(gl, scene, deltaTime) {
 		const worldMatrix = sceneObject.worldMatrix;
 		const buffers = sceneObject.buffers;
 
+		if (sceneObject.sphericalVisibility == SphericalVisibilityEnum.VISIBLE_NONE)
+			continue;
+
 		// Tell WebGL how to pull out the positions from the position buffer into the aVertexPosition attribute.
 		// (we bind the square's vertex buffer to the attribute the shader is using for aVertexPosition )
 		// Attributes receive values from buffers. Each iteration of the vertex shader receives the next value from the buffer assigned to that attribute
