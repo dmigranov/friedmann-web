@@ -144,10 +144,11 @@ function updateScene(scene, deltaTime) {
 		mat4.multiply(worldMatrix, SphericalMath.sphericalRotationZW(relativeZMovement), worldMatrix); 		//те, что сначала, применяются справа!
 	}
 
+	const viewMatrix = scene.constants.viewMatrixFront;
 	for (const sceneObject of scene.sceneObjects) {
 		//todo: вот тут выставить видимость для объектов в зависимости от хи
 		const worldMatrix = sceneObject.worldMatrix;
-
+		
 	}
 }
 
