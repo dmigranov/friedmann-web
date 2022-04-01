@@ -290,6 +290,7 @@ function initScene(gl) {
 	uniform mat4 uWorldMatrix;
   
 	uniform mat4 uViewMatrixFront;
+	uniform mediump float uMu;
   
 	uniform mat4 uProjectionMatrixFront;
 	uniform mat4 uProjectionMatrixBack;
