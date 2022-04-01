@@ -129,6 +129,10 @@ function updateScene(scene, deltaTime) {
 
 		mat4.rotate(viewMatrix, viewMatrix, cameraRotationY, [1, 0, 0]);
 		mat4.rotate(viewMatrix, viewMatrix, cameraRotationX, [0, 1, 0]);
+		if (backspacePressed) {
+			mat4.rotate(viewMatrix, viewMatrix, Math.PI, [0, 1, 0]);
+		}
+
 
 		constants.viewMatrixFront = viewMatrix;
 	}
@@ -146,7 +150,8 @@ function updateScene(scene, deltaTime) {
 		mat4.multiply(worldMatrix, SphericalMath.sphericalRotationZW(relativeZMovement), worldMatrix); 		//те, что сначала, применяются справа!
 	}
 
-	const viewMatrix = scene.constants.viewMatrixFront; //right now it's always the identity matrix, but still
+	var viewMatrix = scene.constants.viewMatrixFront;
+
 	for (const sceneObject of scene.sceneObjects) {
 		//todo: вот тут выставить видимость для объектов в зависимости от хи
 		const worldMatrix = sceneObject.worldMatrix;
@@ -362,7 +367,7 @@ function initScene(gl) {
 		mat4 viewWorldMatrix = viewMatrix * uWorldMatrix;
 		vec4 cameraSpacePosition = viewWorldMatrix * position;
 
-		float density = 0.3f;	//!
+		float density = 0.2f;	//!
 
 		float distance = SphericalDistance(vec4(0, 0, 0, radius), cameraSpacePosition, radius);
 		if (gl_InstanceID == 1)
@@ -419,7 +424,7 @@ function initScene(gl) {
 	const buffers1 = SphericalMesh.createSphere(gl, 0.1, 15, 15, [0., 1., 0., 1.]);
 	const buffers2 = SphericalMesh.createSphere(gl, 0.1, 15, 15, [1., 0., 0., 1.]);
 
-	const points = SphericalRandom.generatePoints(1, 0.1, 100);
+	const points = SphericalRandom.generatePoints(1, 0.1, 5);
 	const worldMatrices = points.map((point) => SphericalMath.absolutePositionMatrix(point[0], point[1], point[2], point[3]));
 	var sceneObjects = worldMatrices.map((worldMatrix) => {
 		return {
