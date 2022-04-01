@@ -144,6 +144,8 @@ function updateScene(scene, deltaTime) {
 
 		mat4.multiply(worldMatrix, SphericalMath.sphericalRotationZW(relativeZMovement), worldMatrix); 		//те, что сначала, применяются справа!
 	}
+
+	//todo: вот тут выставить видимость для объектов в зависимости от хи
 }
 
 
