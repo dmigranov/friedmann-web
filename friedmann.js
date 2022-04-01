@@ -7,12 +7,6 @@ import * as SphericalRandom from './spherical_random.js';
 import * as Shader from './shader_loading.js';
 import { FriedmannTimer } from './friedmann_timer.js';
 
-var SphericalVisibilityEnum = {
-	VISIBLE_NONE: 1,
-	VISIBLE_FRONT: 2,
-	VISIBLE_ALL: 3,
-};
-
 // Obtain a reference to the canvas
 const canvas = document.querySelector("#glCanvas");
 
@@ -27,12 +21,6 @@ const friedmannTimer = new FriedmannTimer(initialSimulationTime, initialMuCoeff)
 
 // Initialize the GL context
 const gl = canvas.getContext("webgl2");
-
-// Only continue if WebGL is available and working
-if (gl === null)
-	alert("Unable to initialize WebGL. Your browser or machine may not support it.");
-else
-	main()
 
 function main() {
 	//gl.enable(gl.CULL_FACE); // should it stay? TODO
@@ -80,6 +68,12 @@ var mouseChangeX = 0;
 var mouseChangeY = 0;
 
 var isCursorInsideCanvas = false;
+
+var SphericalVisibilityEnum = {
+	VISIBLE_NONE: 1,
+	VISIBLE_FRONT: 2,
+	VISIBLE_ALL: 3,
+};
 
 function updateScene(scene, deltaTime) {
 	friedmannTimer.addDelta(deltaTime);
@@ -582,3 +576,12 @@ function leftMouseClickHandler(event) {
 function rightMouseClickHandler(event) {
 	_rightMouseButtonClicked = true;
 }
+
+
+
+
+// Only continue if WebGL is available and working
+if (gl === null)
+	alert("Unable to initialize WebGL. Your browser or machine may not support it.");
+else
+	main()
