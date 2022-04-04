@@ -12,8 +12,8 @@ export function drawAxes(graphCanvas, context2d) {
 
     // +X axis
     context2d.beginPath();
-    context2d.moveTo(XC(0), YC(0));
-    context2d.lineTo(XC(MaxX()), YC(0));
+    context2d.moveTo(borderGap, graphCanvas.height - borderGap);
+    context2d.lineTo(graphCanvas.width - borderGap, graphCanvas.height - borderGap);
     context2d.stroke();
     
     context2d.restore();
