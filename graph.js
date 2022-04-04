@@ -2,7 +2,12 @@ const borderGap = 10;
 const tickSize = 4;
 
 export function updateGraph(graphCanvas, context2d, mu) {
-    
+    context2d.clearRect(0, 0, graphCanvas.width, graphCanvas.height); // todo: optimize?
+
+    drawAxes(graphCanvas, context2d);
+    drawGraph(graphCanvas, context2d, 20);
+
+    drawPoint(graphCanvas, context2d, mu);    
 }
 
 export function drawPoint(graphCanvas, context2d, mu) {
@@ -17,11 +22,11 @@ export function drawPoint(graphCanvas, context2d, mu) {
     y = y / 2 * (graphCanvas.height - 2 * borderGap) + borderGap;
 
     context2d.beginPath();
-    var radius         = 4;                     // Arc radius
-    var startAngle     = 0;                     // Starting point on circle
-    var endAngle       = 2 * Math.PI;           // End point on circle
+    var radius = 4;                     // Arc radius
+    var startAngle = 0;                     // Starting point on circle
+    var endAngle = 2 * Math.PI;           // End point on circle
 
-    context2d.arc(x,y,radius,startAngle,endAngle);
+    context2d.arc(x, y, radius, startAngle, endAngle);
     context2d.fill();
 
     context2d.restore();
@@ -82,12 +87,12 @@ export function drawGraph(graphCanvas, context2d, numberOfPoints) {
         var y = Math.cos(x) + 1; //2 - (1 -cosx) - to invert, because Y goes down
 
         x = x / (2 * Math.PI) //now from 0 to 1
-         * (width - 2 * borderGap) + borderGap;    //now from borderGap to width - borderGap
+            * (width - 2 * borderGap) + borderGap;    //now from borderGap to width - borderGap
         y = y / 2 * (height - 2 * borderGap) + borderGap;
-        
+
         if (i == 0) {
             context2d.moveTo(x, y);
-        } 
+        }
         else {
             context2d.lineTo(x, y);
         }

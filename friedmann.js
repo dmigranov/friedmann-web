@@ -27,10 +27,9 @@ const PI_MUL_2 = 2 * Math.PI;
 // Initialize the GL context
 const gl = canvas.getContext("webgl2");
 
+
 // Initialize the 2D context
 const context2d = graphCanvas.getContext('2d');
-Graph.drawAxes(graphCanvas, context2d);
-Graph.drawGraph(graphCanvas, context2d, 30);
 
 function main() {
 	//gl.enable(gl.CULL_FACE); // should it stay? TODO
@@ -321,7 +320,7 @@ function updatePage(scene, deltaTime) {
 	const mu = friedmannTimer.mu;
 	muOutput.innerHTML = "Mu: " + mu.toFixed(3);
 
-	Graph.drawPoint(graphCanvas, context2d, mu);
+	Graph.updateGraph(graphCanvas, context2d, mu);
 }
 
 
