@@ -89,17 +89,23 @@ var SphericalVisibilityEnum = {
 	VISIBLE_ALL: 3,
 };
 
+
+var isAnimation = true;
 function updateScene(scene, deltaTime) {
 	const finalMu = 5.4;
 
-	if (rightPressed) {
+	if (rightPressed || isAnimation) {
 		friedmannTimer.addDelta(deltaTime);
 	}
 	else if (leftPressed) {
 		friedmannTimer.addDelta(-deltaTime);
 	}
-	else if (friedmannTimer.mu < finalMu)
-		friedmannTimer.addDelta(deltaTime);
+	
+	if (friedmannTimer.mu > finalMu)
+		isAnimation = false;
+
+	if (spacePressed)
+		isAnimation = true;
 
 	
 
