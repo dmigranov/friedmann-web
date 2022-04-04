@@ -89,28 +89,33 @@ var SphericalVisibilityEnum = {
 	VISIBLE_ALL: 3,
 };
 
+var oldPressedAnimationKey = false;
 
 var isAnimation = true;
 function updateScene(scene, deltaTime) {
 	const finalMu = 5.4;
 
+	if (friedmannTimer.mu > finalMu)
+		isAnimation = false;
+
 	if (rightPressed) {
 		friedmannTimer.addDelta(deltaTime);
 	}
 	else if (leftPressed) {
-		friedmannTimer.addDelta(-deltaTime);
+		friedmannTimer.addDelta(-2 * deltaTime);
 	}
 
 	if (isAnimation && !leftPressed) {
 		friedmannTimer.addDelta(deltaTime);
 	}
-
-	if (friedmannTimer.mu > finalMu)
-		isAnimation = false;
-
+	
 	if (ctrlPressed) {
-		//todo: pause
+		if (!oldPressedAnimationKey)
+			isAnimation = !isAnimation;
+		oldPressedAnimationKey = true;
 	}
+	else
+		oldPressedAnimationKey = false;
 
 	if (upPressed) {
 		//todo
