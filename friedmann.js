@@ -317,7 +317,6 @@ function updatePage(scene, deltaTime) {
 	output1.innerHTML = cameraRotationX;
 
 	const transformed = vec4.fromValues(0, 0, 0, 1);
-	//vec4.transformMat4(transformed, transformed, SphericalMath.sphericalRotationYW(0.1))
 	vec4.transformMat4(transformed, transformed, SphericalMath.absolutePositionMatrix(0.6, 0, 0, 0.8))
 	//const dist = SphericalMath.sphericalDistance(transformed, vec4.fromValues(0, 0, 0, 1), 1);
 	//const sphCoords = SphericalMath.getSphericalFromCartesian(transformed);
@@ -325,7 +324,7 @@ function updatePage(scene, deltaTime) {
 	const mu = friedmannTimer.mu;
 	muOutput.innerHTML = "Mu: " + mu.toFixed(3);
 
-	Graph.updateGraph(graphCanvas, context2dPoint, mu);
+	Graph.updateGraph(pointCanvas, context2dPoint, mu);
 }
 
 

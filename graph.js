@@ -2,12 +2,10 @@ const borderGap = 10;
 const tickSize = 4;
 
 export function updateGraph(graphCanvas, context2d, mu) {
-    context2d.clearRect(0, 0, graphCanvas.width, graphCanvas.height); // todo: optimize?
+    context2d.clearRect(0, 0, graphCanvas.width, graphCanvas.height);
     //https://stackoverflow.com/questions/3008635/html5-canvas-element-multiple-layers
-
     //drawAxes(graphCanvas, context2d);
     //drawGraph(graphCanvas, context2d, 20);
-
     drawPoint(graphCanvas, context2d, mu);    
 }
 
