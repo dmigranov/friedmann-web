@@ -9,6 +9,7 @@ import { FriedmannTimer } from './friedmann_timer.js';
 
 // Obtain a reference to the canvas
 const canvas = document.querySelector("#glCanvas");
+const graphCanvas = document.getElementById("graphcanvas");  
 
 const coordinates = document.getElementById("coordinates");
 const output1 = document.getElementById("output1");
@@ -23,6 +24,9 @@ const PI_MUL_2 = 2 * Math.PI;
 
 // Initialize the GL context
 const gl = canvas.getContext("webgl2");
+
+// Initialize the 2D context
+const context2d = graphCanvas.getContext('2d');
 
 function main() {
 	//gl.enable(gl.CULL_FACE); // should it stay? TODO
