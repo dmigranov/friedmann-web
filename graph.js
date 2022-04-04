@@ -2,6 +2,13 @@ const borderGap = 10;
 const tickSize = 4;
 
 export function drawPoint(graphCanvas, context2d, mu) {
+    var x = mu;
+    var y = Math.cos(x) + 1; //2 - (1 - cosx)
+
+    x = x / (2 * Math.PI) * (graphCanvas.width - 2 * borderGap) + borderGap;    //now from borderGap to width - borderGap
+    y = y / 2 * (graphCanvas.height - 2 * borderGap) + borderGap;
+
+    
 }
 
 export function drawAxes(graphCanvas, context2d) {
