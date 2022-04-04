@@ -1,7 +1,8 @@
 
 export class FriedmannTimer {
 	constructor(initialSimulationTime, muCoeff) {
-		this.currentSimulationTime = initialSimulationTime;
+		this.initialSimulationTime = initialSimulationTime;
+		this.currentSimulationTime = this.initialSimulationTime;
 		this.mu = muCoeff * this.currentSimulationTime;
 		this.muCoeff = muCoeff;
 		this.currentFrameTime = 0.;
@@ -9,6 +10,10 @@ export class FriedmannTimer {
 
 	get simulationTime() {
 		return this.currentSimulationTime;
+	}
+
+	get initialMu() {
+		return this.initialSimulationTime * this.muCoeff;
 	}
 
 	addDelta(deltaTime) {

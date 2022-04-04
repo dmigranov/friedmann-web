@@ -78,7 +78,10 @@ var SphericalVisibilityEnum = {
 };
 
 function updateScene(scene, deltaTime) {
-	friedmannTimer.addDelta(deltaTime);
+	//todo: остановка
+	if (friedmannTimer.mu < PI_MUL_2 - friedmannTimer.initialMu)
+		friedmannTimer.addDelta(deltaTime);
+		console.log(friedmannTimer.initialMu);
 
 	if (mouseX >= 0 && mouseY >= 0 && mouseX <= canvas.clientWidth && mouseY <= canvas.clientHeight)
 		isCursorInsideCanvas = true;
