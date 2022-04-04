@@ -35,8 +35,10 @@ export function generatePoint(spaceRadius) {
 export function generatePoints(spaceRadius, objectRadius, sphereCount) {
 	var points = [];
 	points.push(vec4.fromValues(0, 0, 0, spaceRadius)); // !
+	points.push(vec4.fromValues(0, 0, 0, -spaceRadius)); // !
 
-	for (var i = 0; i < sphereCount + 1; i++) {
+
+	for (var i = 0; i < sphereCount + 2; i++) {
 		var isPointGenerated = false;
 		while (!isPointGenerated) {
 			var point = generatePoint(spaceRadius);
@@ -55,6 +57,7 @@ export function generatePoints(spaceRadius, objectRadius, sphereCount) {
 
 		points.push(point);
 	}
+	points.shift();
 	points.shift();
 
 	return points;
