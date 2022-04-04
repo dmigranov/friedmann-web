@@ -293,7 +293,7 @@ function updatePage(scene, deltaTime) {
 		gl.canvas.clientWidth / gl.canvas.clientHeight, 0.1);
 
 	if (isCursorInsideCanvas)
-		coordinates.innerHTML = "Mouse:  <br />" + " x: " + mouseX + ", y: " + mouseY;
+		coordinates.innerHTML = "Mouse:" + " x: " + mouseX + ", y: " + mouseY;
 	else
 		coordinates.innerHTML = "Mouse outside!";
 
