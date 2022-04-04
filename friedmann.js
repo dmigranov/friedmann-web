@@ -365,6 +365,7 @@ function initScene(gl) {
 			projectionMatrix = uProjectionMatrixBack;
 		}
 
+		vec4 position1 = normalize(aVertexPosition);
 		
 		vec4 position = aVertexPosition; //todo: correction
 		float radius = 1.f;
@@ -616,8 +617,6 @@ function leftMouseClickHandler(event) {
 function rightMouseClickHandler(event) {
 	_rightMouseButtonClicked = true;
 }
-
-
 
 
 // Only continue if WebGL is available and working
