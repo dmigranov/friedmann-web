@@ -11,8 +11,8 @@ import { FriedmannTimer } from './friedmann_timer.js';
 
 // Obtain a reference to the canvas
 const canvas = document.querySelector("#glCanvas");
-const graphCanvas = document.getElementById("graphcanvas");  
-const pointCanvas = document.getElementById("pointcanvas");  
+const graphCanvas = document.getElementById("graphcanvas");
+const pointCanvas = document.getElementById("pointcanvas");
 
 const coordinates = document.getElementById("coordinates");
 const output1 = document.getElementById("output1");
@@ -90,10 +90,17 @@ var SphericalVisibilityEnum = {
 };
 
 function updateScene(scene, deltaTime) {
-	//todo: остановка
-	if (friedmannTimer.mu < 5.4)
+	const finalMu = 5.4;
+	if (friedmannTimer.mu < finalMu)
 		friedmannTimer.addDelta(deltaTime);
 
+	if (rightPressed) {
+
+	}
+	else if (leftPressed) {
+
+	}
+	
 	if (mouseX >= 0 && mouseY >= 0 && mouseX <= canvas.clientWidth && mouseY <= canvas.clientHeight)
 		isCursorInsideCanvas = true;
 	else
