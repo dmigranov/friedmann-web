@@ -5,10 +5,10 @@ export function drawAxes(graphCanvas, context2d) {
     // +Y axis
     context2d.beginPath();
     context2d.moveTo(10, 10);
-    context2d.lineTo(10, 60);
+    context2d.lineTo(10, graphCanvas.height - 10);
     context2d.stroke();
 
-     +X axis
+    // +X axis
     /*
     context2d.beginPath();
     context2d.moveTo(XC(0), YC(0));
