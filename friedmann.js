@@ -12,7 +12,7 @@ import { FriedmannTimer } from './friedmann_timer.js';
 // Obtain a reference to the canvas
 const canvas = document.querySelector("#glCanvas");
 const graphCanvas = document.getElementById("graphcanvas");  
-const axesCanvas = document.getElementById("axescanvas");  
+const pointCanvas = document.getElementById("pointcanvas");  
 
 const coordinates = document.getElementById("coordinates");
 const output1 = document.getElementById("output1");
@@ -31,8 +31,10 @@ const gl = canvas.getContext("webgl2");
 
 // Initialize the 2D contexts
 const context2dGraph = graphCanvas.getContext('2d');
-const context2dAxes = axesCanvas.getContext('2d');
+const context2dPoint = pointCanvas.getContext('2d');
 
+Graph.drawAxes(graphCanvas, context2dGraph);
+Graph.drawGraph(graphCanvas, context2dGraph, 20);
 
 function main() {
 	//gl.enable(gl.CULL_FACE); // should it stay? TODO
@@ -323,7 +325,7 @@ function updatePage(scene, deltaTime) {
 	const mu = friedmannTimer.mu;
 	muOutput.innerHTML = "Mu: " + mu.toFixed(3);
 
-	Graph.updateGraph(graphCanvas, context2d, mu);
+	Graph.updateGraph(graphCanvas, context2dPoint, mu);
 }
 
 
