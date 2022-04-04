@@ -103,14 +103,14 @@ function updateScene(scene, deltaTime) {
 	else if (isAnimation) {
 		friedmannTimer.addDelta(deltaTime);
 	}
-	
+
 	if (friedmannTimer.mu > finalMu)
 		isAnimation = false;
 
 	//if (spacePressed)
 	//	isAnimation = !isAnimation;
 
-	
+
 
 	if (mouseX >= 0 && mouseY >= 0 && mouseX <= canvas.clientWidth && mouseY <= canvas.clientHeight)
 		isCursorInsideCanvas = true;
@@ -527,6 +527,7 @@ var aPressed = false;
 var wPressed = false;
 var sPressed = false;
 var backspacePressed = false;
+var spacePressed = false;
 
 function keyDownHandler(event) {
 	if ("code" in event) {
@@ -563,6 +564,9 @@ function keyDownHandler(event) {
 				return;
 			case "Backspace":
 				backspacePressed = true;
+				break;
+			case "Space":
+				spacePressed = true;
 				break;
 			default:
 				return;
@@ -606,6 +610,9 @@ function keyUpHandler(event) {
 				return;
 			case "Backspace":
 				backspacePressed = false;
+				break;
+			case "Space":
+				spacePressed = false;
 				break;
 			default:
 				return;
