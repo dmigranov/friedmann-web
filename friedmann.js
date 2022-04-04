@@ -133,11 +133,8 @@ function updateScene(scene, deltaTime) {
 		else if (cameraRotationX < -Math.PI)
 			cameraRotationX += 2 * Math.PI;
 
-		/*
-		mat4.rotate(viewMatrix, viewMatrix, cameraRotationY, [1, 0, 0]);
-		mat4.rotate(viewMatrix, viewMatrix, cameraRotationX, [0, 1, 0]);
-		*/
-		mat4.rotate(viewMatrix, viewMatrix, backspacePressed ? -cameraRotationX : cameraRotationX, [0, 1, 0]);
+		// mat4.rotate(viewMatrix, viewMatrix, cameraRotationY, [1, 0, 0]);
+		// mat4.rotate(viewMatrix, viewMatrix, cameraRotationX, [0, 1, 0]);
 
 		mat4.multiply(viewMatrix,
 			SphericalMath.sphericalRotationYZ(backspacePressed ? PI_MUL_2 + cameraRotationY : -cameraRotationY),
