@@ -382,6 +382,10 @@ function initScene(gl) {
 		else
 		{
 			float distanceFromPointToCenter = SphericalDistance(objectCenter1, position1, 1.);
+			float radiusOldCenter = RadiusAbridgedFunction(uMu - chiCenter);
+
+			float w_new = radiusOldCenter * (1. - 2. * pow(sin(distanceFromPointToCenter / (2. * radiusOldCenter)), 2.));
+
 		}
 
 		position = aVertexPosition; //todo: correction
