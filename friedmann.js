@@ -30,7 +30,7 @@ const gl = canvas.getContext("webgl2");
 // Initialize the 2D context
 const context2d = graphCanvas.getContext('2d');
 Graph.drawAxes(graphCanvas, context2d);
-Graph.drawGraph(graphCanvas, context2d, 3);
+Graph.drawGraph(graphCanvas, context2d, 30);
 
 function main() {
 	//gl.enable(gl.CULL_FACE); // should it stay? TODO
@@ -296,10 +296,6 @@ function drawScene(gl, scene, deltaTime) {
 
 
 function updatePage(scene, deltaTime) {
-	const proj = scene.constants.projectionMatrixFront;
-	const projSph = SphericalMath.bananaProjectionMatrixBackHalf(45 * Math.PI / 180,
-		gl.canvas.clientWidth / gl.canvas.clientHeight, 0.1);
-
 	if (isCursorInsideCanvas)
 		coordinates.innerHTML = "Mouse:" + " x: " + mouseX + ", y: " + mouseY;
 	else

@@ -40,6 +40,10 @@ export function drawAxes(graphCanvas, context2d) {
 }
 
 export function drawGraph(graphCanvas, context2d, numberOfPoints) {
+    context2d.save();
+
+    context2d.strokeStyle = "red";
+
     const iMultiplier = 2 * Math.PI / (numberOfPoints - 1);
 
     //const xMultiplier =;
@@ -66,4 +70,6 @@ export function drawGraph(graphCanvas, context2d, numberOfPoints) {
         }
     }
     context2d.stroke();
+
+    context2d.restore();
 }
