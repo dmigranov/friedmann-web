@@ -365,12 +365,15 @@ function initScene(gl) {
 			projectionMatrix = uProjectionMatrixBack;
 		}
 
+		mat4 viewWorldMatrix = viewMatrix * uWorldMatrix;
+
 		vec4 position1 = normalize(aVertexPosition);
 		
+		vec4 objectCenter = viewWorldMatrix * vec4(0.f, 0.f, 0.f, 1.f);
+
 		vec4 position = aVertexPosition; //todo: correction
 		float radius = 1.f;
 
-		mat4 viewWorldMatrix = viewMatrix * uWorldMatrix;
 		vec4 cameraSpacePosition = viewWorldMatrix * position;
 
 		float density = 0.2f;	//!
