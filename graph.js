@@ -8,7 +8,13 @@ export function drawPoint(graphCanvas, context2d, mu) {
     x = x / (2 * Math.PI) * (graphCanvas.width - 2 * borderGap) + borderGap;    //now from borderGap to width - borderGap
     y = y / 2 * (graphCanvas.height - 2 * borderGap) + borderGap;
 
-    
+    context2d.beginPath();
+    var radius         = 4;                    // Arc radius
+    var startAngle     = 0;                     // Starting point on circle
+    var endAngle       = 2 * Math.PI; // End point on circle
+
+    context2d.arc(x,y,radius,startAngle,endAngle);
+    context2d.fill();
 }
 
 export function drawAxes(graphCanvas, context2d) {
