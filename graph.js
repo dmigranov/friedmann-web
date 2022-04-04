@@ -62,7 +62,7 @@ export function drawGraph(graphCanvas, context2d, numberOfPoints) {
             context2d.moveTo(x, y);
         } 
         else {
-            context2d.lineTo(x, ys);
+            context2d.lineTo(x, y);
         }
     }
     context2d.stroke();

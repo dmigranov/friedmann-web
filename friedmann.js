@@ -30,6 +30,7 @@ const gl = canvas.getContext("webgl2");
 // Initialize the 2D context
 const context2d = graphCanvas.getContext('2d');
 Graph.drawAxes(graphCanvas, context2d);
+Graph.drawGraph(graphCanvas, context2d, 3);
 
 function main() {
 	//gl.enable(gl.CULL_FACE); // should it stay? TODO
