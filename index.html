@@ -65,8 +65,11 @@
         <div class="column left">
             <div id="coordinates">Mouse outside!</div>
             <br />
-            <div id="graph_div">
-                <canvas id="graphcanvas" width="250" height="100" style="border:2px solid black">
+            <div id="graph_div" style="position: relative;">
+                <canvas id="graphcanvas" width="250" height="100" style="border:2px solid black; position: absolute; z-index: 2;">
+                    Your browser does not suppnort the HTML5 <code>&lt;canvas&gt;</code> element.
+                </canvas>
+                <canvas id="axescanvas" width="250" height="100" style="border:2px solid black; position: absolute; z-index: 1;">
                     Your browser does not suppnort the HTML5 <code>&lt;canvas&gt;</code> element.
                 </canvas>
             </div>
