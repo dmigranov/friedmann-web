@@ -94,18 +94,21 @@ var isAnimation = true;
 function updateScene(scene, deltaTime) {
 	const finalMu = 5.4;
 
-	if (rightPressed || isAnimation) {
+	if (rightPressed) {
 		friedmannTimer.addDelta(deltaTime);
 	}
 	else if (leftPressed) {
 		friedmannTimer.addDelta(-deltaTime);
 	}
+	else if (isAnimation) {
+		friedmannTimer.addDelta(deltaTime);
+	}
 	
 	if (friedmannTimer.mu > finalMu)
 		isAnimation = false;
 
-	if (spacePressed)
-		isAnimation = true;
+	//if (spacePressed)
+	//	isAnimation = !isAnimation;
 
 	
 
