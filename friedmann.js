@@ -401,6 +401,9 @@ function initScene(gl) {
 		if (gl_InstanceID == 1)
 			distance += 3.14159265f * radius;
 
+		float chi;
+		chi = distance / radius;
+
 		gl_Position = projectionMatrix * cameraSpacePosition;
 		vColor = aVertexColor; 
 		vFogFactor = clamp(exp(-density * distance), 0.0, 1.0);
