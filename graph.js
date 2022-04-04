@@ -1,4 +1,4 @@
-export function DrawAxes(context2d) {
+export function drawAxes(context2d) {
     context2d.save();
     context2d.lineWidth = 2;
 
