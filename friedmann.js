@@ -367,6 +367,7 @@ function initScene(gl) {
 
 		mat4 viewWorldMatrix = viewMatrix * uWorldMatrix;
 
+		vec4 position;
 		vec4 position1 = normalize(aVertexPosition);
 		vec4 objectCenter1 = vec4(0.f, 0.f, 0.f, 1.f); //local coordinates
 
@@ -376,8 +377,14 @@ function initScene(gl) {
 
 		float radius = RadiusFunction(uMu);
 
-		vec4 position = aVertexPosition; //todo: correction
-		//float radius = 1.f;
+		if (abs(position1.w - 1.) < 0.00001)
+			position = position1 * radius;
+		else
+		{
+			float distanceFromPointToCenter = SphericalDistance(objectCenter1, position1, 1.);
+		}
+
+		position = aVertexPosition; //todo: correction
 
 		vec4 cameraSpacePosition = viewWorldMatrix * position;
 
