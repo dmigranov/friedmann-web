@@ -1,6 +1,10 @@
 const borderGap = 10;
 const tickSize = 4;
 
+export function updateGraph(graphCanvas, context2d, mu) {
+    
+}
+
 export function drawPoint(graphCanvas, context2d, mu) {
     context2d.save();
 
@@ -13,9 +17,9 @@ export function drawPoint(graphCanvas, context2d, mu) {
     y = y / 2 * (graphCanvas.height - 2 * borderGap) + borderGap;
 
     context2d.beginPath();
-    var radius         = 4;                    // Arc radius
+    var radius         = 4;                     // Arc radius
     var startAngle     = 0;                     // Starting point on circle
-    var endAngle       = 2 * Math.PI; // End point on circle
+    var endAngle       = 2 * Math.PI;           // End point on circle
 
     context2d.arc(x,y,radius,startAngle,endAngle);
     context2d.fill();
