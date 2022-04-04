@@ -1,6 +1,9 @@
 const borderGap = 10;
 const tickSize = 4;
 
+export function drawPoint(graphCanvas, context2d, mu) {
+}
+
 export function drawAxes(graphCanvas, context2d) {
     context2d.save();
     context2d.lineWidth = 1;

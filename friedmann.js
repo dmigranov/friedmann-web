@@ -318,7 +318,10 @@ function updatePage(scene, deltaTime) {
 	//const dist = SphericalMath.sphericalDistance(transformed, vec4.fromValues(0, 0, 0, 1), 1);
 	//const sphCoords = SphericalMath.getSphericalFromCartesian(transformed);
 
-	muOutput.innerHTML = "Mu: " + friedmannTimer.mu.toFixed(3);
+	const mu = friedmannTimer.mu;
+	muOutput.innerHTML = "Mu: " + mu.toFixed(3);
+
+	Graph.drawPoint(graphCanvas, context2d, mu);
 }
 
 
