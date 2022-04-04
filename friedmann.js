@@ -43,6 +43,11 @@ function main() {
 
 	// Initialize user input handling
 	document.addEventListener('keydown', keyDownHandler);
+	document.addEventListener("keydown", function(e) {
+		if(["Space","ArrowUp","ArrowDown","ArrowLeft","ArrowRight"].indexOf(e.code) > -1) {
+			e.preventDefault();
+		}
+	}, false);
 	document.addEventListener('keyup', keyUpHandler);
 
 	document.addEventListener('mousemove', mouseMoveHandler);
@@ -102,14 +107,13 @@ function updateScene(scene, deltaTime) {
 		friedmannTimer.addDelta(deltaTime);
 	}
 	else if (leftPressed) {
-		friedmannTimer.addDelta(-2 * deltaTime);
+		friedmannTimer.addDelta(-deltaTime);
 	}
-
-	if (isAnimation && !leftPressed) {
+	else if (isAnimation) {
 		friedmannTimer.addDelta(deltaTime);
 	}
-	
-	if (ctrlPressed) {
+
+	if (spacePressed) {
 		if (!oldPressedAnimationKey)
 			isAnimation = !isAnimation;
 		oldPressedAnimationKey = true;
@@ -117,11 +121,14 @@ function updateScene(scene, deltaTime) {
 	else
 		oldPressedAnimationKey = false;
 
+	const muCoeffDelta = 0.01;
 	if (upPressed) {
-		//todo
+		friedmannTimer.muCoeff += muCoeffDelta;
 	}
 	else if (downPressed) {
-		//todo
+		const muCoeff = friedmannTimer.muCoeff;
+		if (muCoeff >= muCoeffDelta)
+			friedmannTimer.muCoeff -= muCoeffDelta;
 	}
 
 	if (mouseX >= 0 && mouseY >= 0 && mouseX <= canvas.clientWidth && mouseY <= canvas.clientHeight)
