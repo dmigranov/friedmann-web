@@ -368,8 +368,11 @@ function initScene(gl) {
 		mat4 viewWorldMatrix = viewMatrix * uWorldMatrix;
 
 		vec4 position1 = normalize(aVertexPosition);
-		
-		vec4 objectCenter = viewWorldMatrix * vec4(0.f, 0.f, 0.f, 1.f);
+		vec4 objectCenter1 = vec4(0.f, 0.f, 0.f, 1.f); //local coordinates
+
+		float chiCenter = SphericalDistance(objectCenter1, viewWorldMatrix * objectCenter1, 1.f);
+		if (gl_InstanceID == 1)
+			chiCenter += 3.14159265f;
 
 		vec4 position = aVertexPosition; //todo: correction
 		float radius = 1.f;
@@ -380,7 +383,7 @@ function initScene(gl) {
 
 		float distance = SphericalDistance(vec4(0, 0, 0, radius), cameraSpacePosition, radius);
 		if (gl_InstanceID == 1)
-			distance += 3.14159265 * radius;
+			distance += 3.14159265f * radius;
 
 		gl_Position = projectionMatrix * cameraSpacePosition;
 		vColor = aVertexColor; 
