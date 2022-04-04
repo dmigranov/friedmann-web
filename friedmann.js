@@ -100,17 +100,24 @@ function updateScene(scene, deltaTime) {
 	else if (leftPressed) {
 		friedmannTimer.addDelta(-deltaTime);
 	}
-	else if (isAnimation) {
+
+	if (isAnimation && !leftPressed) {
 		friedmannTimer.addDelta(deltaTime);
 	}
 
 	if (friedmannTimer.mu > finalMu)
 		isAnimation = false;
 
-	if (spacePressed)
-		isAnimation = !isAnimation;
+	if (ctrlPressed) {
+		//todo: pause
+	}
 
-
+	if (upPressed) {
+		//todo
+	}
+	else if (downPressed) {
+		//todo
+	}
 
 	if (mouseX >= 0 && mouseY >= 0 && mouseX <= canvas.clientWidth && mouseY <= canvas.clientHeight)
 		isCursorInsideCanvas = true;
