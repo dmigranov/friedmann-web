@@ -139,8 +139,9 @@ function updateScene(scene, deltaTime) {
 		*/
 		mat4.rotate(viewMatrix, viewMatrix, backspacePressed ? -cameraRotationX : cameraRotationX, [0, 1, 0]);
 
-		mat4.multiply(viewMatrix, SphericalMath.sphericalRotationYZ(-cameraRotationY), SphericalMath.sphericalRotationXZ(cameraRotationX)); //SphericalMath.sphericalRotationXZ(cameraRotationY)
-		//todo: само вращение правильно, но думать над бэкспейсом!
+		mat4.multiply(viewMatrix,
+			SphericalMath.sphericalRotationYZ(backspacePressed ? PI_MUL_2 - : -cameraRotationY),
+			SphericalMath.sphericalRotationXZ(backspacePressed ? PI_MUL_2 - :cameraRotationX));
 
 		constants.viewMatrixFront = viewMatrix;
 
