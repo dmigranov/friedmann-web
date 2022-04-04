@@ -119,11 +119,12 @@ function updateScene(scene, deltaTime) {
 		cameraRotationX += mouseChangeX / mouseCoeff;
 		cameraRotationY += mouseChangeY / mouseCoeff;
 
+		/*
 		if (dPressed)
 			cameraRotationX += deltaTime;
 		if (aPressed)
 			cameraRotationX -= deltaTime;
-
+		*/
 		cameraRotationY = Math.max(-pitchLimit, cameraRotationY);
 		cameraRotationY = Math.min(+pitchLimit, cameraRotationY);
 
@@ -132,9 +133,12 @@ function updateScene(scene, deltaTime) {
 		else if (cameraRotationX < -Math.PI)
 			cameraRotationX += 2 * Math.PI;
 
-		//mat4.rotate(viewMatrix, viewMatrix, cameraRotationY, [1, 0, 0]);
-		//mat4.rotate(viewMatrix, viewMatrix, cameraRotationX, [0, 1, 0]);
-		//mat4.rotate(viewMatrix, viewMatrix, backspacePressed ? -cameraRotationX : cameraRotationX, [0, 1, 0]);
+		/*
+		mat4.rotate(viewMatrix, viewMatrix, cameraRotationY, [1, 0, 0]);
+		mat4.rotate(viewMatrix, viewMatrix, cameraRotationX, [0, 1, 0]);
+		*/
+		mat4.rotate(viewMatrix, viewMatrix, backspacePressed ? -cameraRotationX : cameraRotationX, [0, 1, 0]);
+
 		mat4.multiply(viewMatrix, SphericalMath.sphericalRotationYZ(-cameraRotationY), SphericalMath.sphericalRotationXZ(cameraRotationX)); //SphericalMath.sphericalRotationXZ(cameraRotationY)
 		//todo: само вращение правильно, но думать над бэкспейсом!
 
