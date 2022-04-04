@@ -107,8 +107,8 @@ function updateScene(scene, deltaTime) {
 	if (friedmannTimer.mu > finalMu)
 		isAnimation = false;
 
-	//if (spacePressed)
-	//	isAnimation = !isAnimation;
+	if (spacePressed)
+		isAnimation = !isAnimation;
 
 
 
@@ -528,6 +528,8 @@ var wPressed = false;
 var sPressed = false;
 var backspacePressed = false;
 var spacePressed = false;
+var ctrlPressed = false;
+
 
 function keyDownHandler(event) {
 	if ("code" in event) {
@@ -567,6 +569,10 @@ function keyDownHandler(event) {
 				break;
 			case "Space":
 				spacePressed = true;
+				break;
+			case "ControlLeft":
+			case "ControlRight":
+				ctrlPressed = true;
 				break;
 			default:
 				return;
@@ -613,6 +619,10 @@ function keyUpHandler(event) {
 				break;
 			case "Space":
 				spacePressed = false;
+				break;
+			case "ControlLeft":
+			case "ControlRight":
+				ctrlPressed = false;
 				break;
 			default:
 				return;
