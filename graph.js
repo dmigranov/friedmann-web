@@ -1,4 +1,4 @@
-export function drawAxes(context2d) {
+export function drawAxes(graphCanvas, context2d) {
     context2d.save();
     context2d.lineWidth = 2;
 
@@ -8,7 +8,7 @@ export function drawAxes(context2d) {
     context2d.lineTo(10, 60);
     context2d.stroke();
 
-    // +X axis
+     +X axis
     /*
     context2d.beginPath();
     context2d.moveTo(XC(0), YC(0));
