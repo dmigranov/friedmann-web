@@ -388,10 +388,10 @@ function initScene(gl) {
 			
 			float lambda = sqrt((position1.x * position1.x + position1.y * position1.y + position1.z * position1.z) / (radiusOldCenter * radiusOldCenter - w_new * w_new));
 			float x_new = position1.x / lambda, y_new = position1.y / lambda, z_new = position1.z / lambda; 
+			
 			position = vec4(x_new, y_new, z_new, w_new);
+			position *= radius / radiusOldCenter;
 		}
-
-		position = aVertexPosition; //todo: correction
 
 		vec4 cameraSpacePosition = viewWorldMatrix * position;
 
