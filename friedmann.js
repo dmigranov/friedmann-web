@@ -140,12 +140,10 @@ function updateScene(scene, deltaTime) {
 		mat4.rotate(viewMatrix, viewMatrix, backspacePressed ? -cameraRotationX : cameraRotationX, [0, 1, 0]);
 
 		mat4.multiply(viewMatrix,
-			SphericalMath.sphericalRotationYZ(backspacePressed ? PI_MUL_2 - : -cameraRotationY),
-			SphericalMath.sphericalRotationXZ(backspacePressed ? PI_MUL_2 - :cameraRotationX));
+			SphericalMath.sphericalRotationYZ(backspacePressed ? PI_MUL_2 + cameraRotationY : -cameraRotationY),
+			SphericalMath.sphericalRotationXZ(backspacePressed ? cameraRotationX + Math.PI : cameraRotationX));
 
 		constants.viewMatrixFront = viewMatrix;
-
-		//view matrix неправильно считается! обхект и спереди и сздаи перемещается вверх при движении мыши вверх
 	}
 
 	{	//that's option 2
