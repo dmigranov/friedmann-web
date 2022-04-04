@@ -2,6 +2,10 @@ const borderGap = 10;
 const tickSize = 4;
 
 export function drawPoint(graphCanvas, context2d, mu) {
+    context2d.save();
+
+    context2d.fillStyle = "green";
+
     var x = mu;
     var y = Math.cos(x) + 1; //2 - (1 - cosx)
 
@@ -15,6 +19,8 @@ export function drawPoint(graphCanvas, context2d, mu) {
 
     context2d.arc(x,y,radius,startAngle,endAngle);
     context2d.fill();
+
+    context2d.restore();
 }
 
 export function drawAxes(graphCanvas, context2d) {
@@ -61,9 +67,6 @@ export function drawGraph(graphCanvas, context2d, numberOfPoints) {
     context2d.strokeStyle = "red";
 
     const iMultiplier = 2 * Math.PI / (numberOfPoints - 1);
-
-    //const xMultiplier =;
-    //const yMultiplier =;
 
     const height = graphCanvas.height;
     const width = graphCanvas.width;
