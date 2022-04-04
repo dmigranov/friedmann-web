@@ -120,11 +120,10 @@ function updateScene(scene, deltaTime) {
 		cameraRotationY += mouseChangeY / mouseCoeff;
 
 		/*
-		if (dPressed)
-			cameraRotationX += deltaTime;
-		if (aPressed)
-			cameraRotationX -= deltaTime;
+		if (dPressed) cameraRotationX += deltaTime;
+		if (aPressed) cameraRotationX -= deltaTime;
 		*/
+
 		cameraRotationY = Math.max(-pitchLimit, cameraRotationY);
 		cameraRotationY = Math.min(+pitchLimit, cameraRotationY);
 
@@ -430,7 +429,7 @@ function initScene(gl) {
 	const buffers1 = SphericalMesh.createSphere(gl, 0.1, 15, 15, [0., 1., 0., 1.]);
 	const buffers2 = SphericalMesh.createSphere(gl, 0.1, 15, 15, [1., 0., 0., 1.]);
 
-	const points = SphericalRandom.generatePoints(1, 0.1, 5);
+	const points = SphericalRandom.generatePoints(1, 0.1, 100);
 	const worldMatrices = points.map((point) => SphericalMath.absolutePositionMatrix(point[0], point[1], point[2], point[3]));
 	var sceneObjects = worldMatrices.map((worldMatrix) => {
 		return {
