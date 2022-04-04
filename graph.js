@@ -52,16 +52,17 @@ export function drawGraph(graphCanvas, context2d, numberOfPoints) {
     context2d.beginPath();
     for (var i = 0; i < numberOfPoints; i++) {
         var x = iMultiplier * i;
-        var y = Math.cos(x) + 1; //2 - (1 - cosx) - to invert, because Y goes down
+        var y = Math.cos(x) + 1; //2 - (1 -cosx) - to invert, because Y goes down
 
-        x = x / (2 * Math.PI) * (width - 10) + 5;
-        y = y / 2 * (height - 10) + 5;
+        x = x / (2 * Math.PI) //now from 0 to 1
+         * (width - 2 * borderGap) + borderGap;    //now from borderGap to width - borderGap
+        y = y / 2 * (height - 2 * borderGap) + borderGap;
         
         if (i == 0) {
-            context2d.moveTo(XC(x), YC(y));
+            context2d.moveTo(x, y);
         } 
         else {
-            context2d.lineTo(XC(x), YC(y));
+            context2d.lineTo(x, ys);
         }
     }
     context2d.stroke();
