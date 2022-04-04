@@ -374,8 +374,10 @@ function initScene(gl) {
 		if (gl_InstanceID == 1)
 			chiCenter += 3.14159265f;
 
+		float radius = RadiusFunction(uMu);
+
 		vec4 position = aVertexPosition; //todo: correction
-		float radius = 1.f;
+		//float radius = 1.f;
 
 		vec4 cameraSpacePosition = viewWorldMatrix * position;
 
