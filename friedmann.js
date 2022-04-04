@@ -37,9 +37,10 @@ Graph.drawAxes(graphCanvas, context2dGraph);
 Graph.drawGraph(graphCanvas, context2dGraph, 20);
 
 function main() {
-	//gl.enable(gl.CULL_FACE); // should it stay? TODO
+	gl.enable(gl.CULL_FACE); // should it stay? TODO
 	//todo: выключать culling если внутри объекта, и включать, если в антиподальной точке 
 	//или просто залить изнутри объекты черным?
+	//todo: разобраться с этим (все в порядке с проекцией?)
 
 	// Initialize user input handling
 	document.addEventListener('keydown', keyDownHandler);
@@ -382,7 +383,7 @@ function initScene(gl) {
 
 	float RadiusAbridgedFunction(float mu) //сначала попытаемся для обычного радиуса
 	{
-		float startRadius = 0.14f;
+		float startRadius = 0.2f;
 		float multiplier = 2.f - startRadius / 2.;
 		return startRadius + multiplier * (1. - cos(mu));
 	}
