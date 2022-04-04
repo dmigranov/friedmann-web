@@ -40,11 +40,18 @@ export function drawAxes(graphCanvas, context2d) {
 }
 
 export function drawGraph(graphCanvas, context2d, numberOfPoints) {
-    const xMultiplier = 2 * Math.PI / (numberOfPoints - 1);
+    const iMultiplier = 2 * Math.PI / (numberOfPoints - 1);
+
+    const xMultiplier =;
+    const yMultiplier =;
+
+    const height = graphCanvas.height;
+    const width = graphCanvas.width;
+
 
     context2d.beginPath();
     for (var i = 0; i < numberOfPoints; i++) {
-        var x = xMultiplier * i;
+        var x = iMultiplier * i;
         var y = Math.cos(x) + 1; //2 - (1 - cosx) - to invert, because Y goes down
 
         x = x / XM_2PI * (friedmann_w - 10) + 5;
