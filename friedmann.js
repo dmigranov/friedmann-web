@@ -46,8 +46,8 @@ function main() {
 
 	// Initialize user input handling
 	document.addEventListener('keydown', keyDownHandler);
-	document.addEventListener("keydown", function(e) {
-		if(["Space","ArrowUp","ArrowDown","ArrowLeft","ArrowRight"].indexOf(e.code) > -1) {
+	document.addEventListener("keydown", function (e) {
+		if (["Space", "ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"].indexOf(e.code) > -1) {
 			e.preventDefault();
 		}
 	}, false);
@@ -78,7 +78,7 @@ function main() {
 }
 
 function radiusFunction(mu) {
-	return 2 * (1 - Math.cos(mu)); 
+	return 2 * (1 - Math.cos(mu));
 }
 
 const mouseCoeff = 25.;
@@ -215,7 +215,6 @@ function updateScene(scene, deltaTime) {
 	var viewMatrix = scene.constants.viewMatrixFront;
 
 	for (const sceneObject of scene.sceneObjects) {
-		//todo: вот тут выставить видимость для объектов в зависимости от хи
 		const worldMatrix = sceneObject.worldMatrix;
 
 		var viewWorldMatrix = mat4.create();
@@ -235,6 +234,13 @@ function updateScene(scene, deltaTime) {
 				sceneObject.sphericalVisibility = SphericalVisibilityEnum.VISIBLE_FRONT;
 			else //mu > (2 * XM_PI - dist)
 				sceneObject.sphericalVisibility = SphericalVisibilityEnum.VISIBLE_ALL;
+		}
+
+		// SELECTION
+		if (sceneObject.visibility == SphericalVisibilityEnum.VISIBLE_NONE)
+			continue;
+		else {
+			SelectionSystem.raytraceSphereMouse();
 		}
 	}
 }
