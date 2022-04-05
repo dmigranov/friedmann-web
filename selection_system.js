@@ -1,3 +1,5 @@
+import * as SphericalMath from './spherical_math.js';
+
 //pos[3] = pos.w
 //pos[2] = pos.z
 
@@ -16,7 +18,7 @@ export function raytraceSphereMouse(mouseX, mouseY, posView, spaceRadius, initia
 	const leftReferenceVector = vec4.fromValues(-r_sphere, 0, 0, w_sphere);
 	const rightReferenceVector = vec4.fromValues(r_sphere, 0, 0, w_sphere);
 
-	const sphCoord = SphericalMath.GetSphericalFromCartesian(pos.x / radius, pos.y / radius, pos.z / radius, pos.w / radius);
+	//const sphCoord = SphericalMath.GetSphericalFromCartesian(pos.x / radius, pos.y / radius, pos.z / radius, pos.w / radius);
     
 	//todo
 
