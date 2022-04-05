@@ -630,6 +630,7 @@ function initScene(gl) {
 			viewMatrixFront: gl.getUniformLocation(shaderProgram, 'uViewMatrixFront'),
 			worldMatrix: gl.getUniformLocation(shaderProgram, 'uWorldMatrix'),
 			mu: gl.getUniformLocation(shaderProgram, 'uMu'),
+			isSelected: gl.getUniformLocation(shaderProgram, 'uIsSelected'),
 		},
 	};
 
