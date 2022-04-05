@@ -222,7 +222,7 @@ function updateScene(scene, deltaTime) {
 		mat4.multiply(viewWorldMatrix, viewMatrix, worldMatrix); //todo: check if correct
 
 		var sphPosition = vec4.fromValues(0, 0, 0, 1);
-		vec4.transformMat4(sphPosition, sphPosition, viewWorldMatrix)
+		vec4.transformMat4(sphPosition, sphPosition, viewWorldMatrix);
 
 		const chi = SphericalMath.sphericalDistance(sphPosition, vec4.fromValues(0, 0, 0, 1), 1.);
 		const mu = friedmannTimer.mu;
