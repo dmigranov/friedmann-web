@@ -463,13 +463,20 @@ function initScene(gl) {
 	const fsSource = `#version 300 es
 
 	#define PI 3.14159265
-	#define C 299792458
+	#define C 299792458.
 
 	precision mediump float;
 	in mediump vec4 vColor;
 	in mediump float vFogFactor;
 
 	out vec4 fragColor;
+
+	float getFrequency(float hue)
+	{
+		float lambda = 650. - 250. / 270. * hue;
+		float frequency = 2. * PI * C / lambda;
+		return frequency;
+	}
 
 	void main() {
 		//todo: modify
