@@ -15,4 +15,7 @@ export function raytraceSphereMouse(mouseX, mouseY, posView, spaceRadius, projMa
 	const rightReferenceVector = vec4.fromValues(r_sphere, 0, 0, w_sphere);
 
 	//todo
+
+
+	return 0; //todo
 }
