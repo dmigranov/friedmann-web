@@ -75,6 +75,9 @@ function main() {
 	requestAnimationFrame(render);
 }
 
+function radiusFunction(mu) {
+	return 2 * (1 - Math.cos(mu)); 
+}
 
 const mouseCoeff = 25.;
 const pitchLimit = Math.PI / 2.0 - 0.01
