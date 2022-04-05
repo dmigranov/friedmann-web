@@ -323,6 +323,9 @@ function drawScene(gl, scene, deltaTime) {
 			false,
 			worldMatrix);
 
+		gl.uniform1i(programInfo.uniformLocations.isSelected, 0);
+
+
 		//DRAW!
 		{
 			const vertexCount = buffers.indexCount;
@@ -469,7 +472,7 @@ function initScene(gl) {
 	#define PI 3.14159265
 	#define C 299792458.
 
-	uniform bool uIsSelected;
+	uniform int uIsSelected;
 
 	precision mediump float;
 	in mediump vec4 vColor;
