@@ -1,7 +1,7 @@
 //pos[3] = pos.w
 //pos[2] = pos.z
 
-export function raytraceSphereMouse(mouseX, mouseY, posView, spaceRadius, projMatrix, radiusFunction, mu) {
+export function raytraceSphereMouse(mouseX, mouseY, posView, spaceRadius, initialObjectRadius, projMatrix, radiusFunction, mu) {
 	const pos = posView; 
 	var chi = Math.acos(pos[3] / spaceRadius); //вроде считает
     if (pos[2] < 0)
@@ -10,6 +10,8 @@ export function raytraceSphereMouse(mouseX, mouseY, posView, spaceRadius, projMa
 	const effectiveRadius = radiusFunction(muOriginal);
 
 	var r_sphere, w_sphere;
+	w_sphere = effectiveRadius - 2 * effectiveRadius * Math.pow(Math.sin(initialObjectRadius / effectiveRadius / 2), 2);
+    r_sphere = Math.sqrt(effectiveRadius * effectiveRadius - w_sphere * w_sphere);
 
 	//todo
 
