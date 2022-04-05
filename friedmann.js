@@ -323,7 +323,7 @@ function drawScene(gl, scene, deltaTime) {
 			false,
 			worldMatrix);
 
-		gl.uniform1i(programInfo.uniformLocations.isSelected, 0);
+		gl.uniform1i(programInfo.uniformLocations.isSelected, 1);
 
 
 		//DRAW!
@@ -611,6 +611,9 @@ function initScene(gl) {
 
 
 		vec4 retColor = vFogFactor * vColor + (1.0 - vFogFactor) * vec4(0., 0., 0., 1.);
+
+		if(uIsSelected != 0)
+			retColor = 0.3 * retColor + 0.7 * vec4(1., 1., 1., 1.);
 		
 		fragColor = retColor;
 	}`;
