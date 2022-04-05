@@ -240,7 +240,9 @@ function updateScene(scene, deltaTime) {
 		if (sceneObject.visibility == SphericalVisibilityEnum.VISIBLE_NONE)
 			continue;
 		else {
-			SelectionSystem.raytraceSphereMouse();
+			// mouseX = (double)ms.x / width * 2. - 1.;
+			// mouseY = -((double)ms.y / height * 2. - 1);
+			SelectionSystem.raytraceSphereMouse(0, 0,);
 		}
 	}
 }
