@@ -213,7 +213,7 @@ function updateScene(scene, deltaTime) {
 	}
 
 	var viewMatrix = scene.constants.viewMatrixFront;
-	const spaceRadius = radiusFunction(mu);
+	const spaceRadius = radiusFunction(friedmannTimer.mu);
 
 	for (const sceneObject of scene.sceneObjects) {
 		const worldMatrix = sceneObject.worldMatrix;
@@ -243,7 +243,7 @@ function updateScene(scene, deltaTime) {
 		else {
 			// mouseX = (double)ms.x / width * 2. - 1.;
 			// mouseY = -((double)ms.y / height * 2. - 1);
-			SelectionSystem.raytraceSphereMouse(0, 0, sphPosition, );
+			SelectionSystem.raytraceSphereMouse(0, 0, sphPosition, spaceRadius, projectionMatrix);
 		}
 	}
 }
