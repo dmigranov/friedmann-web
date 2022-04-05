@@ -13,11 +13,11 @@ export function raytraceSphereMouse(mouseX, mouseY, posView, spaceRadius, initia
 	w_sphere = effectiveRadius - 2 * effectiveRadius * Math.pow(Math.sin(initialObjectRadius / effectiveRadius / 2), 2);
     r_sphere = Math.sqrt(effectiveRadius * effectiveRadius - w_sphere * w_sphere);
 
-	//todo
-
 	const leftReferenceVector = vec4.fromValues(-r_sphere, 0, 0, w_sphere);
 	const rightReferenceVector = vec4.fromValues(r_sphere, 0, 0, w_sphere);
 
+	const sphCoord = SphericalMath.GetSphericalFromCartesian(pos.x / radius, pos.y / radius, pos.z / radius, pos.w / radius);
+    
 	//todo
 
 
