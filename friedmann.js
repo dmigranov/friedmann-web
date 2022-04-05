@@ -401,6 +401,8 @@ function initScene(gl) {
 
 	out mediump vec4 vColor; //out = webgl 1.0 varying; used for interpolated data between a vertex shader and a fragment shader
 	out mediump float vFogFactor;
+	out mediump float vRadiusRatio;
+
 
 	void main() {
 		mat4 viewMatrix, projectionMatrix;
@@ -453,10 +455,12 @@ function initScene(gl) {
 
 		float chi;
 		chi = distance / radius;
+		float radiusOld = RadiusFunction(uMu - chi);
 
 		gl_Position = projectionMatrix * cameraSpacePosition;
 		vColor = aVertexColor; 
 		vFogFactor = clamp(exp(-density * distance), 0.0, 1.0);
+		vRadiusRatio = radiusOld / radius;
 	}`;
 
 	// Fragment shader
