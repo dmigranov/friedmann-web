@@ -323,7 +323,8 @@ function drawScene(gl, scene, deltaTime) {
 			false,
 			worldMatrix);
 
-		gl.uniform1i(programInfo.uniformLocations.isSelected, 1);
+		//todo: selection
+		gl.uniform1i(programInfo.uniformLocations.isSelected, 0);
 
 
 		//DRAW!
