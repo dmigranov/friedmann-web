@@ -478,6 +478,15 @@ function initScene(gl) {
 		return frequency;
 	}
 
+	float getHue(float frequency)
+	{
+		float lambda = 2. * PI * C / frequency;
+		float hue = (650. - lambda) * 270. / 250.;
+		return hue;
+	}
+	
+
+
 	void main() {
 		//todo: modify
 
