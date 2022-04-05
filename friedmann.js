@@ -6,6 +6,7 @@ import * as SphericalMesh from './spherical_mesh.js';
 import * as SphericalRandom from './spherical_random.js';
 import * as Shader from './shader_loading.js';
 import * as Graph from './graph.js';
+import * as SelectionSystem from './selection_system.js';
 
 import { FriedmannTimer } from './friedmann_timer.js';
 
