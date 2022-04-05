@@ -1,3 +1,4 @@
+const PI_MUL_2 = 2 * Math.PI;
 
 export class FriedmannTimer {
 	constructor(initialSimulationTime, muCoeff) {
@@ -19,6 +20,8 @@ export class FriedmannTimer {
 	addDelta(deltaTime) {
 		this.currentSimulationTime += deltaTime;
 		this.mu += this.muCoeff * deltaTime;
+		if (this.mu < 0)
+			this.mu = this.mu + PI_MUL_2;
 		this.currentFrameTime += deltaTime;
 	}
 
