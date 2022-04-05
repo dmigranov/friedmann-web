@@ -538,6 +538,63 @@ function initScene(gl) {
 		return vec3(r, g, b);
 	}
 
+	vec3 rgb2hsv(vec3 rgb)
+	{
+		float r = rgb.x, g = rgb.y, b = rgb.z;
+		float min, max, delta;
+		vec3 hsv;
+		float h, s, v;
+
+		min = r < g ? r : g;
+		min = min < b ? min : b;
+
+		max = r > g ? r : g;
+		max = max > b ? max : b;
+
+		delta = max - min;
+
+		//! v
+		v = max; 
+		if (delta < 0.00001)
+		{
+			s = 0.f;
+			h = 0.f; 
+			return vec3(h, s, v);
+		}
+
+
+		//! s
+		if (max > 0.f)
+			s = (delta / max); 
+		else
+		{
+			// max is 0 -> r = g = b = 
+			s = 0.f;
+			h = 0.f;
+			return vec3(h, s, v);
+		}
+
+
+		//! h
+		if (r >= max)                          
+			h = (g - b) / delta;
+		else
+			if (g >= max)
+				h = 2.f + (b - r) / delta; 
+			else
+				h = 4.f + (r - g) / delta;  
+
+		h *= 60.f;  //degrees
+
+		if (h < 0.f)
+			h += 360.f;
+
+		hsv.x = h;
+		hsv.y = s;
+		hsv.z = v;
+		return hsv;
+	}
+
 
 	void main() {
 		//todo: modify
