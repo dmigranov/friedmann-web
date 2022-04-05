@@ -27,6 +27,8 @@ const friedmannTimer = new FriedmannTimer(initialSimulationTime, initialMuCoeff)
 
 const PI_MUL_2 = 2 * Math.PI;
 
+const initialObjectRadius = 0.1;
+
 // Initialize the GL context
 const gl = canvas.getContext("webgl2");
 
@@ -249,7 +251,6 @@ function updateScene(scene, deltaTime) {
 		if (sceneObject.visibility == SphericalVisibilityEnum.VISIBLE_NONE)
 			continue;
 		else {
-			const initialObjectRadius = 0.1;
 			const zValue = SelectionSystem.raytraceSphereMouse(mouseXNorm, mouseYNorm, sphPosition, spaceRadius, initialObjectRadius, projectionMatrix, radiusAbridgedFunction, mu);
 		}
 	}
@@ -666,10 +667,10 @@ function initScene(gl) {
 	};
 
 	// Here's where we call the routine that builds all the objects we'll be drawing.
-	const buffers1 = SphericalMesh.createSphere(gl, 0.1, 15, 15, [0., 1., 0., 1.]);
-	const buffers2 = SphericalMesh.createSphere(gl, 0.1, 15, 15, [1., 0., 0., 1.]);
+	const buffers1 = SphericalMesh.createSphere(gl, initialObjectRadius, 15, 15, [0., 1., 0., 1.]);
+	const buffers2 = SphericalMesh.createSphere(gl, initialObjectRadius, 15, 15, [1., 0., 0., 1.]);
 
-	const points = SphericalRandom.generatePoints(1, 0.1, 100);
+	const points = SphericalRandom.generatePoints(1, initialObjectRadius, 100);
 	const worldMatrices = points.map((point) => SphericalMath.absolutePositionMatrix(point[0], point[1], point[2], point[3]));
 	var sceneObjects = worldMatrices.map((worldMatrix) => {
 		return {
@@ -684,7 +685,7 @@ function initScene(gl) {
 	const viewMatrixFront = mat4.create();
 
 	const projectionMatrixFront = SphericalMath.bananaProjectionMatrixFrontHalf(45 * Math.PI / 180, gl.canvas.clientWidth / gl.canvas.clientHeight, 0.1);;
-	const projectionMatrixBack = SphericalMath.bananaProjectionMatrixBackHalf(45 * Math.PI / 180, gl.canvas.clientWidth / gl.canvas.clientHeight, 0.1);;
+	const projectionMatrixBack = SphericalMath.bananaProjectionMatrixBackHalf(45 * Math.PI / 180, gl.canvas.clientWidth / gl.canvas.clientHeight, 0.1);
 
 	const scene = {
 		programInfo: programInfo,
