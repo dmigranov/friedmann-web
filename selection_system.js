@@ -3,6 +3,6 @@ export function raytraceSphereMouse(mouseX, mouseY, posView, spaceRadius, projMa
 	var chi = Math.acos(pos.w / spaceRadius);
     if (pos.z < 0)
         chi = 2 * Math.PI - chi;
-	
+	//console.log(chi);
 
 }
