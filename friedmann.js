@@ -216,8 +216,8 @@ function updateScene(scene, deltaTime) {
 	const projectionMatrix = scene.constants.projectionMatrixFront; // в оригинале - для elliptic случая, но не так важно
 	const spaceRadius = radiusFunction(friedmannTimer.mu);
 
-	const mouseXNorm = mouseX / width * 2. - 1.;
-	const mouseYNorm = -(mouseY / height * 2. - 1);
+	const mouseXNorm = mouseX / canvas.clientWidth * 2. - 1.;
+	const mouseYNorm = -(mouseY / canvas.clientHeight * 2. - 1);
 
 	for (const sceneObject of scene.sceneObjects) {
 		const worldMatrix = sceneObject.worldMatrix;
