@@ -246,7 +246,7 @@ function updateScene(scene, deltaTime) {
 		if (sceneObject.visibility == SphericalVisibilityEnum.VISIBLE_NONE)
 			continue;
 		else {
-			const zValue = SelectionSystem.raytraceSphereMouse(mouseXNorm, mouseYNorm, sphPosition, spaceRadius, projectionMatrix, radiusFunction);
+			const zValue = SelectionSystem.raytraceSphereMouse(mouseXNorm, mouseYNorm, sphPosition, spaceRadius, projectionMatrix, radiusFunction, mu);
 		}
 	}
 }

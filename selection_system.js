@@ -1,7 +1,7 @@
 //pos[3] = pos.w
 //pos[2] = pos.z
 
-export function raytraceSphereMouse(mouseX, mouseY, posView, spaceRadius, projMatrix, radiusFunction) {
+export function raytraceSphereMouse(mouseX, mouseY, posView, spaceRadius, projMatrix, radiusFunction, mu) {
 	const pos = posView; 
 	var chi = Math.acos(pos[3] / spaceRadius); //вроде считает
     if (pos[2] < 0)
