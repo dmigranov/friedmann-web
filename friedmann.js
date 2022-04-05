@@ -469,6 +469,8 @@ function initScene(gl) {
 	#define PI 3.14159265
 	#define C 299792458.
 
+	uniform bool uIsSelected;
+
 	precision mediump float;
 	in mediump vec4 vColor;
 	in mediump float vFogFactor;
