@@ -18,6 +18,7 @@ const coordinates = document.getElementById("coordinates");
 const output1 = document.getElementById("output1");
 const output2 = document.getElementById("output2");
 const muOutput = document.getElementById("muOutput");
+const radiusOutput = document.getElementById("muOutput");
 
 const initialMuCoeff = 1. / 3.;
 const initialSimulationTime = 8. / (9. * initialMuCoeff);
