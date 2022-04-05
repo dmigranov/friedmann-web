@@ -18,7 +18,7 @@ const coordinates = document.getElementById("coordinates");
 const output1 = document.getElementById("output1");
 const output2 = document.getElementById("output2");
 const muOutput = document.getElementById("muOutput");
-const radiusOutput = document.getElementById("muOutput");
+const radiusOutput = document.getElementById("radiusOutput");
 
 const initialMuCoeff = 1. / 3.;
 const initialSimulationTime = 8. / (9. * initialMuCoeff);
@@ -369,6 +369,9 @@ function updatePage(scene, deltaTime) {
 
 	const mu = friedmannTimer.mu;
 	muOutput.innerHTML = "Mu: " + mu.toFixed(3);
+
+	const radius = radiusFunction(mu);
+	radiusOutput.innerHTML = "Radius: " + radius.toFixed(3);
 
 	Graph.updateGraph(pointCanvas, context2dPoint, mu);
 }
