@@ -212,7 +212,8 @@ function updateScene(scene, deltaTime) {
 		mat4.multiply(worldMatrix, SphericalMath.sphericalRotationZW(relativeZMovement), worldMatrix); 		//те, что сначала, применяются справа!
 	}
 
-	var viewMatrix = scene.constants.viewMatrixFront;
+	const viewMatrix = scene.constants.viewMatrixFront;
+	const projectionMatrix = scene.constants.projectionMatrixFront; // в оригинале - для elliptic случая, но не так важно
 	const spaceRadius = radiusFunction(friedmannTimer.mu);
 
 	for (const sceneObject of scene.sceneObjects) {
