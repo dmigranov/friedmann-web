@@ -81,6 +81,12 @@ function radiusFunction(mu) {
 	return 2 * (1 - Math.cos(mu));
 }
 
+function radiusAbridgedFunction(mu) {
+	const startRadius = 0.2;
+	const multiplier = 2. - startRadius / 2.;
+	return startRadius + multiplier * (1. - Math.cos(mu));
+}
+
 const mouseCoeff = 25.;
 const pitchLimit = Math.PI / 2.0 - 0.01
 
@@ -188,9 +194,6 @@ function updateScene(scene, deltaTime) {
 			cameraRotationX -= 2 * Math.PI;
 		else if (cameraRotationX < -Math.PI)
 			cameraRotationX += 2 * Math.PI;
-
-		// mat4.rotate(viewMatrix, viewMatrix, cameraRotationY, [1, 0, 0]);
-		// mat4.rotate(viewMatrix, viewMatrix, cameraRotationX, [0, 1, 0]);
 
 		mat4.multiply(viewMatrix,
 			SphericalMath.sphericalRotationYZ(backspacePressed ? PI_MUL_2 + cameraRotationY : -cameraRotationY),
