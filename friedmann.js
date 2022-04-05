@@ -216,8 +216,9 @@ function updateScene(scene, deltaTime) {
 	const projectionMatrix = scene.constants.projectionMatrixFront; // в оригинале - для elliptic случая, но не так важно
 	const spaceRadius = radiusFunction(friedmannTimer.mu);
 
-	const mouseXNorm = mouseX / canvas.clientWidth * 2. - 1.;
-	const mouseYNorm = -(mouseY / canvas.clientHeight * 2. - 1);
+	const mouseXNorm = mouseX / canvas.clientWidth * 2. - 1.;		//from -1 (left) to 1 (right)
+	const mouseYNorm = -(mouseY / canvas.clientHeight * 2. - 1.);	//from -1 (down) to 1 (up)
+	// z is from -1 to 1 too!!!
 
 	for (const sceneObject of scene.sceneObjects) {
 		const worldMatrix = sceneObject.worldMatrix;
@@ -245,7 +246,7 @@ function updateScene(scene, deltaTime) {
 		if (sceneObject.visibility == SphericalVisibilityEnum.VISIBLE_NONE)
 			continue;
 		else {
-			SelectionSystem.raytraceSphereMouse(0, 0, sphPosition, spaceRadius, projectionMatrix, radiusFunction);
+			SelectionSystem.raytraceSphereMouse(mouseXNorm, mouseYNorm, sphPosition, spaceRadius, projectionMatrix, radiusFunction);
 		}
 	}
 }
