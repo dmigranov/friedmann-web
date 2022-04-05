@@ -1,4 +1,3 @@
-import { vec4 } from 'gl-matrix';
 import * as SphericalMath from './spherical_math.js';
 
 //pos[3] = pos.w
@@ -19,10 +18,8 @@ export function raytraceSphereMouse(mouseX, mouseY, posView, spaceRadius, initia
 	const leftReferenceVector = vec4.fromValues(-r_sphere, 0, 0, w_sphere);
 	const rightReferenceVector = vec4.fromValues(r_sphere, 0, 0, w_sphere);
 
-	//const posNormalized = vec4.create();
-	//vec4.scale(posNormalized, pos, spaceRadius);
 	// no need to normalize pos - it's already given for the unit radius
-	const sphCoord = SphericalMath.getSphericalFromCartesian(pos.x / radius, pos.y / radius, pos.z / radius, pos.w / radius);
+	const sphCoord = SphericalMath.getSphericalFromCartesian(pos);
     
 	//todo
 
