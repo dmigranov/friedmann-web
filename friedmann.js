@@ -213,6 +213,7 @@ function updateScene(scene, deltaTime) {
 	}
 
 	var viewMatrix = scene.constants.viewMatrixFront;
+	const spaceRadius = radiusFunction(mu);
 
 	for (const sceneObject of scene.sceneObjects) {
 		const worldMatrix = sceneObject.worldMatrix;
