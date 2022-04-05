@@ -472,6 +472,7 @@ function initScene(gl) {
 	precision mediump float;
 	in mediump vec4 vColor;
 	in mediump float vFogFactor;
+	in mediump float vRadiusRatio;
 
 	out vec4 fragColor;
 
