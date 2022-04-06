@@ -15,8 +15,6 @@ const canvas = document.querySelector("#glCanvas");
 const graphCanvas = document.getElementById("graphcanvas");
 const pointCanvas = document.getElementById("pointcanvas");
 
-const output1 = document.getElementById("output1");
-const output2 = document.getElementById("output2");
 const muOutput = document.getElementById("muOutput");
 const radiusOutput = document.getElementById("radiusOutput");
 
@@ -363,17 +361,6 @@ function drawScene(gl, scene, deltaTime) {
 
 
 function updatePage(scene, deltaTime) {
-	if (leftMouseButtonPressed) {
-		if (isCursorInsideCanvas)
-			output2.innerHTML = "dx: " + mouseChangeX + ", dy: " + mouseChangeY;
-		else
-			output2.innerHTML = "Mouse down!";
-	}
-	else
-		output2.innerHTML = "Mouse up!";
-
-	output1.innerHTML = cameraRotationX;
-
 	const transformed = vec4.fromValues(0, 0, 0, 1);
 	vec4.transformMat4(transformed, transformed, SphericalMath.absolutePositionMatrix(0.6, 0, 0, 0.8))
 	//const dist = SphericalMath.sphericalDistance(transformed, vec4.fromValues(0, 0, 0, 1), 1);
