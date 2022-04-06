@@ -15,7 +15,6 @@ const canvas = document.querySelector("#glCanvas");
 const graphCanvas = document.getElementById("graphcanvas");
 const pointCanvas = document.getElementById("pointcanvas");
 
-const coordinates = document.getElementById("coordinates");
 const output1 = document.getElementById("output1");
 const output2 = document.getElementById("output2");
 const muOutput = document.getElementById("muOutput");
@@ -364,11 +363,6 @@ function drawScene(gl, scene, deltaTime) {
 
 
 function updatePage(scene, deltaTime) {
-	if (isCursorInsideCanvas)
-		coordinates.innerHTML = "Mouse:" + " x: " + mouseX + ", y: " + mouseY;
-	else
-		coordinates.innerHTML = "Mouse outside!";
-
 	if (leftMouseButtonPressed) {
 		if (isCursorInsideCanvas)
 			output2.innerHTML = "dx: " + mouseChangeX + ", dy: " + mouseChangeY;
