@@ -618,6 +618,9 @@ function initScene(gl) {
 		vec4 modifiedColor, rgbNew; //=rgbNew
 		
 		vec3 rgb = vec3(vColor.x, vColor.y, vColor.z);
+		vec3 hsv = rgb2hsv(rgb);
+		float hue = hsv.x;
+
 		rgbNew = vColor; //todo: change
 
 		modifiedColor = rgbNew;
