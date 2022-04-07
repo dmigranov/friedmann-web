@@ -615,9 +615,13 @@ function initScene(gl) {
 
 	void main() {
 		//todo: modify
+		vec4 modifiedColor, rgbNew; //=rgbNew
 
+		rgbNew = vColor; //todo: change
 
-		vec4 retColor = vFogFactor * vColor + (1.0 - vFogFactor) * vec4(0., 0., 0., 1.);
+		modifiedColor = rgbNew;
+
+		vec4 retColor = vFogFactor * modifiedColor + (1.0 - vFogFactor) * vec4(0., 0., 0., 1.);
 
 		if(uIsSelected != 0)
 			retColor = 0.3 * retColor + 0.7 * vec4(1., 1., 1., 1.);
