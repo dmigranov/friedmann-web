@@ -30,6 +30,14 @@
             width: 60%;
         }
 
+        .square {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            text-align: center;
+            border: solid 1px rgb(0, 0, 0);
+        }
+
         /* Clear floats after the columns */
         .row:after {
             content: "";
@@ -67,25 +75,31 @@
             <div id="graph_div" style="position: relative; height: 100px;">
                 <canvas id="pointcanvas" width="250" height="100"
                     style="border:2px solid black; position: absolute; z-index: 2;">
-                    Your browser does not suppnort the HTML5 <code>&lt;canvas&gt;</code> element.
+                    Your browser does not support the HTML5 <code>&lt;canvas&gt;</code> element.
                 </canvas>
                 <canvas id="graphcanvas" width="250" height="100"
                     style="border:2px solid black; position: absolute;  z-index: 1;">
-                    Your browser does not suppnort the HTML5 <code>&lt;canvas&gt;</code> element.
+                    Your browser does not support the HTML5 <code>&lt;canvas&gt;</code> element.
                 </canvas>
             </div>
             <br />
-            <div id="muOutput" >Mu:</div>
+            <div id="muOutput">Mu:</div>
             <div id="radiusOutput">Radius:</div>
             <br />
         </div>
         <div class="column middle">
             <canvas id="glcanvas" width="640" height="480" style="border:2px solid black">
-                Your browser does not suppnort the HTML5 <code>&lt;canvas&gt;</code> element.
+                Your browser does not support the HTML5 <code>&lt;canvas&gt;</code> element.
             </canvas>
         </div>
         <div class="column right">
             <div id="currentObjectOutput">Current object: no object</div>
+            <br />
+            <br />
+            <div></div>
+            <br />
+            <div>Simulation time: <span class="square">&#8592</span> <span class="square">&#8594</span></div>
+
         </div>
     </div>
     <div id="instructions">
