@@ -38,6 +38,10 @@
             border: solid 1px rgb(0, 0, 0);
         }
 
+        .between-controls {
+            line-height: 10px;
+        }
+
         /* Clear floats after the columns */
         .row:after {
             content: "";
@@ -97,9 +101,14 @@
             <br />
             <br />
             <div>Camera control: <span class="square">&#128433;</span></div>
-            <div>Simulation time: &nbsp;&nbsp;<span class="square">&#8592;</span> <span class="square">&#8594;</span></div>
+            <div class="between-controls">&nbsp;</div>
+            <div>Simulation time: &nbsp;&nbsp;<span class="square">&#8592;</span> <span class="square">&#8594;</span>
+            </div>
+            <div class="between-controls">&nbsp;</div>
             <div>Simulation speed: <span class="square">&#8593;</span> <span class="square">&#8595;</span></div>
+            <div class="between-controls">&nbsp;</div>
             <div>Pause simulation: <span class="square">&nbsp;Space&nbsp;</span></div>
+            <div class="between-controls">&nbsp;</div>
             <div>Look back: <span class="square">&nbsp;Backspace&nbsp;</span></div>
             <br />
         </div>
@@ -137,7 +146,6 @@
         <br /><br />
         Pressing the Backspace button allows turning the camera exactly backward.
     </div>
-
 
 </body>
 
