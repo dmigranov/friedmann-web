@@ -615,11 +615,15 @@ function initScene(gl) {
 
 	void main() {
 		//todo: modify
-		vec4 modifiedColor, rgbNew; //=rgbNew
+		vec4 modifiedColor, rgbNew; // rgbNew = after doppler effect
 		
 		vec3 rgb = vec3(vColor.x, vColor.y, vColor.z);
 		vec3 hsv = rgb2hsv(rgb);
 		float hue = hsv.x;
+		float freq = getFrequency(hue);
+
+		float freqNew = freq * vRadiusRatio;
+		float hueNew = getHue(freqNew);
 
 		rgbNew = vColor; //todo: change
 
