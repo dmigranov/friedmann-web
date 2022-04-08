@@ -260,8 +260,7 @@ function updateScene(scene, deltaTime) {
 
 			if (zValue < minDistance) {
 				minDistance = zValue;
-				m_pSelectedEntity = pEntity;
-				m_selectedIndex = i;
+				selectedIndex = i;
 			}
 			console.log(zValue);
 
