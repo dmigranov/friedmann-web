@@ -625,6 +625,19 @@ function initScene(gl) {
 		float freqNew = freq * vRadiusRatio;
 		float hueNew = getHue(freqNew);
 
+		bool isRedshift = false, isBlueshift = false;
+		float originalHueNew = hueNew;
+		if (hueNew < 0.)
+		{
+			hueNew = 0.;
+			isRedshift = true;
+		}
+		if (hueNew > 270.)
+		{
+			hueNew = 270.;
+			isBlueshift = true;
+		}
+
 		rgbNew = vColor; //todo: change
 
 		modifiedColor = rgbNew;
