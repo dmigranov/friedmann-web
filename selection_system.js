@@ -21,12 +21,10 @@ export function raytraceSphereMouse(mouseX, mouseY, posView, spaceRadius, initia
 	// no need to normalize pos - it's already given for the unit radius
 	const sphCoord = SphericalMath.getSphericalFromCartesian(pos);
 
-	console.log(sphCoord);
-
 	const lrvChanged = vec4.create();
-	vec4.transformMat4(lrvChanged, leftReferenceVector, SphericalMath.sphericalRotationZW(sphCoord.x));
+	vec4.transformMat4(lrvChanged, leftReferenceVector, SphericalMath.sphericalRotationZW(sphCoord[0]));
 	const rrvChanged = vec4.create();
-	vec4.transformMat4(rrvChanged, rightReferenceVector, SphericalMath.sphericalRotationZW(sphCoord.x));
+	vec4.transformMat4(rrvChanged, rightReferenceVector, SphericalMath.sphericalRotationZW(sphCoord[0]));
 
 	const lrvProjected = vec4.create();
 	vec4.transformMat4(lrvProjected, lrvChanged, projMatrix);
@@ -55,7 +53,7 @@ export function raytraceSphereMouse(mouseX, mouseY, posView, spaceRadius, initia
 	if (distFromCursorToCenterSq > distSq)
 		return -10;
 
-	//console.log(posProj[2]);
+	console.log(posProj[2]);
 	if (pos[2] < 0)
 		return posProj[2] + 1;	// !
 	return posProj[2]; 
