@@ -31,6 +31,9 @@ export function raytraceSphereMouse(mouseX, mouseY, posView, spaceRadius, initia
 	const rrvProjected = vec4.create();
 	vec4.transformMat4(rrvProjected, rrvChanged, projMatrix);
 
+	lrvProjected /= lrvProjected.w;
+    rrvProjected /= rrvProjected.w;
+
     if (lrvProjected[3] == 0 || rrvProjected[3] == 0)
         return -10;
     
