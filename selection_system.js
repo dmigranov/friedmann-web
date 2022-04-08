@@ -8,7 +8,7 @@ export function raytraceSphereMouse(mouseX, mouseY, posView, spaceRadius, initia
 
 	//pos уже нормализовано, так что не надо делить на радиус!
 	var chi = Math.acos(pos[3]);
-	if (pos[2] < 0)
+	if (pos[2] > 0) //камера смотрит по отрицательному направлению Z! (в отличие от DirectX)
 		chi = 2 * Math.PI - chi;
 	console.log(chi);
 
@@ -57,7 +57,7 @@ export function raytraceSphereMouse(mouseX, mouseY, posView, spaceRadius, initia
 		return -10;
 
 	console.log(posProj[2]);
-	if (pos[2] < 0)
+	if (pos[2] > 0)
 		return posProj[2] + 1;	// !
 	return posProj[2]; 
 
