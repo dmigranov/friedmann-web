@@ -4,16 +4,16 @@ import * as SphericalMath from './spherical_math.js';
 //pos[2] = pos.z
 
 export function raytraceSphereMouse(mouseX, mouseY, posView, spaceRadius, initialObjectRadius, projMatrix, radiusFunction, mu) {
-	const pos = posView; 
+	const pos = posView;
 	var chi = Math.acos(pos[3] / spaceRadius); //вроде считает
-    if (pos[2] < 0)
-        chi = 2 * Math.PI - chi;
+	if (pos[2] < 0)
+		chi = 2 * Math.PI - chi;
 	const muOriginal = mu - chi;
 	const effectiveRadius = radiusFunction(muOriginal);
 
 	var r_sphere, w_sphere;
 	w_sphere = effectiveRadius - 2 * effectiveRadius * Math.pow(Math.sin(initialObjectRadius / effectiveRadius / 2), 2);
-    r_sphere = Math.sqrt(effectiveRadius * effectiveRadius - w_sphere * w_sphere);
+	r_sphere = Math.sqrt(effectiveRadius * effectiveRadius - w_sphere * w_sphere);
 
 	const leftReferenceVector = vec4.fromValues(-r_sphere, 0, 0, w_sphere);
 	const rightReferenceVector = vec4.fromValues(r_sphere, 0, 0, w_sphere);
@@ -25,18 +25,19 @@ export function raytraceSphereMouse(mouseX, mouseY, posView, spaceRadius, initia
 	vec4.transformMat4(lrvChanged, leftReferenceVector, SphericalMath.sphericalRotationZW(sphCoord.x));
 	const rrvChanged = vec4.create();
 	vec4.transformMat4(rrvChanged, rightReferenceVector, SphericalMath.sphericalRotationZW(sphCoord.x));
-	
+
 	const lrvProjected = vec4.create();
 	vec4.transformMat4(lrvProjected, lrvChanged, projMatrix);
 	const rrvProjected = vec4.create();
 	vec4.transformMat4(rrvProjected, rrvChanged, projMatrix);
 
-	lrvProjected /= lrvProjected.w;
-    rrvProjected /= rrvProjected.w;
 
-    if (lrvProjected[3] == 0 || rrvProjected[3] == 0)
-        return -10;
-    
+	if (lrvProjected[3] == 0 || rrvProjected[3] == 0)
+		return -10;
+
+	vec4.scale(lrvProjected, lrvProjected, 1 / lrvProjected[3]);
+	vec4.scale(rrvProjected, rrvProjected, 1 / rrvProjected[3]);
+
 	//todo
 
 
