@@ -111,6 +111,7 @@ var oldPressedAnimationKey = false;
 var isAnimation = true;
 
 var currentObject;
+var currentObjectIndex;
 
 function updateScene(scene, deltaTime) {
 	const finalMu = 5.4;
@@ -228,8 +229,8 @@ function updateScene(scene, deltaTime) {
 
 	var minDistance = 10000;
 	currentObject = null;
+	currentObjectIndex = -1;
 
-	//for (const sceneObject of scene.sceneObjects) { //
 	for (var i = 0; i < scene.sceneObjects.length; i++) {
 		const sceneObject = scene.sceneObjects[i];
 		const worldMatrix = sceneObject.worldMatrix;
@@ -267,8 +268,8 @@ function updateScene(scene, deltaTime) {
 			if (zValue < minDistance) { 		//чем меньше тем ближе!
 				minDistance = zValue;
 				currentObject = sceneObject;
+				currentObjectIndex = i;
 			}
-
 		}
 	}
 }
