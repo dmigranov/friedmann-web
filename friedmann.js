@@ -108,6 +108,9 @@ var SphericalVisibilityEnum = {
 var oldPressedAnimationKey = false;
 
 var isAnimation = true;
+
+var selectedObject;
+
 function updateScene(scene, deltaTime) {
 	const finalMu = 5.4;
 
@@ -223,7 +226,7 @@ function updateScene(scene, deltaTime) {
 	// z is from -1 to 1 too!!!
 
 	var minDistance = 10000;
-	var selectedIndex = -1;
+	selectedObject = null;
 
 	for (const sceneObject of scene.sceneObjects) {
 		const worldMatrix = sceneObject.worldMatrix;
@@ -258,13 +261,11 @@ function updateScene(scene, deltaTime) {
 			if (zValue > 0 && sceneObject.sphericalVisibility == SphericalVisibilityEnum.VISIBLE_FRONT) //back copies aren't visible, so we just continue
 				continue;
 
-			if (zValue < minDistance) {
+			if (zValue < minDistance) { 		//чем меньше тем ближе!
 				minDistance = zValue;
-				selectedIndex = i;
+				selectedObject = sceneObject;
 			}
-			console.log(zValue);
 
-			//чем меньше тем ближе!
 		}
 	}
 }
