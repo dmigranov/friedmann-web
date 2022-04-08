@@ -247,7 +247,7 @@ function updateScene(scene, deltaTime) {
 		// SELECTION
 		if (sceneObject.visibility == SphericalVisibilityEnum.VISIBLE_NONE)
 			continue;
-		else {
+		else if (isCursorInsideCanvas) {
 			const zValue = SelectionSystem.raytraceSphereMouse(mouseXNorm, mouseYNorm, sphPosition, spaceRadius, initialObjectRadius, projectionMatrix, radiusAbridgedFunction, mu);
 		}
 	}
