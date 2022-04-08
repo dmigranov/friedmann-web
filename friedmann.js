@@ -229,7 +229,9 @@ function updateScene(scene, deltaTime) {
 	var minDistance = 10000;
 	selectedObject = null;
 
-	for (const sceneObject of scene.sceneObjects) {
+	//for (const sceneObject of scene.sceneObjects) { //
+	for (var i = 0; i < scene.sceneObjects.length; i++) {
+		const sceneObject = scene.sceneObjects[i];
 		const worldMatrix = sceneObject.worldMatrix;
 
 		var viewWorldMatrix = mat4.create();
@@ -393,7 +395,10 @@ function updatePage(scene, deltaTime) {
 	Graph.updateGraph(pointCanvas, context2dPoint, mu);
 
 	if (selectedObject != null) {
-		currentObjectOutput.innerHTML = "SOME!";
+		//var chi = Math.acos(pos[3]);
+		//if (pos[2] > 0) //камера смотрит по отрицательному направлению Z! (в отличие от DirectX)
+		//	chi = 2 * Math.PI - chi;
+		currentObjectOutput.innerHTML = "Current object: SOME";
 	}
 	else
 		currentObjectOutput.innerHTML = "Current object: no object";
