@@ -40,6 +40,7 @@ export function raytraceSphereMouse(mouseX, mouseY, posView, spaceRadius, initia
 
 	const dist = (rrvProjected[0] - lrvProjected[0]) / 2;
 	const distSq = dist * dist;
+	console.log(distSq);
 
 	const posProj_4D = vec4.create();
 	vec4.transformMat4(posProj_4D, pos, projMatrix);
@@ -53,7 +54,7 @@ export function raytraceSphereMouse(mouseX, mouseY, posView, spaceRadius, initia
 	if (distFromCursorToCenterSq > distSq)
 		return -10;
 
-	console.log(posProj[2]);
+	//console.log(posProj[2]);
 	if (pos[2] < 0)
 		return posProj[2] + 1;	// !
 	return posProj[2]; 
