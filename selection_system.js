@@ -38,7 +38,15 @@ export function raytraceSphereMouse(mouseX, mouseY, posView, spaceRadius, initia
 	vec4.scale(lrvProjected, lrvProjected, 1 / lrvProjected[3]);
 	vec4.scale(rrvProjected, rrvProjected, 1 / rrvProjected[3]);
 
-	//todo
+	const dist = (rrvProjected[0] - lrvProjected[0])/2;
+    const distSq = dist * dist;
+	
+	const posProj_4D = vec4.create();
+	vec4.transformMat4(posProj_4D, pos, projMatrix);
+    if (posProj_4D[3] == 0)
+        return -10;
+    auto posProj = Vector3(posProj_4D.x / posProj_4D.w, posProj_4D.y / posProj_4D.w, posProj_4D.z / posProj_4D.w);
+   
 
 
 	return 0; //todo
