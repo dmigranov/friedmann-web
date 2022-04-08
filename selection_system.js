@@ -5,7 +5,9 @@ import * as SphericalMath from './spherical_math.js';
 
 export function raytraceSphereMouse(mouseX, mouseY, posView, spaceRadius, initialObjectRadius, projMatrix, radiusFunction, mu) {
 	const pos = posView;
-	var chi = Math.acos(pos[3] / spaceRadius); //вроде считает
+
+	//pos уже нормализовано, так что не надо делить на радиус!
+	var chi = Math.acos(pos[3]);
 	if (pos[2] < 0)
 		chi = 2 * Math.PI - chi;
 	const muOriginal = mu - chi;
@@ -20,7 +22,6 @@ export function raytraceSphereMouse(mouseX, mouseY, posView, spaceRadius, initia
 
 	// no need to normalize pos - it's already given for the unit radius
 	const sphCoord = SphericalMath.getSphericalFromCartesian(pos);
-
 	const lrvChanged = vec4.create();
 	vec4.transformMat4(lrvChanged, leftReferenceVector, SphericalMath.sphericalRotationZW(sphCoord[0]));
 	const rrvChanged = vec4.create();
