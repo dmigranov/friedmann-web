@@ -110,7 +110,7 @@ var oldPressedAnimationKey = false;
 
 var isAnimation = true;
 
-var selectedObject;
+var currentObject;
 
 function updateScene(scene, deltaTime) {
 	const finalMu = 5.4;
@@ -227,7 +227,7 @@ function updateScene(scene, deltaTime) {
 	// z is from -1 to 1 too!!!
 
 	var minDistance = 10000;
-	selectedObject = null;
+	currentObject = null;
 
 	//for (const sceneObject of scene.sceneObjects) { //
 	for (var i = 0; i < scene.sceneObjects.length; i++) {
@@ -266,7 +266,7 @@ function updateScene(scene, deltaTime) {
 
 			if (zValue < minDistance) { 		//чем меньше тем ближе!
 				minDistance = zValue;
-				selectedObject = sceneObject;
+				currentObject = sceneObject;
 			}
 
 		}
@@ -394,7 +394,7 @@ function updatePage(scene, deltaTime) {
 
 	Graph.updateGraph(pointCanvas, context2dPoint, mu);
 
-	if (selectedObject != null) {
+	if (currentObject != null) {
 		//var chi = Math.acos(pos[3]);
 		//if (pos[2] > 0) //камера смотрит по отрицательному направлению Z! (в отличие от DirectX)
 		//	chi = 2 * Math.PI - chi;
