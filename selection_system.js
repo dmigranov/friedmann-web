@@ -49,6 +49,9 @@ export function raytraceSphereMouse(mouseX, mouseY, posView, spaceRadius, initia
         return -10;
     const posProj = vec3.fromValues(posProj_4D[0] / posProj_w, posProj_4D[1] / posProj_w, posProj_4D[2] / posProj_w);
    
+	const distFromCursorToCenterSq = Math.pow(posProj[0] - mouseX, 2) + Math.pow(posProj[1] - mouseY, 2);
+    if (distFromCursorToCenterSq > distSq)
+        return -1;
 
 
 	return 0; //todo
