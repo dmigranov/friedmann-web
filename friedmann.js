@@ -615,7 +615,7 @@ function initScene(gl) {
 
 	void main() {
 		//todo: modify
-		vec4 modifiedColor, dopplerColor;
+		vec4 darkenedColor, dopplerColor; //darkenedColor = modifiedCOlor
 		
 		vec3 rgb = vec3(vColor.x, vColor.y, vColor.z);
 		vec3 rgbNew;
@@ -642,12 +642,11 @@ function initScene(gl) {
 
 		vec3 hsvNew = vec3(hueNew, 1.f, 1.f);
 		rgbNew = hsv2rgb(hsvNew);
-		//dopplerColor = vColor; //todo: change
 		dopplerColor = vec4(rgbNew.x, rgbNew.y, rgbNew.z, vColor.w);
 
-		modifiedColor = dopplerColor; //todo: change
+		darkenedColor = dopplerColor; //todo: change
 
-		vec4 retColor = vFogFactor * modifiedColor + (1.0 - vFogFactor) * vec4(0., 0., 0., 1.);
+		vec4 retColor = vFogFactor * darkenedColor + (1.0 - vFogFactor) * vec4(0., 0., 0., 1.);
 
 		if(uIsSelected != 0)
 			retColor = 0.3 * retColor + 0.7 * vec4(1., 1., 1., 1.);
