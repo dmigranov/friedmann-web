@@ -395,10 +395,20 @@ function updatePage(scene, deltaTime) {
 
 	Graph.updateGraph(pointCanvas, context2dPoint, mu);
 
+	const viewMatrix = scene.constants.viewMatrixFront; //todo
 	if (currentObject != null) {
-		//var chi = Math.acos(pos[3]);
-		//if (pos[2] > 0) //камера смотрит по отрицательному направлению Z! (в отличие от DirectX)
-		//	chi = 2 * Math.PI - chi;
+		const worldMatrix = currentObject.worldMatrix;
+
+		var viewWorldMatrix = mat4.create();
+		mat4.multiply(viewWorldMatrix, viewMatrix, worldMatrix); //todo: check if correct
+
+		var sphPosition = vec4.fromValues(0, 0, 0, 1);
+		vec4.transformMat4(sphPosition, sphPosition, viewWorldMatrix);
+
+		var chi = Math.acos(sphPosition[3]);
+		if (sphPosition[2] > 0) //камера смотрит по отрицательному направлению Z! (в отличие от DirectX)
+			chi = 2 * Math.PI - chi;
+
 		currentObjectOutput.innerHTML = "Current object: SOME";
 	}
 	else
