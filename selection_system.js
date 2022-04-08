@@ -20,7 +20,17 @@ export function raytraceSphereMouse(mouseX, mouseY, posView, spaceRadius, initia
 
 	// no need to normalize pos - it's already given for the unit radius
 	const sphCoord = SphericalMath.getSphericalFromCartesian(pos);
-    
+
+	const lrvChanged = Vector4::Transform(leftReferenceVector, SphericalRotationZW(sphCoord.x));
+	vec4.transformMat4();
+    auto rrvChanged = Vector4::Transform(rightReferenceVector, SphericalRotationZW(sphCoord.x));
+	vec4.transformMat4();
+	/*
+    auto lrvProjected = Vector4::Transform(lrvChanged, proj);
+    auto rrvProjected = Vector4::Transform(rrvChanged, proj);
+    if (lrvProjected.w == 0 || rrvProjected.w == 0)
+        return -1;
+    */
 	//todo
 
 
