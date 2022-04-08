@@ -17,6 +17,7 @@ const pointCanvas = document.getElementById("pointcanvas");
 
 const muOutput = document.getElementById("muOutput");
 const radiusOutput = document.getElementById("radiusOutput");
+const currentObjectOutput = document.getElementById("currentObjectOutput");
 
 const initialMuCoeff = 1. / 3.;
 const initialSimulationTime = 8. / (9. * initialMuCoeff);
@@ -392,7 +393,7 @@ function updatePage(scene, deltaTime) {
 	Graph.updateGraph(pointCanvas, context2dPoint, mu);
 
 	if (selectedObject != null) {
-
+		;
 	}
 	else
 		;
