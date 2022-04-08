@@ -10,6 +10,8 @@ export function raytraceSphereMouse(mouseX, mouseY, posView, spaceRadius, initia
 	var chi = Math.acos(pos[3]);
 	if (pos[2] < 0)
 		chi = 2 * Math.PI - chi;
+	console.log(chi);
+
 	const muOriginal = mu - chi;
 	const effectiveRadius = radiusFunction(muOriginal);
 
