@@ -651,7 +651,22 @@ function initScene(gl) {
 			float darkenCoeff = 0.4f; //discrete 
 			vec4 dopplerColorDark = (1. - darkenCoeff) * vec4(0.f, 0.f, 0.f, 1.f) + darkenCoeff * dopplerColor;
 		
+			float interpolationDiff = 50.f; 
+			float interpolationCoeff;
 
+			if (isBlueshift)
+			{
+				float upperLimit = 270.f + interpolationDiff;
+				originalHueNew = clamp(originalHueNew, 270.f, upperLimit);
+				interpolationCoeff = (upperLimit - originalHueNew) / interpolationDiff;
+			}
+			else //if (isRedshift)
+			{
+				float lowerLimit = 0.f - interpolationDiff;
+				originalHueNew = clamp(originalHueNew, lowerLimit, 0.f);
+				interpolationCoeff = (originalHueNew - lowerLimit) / interpolationDiff;
+			}	
+			
 			darkenedColor = vec4(0., 0., 0., 1.); //todo
 		}
 
