@@ -25,12 +25,15 @@ export function raytraceSphereMouse(mouseX, mouseY, posView, spaceRadius, initia
 	vec4.transformMat4(lrvChanged, leftReferenceVector, SphericalMath.sphericalRotationZW(sphCoord.x));
 	const rrvChanged = vec4.create();
 	vec4.transformMat4(rrvChanged, rightReferenceVector, SphericalMath.sphericalRotationZW(sphCoord.x));
-	/*
-    auto lrvProjected = Vector4::Transform(lrvChanged, proj);
-    auto rrvProjected = Vector4::Transform(rrvChanged, proj);
-    if (lrvProjected.w == 0 || rrvProjected.w == 0)
-        return -1;
-    */
+	
+	const lrvProjected = vec4.create();
+	vec4.transformMat4(lrvProjected, lrvChanged, proj);
+	const rrvProjected = vec4.create();
+	vec4.transformMat4(rrvProjected, rrvChanged, proj);
+
+    if (lrvProjected[3] == 0 || rrvProjected[3] == 0)
+        return -10;
+    
 	//todo
 
 
