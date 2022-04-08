@@ -222,6 +222,8 @@ function updateScene(scene, deltaTime) {
 	const mouseYNorm = -(mouseY / canvas.clientHeight * 2. - 1.);	//from -1 (down) to 1 (up)
 	// z is from -1 to 1 too!!!
 
+	var minDistane = 10000;
+	
 	for (const sceneObject of scene.sceneObjects) {
 		const worldMatrix = sceneObject.worldMatrix;
 
@@ -252,8 +254,9 @@ function updateScene(scene, deltaTime) {
 			if (zValue == -10)
 				continue;
 
-			if (zValue > 0 && visibility == SphericalVisibility::VISIBLE_FRONT) //back copies aren't visible, so we just continue
+			if (zValue > 0 && sceneObject.sphericalVisibility == SphericalVisibilityEnum.VISIBLE_FRONT) //back copies aren't visible, so we just continue
 				continue;
+
 			console.log(zValue);
 
 			//чем меньше тем ближе!
