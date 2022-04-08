@@ -58,4 +58,6 @@ export function raytraceSphereMouse(mouseX, mouseY, posView, spaceRadius, initia
 	if (pos[2] < 0)
 		return posProj[2] + 1;	// !
 	return posProj[2]; 
+
+	//разобраться с отражениями!
 }
