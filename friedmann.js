@@ -390,6 +390,12 @@ function updatePage(scene, deltaTime) {
 	radiusOutput.innerHTML = "Radius: " + radius.toFixed(3);
 
 	Graph.updateGraph(pointCanvas, context2dPoint, mu);
+
+	if (selectedObject != null) {
+
+	}
+	else
+		;
 }
 
 
