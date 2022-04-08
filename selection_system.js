@@ -10,7 +10,6 @@ export function raytraceSphereMouse(mouseX, mouseY, posView, spaceRadius, initia
 	var chi = Math.acos(pos[3]);
 	if (pos[2] > 0) //камера смотрит по отрицательному направлению Z! (в отличие от DirectX)
 		chi = 2 * Math.PI - chi;
-	console.log(chi);
 
 	const muOriginal = mu - chi;
 	const effectiveRadius = radiusFunction(muOriginal);
@@ -55,8 +54,10 @@ export function raytraceSphereMouse(mouseX, mouseY, posView, spaceRadius, initia
 	const distFromCursorToCenterSq = Math.pow(posProj[0] - mouseX, 2) + Math.pow(posProj[1] - mouseY, 2);
 	if (distFromCursorToCenterSq > distSq)
 		return -10;
-
-	console.log(posProj[2]);
+	
+	// мы использовали матрицу проекции Front.
+	// поэтому сейчас все видимые объекты - от -1 до 0, чем меньше тем ближе
+	// для объектов, которые сзади (pos[2] > 0) прибавляем единичку, - тот же самый эффект, как если бы использовали back matrix отдельно для таких точек
 	if (pos[2] > 0)
 		return posProj[2] + 1;	// !
 	return posProj[2]; 

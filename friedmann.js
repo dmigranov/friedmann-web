@@ -249,6 +249,9 @@ function updateScene(scene, deltaTime) {
 			continue;
 		else if (isCursorInsideCanvas) {
 			const zValue = SelectionSystem.raytraceSphereMouse(mouseXNorm, mouseYNorm, sphPosition, spaceRadius, initialObjectRadius, projectionMatrix, radiusAbridgedFunction, mu);
+			if (zValue == -10)
+				continue;
+			console.log(zValue);
 		}
 	}
 }
