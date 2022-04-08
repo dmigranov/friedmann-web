@@ -615,9 +615,11 @@ function initScene(gl) {
 
 	void main() {
 		//todo: modify
-		vec4 modifiedColor, rgbNew; // rgbNew = after doppler effect
+		vec4 modifiedColor, dopplerColor;
 		
 		vec3 rgb = vec3(vColor.x, vColor.y, vColor.z);
+		vec3 rgbNew;
+
 		vec3 hsv = rgb2hsv(rgb);
 		float hue = hsv.x;
 		float freq = getFrequency(hue);
@@ -638,9 +640,12 @@ function initScene(gl) {
 			isBlueshift = true;
 		}
 
-		rgbNew = vColor; //todo: change
+		vec3 hsvNew = vec3(hueNew, 1.f, 1.f);
+		rgbNew = hsv2rgb(hsvNew);
+		//dopplerColor = vColor; //todo: change
+		dopplerColor = vec4(rgbNew.x, rgbNew.y, rgbNew.z, vColor.w);
 
-		modifiedColor = rgbNew;
+		modifiedColor = dopplerColor; //todo: change
 
 		vec4 retColor = vFogFactor * modifiedColor + (1.0 - vFogFactor) * vec4(0., 0., 0., 1.);
 
