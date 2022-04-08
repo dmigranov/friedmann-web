@@ -648,6 +648,10 @@ function initScene(gl) {
 			darkenedColor = dopplerColor;
 		else 
 		{
+			float darkenCoeff = 0.4f; //discrete 
+			float4 modifiedColorOriginal = float4(rgbNew.x, rgbNew.y, rgbNew.z, sourceColor.w);
+			float4 modifiedColorDarkened = (1 - darkenCoeff) * float4(0.f, 0.f, 0.f, 1.f) + darkenCoeff * modifiedColorOriginal;
+		
 			darkenedColor = vec4(0., 0., 0., 1.); //todo
 		}
 
