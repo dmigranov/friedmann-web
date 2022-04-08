@@ -251,7 +251,12 @@ function updateScene(scene, deltaTime) {
 			const zValue = SelectionSystem.raytraceSphereMouse(mouseXNorm, mouseYNorm, sphPosition, spaceRadius, initialObjectRadius, projectionMatrix, radiusAbridgedFunction, mu);
 			if (zValue == -10)
 				continue;
+
+			if (zValue > 0 && visibility == SphericalVisibility::VISIBLE_FRONT) //back copies aren't visible, so we just continue
+				continue;
 			console.log(zValue);
+
+			//чем меньше тем ближе!
 		}
 	}
 }
