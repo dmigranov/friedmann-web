@@ -706,7 +706,6 @@ function initScene(gl) {
 	const buffers2 = SphericalMesh.createSphere(gl, initialObjectRadius, 15, 15, [1., 0., 0., 1.]);
 
 	const points = SphericalRandom.generatePoints(1, initialObjectRadius, 1);
-	console.log(points);
 	const worldMatrices = points.map((point) => SphericalMath.absolutePositionMatrix(point[0], point[1], point[2], point[3]));
 	var sceneObjects = worldMatrices.map((worldMatrix) => {
 		return {

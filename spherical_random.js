@@ -57,8 +57,11 @@ export function generatePoints(spaceRadius, objectRadius, sphereCount) {
 
 		points.push(point);
 	}
+	console.log(points);
 	points.shift();
+	console.log(points);
 	points.shift();
+	console.log(points);
 
 	return points;
 }
