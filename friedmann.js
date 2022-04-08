@@ -666,8 +666,9 @@ function initScene(gl) {
 				originalHueNew = clamp(originalHueNew, lowerLimit, 0.f);
 				interpolationCoeff = (originalHueNew - lowerLimit) / interpolationDiff;
 			}	
-			
-			darkenedColor = vec4(0., 0., 0., 1.); //todo
+
+			//darkenedColor = vec4(0., 0., 0., 1.); //todo
+			darkenedColor = (1. - interpolationCoeff) * dopplerColorDark + interpolationCoeff * dopplerColor;
 		}
 
 		vec4 retColor = vFogFactor * darkenedColor + (1.0 - vFogFactor) * vec4(0., 0., 0., 1.);
