@@ -644,7 +644,12 @@ function initScene(gl) {
 		rgbNew = hsv2rgb(hsvNew);
 		dopplerColor = vec4(rgbNew.x, rgbNew.y, rgbNew.z, vColor.w);
 
-		darkenedColor = dopplerColor; //todo: change
+		if (!isRedshift && !isBlueshift)
+			darkenedColor = dopplerColor;
+		else 
+		{
+			darkenedColor = vec4(0., 0., 0., 1.); //todo
+		}
 
 		vec4 retColor = vFogFactor * darkenedColor + (1.0 - vFogFactor) * vec4(0., 0., 0., 1.);
 
