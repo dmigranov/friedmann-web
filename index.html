@@ -68,6 +68,26 @@
         #instructions {
             text-align: center;
         }
+
+        #content-desktop {
+            display: block;
+        }
+
+        #content-mobile {
+            display: none;
+        }
+
+        @media screen and (max-width: 1000px) {
+
+            #content-desktop {
+                display: none;
+            }
+
+            #content-mobile {
+                display: block;
+            }
+
+        }
     </style>
 </head>
 
@@ -141,7 +161,7 @@
     </div>
 
     <div id="content-mobile">
-        Unfortunately, mobile devices are not supported.
+        <h3>Unfortunately, mobile devices are not yet supported!</h3>
     </div>
 
 </body>
