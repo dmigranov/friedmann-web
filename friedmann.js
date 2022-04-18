@@ -404,12 +404,14 @@ function updatePage(scene, deltaTime) {
 		vec4.transformMat4(sphPosition, sphPosition, viewWorldMatrix);
 
 		var chi = Math.acos(sphPosition[3]);
+		var half = "Front half";
 		if (sphPosition[2] > 0) //камера смотрит по отрицательному направлению Z! (в отличие от DirectX)
+		{
 			chi = 2 * Math.PI - chi;
-		else
-			;
+			half = "Back half";
+		}
 
-		currentObjectOutput.innerHTML = "Current object: №" + currentObjectIndex + "<br/>χ = " + chi.toFixed(2) + " ()";
+		currentObjectOutput.innerHTML = "Current object: №" + currentObjectIndex + "<br/>χ = " + chi.toFixed(2) + " (" + half + ")";
 	}
 	else
 		currentObjectOutput.innerHTML = "Current object: no object\n";
