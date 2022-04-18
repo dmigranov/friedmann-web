@@ -406,8 +406,10 @@ function updatePage(scene, deltaTime) {
 		var chi = Math.acos(sphPosition[3]);
 		if (sphPosition[2] > 0) //камера смотрит по отрицательному направлению Z! (в отличие от DirectX)
 			chi = 2 * Math.PI - chi;
+		else
+			;
 
-		currentObjectOutput.innerHTML = "Current object: №" + currentObjectIndex + "\n χ = " + chi.toFixed(2) ;
+		currentObjectOutput.innerHTML = "Current object: №" + currentObjectIndex + "<br/>χ = " + chi.toFixed(2) + " ()";
 	}
 	else
 		currentObjectOutput.innerHTML = "Current object: no object\n";
