@@ -384,8 +384,6 @@ function drawScene(gl, scene, deltaTime) {
 function updatePage(scene, deltaTime) {
 	const transformed = vec4.fromValues(0, 0, 0, 1);
 	vec4.transformMat4(transformed, transformed, SphericalMath.absolutePositionMatrix(0.6, 0, 0, 0.8))
-	//const dist = SphericalMath.sphericalDistance(transformed, vec4.fromValues(0, 0, 0, 1), 1);
-	//const sphCoords = SphericalMath.getSphericalFromCartesian(transformed);
 
 	const mu = friedmannTimer.mu;
 	muOutput.innerHTML = "Mu: " + mu.toFixed(3);
@@ -409,7 +407,7 @@ function updatePage(scene, deltaTime) {
 		if (sphPosition[2] > 0) //камера смотрит по отрицательному направлению Z! (в отличие от DirectX)
 			chi = 2 * Math.PI - chi;
 
-		currentObjectOutput.innerHTML = "Current object: №" + currentObjectIndex + " (χ = " + chi.toFixed(2) + ")";
+		currentObjectOutput.innerHTML = "Current object: №" + currentObjectIndex + "\n χ = " + chi.toFixed(2) ;
 	}
 	else
 		currentObjectOutput.innerHTML = "Current object: no object\n";
