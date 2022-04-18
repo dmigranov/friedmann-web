@@ -418,7 +418,7 @@ function updatePage(scene, deltaTime) {
 		currentObjectOutput.innerHTML = "Current object: no object<br/>&nbsp;";
 
 
-	simulationSpeedOutput.innerHTML = "(" + friedmannTimer.muCoeff.toFixed(2)+ ")";
+	simulationSpeedOutput.innerHTML = "<br/>(" + friedmannTimer.muCoeff.toFixed(2)+ " μ/second)";
 	//;
 
 }
