@@ -18,6 +18,7 @@ const pointCanvas = document.getElementById("pointcanvas");
 const muOutput = document.getElementById("muOutput");
 const radiusOutput = document.getElementById("radiusOutput");
 const currentObjectOutput = document.getElementById("currentObjectOutput");
+const simulationSpeedOutput = document.getElementById("simulationSpeedOutput"); 
 
 const initialMuCoeff = 1. / 3.;
 const initialSimulationTime = 8. / (9. * initialMuCoeff);
