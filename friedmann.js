@@ -121,9 +121,11 @@ function updateScene(scene, deltaTime) {
 	//	isAnimation = false;
 
 	if (rightPressed) {
+		isAnimation = false;
 		friedmannTimer.addDelta(deltaTime);
 	}
 	else if (leftPressed) {
+		isAnimation = false;
 		friedmannTimer.addDelta(-deltaTime);
 	}
 	else if (isAnimation) {
