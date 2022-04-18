@@ -414,7 +414,7 @@ function updatePage(scene, deltaTime) {
 		currentObjectOutput.innerHTML = "Current object: №" + currentObjectIndex + "<br/>χ = " + chi.toFixed(2) + " (" + half + ")";
 	}
 	else
-		currentObjectOutput.innerHTML = "Current object: no object\n";
+		currentObjectOutput.innerHTML = "Current object: no object<br/>&nbsp;";
 
 }
 
@@ -691,7 +691,7 @@ function initScene(gl) {
 			darkenedColor = dopplerColor;
 		else 
 		{
-			float darkenCoeff = 0.4f; //discrete 
+			float darkenCoeff = 0.8f; //discrete 
 			vec4 dopplerColorDark = (1. - darkenCoeff) * vec4(0.f, 0.f, 0.f, 1.f) + darkenCoeff * dopplerColor;
 		
 			float interpolationDiff = 50.f; 
