@@ -387,7 +387,7 @@ function updatePage(scene, deltaTime) {
 	vec4.transformMat4(transformed, transformed, SphericalMath.absolutePositionMatrix(0.6, 0, 0, 0.8))
 
 	const mu = friedmannTimer.mu;
-	muOutput.innerHTML = "Mu: " + mu.toFixed(3);
+	muOutput.innerHTML = "μ: " + mu.toFixed(3);
 
 	const radius = radiusFunction(mu);
 	radiusOutput.innerHTML = "Radius: " + radius.toFixed(3);
@@ -417,10 +417,7 @@ function updatePage(scene, deltaTime) {
 	else
 		currentObjectOutput.innerHTML = "Current object: no object<br/>&nbsp;";
 
-
 	simulationSpeedOutput.innerHTML = "<br/>(" + friedmannTimer.muCoeff.toFixed(2)+ " μ/second)";
-	//;
-
 }
 
 
