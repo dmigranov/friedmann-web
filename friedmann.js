@@ -691,7 +691,7 @@ function initScene(gl) {
 			darkenedColor = dopplerColor;
 		else 
 		{
-			float darkenCoeff = 0.8f; //discrete 
+			float darkenCoeff = 0.4f; //discrete 
 			vec4 dopplerColorDark = (1. - darkenCoeff) * vec4(0.f, 0.f, 0.f, 1.f) + darkenCoeff * dopplerColor;
 		
 			float interpolationDiff = 50.f; 
@@ -714,8 +714,8 @@ function initScene(gl) {
 			darkenedColor = (1. - interpolationCoeff) * dopplerColorDark + interpolationCoeff * dopplerColor;
 		}
 
-		vec4 retColor = vFogFactor * darkenedColor + (1.0 - vFogFactor) * vec4(0., 0., 0., 1.);
-
+		//vec4 retColor = vFogFactor * darkenedColor + (1.0 - vFogFactor) * vec4(0., 0., 0., 1.);
+		vec4 retColor = darkenedColor;
 		if(uIsSelected != 0)
 			retColor = 0.3 * retColor + 0.7 * vec4(1., 1., 1., 1.);
 		
