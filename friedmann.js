@@ -500,7 +500,7 @@ function initScene(gl) {
 
 		vec4 cameraSpacePosition = viewWorldMatrix * position;
 
-		float density = 0.2f;	//!
+		float density = 0.05f;	//!
 
 		float distance = SphericalDistance(vec4(0, 0, 0, radius), cameraSpacePosition, radius);
 		if (gl_InstanceID == 1)
@@ -714,8 +714,8 @@ function initScene(gl) {
 			darkenedColor = (1. - interpolationCoeff) * dopplerColorDark + interpolationCoeff * dopplerColor;
 		}
 
-		//vec4 retColor = vFogFactor * darkenedColor + (1.0 - vFogFactor) * vec4(0., 0., 0., 1.);
-		vec4 retColor = darkenedColor;
+		vec4 retColor = vFogFactor * darkenedColor + (1.0 - vFogFactor) * vec4(0., 0., 0., 1.);
+		//vec4 retColor = darkenedColor;
 		if(uIsSelected != 0)
 			retColor = 0.3 * retColor + 0.7 * vec4(1., 1., 1., 1.);
 		
