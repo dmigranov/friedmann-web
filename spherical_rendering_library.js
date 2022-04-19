@@ -1,3 +1,5 @@
+import * as Shader from './shader_loading.js';
+import * as SphericalMath from './spherical_math.js';
 
 
 var gl;
