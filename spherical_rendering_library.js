@@ -476,8 +476,12 @@ function drawScene() {
     }
 }
 
-export function addObject(worldMatrix, buffer) {   //todo: интерфейс
-    //visibility - all по умолчанию
+export function addObject(worldMatrix, buffer) {
+    scene.sceneObjects.push({
+        worldMatrix: worldMatrix,
+        buffers: buffer,
+        sphericalVisibility: SphericalVisibilityEnum.VISIBLE_ALL,
+    });
 }
 
 export function addUpdater(updater) {
