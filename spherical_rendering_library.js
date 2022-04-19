@@ -127,7 +127,7 @@ export function addObject() {   //todo: интерфейс
 }
 
 export function setTime() {
-    
+
 }
 
 
@@ -138,9 +138,10 @@ export function startGame() {
         const deltaTime = now - then;
         then = now;
 
-        updateScene(scene, deltaTime);
+        //updateScene(scene, deltaTime);
+        //todo: call updaters
         drawScene();
-        updatePage(scene, deltaTime); // todo: тут же отрисовка графика
+        //updatePage(scene, deltaTime); // todo: тут же отрисовка графика
 
         requestAnimationFrame(render);
     }
