@@ -130,8 +130,8 @@ export function addObject() {   //todo: интерфейс
     
 }
 
-export function addUpdater() {
-    
+export function addUpdater(updater) {
+    updaters.push(updater);
 }
 
 export function setTime(time) {
