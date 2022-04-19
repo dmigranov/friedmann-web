@@ -87,6 +87,8 @@ function main() {
 	}
 
 	SphericalRendering.addUpdater((deltaTime, scene) => { updateScene(scene, deltaTime) });
+	SphericalRendering.addUpdater((deltaTime, scene) => { updatePage(scene, deltaTime) });
+
 
 	SphericalRendering.startGame();
 }
