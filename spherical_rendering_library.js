@@ -18,6 +18,18 @@ export function initializeEngine(canvas) {
     updaters = [];
     simulationTime = 0.;
 
+    var sceneObjects = [];
+
+    scene = {
+		programInfo: programInfo,
+		constants: {
+			projectionMatrixFront: projectionMatrixFront,
+			projectionMatrixBack: projectionMatrixBack,
+			viewMatrixFront: viewMatrixFront,
+		},
+		sceneObjects: sceneObjects,
+	};
+
 }
 
 function drawScene() {
