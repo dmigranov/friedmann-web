@@ -7,6 +7,8 @@ import * as SphericalRandom from './spherical_random.js';
 import * as Shader from './shader_loading.js';
 import * as Graph from './graph.js';
 import * as SelectionSystem from './selection_system.js';
+import * as SphericalRendering from './spherical_renderung_library.js';
+
 
 import { FriedmannTimer } from './friedmann_timer.js';
 
@@ -56,6 +58,7 @@ function main() {
 	document.addEventListener('click', leftMouseClickHandler);
 	document.addEventListener('contextmenu', rightMouseClickHandler);
 
+	/*
 	// Do one-time initialization of graphics resources
 	var scene = initScene(gl);
 
@@ -72,6 +75,9 @@ function main() {
 		requestAnimationFrame(render);
 	}
 	requestAnimationFrame(render);
+	*/
+
+
 }
 
 function radiusFunction(mu) {
