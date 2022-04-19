@@ -1,5 +1,4 @@
 import * as SphericalMath from './spherical_math.js';
-import * as SphericalMesh from './spherical_mesh.js';
 import * as SphericalRandom from './spherical_random.js';
 import * as Graph from './graph.js';
 import * as SelectionSystem from './selection_system.js';
@@ -26,8 +25,8 @@ const PI_MUL_2 = 2 * Math.PI;
 const initialObjectRadius = 0.1;
 
 // Initialize the GL context
-const gl = canvas.getContext("webgl2");
-gl.enable(gl.CULL_FACE); // should it stay? TODO
+//const gl = canvas.getContext("webgl2");
+//gl.enable(gl.CULL_FACE); // should it stay? TODO
 
 
 // Initialize the 2D contexts
@@ -55,7 +54,7 @@ function main() {
 
 	SphericalRendering.initializeEngine(canvas);
 
-	const buffers = SphericalMesh.createSphere(gl, initialObjectRadius, 15, 15, [0., 1., 0., 1.]);
+	const buffers = SphericalRendering.createSphere(initialObjectRadius, 15, 15, [0., 1., 0., 1.]); //todo
 	const points = SphericalRandom.generatePoints(1, initialObjectRadius, 100);
 	const worldMatrices = points.map((point) => SphericalMath.absolutePositionMatrix(point[0], point[1], point[2], point[3]));
 	for (const worldMatrix of worldMatrices) {
@@ -476,9 +475,13 @@ function rightMouseClickHandler(event) {
 	_rightMouseButtonClicked = true;
 }
 
+/*
 //todo:
 // Only continue if WebGL is available and working
 if (gl === null)
 	alert("Unable to initialize WebGL. Your browser or machine may not support it.");
 else
 	main()
+	*/
+
+main();

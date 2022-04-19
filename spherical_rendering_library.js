@@ -1,6 +1,6 @@
 import * as Shader from './shader_loading.js';
 import * as SphericalMath from './spherical_math.js';
-
+import * as SphericalMesh from './spherical_mesh.js';
 
 // drawElements = indexed, drawArrays = non-indexed
 // https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS/Errors/CORSRequestNotHttp
