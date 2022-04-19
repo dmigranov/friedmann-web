@@ -58,25 +58,6 @@ function main() {
 	document.addEventListener('click', leftMouseClickHandler);
 	document.addEventListener('contextmenu', rightMouseClickHandler);
 
-	/*
-	// Do one-time initialization of graphics resources
-	var scene = initScene(gl);
-
-	var then = 0;
-	function render(now) {
-		now *= 0.001;  // convert to seconds
-		const deltaTime = now - then;
-		then = now;
-
-		updateScene(scene, deltaTime);
-		drawScene(gl, scene, deltaTime);
-		updatePage(scene, deltaTime); // todo: тут же отрисовка графика
-
-		requestAnimationFrame(render);
-	}
-	requestAnimationFrame(render);
-	*/
-
 	SphericalRendering.initializeEngine(canvas);
 
 	const buffers = SphericalMesh.createSphere(gl, initialObjectRadius, 15, 15, [0., 1., 0., 1.]);
