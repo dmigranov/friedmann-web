@@ -8,14 +8,17 @@ var updaters;
 var simulationTime;
 
 const SphericalVisibilityEnum = {
-	VISIBLE_NONE: 1,
-	VISIBLE_FRONT: 2,
-	VISIBLE_ALL: 3,
+    VISIBLE_NONE: 1,
+    VISIBLE_FRONT: 2,
+    VISIBLE_ALL: 3,
 };
 
 export function initializeEngine(canvas) {
     gl = canvas.getContext("webgl2");
     gl.enable(gl.CULL_FACE); // should it stay? TODO
+    //todo: выключать culling если внутри объекта, и включать, если в антиподальной точке 
+    //или просто залить изнутри объекты черным?
+    //todo: разобраться с этим (все в порядке с проекцией?)
 
     updaters = [];
     simulationTime = 0.;
@@ -27,7 +30,7 @@ export function initializeEngine(canvas) {
 
 function initScene(gl) {
     // Vertex shader
-	const vsSource = `#version 300 es
+    const vsSource = `#version 300 es
 
 	float SphericalDistance(vec4 vector1, vec4 vector2, float radius)
 	{
@@ -122,8 +125,8 @@ function initScene(gl) {
 		vRadiusRatio = radiusOld / radius;
 	}`;
 
-	// Fragment shader
-	const fsSource = `#version 300 es
+    // Fragment shader
+    const fsSource = `#version 300 es
 
 	#define PI 3.14159265
 	#define C 299792458.
@@ -328,46 +331,46 @@ function initScene(gl) {
 		fragColor = retColor;
 	}`;
 
-	// Initialize a shader program; this is where all the lighting
-	const shaderProgram = Shader.initShaderProgram(gl, vsSource, fsSource);
+    // Initialize a shader program; this is where all the lighting
+    const shaderProgram = Shader.initShaderProgram(gl, vsSource, fsSource);
 
-	// Collect all the info needed to use the shader program.
-	// Look up which attribute our shader program is using for aVertexPosition 
-	// and look up uniform locations (Uniforms stay the same value for all iterations of a shader)
-	const programInfo = {
-		program: shaderProgram,
-		attribLocations: {
-			vertexPosition: gl.getAttribLocation(shaderProgram, 'aVertexPosition'),
-			vertexColor: gl.getAttribLocation(shaderProgram, 'aVertexColor'),
-		},
-		uniformLocations: {
-			projectionMatrixFront: gl.getUniformLocation(shaderProgram, 'uProjectionMatrixFront'),
-			projectionMatrixBack: gl.getUniformLocation(shaderProgram, 'uProjectionMatrixBack'),
-			viewMatrixFront: gl.getUniformLocation(shaderProgram, 'uViewMatrixFront'),
-			worldMatrix: gl.getUniformLocation(shaderProgram, 'uWorldMatrix'),
-			mu: gl.getUniformLocation(shaderProgram, 'uMu'),
-			isSelected: gl.getUniformLocation(shaderProgram, 'uIsSelected'),
-		},
-	};
+    // Collect all the info needed to use the shader program.
+    // Look up which attribute our shader program is using for aVertexPosition 
+    // and look up uniform locations (Uniforms stay the same value for all iterations of a shader)
+    const programInfo = {
+        program: shaderProgram,
+        attribLocations: {
+            vertexPosition: gl.getAttribLocation(shaderProgram, 'aVertexPosition'),
+            vertexColor: gl.getAttribLocation(shaderProgram, 'aVertexColor'),
+        },
+        uniformLocations: {
+            projectionMatrixFront: gl.getUniformLocation(shaderProgram, 'uProjectionMatrixFront'),
+            projectionMatrixBack: gl.getUniformLocation(shaderProgram, 'uProjectionMatrixBack'),
+            viewMatrixFront: gl.getUniformLocation(shaderProgram, 'uViewMatrixFront'),
+            worldMatrix: gl.getUniformLocation(shaderProgram, 'uWorldMatrix'),
+            mu: gl.getUniformLocation(shaderProgram, 'uMu'),
+            isSelected: gl.getUniformLocation(shaderProgram, 'uIsSelected'),
+        },
+    };
 
-	var sceneObjects = [];
+    var sceneObjects = [];
 
-	const viewMatrixFront = mat4.create();
+    const viewMatrixFront = mat4.create();
 
-	const projectionMatrixFront = SphericalMath.bananaProjectionMatrixFrontHalf(45 * Math.PI / 180, gl.canvas.clientWidth / gl.canvas.clientHeight, 0.1);;
-	const projectionMatrixBack = SphericalMath.bananaProjectionMatrixBackHalf(45 * Math.PI / 180, gl.canvas.clientWidth / gl.canvas.clientHeight, 0.1);
+    const projectionMatrixFront = SphericalMath.bananaProjectionMatrixFrontHalf(45 * Math.PI / 180, gl.canvas.clientWidth / gl.canvas.clientHeight, 0.1);;
+    const projectionMatrixBack = SphericalMath.bananaProjectionMatrixBackHalf(45 * Math.PI / 180, gl.canvas.clientWidth / gl.canvas.clientHeight, 0.1);
 
-	const scene = {
-		programInfo: programInfo,
-		constants: {
-			projectionMatrixFront: projectionMatrixFront,
-			projectionMatrixBack: projectionMatrixBack,
-			viewMatrixFront: viewMatrixFront,
-		},
-		sceneObjects: sceneObjects,
-	};
+    const scene = {
+        programInfo: programInfo,
+        constants: {
+            projectionMatrixFront: projectionMatrixFront,
+            projectionMatrixBack: projectionMatrixBack,
+            viewMatrixFront: viewMatrixFront,
+        },
+        sceneObjects: sceneObjects,
+    };
 
-	return scene;
+    return scene;
 }
 
 function drawScene() {

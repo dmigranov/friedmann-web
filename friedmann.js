@@ -41,9 +41,7 @@ Graph.drawGraph(graphCanvas, context2dGraph, 20);
 
 function main() {
 	gl.enable(gl.CULL_FACE); // should it stay? TODO
-	//todo: выключать culling если внутри объекта, и включать, если в антиподальной точке 
-	//или просто залить изнутри объекты черным?
-	//todo: разобраться с этим (все в порядке с проекцией?)
+
 
 	// Initialize user input handling
 	document.addEventListener('keydown', keyDownHandler);
