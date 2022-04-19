@@ -21,7 +21,7 @@ export function initializeEngine(canvas) {
     //todo: разобраться с этим (все в порядке с проекцией?)
 
     updaters = [];
-    simulationTime = 0.;
+    simulationTime = 4.;
 
     var sceneObjects = [];
 
