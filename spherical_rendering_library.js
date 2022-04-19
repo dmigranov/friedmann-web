@@ -126,6 +126,10 @@ export function addObject() {   //todo: интерфейс
     
 }
 
+export function setTime() {
+    
+}
+
 
 export function startGame() {
     var then = 0;
