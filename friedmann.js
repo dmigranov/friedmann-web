@@ -68,7 +68,7 @@ function main() {
 
 	SphericalRendering.addUpdater((deltaTime, scene) => { updateScene(scene, deltaTime) });
 	SphericalRendering.addUpdater((deltaTime, scene) => { updatePage(scene, deltaTime) });
-
+	SphericalRendering.addUpdater((deltaTime, scene) => { SphericalRendering.setTime() });
 
 	SphericalRendering.startGame();
 }
@@ -480,6 +480,7 @@ function rightMouseClickHandler(event) {
 	_rightMouseButtonClicked = true;
 }
 
+//todo: забыл установку времени!
 
 // Only continue if WebGL is available and working
 if (gl === null)
