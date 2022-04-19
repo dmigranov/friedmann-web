@@ -68,7 +68,7 @@ function main() {
 
 	SphericalRendering.addUpdater((deltaTime, scene) => { updateScene(scene, deltaTime) });
 	SphericalRendering.addUpdater((deltaTime, scene) => { updatePage(scene, deltaTime) });
-	SphericalRendering.addUpdater((deltaTime, scene) => { SphericalRendering.setTime() });
+	SphericalRendering.addUpdater((deltaTime, scene) => { SphericalRendering.setTime(friedmannTimer.mu) });
 
 	SphericalRendering.startGame();
 }
@@ -480,8 +480,7 @@ function rightMouseClickHandler(event) {
 	_rightMouseButtonClicked = true;
 }
 
-//todo: забыл установку времени!
-
+//todo:
 // Only continue if WebGL is available and working
 if (gl === null)
 	alert("Unable to initialize WebGL. Your browser or machine may not support it.");
