@@ -1,5 +1,5 @@
 
 
-function startGame() {
-    
+function startGame(canvas) {
+
 }
