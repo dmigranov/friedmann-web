@@ -144,6 +144,11 @@ export function startGame() {
 
         //updateScene(scene, deltaTime);
         //todo: call updaters
+
+        for (const updater of updaters) {
+            updater(deltaTime, scene);
+        }
+
         drawScene();
         //updatePage(scene, deltaTime); // todo: тут же отрисовка графика
 
