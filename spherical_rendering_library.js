@@ -2,11 +2,20 @@
 
 var gl;
 var scene;
+var updaters = [];
 
 export function initializeEngine(canvas) {
     gl = canvas.getContext("webgl2");
     gl.enable(gl.CULL_FACE); // should it stay? TODO
 
+
+}
+
+function drawScene(gl, scene, deltaTime) {
+
+}
+
+export function addObject() {   //todo: интерфейс
 
 }
 
