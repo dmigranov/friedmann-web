@@ -471,3 +471,6 @@ function rightMouseClickHandler(event) {
 }
 
 main();
+
+
+// 19.04: начата ветка library (перенос кода в отдельный модуль)
