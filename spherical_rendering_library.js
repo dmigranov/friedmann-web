@@ -48,7 +48,8 @@ function drawScene() {
         programInfo.uniformLocations.viewMatrixFront,
         false,
         constants.viewMatrixFront);
-    gl.uniform1f(programInfo.uniformLocations.mu, friedmannTimer.mu);
+    //gl.uniform1f(programInfo.uniformLocations.mu, friedmannTimer.mu);
+    gl.uniform1f(programInfo.uniformLocations.mu, simulationTime);
 
     const sceneObjects = scene.sceneObjects;
     for (const sceneObject of sceneObjects) {
