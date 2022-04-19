@@ -86,7 +86,7 @@ function main() {
 		SphericalRendering.addObject(worldMatrix, buffers);
 	}
 
-	SphericalRendering.addUpdater();
+	SphericalRendering.addUpdater((deltaTime, scene) => { updateScene(scene, deltaTime) });
 
 	SphericalRendering.startGame();
 }
