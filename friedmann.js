@@ -86,6 +86,8 @@ function main() {
 		SphericalRendering.addObject(worldMatrix, buffers);
 	}
 
+	SphericalRendering.addUpdater();
+
 	SphericalRendering.startGame();
 }
 
