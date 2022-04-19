@@ -30,6 +30,7 @@ const initialObjectRadius = 0.1;
 
 // Initialize the GL context
 const gl = canvas.getContext("webgl2");
+gl.enable(gl.CULL_FACE); // should it stay? TODO
 
 
 // Initialize the 2D contexts
@@ -40,9 +41,6 @@ Graph.drawAxes(graphCanvas, context2dGraph);
 Graph.drawGraph(graphCanvas, context2dGraph, 20);
 
 function main() {
-	gl.enable(gl.CULL_FACE); // should it stay? TODO
-
-
 	// Initialize user input handling
 	document.addEventListener('keydown', keyDownHandler);
 	document.addEventListener("keydown", function (e) {
