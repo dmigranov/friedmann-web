@@ -79,6 +79,21 @@ function main() {
 
 	SphericalRendering.initializeEngine(canvas);
 
+	const points = SphericalRandom.generatePoints(1, initialObjectRadius, 100);
+	const worldMatrices = points.map((point) => SphericalMath.absolutePositionMatrix(point[0], point[1], point[2], point[3]));
+	for (const worldMatrix of worldMatrices) {
+		;
+	}
+	
+	var sceneObjects = worldMatrices.map((worldMatrix) => {
+		return {
+			worldMatrix: worldMatrix,
+			//buffers: (Math.random() < 0.5 ? buffers1 : buffers2),
+			buffers: buffers1,
+			sphericalVisibility: SphericalVisibilityEnum.VISIBLE_NONE,
+		}
+	});
+
 	SphericalRendering.startGame();
 }
 
