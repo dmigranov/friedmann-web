@@ -17,11 +17,7 @@ export function initializeEngine(canvas) {
 
 }
 
-function drawScene(gl, scene, deltaTime) {
-
-}
-
-export function addObject() {   //todo: интерфейс
+function drawScene() {
     const programInfo = scene.programInfo;
     const constants = scene.constants;
 
@@ -126,6 +122,10 @@ export function addObject() {   //todo: интерфейс
     }
 }
 
+export function addObject() {   //todo: интерфейс
+    
+}
+
 
 export function startGame() {
     var then = 0;
@@ -135,7 +135,7 @@ export function startGame() {
         then = now;
 
         updateScene(scene, deltaTime);
-        drawScene(gl, scene, deltaTime);
+        drawScene();
         updatePage(scene, deltaTime); // todo: тут же отрисовка графика
 
         requestAnimationFrame(render);
