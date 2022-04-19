@@ -504,6 +504,10 @@ export function setTime(time) {
     simulationTime = time;
 }
 
+export function createSphere(radius, sliceCount, stackCount, color) {
+    return SphericalMesh.createSphere(gl, radius, sliceCount, stackCount, color);
+}
+
 
 export function startGame() {
     var then = 0;
