@@ -476,8 +476,8 @@ function drawScene() {
     }
 }
 
-export function addObject() {   //todo: интерфейс
-    
+export function addObject(worldMatrix, buffer) {   //todo: интерфейс
+    //visibility - all по умолчанию
 }
 
 export function addUpdater(updater) {
