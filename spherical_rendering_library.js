@@ -4,6 +4,12 @@ var gl;
 var scene;
 var updaters = [];
 
+const SphericalVisibilityEnum = {
+	VISIBLE_NONE: 1,
+	VISIBLE_FRONT: 2,
+	VISIBLE_ALL: 3,
+};
+
 export function initializeEngine(canvas) {
     gl = canvas.getContext("webgl2");
     gl.enable(gl.CULL_FACE); // should it stay? TODO
