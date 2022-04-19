@@ -2,7 +2,8 @@
 
 var gl;
 var scene;
-var updaters = [];
+var updaters;
+var simulationTime;
 
 const SphericalVisibilityEnum = {
 	VISIBLE_NONE: 1,
@@ -14,6 +15,8 @@ export function initializeEngine(canvas) {
     gl = canvas.getContext("webgl2");
     gl.enable(gl.CULL_FACE); // should it stay? TODO
 
+    updaters = [];
+    simulationTime = 0.;
 
 }
 
