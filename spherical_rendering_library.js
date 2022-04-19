@@ -350,22 +350,7 @@ function initScene(gl) {
 		},
 	};
 
-	// Here's where we call the routine that builds all the objects we'll be drawing.
-	const buffers1 = SphericalMesh.createSphere(gl, initialObjectRadius, 15, 15, [0., 1., 0., 1.]);
-	const buffers2 = SphericalMesh.createSphere(gl, initialObjectRadius, 15, 15, [1., 0., 0., 1.]);
-
-	const points = SphericalRandom.generatePoints(1, initialObjectRadius, 100);
-	const worldMatrices = points.map((point) => SphericalMath.absolutePositionMatrix(point[0], point[1], point[2], point[3]));
-	var sceneObjects = worldMatrices.map((worldMatrix) => {
-		return {
-			worldMatrix: worldMatrix,
-			//buffers: (Math.random() < 0.5 ? buffers1 : buffers2),
-			buffers: buffers1,
-			sphericalVisibility: SphericalVisibilityEnum.VISIBLE_NONE,
-		}
-	});
-
-	//sceneObjects = [ { worldMatrix: SphericalMath.sphericalRotationZW(0.2), buffers: buffers1 }	];
+	var sceneObjects = [];
 
 	const viewMatrixFront = mat4.create();
 
