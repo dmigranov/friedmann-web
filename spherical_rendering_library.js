@@ -130,7 +130,7 @@ export function addObject() {   //todo: интерфейс
 }
 
 export function setTime(time) {
-    simulationTime = simulationTime;
+    simulationTime = time;
 }
 
 
