@@ -479,10 +479,10 @@ function drawScene() {
     }
 }
 
-export function addObject(worldMatrix, buffer) {
+export function addObject(worldMatrix, buffers) {
     scene.sceneObjects.push({
         worldMatrix: worldMatrix,
-        buffers: buffer,
+        buffers: buffers,
         sphericalVisibility: SphericalVisibilityEnum.VISIBLE_ALL,
     });
 }
