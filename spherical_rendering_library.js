@@ -129,8 +129,8 @@ export function addObject() {   //todo: интерфейс
     
 }
 
-export function setTime() {
-
+export function setTime(time) {
+    simulationTime = simulationTime;
 }
 
 
