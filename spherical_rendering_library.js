@@ -15,6 +15,13 @@ const SphericalVisibilityEnum = {
 
 export function initializeEngine(canvas) {
     gl = canvas.getContext("webgl2");
+
+    // Only continue if WebGL is available and working
+    if (gl === null) {
+        alert("Unable to initialize WebGL. Your browser or machine may not support it.");
+        return;
+    }
+
     gl.enable(gl.CULL_FACE); // should it stay? TODO
     //todo: выключать culling если внутри объекта, и включать, если в антиподальной точке 
     //или просто залить изнутри объекты черным?
