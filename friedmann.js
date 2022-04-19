@@ -1,13 +1,9 @@
-// drawElements = indexed, drawArrays = non-indexed
-// https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS/Errors/CORSRequestNotHttp
-
 import * as SphericalMath from './spherical_math.js';
 import * as SphericalMesh from './spherical_mesh.js';
 import * as SphericalRandom from './spherical_random.js';
 import * as Graph from './graph.js';
 import * as SelectionSystem from './selection_system.js';
 import * as SphericalRendering from './spherical_rendering_library.js';
-
 
 import { FriedmannTimer } from './friedmann_timer.js';
 
