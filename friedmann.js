@@ -115,11 +115,6 @@ var currentObject;
 var currentObjectIndex;
 
 function updateScene(scene, deltaTime) {
-
-	//const finalMu = 5.4;
-	//if (friedmannTimer.mu > finalMu)
-	//	isAnimation = false;
-
 	if (rightPressed) {
 		isAnimation = false;
 		friedmannTimer.addDelta(deltaTime);
