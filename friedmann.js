@@ -236,6 +236,10 @@ function updateScene(scene, deltaTime) {
 				sceneObject.sphericalVisibility = SphericalRendering.SphericalVisibilityEnum.VISIBLE_ALL;
 		}
 
+		if (sceneObject.isSelected && vPressed) {
+			sceneObject.isVisible = false;
+		}
+
 		// SELECTION
 		if (sceneObject.visibility == SphericalRendering.SphericalVisibilityEnum.VISIBLE_NONE
 			|| sceneObject.isVisible == false)
@@ -253,10 +257,6 @@ function updateScene(scene, deltaTime) {
 				currentObject = sceneObject;
 				currentObjectIndex = i;
 			}
-		}
-
-		if (sceneObject.isSelected && vPressed) {
-			sceneObject.isVisible = false;
 		}
 	}
 }
