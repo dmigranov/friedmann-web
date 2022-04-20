@@ -473,7 +473,7 @@ function drawScene() {
             worldMatrix);
 
         //todo: selection
-        gl.uniform1i(programInfo.uniformLocations.isSelected, 0);
+        gl.uniform1i(programInfo.uniformLocations.isSelected, sceneObject.isSelected);
 
         //DRAW!
         {
