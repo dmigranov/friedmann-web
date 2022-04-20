@@ -153,6 +153,10 @@ function updateScene(scene, deltaTime) {
 		mouseChangeY = 0;
 	}
 
+	if (rightMouseButtonClicked()) {
+		;
+	}
+
 	const constants = scene.constants;
 
 	// OPTION 1
@@ -469,7 +473,6 @@ function leftMouseClickHandler(event) {
 
 function rightMouseClickHandler(event) {
 	_rightMouseButtonClicked = true;
-	console.log("here");
 }
 
 main();
