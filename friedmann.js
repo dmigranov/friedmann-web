@@ -237,7 +237,8 @@ function updateScene(scene, deltaTime) {
 		}
 
 		// SELECTION
-		if (sceneObject.visibility == SphericalRendering.SphericalVisibilityEnum.VISIBLE_NONE)
+		if (sceneObject.visibility == SphericalRendering.SphericalVisibilityEnum.VISIBLE_NONE
+			|| sceneObject.isVisible == false)
 			continue;
 		else if (isCursorInsideCanvas) {
 			const zValue = SelectionSystem.raytraceSphereMouse(mouseXNorm, mouseYNorm, sphPosition, spaceRadius, initialObjectRadius, projectionMatrix, radiusAbridgedFunction, mu);
@@ -254,8 +255,9 @@ function updateScene(scene, deltaTime) {
 			}
 		}
 
-		if (sceneObject.isSelected && vPressed)
-			sceneObject.isVisible = false;	
+		if (sceneObject.isSelected && vPressed) {
+			sceneObject.isVisible = false;
+		}
 	}
 }
 

@@ -419,7 +419,7 @@ function drawScene() {
         const worldMatrix = sceneObject.worldMatrix;
         const buffers = sceneObject.buffers;
 
-        if (sceneObject.sphericalVisibility == SphericalVisibilityEnum.VISIBLE_NONE)
+        if (sceneObject.sphericalVisibility == SphericalVisibilityEnum.VISIBLE_NONE || sceneObject.isVisible == false)
             continue;
 
         // Tell WebGL how to pull out the positions from the position buffer into the aVertexPosition attribute.
