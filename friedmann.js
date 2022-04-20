@@ -14,7 +14,7 @@ const pointCanvas = document.getElementById("pointcanvas");
 const muOutput = document.getElementById("muOutput");
 const radiusOutput = document.getElementById("radiusOutput");
 const currentObjectOutput = document.getElementById("currentObjectOutput");
-const simulationSpeedOutput = document.getElementById("simulationSpeedOutput"); 
+const simulationSpeedOutput = document.getElementById("simulationSpeedOutput");
 
 const initialMuCoeff = 1. / 3.;
 const initialSimulationTime = 8. / (9. * initialMuCoeff);
@@ -50,7 +50,7 @@ function main() {
 
 	SphericalRendering.initializeEngine(canvas);
 
-	const buffers = SphericalRendering.createSphere(initialObjectRadius, 15, 15, [0., 1., 0., 1.]); 
+	const buffers = SphericalRendering.createSphere(initialObjectRadius, 15, 15, [0., 1., 0., 1.]);
 	const points = SphericalRandom.generatePoints(1, initialObjectRadius, 100);
 	const worldMatrices = points.map((point) => SphericalMath.absolutePositionMatrix(point[0], point[1], point[2], point[3]));
 	for (const worldMatrix of worldMatrices) {
@@ -297,7 +297,7 @@ function updatePage(scene, deltaTime) {
 	else
 		currentObjectOutput.innerHTML = "Current object: no object<br/>&nbsp;";
 
-	simulationSpeedOutput.innerHTML = "<br/>(" + friedmannTimer.muCoeff.toFixed(2)+ " μ/second)";
+	simulationSpeedOutput.innerHTML = "<br/>(" + friedmannTimer.muCoeff.toFixed(2) + " μ/second)";
 }
 
 // CONTROLS
@@ -311,9 +311,8 @@ var dPressed = false;
 var aPressed = false;
 var wPressed = false;
 var sPressed = false;
-var wPressed = false;
+var vPressed = false;
 var rPressed = false;
-
 
 var backspacePressed = false;
 var spacePressed = false;
@@ -352,6 +351,12 @@ function keyDownHandler(event) {
 				return;
 			case "KeyS":
 				sPressed = true;
+				return;
+			case "KeyV":
+				vPressed = true;
+				return;
+			case "KeyR":
+				rPressed = true;
 				return;
 			case "Backspace":
 				backspacePressed = true;
@@ -402,6 +407,12 @@ function keyUpHandler(event) {
 				return;
 			case "KeyS":
 				sPressed = false;
+				return;
+			case "KeyV":
+				vPressed = false;
+				return;
+			case "KeyR":
+				rPressed = false;
 				return;
 			case "Backspace":
 				backspacePressed = false;
