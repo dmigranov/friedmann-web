@@ -10,7 +10,7 @@ var scene;
 var updaters;
 var simulationTime;
 
-const SphericalVisibilityEnum = {
+export const SphericalVisibilityEnum = {
     VISIBLE_NONE: 1,
     VISIBLE_FRONT: 2,
     VISIBLE_ALL: 3,

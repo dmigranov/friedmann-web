@@ -87,12 +87,6 @@ var mouseChangeY = 0;
 
 var isCursorInsideCanvas = false;
 
-var SphericalVisibilityEnum = {
-	VISIBLE_NONE: 1,
-	VISIBLE_FRONT: 2,
-	VISIBLE_ALL: 3,
-};
-
 var oldPressedAnimationKey = false;
 
 var isAnimation = true;
@@ -234,23 +228,23 @@ function updateScene(scene, deltaTime) {
 
 
 		if (mu < chi)
-			sceneObject.sphericalVisibility = SphericalVisibilityEnum.VISIBLE_NONE;
+			sceneObject.sphericalVisibility = SphericalRendering.SphericalVisibilityEnum.VISIBLE_NONE;
 		else {
 			if (mu <= (PI_MUL_2 - chi)) // && mu >= chi
-				sceneObject.sphericalVisibility = SphericalVisibilityEnum.VISIBLE_FRONT;
+				sceneObject.sphericalVisibility = SphericalRendering.SphericalVisibilityEnum.VISIBLE_FRONT;
 			else //mu > (2 * XM_PI - dist)
-				sceneObject.sphericalVisibility = SphericalVisibilityEnum.VISIBLE_ALL;
+				sceneObject.sphericalVisibility = SphericalRendering.SphericalVisibilityEnum.VISIBLE_ALL;
 		}
 
 		// SELECTION
-		if (sceneObject.visibility == SphericalVisibilityEnum.VISIBLE_NONE)
+		if (sceneObject.visibility == SphericalRendering.SphericalVisibilityEnum.VISIBLE_NONE)
 			continue;
 		else if (isCursorInsideCanvas) {
 			const zValue = SelectionSystem.raytraceSphereMouse(mouseXNorm, mouseYNorm, sphPosition, spaceRadius, initialObjectRadius, projectionMatrix, radiusAbridgedFunction, mu);
 			if (zValue == -10)
 				continue;
 
-			if (zValue > 0 && sceneObject.sphericalVisibility == SphericalVisibilityEnum.VISIBLE_FRONT) //back copies aren't visible, so we just continue
+			if (zValue > 0 && sceneObject.sphericalVisibility == SphericalRendering.SphericalVisibilityEnum.VISIBLE_FRONT) //back copies aren't visible, so we just continue
 				continue;
 
 			if (zValue < minDistance) { 		//чем меньше тем ближе!
@@ -261,7 +255,7 @@ function updateScene(scene, deltaTime) {
 		}
 
 		if (sceneObject.isSelected && vPressed)
-			;	//todo: set invisible - отдельный механизм!
+			sceneObject.isVisible = false;	
 	}
 }
 
