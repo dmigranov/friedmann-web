@@ -154,7 +154,7 @@ function updateScene(scene, deltaTime) {
 	}
 
 	if (rightMouseButtonClicked() && currentObject != null) {
-		// todo: 
+		currentObject.isSelected = !currentObject.isSelected;
 	}
 
 	const constants = scene.constants;
