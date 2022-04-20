@@ -311,6 +311,10 @@ var dPressed = false;
 var aPressed = false;
 var wPressed = false;
 var sPressed = false;
+var wPressed = false;
+var rPressed = false;
+
+
 var backspacePressed = false;
 var spacePressed = false;
 var ctrlPressed = false;
