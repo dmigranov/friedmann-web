@@ -213,6 +213,14 @@ function updateScene(scene, deltaTime) {
 	currentObject = null;
 	currentObjectIndex = -1;
 
+	if (rPressed) {
+		for (var i = 0; i < scene.sceneObjects.length; i++) {
+			const sceneObject = scene.sceneObjects[i];
+			sceneObject.isVisible = true;
+			sceneObject.isSelected = false;
+		}
+	}
+
 	for (var i = 0; i < scene.sceneObjects.length; i++) {
 		const sceneObject = scene.sceneObjects[i];
 		const worldMatrix = sceneObject.worldMatrix;
