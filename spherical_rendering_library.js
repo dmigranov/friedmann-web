@@ -494,6 +494,7 @@ export function addObject(worldMatrix, buffers) {
         buffers: buffers,
         sphericalVisibility: SphericalVisibilityEnum.VISIBLE_ALL,
 		isSelected: 0,
+		isVisible: true,
     });
 }
 

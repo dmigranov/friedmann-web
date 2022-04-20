@@ -259,6 +259,9 @@ function updateScene(scene, deltaTime) {
 				currentObjectIndex = i;
 			}
 		}
+
+		if (sceneObject.isSelected && vPressed)
+			;	//todo: set invisible - отдельный механизм!
 	}
 }
 
