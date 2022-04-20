@@ -493,6 +493,7 @@ export function addObject(worldMatrix, buffers) {
         worldMatrix: worldMatrix,
         buffers: buffers,
         sphericalVisibility: SphericalVisibilityEnum.VISIBLE_ALL,
+		isSelected: 0,
     });
 }
 
