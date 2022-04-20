@@ -153,8 +153,8 @@ function updateScene(scene, deltaTime) {
 		mouseChangeY = 0;
 	}
 
-	if (rightMouseButtonClicked()) {
-		;
+	if (rightMouseButtonClicked() && currentObject != null) {
+		// todo: 
 	}
 
 	const constants = scene.constants;
