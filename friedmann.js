@@ -46,6 +46,7 @@ function main() {
 	document.addEventListener('mouseup', mouseUpHandler);
 	document.addEventListener('click', leftMouseClickHandler);
 	document.addEventListener('contextmenu', rightMouseClickHandler);
+	canvas.addEventListener("contextmenu", e => e.preventDefault());
 
 	SphericalRendering.initializeEngine(canvas);
 
@@ -468,6 +469,7 @@ function leftMouseClickHandler(event) {
 
 function rightMouseClickHandler(event) {
 	_rightMouseButtonClicked = true;
+	console.log("here");
 }
 
 main();
