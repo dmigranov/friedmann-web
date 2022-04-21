@@ -311,6 +311,8 @@ function initScene(gl) {
 		else 
 		{
 			float darkenCoeff = 0.4f; //discrete 
+
+			//было 0
 			vec4 dopplerColorDark = (1. - darkenCoeff) * vec4(0.f, 0.f, 0.f, 1.f) + darkenCoeff * dopplerColor;
 		
 			float interpolationDiff = 50.f; 
