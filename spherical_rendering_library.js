@@ -162,6 +162,13 @@ function initScene(gl) {
 		return frequency;
 	}
 
+	float getWavelengthFromFrequency(float frequency)
+	{
+		float lambda = 2. * PI * C / frequency;
+		return lambda;
+	}
+
+
 	float getHue(float frequency)
 	{
 		float lambda = 2. * PI * C / frequency;
