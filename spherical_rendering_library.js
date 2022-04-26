@@ -285,6 +285,10 @@ function initScene(gl) {
 		return hsv;
 	}
 
+	float widenLambda(float lambda) 
+	{
+		return lambda;
+	}
 
 	void main() {
 		//todo: modify
@@ -300,7 +304,8 @@ function initScene(gl) {
 
 		float freqNew = freq * vRadiusRatio;
 		float lambdaNew = getWavelengthFromFrequency(freqNew);
-		float hueNew = getHue(lambdaNew);
+		float lambdaWidened = widenLambda(lambdaNew);
+		float hueNew = getHue(lambdaWidened);
 
 		bool isRedshift = false, isBlueshift = false;
 		float originalHueNew = hueNew;
