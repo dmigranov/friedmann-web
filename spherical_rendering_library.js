@@ -298,7 +298,6 @@ function initScene(gl) {
 	}
 
 	void main() {
-		//todo: modify
 		vec4 darkenedColor, dopplerColor; //darkenedColor = modifiedCOlor
 		
 		vec3 rgb = vec3(vColor.x, vColor.y, vColor.z);
