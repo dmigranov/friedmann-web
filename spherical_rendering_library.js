@@ -150,7 +150,7 @@ function initScene(gl) {
 
 	out vec4 fragColor;
 
-	float getWavelength(float hue)
+	float getWavelengthFromHue(float hue)
 	{
 		float lambda = 650. - 250. / 270. * hue;
 		return lambda;
@@ -289,7 +289,7 @@ function initScene(gl) {
 
 		vec3 hsv = rgb2hsv(rgb);
 		float hue = hsv.x;
-		float lambda = getWavelength(hue);
+		float lambda = getWavelengthFromHue(hue);
 		float freq = getFrequency(lambda);
 
 		float freqNew = freq * vRadiusRatio;
