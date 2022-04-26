@@ -287,7 +287,14 @@ function initScene(gl) {
 
 	float widenLambda(float lambda) 
 	{
-		return lambda;
+		float lambdaNew;
+
+		// 0. Not changing anything
+		lambdaNew = lambda;
+
+		// 1. linear interpolation:
+
+		return lambdaNew;
 	}
 
 	void main() {
