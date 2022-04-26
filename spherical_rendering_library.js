@@ -294,6 +294,9 @@ function initScene(gl) {
 
 		// 1. linear interpolation:
 
+		// 2. quadratic:
+		lambdaNew = 23.452 * sqrt(lambda);
+
 		return lambdaNew;
 	}
 
