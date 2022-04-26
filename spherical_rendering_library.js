@@ -168,11 +168,10 @@ function initScene(gl) {
 		return lambda;
 	}
 
-
-	float getHue(float frequency)
+	float getHue(float wavelength)
 	{
-		float lambda = 2. * PI * C / frequency;
-		float hue = (650. - lambda) * 270. / 250.;
+		//float lambda = 2. * PI * C / frequency;
+		float hue = (650. - wavelength) * 270. / 250.;
 		return hue;
 	}
 
@@ -300,7 +299,8 @@ function initScene(gl) {
 		float freq = getFrequency(lambda);
 
 		float freqNew = freq * vRadiusRatio;
-		float hueNew = getHue(freqNew);
+		float lambdaNew = getWavelengthFromFrequency(freqNew);
+		float hueNew = getHue(lambdaNew);
 
 		bool isRedshift = false, isBlueshift = false;
 		float originalHueNew = hueNew;
