@@ -294,8 +294,11 @@ function initScene(gl) {
 
 		// 1. linear interpolation:
 
-		// 2. quadratic:
-		lambdaNew = 23.452 * sqrt(lambda);
+		// 2. quadratic: [290, 769] -> [400, 650]
+		lambdaNew = 23.216 * sqrt(lambda);
+
+		// 3. logarithm: [362, 704] -> [400, 650]
+		lambdaNew = 539. * log(lambda / 539.) / log(2.);
 
 		return lambdaNew;
 	}
