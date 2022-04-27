@@ -298,7 +298,7 @@ function initScene(gl) {
 		lambdaNew = 23.216 * sqrt(lambda);
 
 		// 3. logarithm: [362, 704] -> [400, 650]
-		lambdaNew = 539. * log(lambda / 539.) / log(2.);
+		lambdaNew = 539. * log(lambda / 539. + 1.) / log(2.);
 
 		return lambdaNew;
 	}
