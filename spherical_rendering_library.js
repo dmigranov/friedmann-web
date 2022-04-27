@@ -289,10 +289,12 @@ function initScene(gl) {
 	{
 		float lambdaNew;
 
+		// all of these preserve lambda_green = 539
+
 		// 0. Not changing anything
 		lambdaNew = lambda;
 
-		// 1. linear interpolation:
+		// 1. linear interpolation: [192, 816] -> [400, 650]
 		lambdaNew = 0.4 * lambda + 323.4;
 
 		// 2. quadratic: [290, 769] -> [400, 650]
