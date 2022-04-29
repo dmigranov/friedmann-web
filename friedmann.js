@@ -274,7 +274,7 @@ function updatePage(scene, deltaTime) {
 	vec4.transformMat4(transformed, transformed, SphericalMath.absolutePositionMatrix(0.6, 0, 0, 0.8))
 
 	const mu = friedmannTimer.mu;
-	muOutput.innerHTML = "μ: " + mu.toFixed(3);
+	muOutput.innerHTML = "η: " + mu.toFixed(3);
 
 	const radius = radiusFunction(mu);
 	radiusOutput.innerHTML = "Radius: " + radius.toFixed(3);
