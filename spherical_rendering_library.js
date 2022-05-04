@@ -297,8 +297,8 @@ function initScene(gl) {
 		// 1. linear interpolation: [100, 889] -> [400, 650] //красный цвет - это верхняя граница
 		lambdaNew = 0.317 * lambda + 368.3;
 
-		// 1.5. linear interpolation: [-38, 1000] -> [400, 650] //красный цвет - это верхняя граница
-		lambdaNew = 0.24 * lambda + 409.2;
+		// 1.5. linear interpolation: [24, 950] -> [400, 650] //красный цвет - это верхняя граница
+		lambdaNew = 0.27 * lambda + 393.43;
 
 		// 2. quadratic: [296, 783] -> [400, 650]
 		//lambdaNew = 23.216 * sqrt(lambda);
