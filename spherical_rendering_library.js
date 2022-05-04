@@ -306,6 +306,9 @@ function initScene(gl) {
 		// 3. logarithm: [362, 704] -> [400, 650]
 		//lambdaNew = 539. * log(lambda / 539. + 1.) / log(2.);
 
+		// 4. exponential:  [291, inf] -> [400, 650]
+		//lambdaNew = 650. * (1. - exp(-1.767 * lambda / 650.));
+
 		return lambdaNew;
 	}
 
