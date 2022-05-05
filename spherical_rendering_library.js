@@ -288,6 +288,7 @@ function initScene(gl) {
 
 	const float w1 = 100., w2 = 540., w3 = 2000.;	// 10000 is too big
 	const float z1 = 400., z2 = 540., z3 = 650.;
+	const float a = (z3 - z2) / (z3 - z1);
 
 	float widenLambda(float lambda) 
 	{
@@ -314,7 +315,6 @@ function initScene(gl) {
 		//lambdaNew = 650. * (1. - exp(-1.767 * lambda / 650.));
 
 		// 5. projective:
-		float a = (z3 - z2) / (z3 - z1);
 		float b = (lambda - w1) / (lambda - w2) * (w3 - w2) / (w3 - w1);
 		lambdaNew = (a * z1 - b * z2) / (a - b);
 
