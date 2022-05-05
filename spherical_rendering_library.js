@@ -298,7 +298,7 @@ function initScene(gl) {
 		lambdaNew = 0.317 * lambda + 368.3;
 
 		// 1.5. linear interpolation: [24, 950] -> [400, 650] //красный цвет - это верхняя граница
-		lambdaNew = 0.27 * lambda + 393.43;
+		//lambdaNew = 0.27 * lambda + 393.43;
 
 		// 2. quadratic: [296, 783] -> [400, 650]
 		//lambdaNew = 23.216 * sqrt(lambda);
@@ -308,6 +308,9 @@ function initScene(gl) {
 
 		// 4. exponential:  [291, inf] -> [400, 650]
 		//lambdaNew = 650. * (1. - exp(-1.767 * lambda / 650.));
+
+		// 5. projective:
+		
 
 		return lambdaNew;
 	}
