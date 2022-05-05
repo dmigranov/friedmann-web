@@ -312,6 +312,8 @@ function initScene(gl) {
 		// 5. projective:
 		float w1 = 1., w2 = 540., w3 = 10000.;
 		float z1 = 400., z2 = 540., z3 = 650.;
+		float a = (z3 - z2) / (z3 - z1);
+		float b = () / () * () / ();
 
 
 		return lambdaNew;
