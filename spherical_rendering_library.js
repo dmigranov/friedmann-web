@@ -314,6 +314,7 @@ function initScene(gl) {
 		float z1 = 400., z2 = 540., z3 = 650.;
 		float a = (z3 - z2) / (z3 - z1);
 		float b = (w - w1) / (w - w2) * (w3 - w2) / (w3 - w1);
+		lambdaNew = (a * z1 - b * z2) / (a - b);
 
 
 		return lambdaNew;
