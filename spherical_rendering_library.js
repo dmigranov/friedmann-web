@@ -310,7 +310,9 @@ function initScene(gl) {
 		//lambdaNew = 650. * (1. - exp(-1.767 * lambda / 650.));
 
 		// 5. projective:
-		
+		float w1 = 1., w2 = 540., w3 = 10000.;
+		float z1 = 400., z2 = 540., z3 = 650.;
+
 
 		return lambdaNew;
 	}
