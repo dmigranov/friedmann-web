@@ -315,8 +315,13 @@ function initScene(gl) {
 		//lambdaNew = 650. * (1. - exp(-1.767 * lambda / 650.));
 
 		// 5. projective:
-		float b = (lambda - w1) / (lambda - w2) * (w3 - w2) / (w3 - w1);
-		lambdaNew = (a * z1 - b * z2) / (a - b);
+		if (lambda != w2)
+		{
+			float b = (lambda - w1) / (lambda - w2) * (w3 - w2) / (w3 - w1);
+			lambdaNew = (a * z1 - b * z2) / (a - b);
+		}
+		else
+			lambdaNew = lambda;
 
 		// 6. piecewise
 
