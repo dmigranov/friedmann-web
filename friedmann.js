@@ -319,6 +319,7 @@ var wPressed = false;
 var sPressed = false;
 var vPressed = false;
 var rPressed = false;
+var iPressed = false;
 
 var backspacePressed = false;
 var spacePressed = false;
@@ -363,6 +364,9 @@ function keyDownHandler(event) {
 				return;
 			case "KeyR":
 				rPressed = true;
+				return;
+			case "KeyI":
+				iPressed = true;
 				return;
 			case "Backspace":
 				backspacePressed = true;
@@ -419,6 +423,9 @@ function keyUpHandler(event) {
 				return;
 			case "KeyR":
 				rPressed = false;
+				return;
+			case "KeyI":
+				iPressed = false;
 				return;
 			case "Backspace":
 				backspacePressed = false;
