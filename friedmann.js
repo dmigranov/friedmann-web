@@ -193,7 +193,7 @@ function updateScene(scene, deltaTime) {
 		if (sPressed)
 			relativeZMovement += deltaTime;
 
-		mat4.multiply(worldMatrix, SphericalMath.sphericalRotationZW(relativeZMovement), worldMatrix); 		//те, что сначала, применяются справа!
+		//mat4.multiply(worldMatrix, SphericalMath.sphericalRotationZW(relativeZMovement), worldMatrix); 		//те, что сначала, применяются справа!
 	}
 
 	const viewMatrix = scene.constants.viewMatrixFront;
@@ -214,6 +214,10 @@ function updateScene(scene, deltaTime) {
 			sceneObject.isVisible = true;
 			sceneObject.isSelected = false;
 		}
+	}
+
+	if (iPressed) {
+		//todo
 	}
 
 	for (var i = 0; i < scene.sceneObjects.length; i++) {
