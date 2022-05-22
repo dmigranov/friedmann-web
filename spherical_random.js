@@ -45,7 +45,7 @@ export function generatePoints(spaceRadius, objectRadius, sphereCount) {
 			isPointGenerated = true;
 
 			
-			if (SphericalMath.sphericalDistance(point, vec4.fromValues(0, 0, 0, spaceRadius), spaceRadius) < 3.5 * objectRadius
+			if (SphericalMath.sphericalDistance(point, vec4.fromValues(0, 0, 0, spaceRadius), spaceRadius) < 5 * objectRadius
 			||
 			SphericalMath.sphericalDistance(point, vec4.fromValues(0, 0, 0, -spaceRadius), spaceRadius) < 5 * objectRadius) {
 				isPointGenerated = false;
