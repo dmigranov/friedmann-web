@@ -22,7 +22,7 @@ const friedmannTimer = new FriedmannTimer(initialSimulationTime, initialMuCoeff)
 
 const PI_MUL_2 = 2 * Math.PI;
 
-const initialObjectRadius = 0.05;
+const initialObjectRadius = 0.1;
 
 // Initialize the 2D contexts
 const context2dGraph = graphCanvas.getContext('2d');
