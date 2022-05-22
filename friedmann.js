@@ -168,11 +168,6 @@ function updateScene(scene, deltaTime) {
 		cameraRotationX += mouseChangeX / mouseCoeff;
 		cameraRotationY += mouseChangeY / mouseCoeff;
 
-		/*
-		if (dPressed) cameraRotationX += deltaTime;
-		if (aPressed) cameraRotationX -= deltaTime;
-		*/
-
 		cameraRotationY = Math.max(-pitchLimit, cameraRotationY);
 		cameraRotationY = Math.min(+pitchLimit, cameraRotationY);
 
