@@ -233,14 +233,13 @@ function updateScene(scene, deltaTime) {
 		const worldMatrix = sceneObject.worldMatrix;
 
 		var viewWorldMatrix = mat4.create();
-		mat4.multiply(viewWorldMatrix, viewMatrix, worldMatrix); //todo: check if correct
+		mat4.multiply(viewWorldMatrix, viewMatrix, worldMatrix);
 
 		var sphPosition = vec4.fromValues(0, 0, 0, 1);
 		vec4.transformMat4(sphPosition, sphPosition, viewWorldMatrix);
 
 		const chi = SphericalMath.sphericalDistance(sphPosition, vec4.fromValues(0, 0, 0, 1), 1.);
 		const mu = friedmannTimer.mu;
-
 
 		if (mu < chi)
 			sceneObject.sphericalVisibility = SphericalRendering.SphericalVisibilityEnum.VISIBLE_NONE;
@@ -288,7 +287,7 @@ function updatePage(scene, deltaTime) {
 
 	Graph.updateGraph(pointCanvas, context2dPoint, mu);
 
-	const viewMatrix = scene.constants.viewMatrixFront; //todo
+	const viewMatrix = scene.constants.viewMatrixFront;
 	if (currentObject != null) {
 		const worldMatrix = currentObject.worldMatrix;
 
