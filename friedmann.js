@@ -219,7 +219,10 @@ function updateScene(scene, deltaTime) {
 
 	if (iPressed) {
 		if (!oldPressedInvertKey)
-			; //todo
+			for (var i = 0; i < scene.sceneObjects.length; i++) {
+				//todo
+				sceneObject.isSelected = !sceneObject.isSelected;
+			}
 		oldPressedInvertKey = true;
 	}
 	else
