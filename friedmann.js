@@ -88,6 +88,7 @@ var mouseChangeY = 0;
 var isCursorInsideCanvas = false;
 
 var oldPressedAnimationKey = false;
+var oldPressedInvertKey = false;
 
 var isAnimation = true;
 
@@ -217,8 +218,12 @@ function updateScene(scene, deltaTime) {
 	}
 
 	if (iPressed) {
-		//todo
+		if (!oldPressedInvertKey)
+			; //todo
+		oldPressedInvertKey = true;
 	}
+	else
+		oldPressedInvertKey = false;
 
 	for (var i = 0; i < scene.sceneObjects.length; i++) {
 		const sceneObject = scene.sceneObjects[i];
