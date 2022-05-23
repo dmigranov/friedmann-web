@@ -220,7 +220,7 @@ function updateScene(scene, deltaTime) {
 	if (iPressed) {
 		if (!oldPressedInvertKey)
 			for (var i = 0; i < scene.sceneObjects.length; i++) {
-				//todo
+				const sceneObject = scene.sceneObjects[i];
 				sceneObject.isSelected = !sceneObject.isSelected;
 			}
 		oldPressedInvertKey = true;
