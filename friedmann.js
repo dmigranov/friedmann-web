@@ -309,7 +309,7 @@ function updatePage(scene, deltaTime) {
 
 		{
 			const muOriginal = mu - chi;
-			const effectiveRadius = radiusFunction(muOriginal); //или лучше radiusAbridgedFunction, то есть честнее?
+			const effectiveRadius = radiusAbridgedFunction(muOriginal); //или лучше radiusFunction?
 
 			var r_sphere, w_sphere; //после коррекции с сохранением расстояния
 			w_sphere = effectiveRadius - 2 * effectiveRadius * Math.pow(Math.sin(initialObjectRadius / effectiveRadius / 2), 2);
