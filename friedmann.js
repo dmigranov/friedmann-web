@@ -323,6 +323,8 @@ function updatePage(scene, deltaTime) {
 
 			const sphereRadiusChi = Math.acos(upReferenceVectorNormalized[3]); //т.к. считаем от центра координат
 			currentObjectOutput.innerHTML += ("<br/>Current sphere radius: " + sphereRadiusChi.toFixed(2));
+
+			//todo: проверить числа при пересечении
 		} 
 	}
 	else
