@@ -316,9 +316,12 @@ function updatePage(scene, deltaTime) {
 			r_sphere = Math.sqrt(effectiveRadius * effectiveRadius - w_sphere * w_sphere);
 			const upReferenceVector = vec4.fromValues(r_sphere, 0, 0, w_sphere);
 
+			//todo: сразу счиать w_sphere и r_sphere normalized!
+
 			var upReferenceVectorNormalized = vec4.create();
 			vec4.scale(upReferenceVectorNormalized, upReferenceVector, 1. / effectiveRadius);
 
+			const sphereRadiusChi = Math.acos(upReferenceVectorNormalized[3]); //т.к. считаем от центра координат
 		} 
 	}
 	else
