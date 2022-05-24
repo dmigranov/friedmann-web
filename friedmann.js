@@ -5,6 +5,7 @@ import * as SelectionSystem from './selection_system.js';
 import * as SphericalRendering from './spherical_rendering_library.js';
 
 import { FriedmannTimer } from './friedmann_timer.js';
+import { vec4 } from 'gl-matrix';
 
 // Obtain a reference to the canvas
 const canvas = document.querySelector("#glCanvas");
@@ -316,7 +317,8 @@ function updatePage(scene, deltaTime) {
 			r_sphere = Math.sqrt(effectiveRadius * effectiveRadius - w_sphere * w_sphere);
 			const upReferenceVector = vec4.fromValues(r_sphere, 0, 0, w_sphere);
 
-			const upReferenceVectorNormalized ;
+			var upReferenceVectorNormalized;
+			vec4.scale(upReferenceVectorNormalized, upReferenceVector, effectiveRadius);
 
 		} 
 	}
