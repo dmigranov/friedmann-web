@@ -316,6 +316,8 @@ function updatePage(scene, deltaTime) {
 			r_sphere = Math.sqrt(effectiveRadius * effectiveRadius - w_sphere * w_sphere);
 			const upReferenceVector = vec4.fromValues(r_sphere, 0, 0, w_sphere);
 
+			const upReferenceVectorNormalized ;
+
 		} 
 	}
 	else
