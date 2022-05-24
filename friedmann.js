@@ -308,7 +308,7 @@ function updatePage(scene, deltaTime) {
 		currentObjectOutput.innerHTML = "Current object: №" + currentObjectIndex + "<br/>χ = " + chi.toFixed(2) + " (" + half + ")";
 
 		{
-			var r_sphere, w_sphere;
+			var r_sphere, w_sphere; 
 			w_sphere = effectiveRadius - 2 * effectiveRadius * Math.pow(Math.sin(initialObjectRadius / effectiveRadius / 2), 2);
 			r_sphere = Math.sqrt(effectiveRadius * effectiveRadius - w_sphere * w_sphere);
 			const upReferenceVector = vec4.fromValues(r_sphere, 0, 0, w_sphere);
