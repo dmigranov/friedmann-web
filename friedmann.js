@@ -322,8 +322,7 @@ function updatePage(scene, deltaTime) {
 			vec4.scale(upReferenceVectorNormalized, upReferenceVector, 1. / effectiveRadius);
 
 			const sphereRadiusChi = Math.acos(upReferenceVectorNormalized[3]); //т.к. считаем от центра координат
-			//console.log(sphereRadiusChi);
-			currentObjectOutput.innerHTML += "\n" + sphereRadiusChi;
+			currentObjectOutput.innerHTML += ("\n" + "Current sphere radius: " + sphereRadiusChi.toFixed(2));
 		} 
 	}
 	else
