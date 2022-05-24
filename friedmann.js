@@ -322,11 +322,11 @@ function updatePage(scene, deltaTime) {
 			vec4.scale(upReferenceVectorNormalized, upReferenceVector, 1. / effectiveRadius);
 
 			const sphereRadiusChi = Math.acos(upReferenceVectorNormalized[3]); //т.к. считаем от центра координат
-			currentObjectOutput.innerHTML += ("\n" + "Current sphere radius: " + sphereRadiusChi.toFixed(2));
+			currentObjectOutput.innerHTML += ("<br/>Current sphere radius: " + sphereRadiusChi.toFixed(2));
 		} 
 	}
 	else
-		currentObjectOutput.innerHTML = "Current object: no object<br/>&nbsp;";
+		currentObjectOutput.innerHTML = "Current object: no object<br/><br/>&nbsp;";
 
 	simulationSpeedOutput.innerHTML = "<br/>(" + friedmannTimer.muCoeff.toFixed(2) + " μ/second)";
 }
