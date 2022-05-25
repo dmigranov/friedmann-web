@@ -317,7 +317,9 @@ function updatePage(scene, deltaTime) {
 
 			const referenceVectorNormalized = vec4.fromValues(0, rSphereNorm, 0, wSphereNorm);
 
-			const sphereRadiusChi = Math.acos(referenceVectorNormalized[3]); //т.к. считаем от центра координат
+			//const sphereRadiusChi = Math.acos(referenceVectorNormalized[3]); //т.к. считаем от центра координат
+			const sphereRadiusChi = SphericalMath.sphericalDistance(referenceVectorNormalized, vec4.fromValues(0, 0, 0, 1), 1.);
+
 			currentObjectOutput.innerHTML += ("<br/>Current sphere radius: " + sphereRadiusChi.toFixed(2));
 
 			//todo: проверить числа при пересечении
