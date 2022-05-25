@@ -318,6 +318,10 @@ function updatePage(scene, deltaTime) {
 
 			//todo: сразу счиать w_sphere и r_sphere normalized!
 
+			const wSphereNorm = 1 - 2 * Math.pow(Math.sin(initialObjectRadius / effectiveRadius / 2), 2);
+			const rSphereNorm = Math.sqrt(1 - w_sphere * w_sphere);
+
+
 			var upReferenceVectorNormalized = vec4.create();
 			vec4.scale(upReferenceVectorNormalized, upReferenceVector, 1. / effectiveRadius);
 
