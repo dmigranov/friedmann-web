@@ -259,8 +259,6 @@ function updateScene(scene, deltaTime) {
 			|| sceneObject.isVisible == false)
 			continue;
 		else if (isCursorInsideCanvas) {
-			console.log(sceneObject.sphericalVisibility);
-
 			const zValue = SelectionSystem.raytraceSphereMouse(mouseXNorm, mouseYNorm, sphPosition, spaceRadius, initialObjectRadius, projectionMatrix, radiusAbridgedFunction, mu);
 			if (zValue == -10)
 				continue;
@@ -290,8 +288,10 @@ function updatePage(scene, deltaTime) {
 	Graph.updateGraph(pointCanvas, context2dPoint, mu);
 
 	const viewMatrix = scene.constants.viewMatrixFront;
-	if (currentObject != null && currentObject.isVisible == true
-		&& currentObject.visibility != SphericalRendering.SphericalVisibilityEnum.VISIBLE_NONE) {
+	if (currentObject != null 
+		//&& currentObject.isVisible == true
+		//&& currentObject.visibility != SphericalRendering.SphericalVisibilityEnum.VISIBLE_NONE
+		) {
 		const worldMatrix = currentObject.worldMatrix;
 
 		var viewWorldMatrix = mat4.create();
