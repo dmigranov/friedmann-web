@@ -311,14 +311,9 @@ function updatePage(scene, deltaTime) {
 			const muOriginal = mu - chi;
 			const effectiveRadius = radiusAbridgedFunction(muOriginal); //или лучше radiusFunction?
 
-			var r_sphere, w_sphere; //после коррекции с сохранением расстояния
-			w_sphere = effectiveRadius - 2 * effectiveRadius * Math.pow(Math.sin(initialObjectRadius / effectiveRadius / 2), 2);
-			r_sphere = Math.sqrt(effectiveRadius * effectiveRadius - w_sphere * w_sphere);
-			const upReferenceVector = vec4.fromValues(r_sphere, 0, 0, w_sphere);
-
-
+			//после коррекции с сохранением расстояния (сразу нормализовано): 
 			const wSphereNorm = 1 - 2 * Math.pow(Math.sin(initialObjectRadius / effectiveRadius / 2), 2);
-			const rSphereNorm = Math.sqrt(1 - w_sphere * w_sphere);
+			const rSphereNorm = Math.sqrt(1 - wSphereNorm * wSphereNorm);
 
 			const referenceVectorNormalized = vec4.fromValues(rSphereNorm, 0, 0, wSphereNorm);
 
