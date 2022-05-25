@@ -55,7 +55,7 @@ function initScene(gl) {
 
 	float RadiusAbridgedFunction(float mu) //сначала попытаемся для обычного радиуса
 	{
-		float startRadius = 0.15f;
+		float startRadius = 0.2f;
 		float multiplier = 2.f - startRadius / 2.;
 		return startRadius + multiplier * (1. - cos(mu));
 	}
