@@ -69,7 +69,7 @@ function radiusFunction(mu) {
 }
 
 function radiusAbridgedFunction(mu) {
-	const startRadius = 0.2;
+	const startRadius = 0.15;
 	const multiplier = 2. - startRadius / 2.;
 	return startRadius + multiplier * (1. - Math.cos(mu));
 }
