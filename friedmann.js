@@ -288,13 +288,7 @@ function updatePage(scene, deltaTime) {
 	Graph.updateGraph(pointCanvas, context2dPoint, mu);
 
 	const viewMatrix = scene.constants.viewMatrixFront;
-	if (currentObject != null && sceneObject.isVisible == true && (
-		
-	)) {
-
-		if (sceneObject.visibility == SphericalRendering.SphericalVisibilityEnum.VISIBLE_NONE
-			|| sceneObject.isVisible == false)
-
+	if (currentObject != null && currentObject.isVisible == true && currentObject.visibility != SphericalRendering.SphericalVisibilityEnum.VISIBLE_NONE) {
 		const worldMatrix = currentObject.worldMatrix;
 
 		var viewWorldMatrix = mat4.create();
@@ -311,9 +305,10 @@ function updatePage(scene, deltaTime) {
 			half = "Back half";
 		}
 
+		//todo: only write chi if is visible: BACK HALF!
+
 		currentObjectOutput.innerHTML = "Current object: №" + currentObjectIndex + "<br/>χ = " + chi.toFixed(2) + " (" + half + ")";
 
-		//todo: only write chi if is visible
 
 		//todo: only come here if is visible
 		{
@@ -334,7 +329,7 @@ function updatePage(scene, deltaTime) {
 			currentObjectOutput.innerHTML += ("<br/>Current sphere radius: " + sphereRadiusChi.toFixed(2));
 
 			//todo: проверить числа при пересечении
-		} 
+		}
 	}
 	else
 		currentObjectOutput.innerHTML = "Current object: no object<br/><br/>&nbsp;";
