@@ -312,7 +312,7 @@ function updatePage(scene, deltaTime) {
 			const effectiveRadius = radiusAbridgedFunction(muOriginal); //или лучше radiusFunction?
 
 			//после коррекции с сохранением расстояния (сразу нормализовано): 
-			console.log(Math.acos(SphericalMath.sphericalDistance(vec4.fromValues(0,0,0,1), vec4.fromValues(0, initialObjectRadius, 0, Math.sqrt(1 - initialObjectRadius*initialObjectRadius)), 1)));
+			console.log(SphericalMath.sphericalDistance(vec4.fromValues(0,0,0,1), vec4.fromValues(0, initialObjectRadius, 0, Math.sqrt(1 - initialObjectRadius*initialObjectRadius)), 1));
 			const wSphereNorm = 1 - 2 * Math.pow(Math.sin(initialObjectRadius / effectiveRadius / 2), 2);
 			const rSphereNorm = Math.sqrt(1 - wSphereNorm * wSphereNorm);
 
