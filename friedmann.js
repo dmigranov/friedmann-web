@@ -22,7 +22,7 @@ const friedmannTimer = new FriedmannTimer(initialSimulationTime, initialMuCoeff)
 
 const PI_MUL_2 = 2 * Math.PI;
 
-const initialObjectRadius = 0.1;
+const initialObjectRadius = 0.09;
 
 // Initialize the 2D contexts
 const context2dGraph = graphCanvas.getContext('2d');
@@ -305,7 +305,7 @@ function updatePage(scene, deltaTime) {
 			half = "Back half";
 		}
 
-		currentObjectOutput.innerHTML = "Current object: №" + currentObjectIndex + "<br/>χ = " + chi.toFixed(2) + " (" + half + ")";
+		currentObjectOutput.innerHTML = "Current object: №" + currentObjectIndex + "<br/>χ = " + chi.toFixed(2) + " rad (" + half + ")";
 
 		{
 			const muOriginal = mu - chi;
@@ -320,7 +320,7 @@ function updatePage(scene, deltaTime) {
 
 			const sphereRadiusChi = Math.acos(referenceVectorNormalized[3]); //т.к. считаем от центра координат
 
-			currentObjectOutput.innerHTML += ("<br/>Current sphere radius: " + sphereRadiusChi.toFixed(2));
+			currentObjectOutput.innerHTML += ("<br/>Current sphere radius: " + sphereRadiusChi.toFixed(2) + " rad");
 
 			//todo: проверить числа при пересечении
 		}
