@@ -305,12 +305,8 @@ function updatePage(scene, deltaTime) {
 			half = "Back half";
 		}
 
-		//todo: only write chi if is visible: BACK HALF!
-
 		currentObjectOutput.innerHTML = "Current object: №" + currentObjectIndex + "<br/>χ = " + chi.toFixed(2) + " (" + half + ")";
 
-
-		//todo: only come here if is visible
 		{
 			const muOriginal = mu - chi;
 			const effectiveRadius = radiusAbridgedFunction(muOriginal); //или лучше radiusFunction?
