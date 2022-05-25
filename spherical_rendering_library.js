@@ -21,7 +21,7 @@ export function initializeEngine(canvas) {
 
     // Only continue if WebGL is available and working
     if (gl === null) {
-        alert("Unable to initialize WebGL. Your browser or machine may not support it.");
+        alert("Failed to initialize WebGL. Your web browser or PC might not support it.");
         return;
     }
 
