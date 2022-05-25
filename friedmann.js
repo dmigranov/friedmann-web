@@ -311,7 +311,6 @@ function updatePage(scene, deltaTime) {
 			const muOriginal = mu - chi;
 			const effectiveRadius = radiusAbridgedFunction(muOriginal); //или лучше radiusFunction?
 
-			//console.log(SphericalMath.sphericalDistance(vec4.fromValues(0,0,0,1), vec4.fromValues(0, initialObjectRadius, 0, Math.sqrt(1 - initialObjectRadius*initialObjectRadius)), 1));
 			// после коррекции с сохранением расстояния (сразу нормализовано): 
 			const wSphereNorm = 1 - 2 * Math.pow(Math.sin(initialObjectRadius / effectiveRadius / 2), 2);
 			const rSphereNorm = Math.sqrt(1 - wSphereNorm * wSphereNorm);
@@ -322,7 +321,7 @@ function updatePage(scene, deltaTime) {
 
 			currentObjectOutput.innerHTML += ("<br/>Current sphere radius: " + sphereRadiusChi.toFixed(2) + " rad");
 
-			//todo: проверить числа при пересечении
+			//пересечение: это нормально и связано с тем, что плоскость отсечения находится на некотором расстоянии от наблюдателя
 		}
 	}
 	else
