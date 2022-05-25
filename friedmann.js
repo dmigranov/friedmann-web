@@ -255,11 +255,11 @@ function updateScene(scene, deltaTime) {
 		}
 
 		// SELECTION
-		if (sceneObject.visibility == SphericalRendering.SphericalVisibilityEnum.VISIBLE_NONE
+		if (sceneObject.sphericalVisibility == SphericalRendering.SphericalVisibilityEnum.VISIBLE_NONE
 			|| sceneObject.isVisible == false)
 			continue;
 		else if (isCursorInsideCanvas) {
-			console.log(sceneObject.visibility);
+			console.log(sceneObject.sphericalVisibility);
 
 			const zValue = SelectionSystem.raytraceSphereMouse(mouseXNorm, mouseYNorm, sphPosition, spaceRadius, initialObjectRadius, projectionMatrix, radiusAbridgedFunction, mu);
 			if (zValue == -10)
