@@ -315,7 +315,7 @@ function updatePage(scene, deltaTime) {
 			const wSphereNorm = 1 - 2 * Math.pow(Math.sin(initialObjectRadius / effectiveRadius / 2), 2);
 			const rSphereNorm = Math.sqrt(1 - wSphereNorm * wSphereNorm);
 
-			const referenceVectorNormalized = vec4.fromValues(rSphereNorm, 0, 0, wSphereNorm);
+			const referenceVectorNormalized = vec4.fromValues(0, rSphereNorm, 0, wSphereNorm);
 
 			const sphereRadiusChi = Math.acos(referenceVectorNormalized[3]); //т.к. считаем от центра координат
 			currentObjectOutput.innerHTML += ("<br/>Current sphere radius: " + sphereRadiusChi.toFixed(2));
