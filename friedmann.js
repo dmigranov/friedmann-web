@@ -321,11 +321,11 @@ function updatePage(scene, deltaTime) {
 			const wSphereNorm = 1 - 2 * Math.pow(Math.sin(initialObjectRadius / effectiveRadius / 2), 2);
 			const rSphereNorm = Math.sqrt(1 - w_sphere * w_sphere);
 
+			//var referenceVectorNormalized = vec4.create();
+			//vec4.scale(referenceVectorNormalized, upReferenceVector, 1. / effectiveRadius);
+			const referenceVectorNormalized = vec4.fromValues(rSphereNorm, 0, 0, wSphereNorm);
 
-			var upReferenceVectorNormalized = vec4.create();
-			vec4.scale(upReferenceVectorNormalized, upReferenceVector, 1. / effectiveRadius);
-
-			const sphereRadiusChi = Math.acos(upReferenceVectorNormalized[3]); //т.к. считаем от центра координат
+			const sphereRadiusChi = Math.acos(referenceVectorNormalized[3]); //т.к. считаем от центра координат
 			currentObjectOutput.innerHTML += ("<br/>Current sphere radius: " + sphereRadiusChi.toFixed(2));
 
 			//todo: проверить числа при пересечении
