@@ -288,7 +288,13 @@ function updatePage(scene, deltaTime) {
 	Graph.updateGraph(pointCanvas, context2dPoint, mu);
 
 	const viewMatrix = scene.constants.viewMatrixFront;
-	if (currentObject != null) {
+	if (currentObject != null && sceneObject.isVisible == true && (
+		
+	)) {
+
+		if (sceneObject.visibility == SphericalRendering.SphericalVisibilityEnum.VISIBLE_NONE
+			|| sceneObject.isVisible == false)
+
 		const worldMatrix = currentObject.worldMatrix;
 
 		var viewWorldMatrix = mat4.create();
@@ -308,7 +314,7 @@ function updatePage(scene, deltaTime) {
 		currentObjectOutput.innerHTML = "Current object: №" + currentObjectIndex + "<br/>χ = " + chi.toFixed(2) + " (" + half + ")";
 
 		//todo: only write chi if is visible
-		
+
 		//todo: only come here if is visible
 		{
 			const muOriginal = mu - chi;
