@@ -259,7 +259,7 @@ function updateScene(scene, deltaTime) {
 			|| sceneObject.isVisible == false)
 			continue;
 		else if (isCursorInsideCanvas) {
-			console.log("here");
+			console.log(sceneObject.visibility);
 
 			const zValue = SelectionSystem.raytraceSphereMouse(mouseXNorm, mouseYNorm, sphPosition, spaceRadius, initialObjectRadius, projectionMatrix, radiusAbridgedFunction, mu);
 			if (zValue == -10)
