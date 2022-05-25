@@ -288,7 +288,8 @@ function updatePage(scene, deltaTime) {
 	Graph.updateGraph(pointCanvas, context2dPoint, mu);
 
 	const viewMatrix = scene.constants.viewMatrixFront;
-	if (currentObject != null && currentObject.isVisible == true && currentObject.visibility != SphericalRendering.SphericalVisibilityEnum.VISIBLE_NONE) {
+	if (currentObject != null && currentObject.isVisible == true
+		&& currentObject.visibility != SphericalRendering.SphericalVisibilityEnum.VISIBLE_NONE) {
 		const worldMatrix = currentObject.worldMatrix;
 
 		var viewWorldMatrix = mat4.create();
