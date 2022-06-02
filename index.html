@@ -12,6 +12,16 @@
     <script src="spherical_random.js" type="module" defer></script>
     <script src="selection_system.js" type="module" defer></script>
     <script src="friedmann.js" type="module" defer></script>
+    
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VXH8CQ8M26"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-VXH8CQ8M26');
+    </script>
 
     <style>
         * {
@@ -133,7 +143,8 @@
                         class="square">&#8594;</span>
                 </div>
                 <div class="between-controls">&nbsp;</div>
-                <div>Simulation speed: <span class="square">&#8593;</span> <span class="square">&#8595;</span> <span id = "simulationSpeedOutput"></span></div>
+                <div>Simulation speed: <span class="square">&#8593;</span> <span class="square">&#8595;</span> <span
+                        id="simulationSpeedOutput"></span></div>
                 <div class="between-controls">&nbsp;</div>
                 <div>Pause simulation: <span class="square">&nbsp;Space&nbsp;</span></div>
                 <div class="between-controls">&nbsp;</div>
