@@ -12,4 +12,4 @@ It is assumed that all objects' sizes remain the same as the space's radius chan
 
 The fact that the speed of light is finite is also taken into account. For that reason, the universe's objects appear gradually in the eyes of the observer. The order depends on the distance between those objects and the observer.
 
-https://dmigranov.github.io/friedmann-web/
+Link: https://dmigranov.github.io/friedmann-web/
